@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Bibliografía &#8212; Curso de Python US</title>
+    <title>Plantilla &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,10 +52,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo-us.png"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="prev" title="Introducción a Python" href="introduccion.html" />
+    <link rel="next" title="Introducción a Python" href="introduccion.html" />
+    <link rel="prev" title="Índice del curso" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -116,8 +119,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="test.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Plantilla
   </a>
  </li>
@@ -126,8 +129,8 @@ const thebe_selector_output = ".output, .cell_output"
    Introducción a Python
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bibliography.html">
    Bibliografía
   </a>
  </li>
@@ -187,6 +190,53 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/test.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/test.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -226,7 +276,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fbibliography.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Ftest.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -254,7 +304,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/bibliography.md"
+        <a href="_sources/test.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -265,7 +315,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -291,23 +341,84 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#curso-de-python">
+   Curso de Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diferentes-tipos-de-bloques">
+     Diferentes tipos de bloques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mas-detalles">
+   Más detalles
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Bibliografía</h1>
+                <h1>Plantilla</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#curso-de-python">
+   Curso de Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diferentes-tipos-de-bloques">
+     Diferentes tipos de bloques
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mas-detalles">
+   Más detalles
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -315,15 +426,60 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="bibliografia">
-<h1>Bibliografía<a class="headerlink" href="#bibliografia" title="Enlazar permanentemente con este título">#</a></h1>
-<div class="docutils container" id="id1">
-<dl class="citation">
-<dt class="label" id="id2"><span class="brackets">PGH11</span></dt>
-<dd><p>Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. <em>Computing in Science \\&amp; Engineering</em>, 13(2):13–21, 2011.</p>
-</dd>
-</dl>
+  <section class="tex2jax_ignore mathjax_ignore" id="plantilla">
+<h1>Plantilla<a class="headerlink" href="#plantilla" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Es esta introducción voy a ir mostrando los diferentes tipos de bloques que podemos ir utilizando.</p>
+<section id="curso-de-python">
+<h2>Curso de Python<a class="headerlink" href="#curso-de-python" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Este libro contiene un curso de introducción al lenguaje de programación Python orientado a estudiantes de Estadística y/o Matemáticas</p>
+<p>Puedes consultar <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> para informarte sobre cómo hemos diseñado este libro</p>
+<section id="diferentes-tipos-de-bloques">
+<h3>Diferentes tipos de bloques<a class="headerlink" href="#diferentes-tipos-de-bloques" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Puedes añadir bloque de códigos como el siguiente</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
 </div>
+<p>Puedes añadir notas</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This is a note</p>
+</div>
+<p>También avisos</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>This is a warning</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>This is a see also</p>
+</div>
+</section>
+</section>
+<section id="mas-detalles">
+<span id="intro-mas-detalles"></span><h2>Más detalles<a class="headerlink" href="#mas-detalles" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Por otro lado puedes añadir ecuaciones en línea <span class="math notranslate nohighlight">\( x^n + y^n = z^n \)</span> o <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
+<p>Si quieres añadir bloques de ecuaciones, lo hacemos con doble dolar</p>
+<div class="math notranslate nohighlight" id="equation-integral">
+<span class="eqno">(1)<a class="headerlink" href="#equation-integral" title="Enlace permanente a esta ecuación">#</a></span>\[
+  \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+\]</div>
+<p>o también puedes incluirlo con el indicardor <code class="docutils literal notranslate"><span class="pre">\begin{equation}</span></code></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{gather*}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather*}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c18716e2-65c0-402b-87b2-1543f5017049">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c18716e2-65c0-402b-87b2-1543f5017049" title="Enlace permanente a esta ecuación">#</a></span>\[\begin{align}
+a_{11}&amp; =b_{11}&amp;
+  a_{12}&amp; =b_{12}\\
+a_{21}&amp; =b_{21}&amp;
+  a_{22}&amp; =b_{22}+c_{22}
+\end{align}\]</div>
+<p>De este modo también puedes hacer referencia a equaciones, como la integral <a class="reference internal" href="#equation-integral">(1)</a></p>
+<p>Here is my nifty citation <span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. Computing in Science \\&amp; Engineering, 13(2):13–21, 2011.">PGH11</a>]</span>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -353,12 +509,19 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="introduccion.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="intro.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Introducción a Python</p>
+            <p class="prev-next-title">Índice del curso</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="introduccion.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Introducción a Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
