@@ -4,5 +4,6 @@
 format: jb-book
 root: intro
 chapters:
-- file: notebooks.ipynb
+- file: test.ipynb
+- file: introduccion.ipynb
 - file: bibliography.md
