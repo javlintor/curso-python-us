@@ -33,6 +33,7 @@ html:
     <div>
       <img src="logo-us.png" alt="US Logo" width="100px">
     </div>
+  favicon: images/python-logo.png
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
@@ -42,3 +43,17 @@ sphinx:
   config:
     html_extra_path: ['images']
     language: es
+
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+    - tasklist

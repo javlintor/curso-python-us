@@ -1,44 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Content with notebooks
+# # Mi primer notebook interactivo
 # 
-# You can also create content with Jupyter Notebooks. This means that you can include
-# code blocks and their outputs in your book.
+# A lo largo del curso vamos a desarrollar código en Jupyter notebook. Puedes ejecutar cada uno de los cuadernos en el botón de `launch > Colab`. 
 # 
-# ## Markdown + notebooks
+# Recuerda que una matrix es unitaria si 
 # 
-# As it is markdown, you can embed images, HTML, etc into your posts!
+# $$ 
+# A^{-1} = A^{t}
+# $$ (def-unitaria)
 # 
-# ![](https://myst-parser.readthedocs.io/en/latest/_static/logo-wide.svg)
-# 
-# You can also $add_{math}$ and
-# 
-# $$
-# math^{blocks}
-# $$
-# 
-# or
-# 
-# $$
-# \begin{aligned}
-# \mbox{mean} la_{tex} \\ \\
-# math blocks
-# \end{aligned}
-# $$
-# 
-# But make sure you \$Escape \$your \$dollar signs \$you want to keep!
-# 
-# ## MyST markdown
-# 
-# MyST markdown works in Jupyter Notebooks as well. For more information about MyST markdown, check
-# out [the MyST guide in Jupyter Book](https://jupyterbook.org/content/myst.html),
-# or see [the MyST markdown documentation](https://myst-parser.readthedocs.io/en/latest/).
-# 
-# ## Code blocks and outputs
-# 
-# Jupyter Book will also embed your code blocks and output in your book.
-# For example, here's some sample Matplotlib code:
+# La definición {eq}`def-unitaria` viene mejor explicada en {cite}`perez2011python`, o también puedes consultar el apartado [de la anterior lección](intro-mas-detalles)
 
 # In[1]:
 
