@@ -3,7 +3,7 @@
 
 title: Curso de Python US
 author: Javier Linares Torres
-logo: python-logo.png
+logo: images/python-logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -29,7 +29,16 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_navbar: | 
+    <div>
+      <img src="logo-us.png" alt="US Logo" width="100px">
+    </div>
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
   notebook_interface: "jupyterlab" # or "classic"
+
+sphinx:
+  config:
+    html_extra_path: ['images']
+    language: es

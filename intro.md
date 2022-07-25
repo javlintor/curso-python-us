@@ -17,11 +17,13 @@ def f(a, b):
     return a + b
 ```
 Puedes añadir notas 
+
 :::{note}
 This is a note
 :::
 
 También avisos 
+
 :::{warning}
 This is a warning
 :::

@@ -1,1 +1,0 @@
-# javlintor.github.io
