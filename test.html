@@ -26,7 +26,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -43,6 +44,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/custom.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -470,8 +472,8 @@ title="Print to PDF"
 a_1=b_1+c_1\\
 a_2=b_2+c_2-d_2+e_2
 \end{gather*}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c18716e2-65c0-402b-87b2-1543f5017049">
-<span class="eqno">(2)<a class="headerlink" href="#equation-c18716e2-65c0-402b-87b2-1543f5017049" title="Enlace permanente a esta ecuación">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-709b2c2c-8f29-4b0d-bb0a-17879e33da2d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-709b2c2c-8f29-4b0d-bb0a-17879e33da2d" title="Enlace permanente a esta ecuación">#</a></span>\[\begin{align}
 a_{11}&amp; =b_{11}&amp;
   a_{12}&amp; =b_{12}\\
 a_{21}&amp; =b_{21}&amp;
@@ -479,6 +481,62 @@ a_{21}&amp; =b_{21}&amp;
 \end{align}\]</div>
 <p>De este modo también puedes hacer referencia a equaciones, como la integral <a class="reference internal" href="#equation-integral">(1)</a></p>
 <p>Here is my nifty citation <span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. Computing in Science \\&amp; Engineering, 13(2):13–21, 2011.">PGH11</a>]</span>.</p>
+<div class="exercise admonition" id="my-exercise">
+
+<p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
+<section id="exercise-content">
+<p>Recall that <span class="math notranslate nohighlight">\(n!\)</span> is read as «<span class="math notranslate nohighlight">\(n\)</span> factorial» and defined as
+<span class="math notranslate nohighlight">\(n! = n \times (n - 1) \times \cdots \times 2 \times 1\)</span>.</p>
+<p>There are functions to compute this in various modules, but let’s
+write our own version as an exercise.</p>
+<p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
+for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="my-solution">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise"> Exercise 1</a></p>
+<section id="solution-content">
+<p>Here’s one solution.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">k</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="my-exercise-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
+<section id="exercise-content">
+<p>Recall that <span class="math notranslate nohighlight">\(n!\)</span> is read as «<span class="math notranslate nohighlight">\(n\)</span> factorial» and defined as
+<span class="math notranslate nohighlight">\(n! = n \times (n - 1) \times \cdots \times 2 \times 1\)</span>.</p>
+<p>There are functions to compute this in various modules, but let’s
+write our own version as an exercise.</p>
+<p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
+for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="my-solution-2">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise-2"> Exercise 2</a></p>
+<section id="solution-content">
+<p>Here’s one solution.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">k</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
 </section>
 </section>
 
