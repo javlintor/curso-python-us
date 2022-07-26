@@ -122,11 +122,3 @@ plt.show()
 # | :------------ | :-------------: | :-------------: |
 # |        0      |        5       |        4       |
 # |     13720     |      2744      |      $x = y + z$      |
-
-# ```{prf:exercise}
-# :label: my-proposition
-# 
-# This is a dummy proposition directive.
-# ```
-
-# 

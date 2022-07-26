@@ -46,7 +46,7 @@ sphinx:
     html_extra_path: ['images']
     language: es
   extra_extensions:
-    - sphinx_proof
+    - sphinx_exercise
 
 parse:
   myst_enable_extensions:
