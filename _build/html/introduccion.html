@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introducción a Python &#8212; Curso de Python US</title>
+    <title>Capítulo 1 &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,13 +54,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="_static/logo-us.png"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Bibliografía" href="bibliography.html" />
-    <link rel="prev" title="Plantilla" href="test.html" />
+    <link rel="next" title="Principios básicos de Python" href="python-basics.html" />
+    <link rel="prev" title="Bloques de ejemplo" href="block_examples.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -116,19 +114,29 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Índice del curso
+                    Bienvenido!
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="test.html">
-   Plantilla
+  <a class="reference internal" href="block_examples.html">
+   Bloques de ejemplo
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Introducción a Python
+   Capítulo 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-basics.html">
+   Principios básicos de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas.html">
+   Tema 1: Herramientas python para ciencia de los datos
   </a>
  </li>
  <li class="toctree-l1">
@@ -366,16 +374,19 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anadiendo-algun-bloque">
-   Añadiendo algún bloque
+  <a class="reference internal nav-link" href="#definicion-tecnica-de-que-es-python">
+   Definición técnica de qué es Python:
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ejercicio-4">
-     Ejercicio 4
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-como-lenguaje-interpretado">
+   Python como lenguaje interpretado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#donde-ejecutar-python">
+   Dónde ejecutar Python
+  </a>
  </li>
 </ul>
 
@@ -386,7 +397,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introducción a Python</h1>
+                <h1>Capítulo 1</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -397,16 +408,19 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anadiendo-algun-bloque">
-   Añadiendo algún bloque
+  <a class="reference internal nav-link" href="#definicion-tecnica-de-que-es-python">
+   Definición técnica de qué es Python:
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ejercicio-4">
-     Ejercicio 4
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-como-lenguaje-interpretado">
+   Python como lenguaje interpretado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#donde-ejecutar-python">
+   Dónde ejecutar Python
+  </a>
  </li>
 </ul>
 
@@ -418,223 +432,55 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-python">
-<h1>Introducción a Python<a class="headerlink" href="#introduccion-a-python" title="Enlazar permanentemente con este título">#</a></h1>
-<p>A lo largo del curso vamos a desarrollar código en Jupyter notebook. Puedes ejecutar cada uno de los cuadernos en el botón de <code class="docutils literal notranslate"><span class="pre">launch</span> <span class="pre">&gt;</span> <span class="pre">Colab</span></code>.</p>
-<p>Recuerda que una matrix es unitaria si</p>
-<div class="math notranslate nohighlight" id="equation-def-unitaria">
-<span class="eqno">(3)<a class="headerlink" href="#equation-def-unitaria" title="Enlace permanente a esta ecuación">#</a></span>\[ 
-A^{-1} = A^{t}
-\]</div>
-<p>La definición <a class="reference internal" href="#equation-def-unitaria">(3)</a> viene mejor explicada en <span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. Computing in Science \\&amp; Engineering, 13(2):13–21, 2011.">PGH11</a>]</span>, o también puedes consultar el apartado <a class="reference internal" href="test.html#intro-mas-detalles"><span class="std std-ref">de la anterior lección</span></a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span><span class="p">,</span> <span class="n">cycler</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._IonContext at 0x7fad9d1294c0&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fixing random state for reproducibility</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
-
-<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span>
-<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cycler</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span>
-
-
-<span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
-<span class="n">custom_lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="mf">0.</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-                <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-                <span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="mf">1.</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)]</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">custom_lines</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Cold&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">,</span> <span class="s1">&#39;Hot&#39;</span><span class="p">]);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/introduccion_2_0.png" src="_images/introduccion_2_0.png" />
-</div>
-</div>
-<p>There is a lot more that you can do with outputs (such as including interactive outputs)
-with your book. For more information about this, see <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;20130101&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ABCD&quot;</span><span class="p">))</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>A</th>
-      <th>B</th>
-      <th>C</th>
-      <th>D</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2013-01-01</th>
-      <td>-1.813092</td>
-      <td>-0.253969</td>
-      <td>1.003101</td>
-      <td>0.530828</td>
-    </tr>
-    <tr>
-      <th>2013-01-02</th>
-      <td>0.478870</td>
-      <td>-0.738110</td>
-      <td>-1.181619</td>
-      <td>-0.531906</td>
-    </tr>
-    <tr>
-      <th>2013-01-03</th>
-      <td>-1.215185</td>
-      <td>-0.795879</td>
-      <td>-0.189142</td>
-      <td>-0.584912</td>
-    </tr>
-    <tr>
-      <th>2013-01-04</th>
-      <td>-0.904846</td>
-      <td>-0.993279</td>
-      <td>-0.495049</td>
-      <td>0.248997</td>
-    </tr>
-    <tr>
-      <th>2013-01-05</th>
-      <td>0.028448</td>
-      <td>-1.747587</td>
-      <td>0.158027</td>
-      <td>-0.951449</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6, 4)
-</pre></div>
-</div>
-</div>
-</div>
-<section id="anadiendo-algun-bloque">
-<h2>Añadiendo algún bloque<a class="headerlink" href="#anadiendo-algun-bloque" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Como documentos markdown, puedes añadir bloques como una nota</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>This is a note</p>
-</div>
-<div class="admonition-ejercicio admonition">
-<p class="admonition-title"><strong>Ejercicio</strong></p>
-<p>Crea una clase «animal» y clases hijas para describir perros y gatos</p>
-</div>
-<section id="ejercicio-4">
-<h3>Ejercicio 4<a class="headerlink" href="#ejercicio-4" title="Enlazar permanentemente con este título">#</a></h3>
+  <section class="tex2jax_ignore mathjax_ignore" id="capitulo-1">
+<h1>Capítulo 1<a class="headerlink" href="#capitulo-1" title="Enlazar permanentemente con este título">#</a></h1>
+<ol class="simple">
+<li><p>Bienvenida y presentación</p></li>
+<li><p>Qué es Python y por qué puede ser una herramienta útil</p></li>
+<li><p>Python como lenguage de programación</p>
+<ul class="simple">
+<li><p>Pros y Cons</p>
+<ul>
+<li><p>Pros: Simple (Comparación con otros lenguajes), Amigable, Ampliamente utilizado (empresas que lo utilizan: desde servicios web, DS, Big Data), comunidad enorme (gráfica SOF, salario etc),
+librerías open source altamente optimizadas.
+Tiene implementadas</p></li>
+<li><p>Cons: quizás, dada una tarea, no sea la herramienta más óptima para llevarla acabo</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Autor y año: nombre.</p>
+<ul class="simple">
+<li><p>Python started as a hobby project by Guido Van Rossum and was first released in 1991</p></li>
+</ul>
+</li>
+<li><p>Python es un lenguaje interpretado (a diferencia de otros compilados, explicar diferentes)</p></li>
+<li><p>Definición técnica</p></li>
+<li><p>Versión actual de Python (explicar cómo se versiona el software)</p></li>
+<li><p>Dónde ejecutar Python</p></li>
+<li><p>Instalar python</p></li>
+</ol>
+<section id="definicion-tecnica-de-que-es-python">
+<h2>Definición técnica de qué es Python:<a class="headerlink" href="#definicion-tecnica-de-que-es-python" title="Enlazar permanentemente con este título">#</a></h2>
 <blockquote>
-<div><p><em>Crea una clase «animal» y clases hijas para describir perros y gatos.</em></p>
+<div><p>Python is an <em>interpreted</em>, <em>high-level</em>, <em>general-purpose</em> programming language. It is is <em>dynamically typed</em> and <em>garbage-collected</em>.</p>
 </div></blockquote>
-<div class="dropdown admonition">
-<p class="admonition-title">Solución</p>
-<p>Primero vamos a definir la clase abstracta</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">talk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-</pre></div>
-</div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-
-<span class="c1"># Fixing random state for reproducibility</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
-
-<span class="c1"># Compute pie slices</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">θ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">radii</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">(</span><span class="n">radii</span> <span class="o">/</span> <span class="mf">10.</span><span class="p">)</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">θ</span><span class="p">,</span> <span class="n">radii</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/introduccion_8_0.png" src="_images/introduccion_8_0.png" />
-</div>
-</div>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Training</p></th>
-<th class="text-align:center head"><p>Validation</p></th>
-<th class="text-align:center head"><p>Other Col</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>0</p></td>
-<td class="text-align:center"><p>5</p></td>
-<td class="text-align:center"><p>4</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>13720</p></td>
-<td class="text-align:center"><p>2744</p></td>
-<td class="text-align:center"><p><span class="math notranslate nohighlight">\(x = y + z\)</span></p></td>
-</tr>
-</tbody>
-</table>
 </section>
+<section id="python-como-lenguaje-interpretado">
+<h2>Python como lenguaje interpretado<a class="headerlink" href="#python-como-lenguaje-interpretado" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Los programas de Python son ejecutados por un <strong>intérprete</strong>, que puede estar implementado en otros lenguajes como Java o C. Esto supone un paso intermedio entre el código entendible por los humanos y el código máquina, que es el <em>bytecode</em>, una serie de instrucciones de bajo nivel que sí pueden ser ejecutadas por in intérprete.</p>
+<p>Cuando durante la ejecución de un programa importes un módulo, en la misma carpeta del script se crea otra llamada <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code>, que contiene archivos del tipo <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> o <code class="docutils literal notranslate"><span class="pre">.pyo</span></code> que contienen este <em>código byte</em>, por ejemplo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">folder</span>   
+    <span class="o">-</span> <span class="n">__pycache__</span>       
+        <span class="o">-</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">cpython</span><span class="o">-</span><span class="mf">36.</span><span class="n">pyc</span>   
+    <span class="o">-</span> <span class="n">preprocess</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>La extensión <code class="docutils literal notranslate"><span class="pre">.cpython-36</span></code> hace referencia al tipo de intérprete utilizado, en este caso implementado en C. Como programadores podemos ignorar estos archivos, sólo tener en cuenta que están ahí para hacer nuestros programas un poco más rápidos.</p>
+</section>
+<section id="donde-ejecutar-python">
+<h2>Dónde ejecutar Python<a class="headerlink" href="#donde-ejecutar-python" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Hay muchos entornos en los que un intérprete de Python puede correr como un IDE (Integrated Development Environment -como Visual Studio Code, Pycharm o Atom-), un navegador o una terminal.</p>
 </section>
 </section>
 
@@ -665,17 +511,17 @@ with your book. For more information about this, see <a class="reference externa
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="test.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="block_examples.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Plantilla</p>
+            <p class="prev-next-title">Bloques de ejemplo</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="bibliography.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="python-basics.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Bibliografía</p>
+        <p class="prev-next-title">Principios básicos de Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

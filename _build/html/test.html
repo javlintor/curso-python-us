@@ -59,8 +59,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/logo-us.png"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Introducción a Python" href="introduccion.html" />
-    <link rel="prev" title="Índice del curso" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -116,19 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Índice del curso
+                    Bienvenido!
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Plantilla
-  </a>
- </li>
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduccion.html">
-   Introducción a Python
+  <a class="reference internal" href="block_examples.html">
+   Bloques de ejemplo
   </a>
  </li>
  <li class="toctree-l1">
@@ -463,7 +456,7 @@ title="Print to PDF"
 <p>Por otro lado puedes añadir ecuaciones en línea <span class="math notranslate nohighlight">\( x^n + y^n = z^n \)</span> o <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
 <p>Si quieres añadir bloques de ecuaciones, lo hacemos con doble dolar</p>
 <div class="math notranslate nohighlight" id="equation-integral">
-<span class="eqno">(1)<a class="headerlink" href="#equation-integral" title="Enlace permanente a esta ecuación">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-integral" title="Enlace permanente a esta ecuación">#</a></span>\[
   \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
 \]</div>
 <p>o también puedes incluirlo con el indicardor <code class="docutils literal notranslate"><span class="pre">\begin{equation}</span></code></p>
@@ -472,71 +465,15 @@ title="Print to PDF"
 a_1=b_1+c_1\\
 a_2=b_2+c_2-d_2+e_2
 \end{gather*}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-709b2c2c-8f29-4b0d-bb0a-17879e33da2d">
-<span class="eqno">(2)<a class="headerlink" href="#equation-709b2c2c-8f29-4b0d-bb0a-17879e33da2d" title="Enlace permanente a esta ecuación">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-151d62ff-71b0-47bd-9162-fe5fa95cd3ca">
+<span class="eqno">()<a class="headerlink" href="#equation-151d62ff-71b0-47bd-9162-fe5fa95cd3ca" title="Enlace permanente a esta ecuación">#</a></span>\[\begin{align}
 a_{11}&amp; =b_{11}&amp;
   a_{12}&amp; =b_{12}\\
 a_{21}&amp; =b_{21}&amp;
   a_{22}&amp; =b_{22}+c_{22}
 \end{align}\]</div>
-<p>De este modo también puedes hacer referencia a equaciones, como la integral <a class="reference internal" href="#equation-integral">(1)</a></p>
+<p>De este modo también puedes hacer referencia a equaciones, como la integral <a class="reference internal" href="#equation-integral">()</a></p>
 <p>Here is my nifty citation <span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. Computing in Science \\&amp; Engineering, 13(2):13–21, 2011.">PGH11</a>]</span>.</p>
-<div class="exercise admonition" id="my-exercise">
-
-<p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
-<section id="exercise-content">
-<p>Recall that <span class="math notranslate nohighlight">\(n!\)</span> is read as «<span class="math notranslate nohighlight">\(n\)</span> factorial» and defined as
-<span class="math notranslate nohighlight">\(n! = n \times (n - 1) \times \cdots \times 2 \times 1\)</span>.</p>
-<p>There are functions to compute this in various modules, but let’s
-write our own version as an exercise.</p>
-<p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
-for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
-</section>
-</div>
-<div class="solution dropdown admonition" id="my-solution">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise"> Exercise 1</a></p>
-<section id="solution-content">
-<p>Here’s one solution.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">k</span>
-
-<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="exercise admonition" id="my-exercise-2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
-<section id="exercise-content">
-<p>Recall that <span class="math notranslate nohighlight">\(n!\)</span> is read as «<span class="math notranslate nohighlight">\(n\)</span> factorial» and defined as
-<span class="math notranslate nohighlight">\(n! = n \times (n - 1) \times \cdots \times 2 \times 1\)</span>.</p>
-<p>There are functions to compute this in various modules, but let’s
-write our own version as an exercise.</p>
-<p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
-for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
-</section>
-</div>
-<div class="solution dropdown admonition" id="my-solution-2">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise-2"> Exercise 2</a></p>
-<section id="solution-content">
-<p>Here’s one solution.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">k</span>
-
-<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</div>
 </section>
 </section>
 
@@ -567,20 +504,6 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Índice del curso</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="introduccion.html" title="siguiente página">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Introducción a Python</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

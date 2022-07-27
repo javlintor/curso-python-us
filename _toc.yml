@@ -4,6 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: test.ipynb
+- file: block_examples.ipynb
 - file: introduccion.ipynb
+- file: python-basics.ipynb
+- file: pandas.ipynb
 - file: bibliography.md
