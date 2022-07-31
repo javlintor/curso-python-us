@@ -16,8 +16,9 @@
 # 5. Python es un lenguaje interpretado (a diferencia de otros compilados, explicar diferentes)
 # 6. Definición técnica 
 # 7. Versión actual de Python (explicar cómo se versiona el software)
-# 8. Dónde ejecutar Python
-# 9. Instalar python
+# 8. Dónde ejecutar Python (Ejecutar el intérprete desde la terminal, ipython, cuaderno de python .ipynb - tanto desde jupyter como desde VS)
+# 9. Instalar python. Distribuciones de python. 
+# 10. Pip como instalador de paquetes
 
 # ## Definición técnica de qué es Python: 
 # 

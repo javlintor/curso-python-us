@@ -6,6 +6,5 @@ root: intro
 chapters:
 - file: block_examples.ipynb
 - file: introduccion.ipynb
-- file: python-basics.ipynb
-- file: pandas.ipynb
+- file: principio-basicos.ipynb
 - file: bibliography.md
