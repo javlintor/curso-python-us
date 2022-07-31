@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Plantilla &#8212; Curso de Python US</title>
+    <title>Bloques de ejemplo &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -59,8 +59,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/logo-us.png"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Introducción a Python" href="introduccion.html" />
-    <link rel="prev" title="Índice del curso" href="intro.html" />
+    <link rel="next" title="Capítulo 1" href="introduccion.html" />
+    <link rel="prev" title="Bienvenido!" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -116,19 +116,24 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Índice del curso
+                    Bienvenido!
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Plantilla
+   Bloques de ejemplo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="introduccion.html">
-   Introducción a Python
+   Capítulo 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="principio-basicos.html">
+   Principios básicos de Python
   </a>
  </li>
  <li class="toctree-l1">
@@ -200,7 +205,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/test.ipynb"
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/block_examples.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -218,7 +223,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/test.ipynb"
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/block_examples.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -278,7 +283,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Ftest.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fblock_examples.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -306,7 +311,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/test.ipynb"
+        <a href="_sources/block_examples.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -366,21 +371,83 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#curso-de-python">
-   Curso de Python
+  <a class="reference internal nav-link" href="#indice-y-bibliografia">
+   Índice y bibliografía
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entornos-predefinidos">
+   Entornos predefinidos
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diferentes-tipos-de-bloques">
-     Diferentes tipos de bloques
+    <a class="reference internal nav-link" href="#nota">
+     Nota
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aviso">
+     Aviso
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vease">
+     Véase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pista">
+     Pista
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloques-customizados">
+     Bloques customizados
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloque-de-codigo">
+     Bloque de código
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloque-de-codigo-python-parece-que-es-el-que-viene-por-defecto">
+     Bloque de código python (parece que es el que viene por defecto)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloque-de-codigo-r">
+     Bloque de código R
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estructura-de-carpetas">
+     Estructura de carpetas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latex">
+     Látex
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#secciones">
+     Secciones
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-detalles">
-   Más detalles
+  <a class="reference internal nav-link" href="#ejercicios">
+   Ejercicios
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#citas-a-la-bibliografia">
+     Citas a la bibliografía
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -391,7 +458,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Plantilla</h1>
+                <h1>Bloques de ejemplo</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -402,21 +469,83 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#curso-de-python">
-   Curso de Python
+  <a class="reference internal nav-link" href="#indice-y-bibliografia">
+   Índice y bibliografía
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entornos-predefinidos">
+   Entornos predefinidos
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diferentes-tipos-de-bloques">
-     Diferentes tipos de bloques
+    <a class="reference internal nav-link" href="#nota">
+     Nota
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aviso">
+     Aviso
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vease">
+     Véase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pista">
+     Pista
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloques-customizados">
+     Bloques customizados
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloque-de-codigo">
+     Bloque de código
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloque-de-codigo-python-parece-que-es-el-que-viene-por-defecto">
+     Bloque de código python (parece que es el que viene por defecto)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bloque-de-codigo-r">
+     Bloque de código R
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estructura-de-carpetas">
+     Estructura de carpetas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latex">
+     Látex
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#secciones">
+     Secciones
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-detalles">
-   Más detalles
+  <a class="reference internal nav-link" href="#ejercicios">
+   Ejercicios
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#citas-a-la-bibliografia">
+     Citas a la bibliografía
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -428,59 +557,114 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="plantilla">
-<h1>Plantilla<a class="headerlink" href="#plantilla" title="Enlazar permanentemente con este título">#</a></h1>
-<p>Es esta introducción voy a ir mostrando los diferentes tipos de bloques que podemos ir utilizando.</p>
-<section id="curso-de-python">
-<h2>Curso de Python<a class="headerlink" href="#curso-de-python" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Este libro contiene un curso de introducción al lenguaje de programación Python orientado a estudiantes de Estadística y/o Matemáticas</p>
-<p>Puedes consultar <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> para informarte sobre cómo hemos diseñado este libro</p>
-<section id="diferentes-tipos-de-bloques">
-<h3>Diferentes tipos de bloques<a class="headerlink" href="#diferentes-tipos-de-bloques" title="Enlazar permanentemente con este título">#</a></h3>
-<p>Puedes añadir bloque de códigos como el siguiente</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="bloques-de-ejemplo">
+<h1>Bloques de ejemplo<a class="headerlink" href="#bloques-de-ejemplo" title="Enlazar permanentemente con este título">#</a></h1>
+<p>A lo largo del curso utilizaremos direntes bloques o entornos para esquematizar el contenido. A continuación vamos a describirlos</p>
+<section id="indice-y-bibliografia">
+<h2>Índice y bibliografía<a class="headerlink" href="#indice-y-bibliografia" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Para acceder al índice y la bilbiografía, accedemos mediante los bloques <code class="docutils literal notranslate"><span class="pre">{tableofcontents}</span></code> y <code class="docutils literal notranslate"><span class="pre">{bibliografía}</span></code>.</p>
+</section>
+<section id="entornos-predefinidos">
+<h2>Entornos predefinidos<a class="headerlink" href="#entornos-predefinidos" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Veamos los entornos que tenemos disponibles en <strong>Jupyter Book</strong></p>
+<section id="nota">
+<h3>Nota<a class="headerlink" href="#nota" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esto es una nota</p>
+</div>
+</section>
+<section id="aviso">
+<h3>Aviso<a class="headerlink" href="#aviso" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Esto es un aviso</p>
+</div>
+</section>
+<section id="vease">
+<h3>Véase<a class="headerlink" href="#vease" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Esto es un véase</p>
+</div>
+</section>
+<section id="pista">
+<h3>Pista<a class="headerlink" href="#pista" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Esto es una pista</p>
+</div>
+</section>
+<section id="bloques-customizados">
+<h3>Bloques customizados<a class="headerlink" href="#bloques-customizados" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Podemos añadir bloques customizados mediante <code class="docutils literal notranslate"><span class="pre">{admonition}</span></code></p>
+<div class="admonition-mi-bloque-customizado admonition">
+<p class="admonition-title">Mi bloque customizado</p>
+<p>Foo, Bar and Baz!</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Pista</p>
+<p>Esto es una pista</p>
+</div>
+</section>
+<section id="bloque-de-codigo">
+<h3>Bloque de código<a class="headerlink" href="#bloque-de-codigo" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
-<p>Puedes añadir notas</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>This is a note</p>
-</div>
-<p>También avisos</p>
-<div class="admonition warning">
-<p class="admonition-title">Advertencia</p>
-<p>This is a warning</p>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">Ver también</p>
-<p>This is a see also</p>
+</section>
+<section id="bloque-de-codigo-python-parece-que-es-el-que-viene-por-defecto">
+<h3>Bloque de código python (parece que es el que viene por defecto)<a class="headerlink" href="#bloque-de-codigo-python-parece-que-es-el-que-viene-por-defecto" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
 </div>
 </section>
+<section id="bloque-de-codigo-r">
+<h3>Bloque de código R<a class="headerlink" href="#bloque-de-codigo-r" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span>
+
+<span class="n">dt</span> <span class="o">&lt;-</span> <span class="nf">data.table</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">))</span>
+</pre></div>
+</div>
 </section>
-<section id="mas-detalles">
-<span id="intro-mas-detalles"></span><h2>Más detalles<a class="headerlink" href="#mas-detalles" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Por otro lado puedes añadir ecuaciones en línea <span class="math notranslate nohighlight">\( x^n + y^n = z^n \)</span> o <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
-<p>Si quieres añadir bloques de ecuaciones, lo hacemos con doble dolar</p>
-<div class="math notranslate nohighlight" id="equation-integral">
-<span class="eqno">(1)<a class="headerlink" href="#equation-integral" title="Enlace permanente a esta ecuación">#</a></span>\[
-  \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+<section id="estructura-de-carpetas">
+<h3>Estructura de carpetas<a class="headerlink" href="#estructura-de-carpetas" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">dir/</span>
+<span class="go">    - file1.txt</span>
+<span class="go">    - file2.txt</span>
+<span class="go">    - subdir/</span>
+<span class="go">        - file3.txt</span>
+</pre></div>
+</div>
+</section>
+<section id="latex">
+<h3>Látex<a class="headerlink" href="#latex" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Podemos incluir ecuaciones en línea con un solo dólar <span class="math notranslate nohighlight">\(x^n + y^n = z^n\)</span>. O también podemos escribir ecuaciones en bloque finalizamos la sección.</p>
+</section>
+<section id="secciones">
+<h3>Secciones<a class="headerlink" href="#secciones" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Para crear una etiqueta en una sección, escribimos el nombre de la etiqueta entre parántesis e igualamos antes de comenzar el contenido correspondiente.</p>
+<p>Por ejemplo, escribiendo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">my</span><span class="o">-</span><span class="n">section</span><span class="p">)</span><span class="o">=</span>
+<span class="c1">## My section</span>
+<span class="n">bla</span> <span class="n">bla</span> <span class="n">bla</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>podemos etiquetar una sección. Para referenciarla, podemos utilizar <code class="docutils literal notranslate"><span class="pre">[texto](nombre-de-la-etiqueta)</span></code>. Por ejemplo, es la sección anterior en la que hablamos de látex.</p>
+<p>Con ecuaciones es un poco diferente, escribimos la etiqueta entre parátesis justo después de cerrar el segundo dólar.</p>
+<div class="math notranslate nohighlight" id="equation-my-equation">
+<span class="eqno">(1)<a class="headerlink" href="#equation-my-equation" title="Enlace permanente a esta ecuación">#</a></span>\[
+f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(x - \mu)^2} 
 \]</div>
-<p>o también puedes incluirlo con el indicardor <code class="docutils literal notranslate"><span class="pre">\begin{equation}</span></code></p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{gather*}
-a_1=b_1+c_1\\
-a_2=b_2+c_2-d_2+e_2
-\end{gather*}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-709b2c2c-8f29-4b0d-bb0a-17879e33da2d">
-<span class="eqno">(2)<a class="headerlink" href="#equation-709b2c2c-8f29-4b0d-bb0a-17879e33da2d" title="Enlace permanente a esta ecuación">#</a></span>\[\begin{align}
-a_{11}&amp; =b_{11}&amp;
-  a_{12}&amp; =b_{12}\\
-a_{21}&amp; =b_{21}&amp;
-  a_{22}&amp; =b_{22}+c_{22}
-\end{align}\]</div>
-<p>De este modo también puedes hacer referencia a equaciones, como la integral <a class="reference internal" href="#equation-integral">(1)</a></p>
-<p>Here is my nifty citation <span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. Computing in Science \\&amp; Engineering, 13(2):13–21, 2011.">PGH11</a>]</span>.</p>
+<p>y ahora la puedo referenciar <code class="docutils literal notranslate"><span class="pre">{eq}`my-equation`</span></code>, como aquí <a class="reference internal" href="#equation-my-equation">(1)</a></p>
+</section>
+</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Para definir un ejercicio utilizamos <code class="docutils literal notranslate"><span class="pre">{exercise}</span></code>, con su correspondiente etiqueta para referenciarlo mediante <code class="docutils literal notranslate"><span class="pre">:label:</span></code>. Por ejemplo, considera el siguiente ejercicio</p>
 <div class="exercise admonition" id="my-exercise">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
@@ -493,12 +677,13 @@ write our own version as an exercise.</p>
 for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </section>
 </div>
+<p>Las soluciones vienen con bloques <code class="docutils literal notranslate"><span class="pre">:::{solution}</span></code>, seguidas de la etiqueta del ejercicio, también con su correspondiente <code class="docutils literal notranslate"><span class="pre">:label:</span></code> si se quiere referenciar y <code class="docutils literal notranslate"><span class="pre">:class:</span> <span class="pre">dropdown</span></code> si queremos ocultar la solución.</p>
 <div class="solution dropdown admonition" id="my-solution">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise"> Exercise 1</a></p>
 <section id="solution-content">
 <p>Here’s one solution.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -509,34 +694,11 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 </div>
 </section>
 </div>
-<div class="exercise admonition" id="my-exercise-2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
-<section id="exercise-content">
-<p>Recall that <span class="math notranslate nohighlight">\(n!\)</span> is read as «<span class="math notranslate nohighlight">\(n\)</span> factorial» and defined as
-<span class="math notranslate nohighlight">\(n! = n \times (n - 1) \times \cdots \times 2 \times 1\)</span>.</p>
-<p>There are functions to compute this in various modules, but let’s
-write our own version as an exercise.</p>
-<p>In particular, write a function <code class="docutils literal notranslate"><span class="pre">factorial</span></code> such that <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> returns <span class="math notranslate nohighlight">\(n!\)</span>
-for any positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Podemos referenciar al ejercicio, <a class="reference internal" href="#my-exercise"><span class="std std-numref">Exercise 1</span></a> y también a la solución <a class="reference internal" href="#my-solution"><span class="std std-ref">Solution to Exercise 1</span></a></p>
+<section id="citas-a-la-bibliografia">
+<h3>Citas a la bibliografía<a class="headerlink" href="#citas-a-la-bibliografia" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Para escribir una cita utilizamos <code class="docutils literal notranslate"><span class="pre">{cite}`perez2011python`</span></code>, como en este caso <span id="id1">[<a class="reference internal" href="bibliography.html#id2" title="Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. Computing in Science \\&amp; Engineering, 13(2):13–21, 2011.">PGH11</a>]</span>.</p>
 </section>
-</div>
-<div class="solution dropdown admonition" id="my-solution-2">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise-2"> Exercise 2</a></p>
-<section id="solution-content">
-<p>Here’s one solution.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">k</span>
-
-<span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</div>
 </section>
 </section>
 
@@ -571,13 +733,13 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Índice del curso</p>
+            <p class="prev-next-title">Bienvenido!</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="introduccion.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Introducción a Python</p>
+        <p class="prev-next-title">Capítulo 1</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

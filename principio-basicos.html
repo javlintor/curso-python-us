@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Bienvenido! &#8212; Curso de Python US</title>
+    <title>Principios básicos de Python &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,7 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/logo-us.png"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Bloques de ejemplo" href="block_examples.html" />
+    <link rel="next" title="Bibliografía" href="bibliography.html" />
+    <link rel="prev" title="Capítulo 1" href="introduccion.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -111,13 +112,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Bienvenido!
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="block_examples.html">
    Bloques de ejemplo
@@ -128,8 +129,8 @@ const thebe_selector_output = ".output, .cell_output"
    Capítulo 1
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="principio-basicos.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Principios básicos de Python
   </a>
  </li>
@@ -194,6 +195,53 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/principio-basicos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/principio-basicos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -233,7 +281,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fprincipio-basicos.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -261,7 +309,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/intro.md"
+        <a href="_sources/principio-basicos.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -272,7 +320,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -298,23 +346,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predefinidos-variables-y-expresiones">
+   Predefinidos, Variables y Expresiones
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Bienvenido!</h1>
+                <h1>Principios básicos de Python</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predefinidos-variables-y-expresiones">
+   Predefinidos, Variables y Expresiones
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -322,17 +407,81 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="bienvenido">
-<h1>Bienvenido!<a class="headerlink" href="#bienvenido" title="Enlazar permanentemente con este título">#</a></h1>
-<p>El material de esta página guiará el curso de introducción a Python. El índice de contenidos es el siguiente:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="block_examples.html">Bloques de ejemplo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduccion.html">Capítulo 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="principio-basicos.html">Principios básicos de Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliografía</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="principios-basicos-de-python">
+<h1>Principios básicos de Python<a class="headerlink" href="#principios-basicos-de-python" title="Enlazar permanentemente con este título">#</a></h1>
+<p>En esta sección vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
+<section id="predefinidos-variables-y-expresiones">
+<h2>Predefinidos, Variables y Expresiones<a class="headerlink" href="#predefinidos-variables-y-expresiones" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Python incorpora una serie de tipos predefinidos o primitivos como <strong>enteros</strong>, <strong>flotantes</strong>, <strong>cadenas</strong> o <strong>booleanos</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>              <span class="c1"># int </span>
+<span class="mf">4.2</span>             <span class="c1"># float</span>
+<span class="s2">&quot;forty-two&quot;</span>     <span class="c1"># str</span>
+<span class="kc">True</span>            <span class="c1"># bool</span>
+</pre></div>
 </div>
+<p>Una <strong>variable</strong> es un nombre al que asignamos algún valor. Para definir una variable escribimos el nombre de la misma seguido del símbolo igual <code class="docutils literal notranslate"><span class="pre">=</span></code> más el valor que queremos asignarle</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python tiene <strong>tipado dinánimo</strong>, es decir, no es necesario indicar al intérprete cuál es el tipo de cada variable, si no que lo infiere por sí solo en función de la forma en la que lo escribamos y la expresión en la que se utilice. Para obtener el tipo de un objeto utilizamos la función <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es posible escribir expresiones en las que explícitamente indiquemos el tipo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>aunque el intérprete de Python ignorará por completo este tipado. Esta sintaxis puede ser útil a la hora de mejorar la legibilidad del código y también puede ser utilizado por herramientas que verifiquen la consistencia del mismo, pero no cambiaremos el tipo de la variable. Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una <strong>expresión</strong> es una combinación de valores, variables y operadores que produce un resultado. De este modo podemos usar Python como si de una calculadora se tratara.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>            <span class="c1"># 4</span>
+<span class="mi">50</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span>         <span class="c1"># 20</span>
+<span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>   <span class="c1"># 5.0</span>
+<span class="mi">8</span> <span class="o">/</span> <span class="mi">5</span>            <span class="c1"># 1.6</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -362,10 +511,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="block_examples.html" title="siguiente página">
+    <a class='left-prev' id="prev-link" href="introduccion.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Capítulo 1</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bibliography.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Bloques de ejemplo</p>
+        <p class="prev-next-title">Bibliografía</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
