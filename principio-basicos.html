@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
     <link rel="next" title="Bibliografía" href="bibliography.html" />
-    <link rel="prev" title="Capítulo 1" href="introduccion.html" />
+    <link rel="prev" title="Bloques de ejemplo" href="block_examples.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -122,11 +122,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="block_examples.html">
    Bloques de ejemplo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="introduccion.html">
-   Capítulo 1
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -419,7 +414,10 @@ title="Print to PDF"
 <span class="kc">True</span>            <span class="c1"># bool</span>
 </pre></div>
 </div>
-<p>Una <strong>variable</strong> es un nombre al que asignamos algún valor. Para definir una variable escribimos el nombre de la misma seguido del símbolo igual <code class="docutils literal notranslate"><span class="pre">=</span></code> más el valor que queremos asignarle</p>
+<div class="seealso admonition">
+<p class="admonition-title">Variables</p>
+<p>Una <strong>variable</strong> es un nombre al que asignamos algún valor. Para definir una variable en Python escribimos el nombre de la misma seguido del símbolo igual <code class="docutils literal notranslate"><span class="pre">=</span></code> más el valor que queremos asignarle</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
@@ -427,7 +425,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Python tiene <strong>tipado dinánimo</strong>, es decir, no es necesario indicar al intérprete cuál es el tipo de cada variable, si no que lo infiere por sí solo en función de la forma en la que lo escribamos y la expresión en la que se utilice. Para obtener el tipo de un objeto utilizamos la función <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Python tiene <strong>tipado dinánimo</strong>, es decir, no es necesario indicar al intérprete cuál es el tipo de cada variable, si no que lo infiere por sí solo en función de la forma en la que lo escribamos y la expresión en la que se utilice.</p>
+</div>
+<p>Para obtener el tipo de un objeto utilizamos la función <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -440,7 +442,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Es posible escribir expresiones en las que explícitamente indiquemos el tipo</p>
+<p>Es posible escribir definiciones en las que explícitamente indiquemos el tipo con un fin meramente informativo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
@@ -448,7 +450,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>aunque el intérprete de Python ignorará por completo este tipado. Esta sintaxis puede ser útil a la hora de mejorar la legibilidad del código y también puede ser utilizado por herramientas que verifiquen la consistencia del mismo, pero no cambiaremos el tipo de la variable. Por ejemplo</p>
+<p>El intérprete de Python ignorará por completo este tipado manual. Esta sintaxis puede ser útil a la hora de mejorar la legibilidad del código y también puede ser utilizado por herramientas que verifiquen la consistencia del mismo, pero no cambiaremos el tipo de la variable. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="mi">42</span>
@@ -462,7 +464,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Una <strong>expresión</strong> es una combinación de valores, variables y operadores que produce un resultado. De este modo podemos usar Python como si de una calculadora se tratara.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Expresiones</p>
+<p>Una <strong>expresión</strong> es una combinación de valores, variables y operadores que produce un resultado.</p>
+</div>
+<p>Escribiendo expresiones podemos utilizar Python como si de una calculadora se tratara.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>            <span class="c1"># 4</span>
 <span class="mi">50</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span>         <span class="c1"># 20</span>
 <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>   <span class="c1"># 5.0</span>
@@ -511,11 +517,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="introduccion.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="block_examples.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Capítulo 1</p>
+            <p class="prev-next-title">Bloques de ejemplo</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="bibliography.html" title="siguiente página">
