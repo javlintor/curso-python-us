@@ -1,2 +1,4 @@
 env/
 help_commands.txt
+_build/html/_sources
+_build/jupyter_execute
