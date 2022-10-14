@@ -5,6 +5,5 @@ format: jb-book
 root: intro
 chapters:
 - file: notebooks/block_examples.ipynb
-# - file: introduccion.ipynb
 - file: notebooks/principio-basicos.ipynb
 - file: bibliography.md
