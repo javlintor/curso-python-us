@@ -6,7 +6,7 @@
 # A lo largo del curso utilizaremos direntes bloques o entornos para esquematizar el contenido. A continuación vamos a describirlos
 # 
 # ## Índice y bibliografía 
-# Para acceder al índice y la bilbiografía, accedemos mediante los bloques `{tableofcontents}` y `{bibliografía}`.
+# Para acceder al índice y la bilbiografía, accedemos mediante los bloques `{tableofcontents}` y `{bibliography}`.
 # 
 # ## Entornos predefinidos 
 # Veamos los entornos que tenemos disponibles en **Jupyter Book**
