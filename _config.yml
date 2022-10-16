@@ -8,7 +8,7 @@ logo: images/python-logo-1.png
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: "off"
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -29,12 +29,6 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-  extra_navbar: | 
-    <div>
-      <a href='https://www.us.es/'>
-        <img src="logo-us.png" alt="US Logo" width="100px">
-      </a>
-    </div>
   favicon: images/logo-us.png
 
 launch_buttons:

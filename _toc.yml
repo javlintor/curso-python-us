@@ -4,7 +4,8 @@
 format: jb-book
 root: intro
 chapters:
-- file: notebooks/block_examples.ipynb
-- file: notebooks/introduction-python.ipynb
-- file: notebooks/principio-basicos.ipynb
+- file: notebooks/chapter1/chapter1.ipynb
+  sections: 
+  - file: notebooks/chapter1/introduction-python.ipynb
+  - file: notebooks/chapter1/python-basics.ipynb
 - file: bibliography.md

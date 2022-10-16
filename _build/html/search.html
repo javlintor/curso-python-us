@@ -122,20 +122,27 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks/block_examples.html">
-   Bloques de ejemplo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks/introduction-python.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="notebooks/chapter1/chapter1.html">
    Introducción a Python
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks/principio-basicos.html">
-   Principios básicos de Python
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/chapter1/introduction-python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/chapter1/python-basics.html">
+     Principios básicos de Python
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bibliography.html">
@@ -150,12 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            <div>
-  <a href='https://www.us.es/'>
-    <img src="logo-us.png" alt="US Logo" width="100px">
-  </a>
-</div>
-
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
             
         </div>
