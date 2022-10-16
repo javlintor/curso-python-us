@@ -59,8 +59,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Principios básicos de Python" href="principio-basicos.html" />
-    <link rel="prev" title="Bienvenido!" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -120,16 +118,28 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Bloques de ejemplo
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter1/chapter1.html">
+   Introducción a Python
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="principio-basicos.html">
-   Principios básicos de Python
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter1/introduction-python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter1/python-basics.html">
+     Principios básicos de Python
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
@@ -146,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
             <div class="navbar_extra_footer">
             <div>
   <a href='https://www.us.es/'>
-    <img src="logo-us.png" alt="US Logo" width="100px">
+    <img src="images/logo-us.png" alt="US Logo" width="100px">
   </a>
 </div>
 
@@ -651,10 +661,10 @@ title="Print to PDF"
 <p>podemos etiquetar una sección. Para referenciarla, podemos utilizar <code class="docutils literal notranslate"><span class="pre">[texto](nombre-de-la-etiqueta)</span></code>. Por ejemplo, es la sección anterior en la que hablamos de látex.</p>
 <p>Con ecuaciones es un poco diferente, escribimos la etiqueta entre parátesis justo después de cerrar el segundo dólar.</p>
 <div class="math notranslate nohighlight" id="equation-my-equation">
-<span class="eqno">(1)<a class="headerlink" href="#equation-my-equation" title="Enlace permanente a esta ecuación">#</a></span>\[
+<span class="eqno">()<a class="headerlink" href="#equation-my-equation" title="Enlace permanente a esta ecuación">#</a></span>\[
 f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(x - \mu)^2} 
 \]</div>
-<p>y ahora la puedo referenciar <code class="docutils literal notranslate"><span class="pre">{eq}`my-equation`</span></code>, como aquí <a class="reference internal" href="#equation-my-equation">(1)</a></p>
+<p>y ahora la puedo referenciar <code class="docutils literal notranslate"><span class="pre">{eq}`my-equation`</span></code>, como aquí <a class="reference internal" href="#equation-my-equation">()</a></p>
 </section>
 </section>
 <section id="ejercicios">
@@ -662,7 +672,7 @@ f(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(x - \mu)^2}
 <p>Para definir un ejercicio utilizamos <code class="docutils literal notranslate"><span class="pre">{exercise}</span></code>, con su correspondiente etiqueta para referenciarlo mediante <code class="docutils literal notranslate"><span class="pre">:label:</span></code>. Por ejemplo, considera el siguiente ejercicio</p>
 <div class="exercise admonition" id="my-exercise">
 
-<p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
+<p class="admonition-title"></p>
 <section id="exercise-content">
 <p>Recall that <span class="math notranslate nohighlight">\(n!\)</span> is read as «<span class="math notranslate nohighlight">\(n\)</span> factorial» and defined as
 <span class="math notranslate nohighlight">\(n! = n \times (n - 1) \times \cdots \times 2 \times 1\)</span>.</p>
@@ -675,7 +685,7 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 <p>Las soluciones vienen con bloques <code class="docutils literal notranslate"><span class="pre">:::{solution}</span></code>, seguidas de la etiqueta del ejercicio, también con su correspondiente <code class="docutils literal notranslate"><span class="pre">:label:</span></code> si se quiere referenciar y <code class="docutils literal notranslate"><span class="pre">:class:</span> <span class="pre">dropdown</span></code> si queremos ocultar la solución.</p>
 <div class="solution dropdown admonition" id="my-solution">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise"> Exercise 1</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#my-exercise"> Exercise </a></p>
 <section id="solution-content">
 <p>Here’s one solution.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -689,7 +699,7 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
 </div>
 </section>
 </div>
-<p>Podemos referenciar al ejercicio, <a class="reference internal" href="#my-exercise"><span class="std std-numref">Exercise 1</span></a> y también a la solución <a class="reference internal" href="#my-solution"><span class="std std-ref">Solution to Exercise 1</span></a></p>
+<p>Podemos referenciar al ejercicio, <code class="xref std std-numref docutils literal notranslate"><span class="pre">my-exercise</span></code> y también a la solución <a class="reference internal" href="#my-solution"><span class="std std-ref">Solution to Exercise </span></a></p>
 <section id="citas-a-la-bibliografia">
 <h3>Citas a la bibliografía<a class="headerlink" href="#citas-a-la-bibliografia" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Para escribir una cita utilizamos <code class="docutils literal notranslate"><span class="pre">{cite}`perez2011python`</span></code>, como en este caso <span id="id1">[<a class="reference internal" href="../bibliography.html#id2" title="Fernando Perez, Brian E Granger, and John D Hunter. Python: an ecosystem for scientific computing. Computing in Science \\&amp; Engineering, 13(2):13–21, 2011.">PGH11</a>]</span>.</p>
@@ -724,20 +734,6 @@ for any positive integer <span class="math notranslate nohighlight">\(n\)</span>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Bienvenido!</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="principio-basicos.html" title="siguiente página">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Principios básicos de Python</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

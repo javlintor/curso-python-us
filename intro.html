@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/logo-us.png"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Bloques de ejemplo" href="notebooks/block_examples.html" />
+    <link rel="next" title="Introducción a Python" href="notebooks/chapter1/chapter1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -118,20 +118,27 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks/block_examples.html">
-   Bloques de ejemplo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks/introduction-python.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="notebooks/chapter1/chapter1.html">
    Introducción a Python
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks/principio-basicos.html">
-   Principios básicos de Python
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/chapter1/introduction-python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/chapter1/python-basics.html">
+     Principios básicos de Python
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bibliography.html">
@@ -146,12 +153,7 @@ const thebe_selector_output = ".output, .cell_output"
              <!-- To handle the deprecated key -->
             
             <div class="navbar_extra_footer">
-            <div>
-  <a href='https://www.us.es/'>
-    <img src="logo-us.png" alt="US Logo" width="100px">
-  </a>
-</div>
-
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
             
         </div>
@@ -327,12 +329,11 @@ title="Print to PDF"
 <p>El material de esta página guiará el curso de introducción a Python. El índice de contenidos es el siguiente:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/block_examples.html">Bloques de ejemplo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/introduction-python.html">Introducción a Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/principio-basicos.html">Principios básicos de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/chapter1/chapter1.html">Introducción a Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliografía</a></li>
 </ul>
 </div>
+<p>Para contribuir con el curso, ya sea para proponer la solución de algún ejercicio o una mejora en alguna parte del mismo, puedes crear una bifurcación del repositorio en tu cuenta de <a class="reference external" href="https://github.com/">github</a> y realizar una <strong>pull request</strong> una vez hayas implementado los cambios. No existe ninguna política para contribuir, pero intenta dar contexto a tu propuesta y que archivos modificados estén dentro del directorio <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -362,10 +363,10 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="notebooks/block_examples.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="notebooks/chapter1/chapter1.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Bloques de ejemplo</p>
+        <p class="prev-next-title">Introducción a Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
