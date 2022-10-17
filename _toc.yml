@@ -4,8 +4,21 @@
 format: jb-book
 root: intro
 chapters:
-- file: notebooks/chapter1/chapter1.ipynb
+- file: notebooks/introduction-python/title.md
   sections: 
-  - file: notebooks/chapter1/introduction-python.ipynb
-  - file: notebooks/chapter1/python-basics.ipynb
+  - file: notebooks/introduction-python/introduction-python.ipynb
+  - file: notebooks/introduction-python/python-basics.ipynb
+- file: notebooks/numpy/title.md
+  sections: 
+  - file: notebooks/numpy/introduction-numpy.ipynb
+  - file: notebooks/numpy/numpy-basics.ipynb
+  - file: notebooks/numpy/nn-with-numpy.ipynb
+# - file: notebooks/pandas/title.md
+#   sections: 
+#   - file: notebooks/pandas/introduction-pandas.ipynb
+#   - file: notebooks/pandas/pandas-basics.ipynb
+#   - file: notebooks/pandas/advanced-operations.ipynb
+# - file: notebooks/matplotlib/title.md
+#   sections: 
+#   - file: notebooks/matplotlib/matplotlib.ipynb
 - file: bibliography.md

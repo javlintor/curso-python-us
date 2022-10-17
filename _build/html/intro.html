@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/logo-us.png"/>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Introducción a Python" href="notebooks/chapter1/chapter1.html" />
+    <link rel="next" title="Introducción a Python" href="notebooks/introduction-python/title.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -98,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
         
       
       
-      <img src="_static/python-logo-1.png" class="logo" alt="logo">
+      <img src="_static/logo-us.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Curso de Python US</h1>
@@ -119,7 +119,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="notebooks/chapter1/chapter1.html">
+  <a class="reference internal" href="notebooks/introduction-python/title.html">
    Introducción a Python
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -129,13 +129,40 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/chapter1/introduction-python.html">
+    <a class="reference internal" href="notebooks/introduction-python/introduction-python.html">
      Introducción a Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/chapter1/python-basics.html">
+    <a class="reference internal" href="notebooks/introduction-python/python-basics.html">
      Principios básicos de Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="notebooks/numpy/title.html">
+   Numpy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/introduction-numpy.html">
+     Introducción a numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/numpy-basics.html">
+     Operaciones básicas de Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notebooks/numpy/nn-with-numpy.html">
+     Construyendo una red neuronal desde cero con Numpy
     </a>
    </li>
   </ul>
@@ -329,11 +356,31 @@ title="Print to PDF"
 <p>El material de esta página guiará el curso de introducción a Python. El índice de contenidos es el siguiente:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/chapter1/chapter1.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/introduction-python/title.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/numpy/title.html">Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliografía</a></li>
 </ul>
 </div>
-<p>Para contribuir con el curso, ya sea para proponer la solución de algún ejercicio o una mejora en alguna parte del mismo, puedes crear una bifurcación del repositorio en tu cuenta de <a class="reference external" href="https://github.com/">github</a> y realizar una <strong>pull request</strong> una vez hayas implementado los cambios. No existe ninguna política para contribuir, pero intenta dar contexto a tu propuesta y que archivos modificados estén dentro del directorio <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>.</p>
+<p>El contenido del curso estará estructurado en una serie de cuadernos o notebooks divididos por secciones. En cada cuaderno encontraremos celdillas de tipo <em>ejecutable</em> y de tipo <em>markdown</em>. Dentro de estas últimas, algunos bloque de texto estarán contenidos en bloques del tipo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">exercise</span><span class="p">}</span>
+<span class="p">:</span><span class="n">label</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">exercise</span>
+
+<span class="c1"># your code for the exercise</span>
+
+<span class="p">:::</span>
+</pre></div>
+</div>
+<p>y también su correspondiente solución</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">solution</span><span class="p">}</span> <span class="n">my</span><span class="o">-</span><span class="n">exercise</span>
+<span class="p">:</span><span class="n">class</span><span class="p">:</span> <span class="n">dropdown</span>
+
+<span class="c1"># your code for the solution</span>
+
+<span class="p">:::</span>
+
+</pre></div>
+</div>
+<p>Para contribuir con el curso, ya sea para proponer la solución de algún ejercicio o una mejora en alguna parte del mismo, puedes crear una bifurcación del repositorio en tu cuenta de <a class="reference external" href="https://github.com/">github</a> y realizar una <strong>pull request</strong> una vez hayas implementado los cambios. No existe ninguna política para contribuir, pero intenta dar contexto a tu propuesta y que los archivos modificados estén dentro del directorio <code class="docutils literal notranslate"><span class="pre">notebooks/</span></code>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -363,7 +410,7 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="notebooks/chapter1/chapter1.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="notebooks/introduction-python/title.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Introducción a Python</p>

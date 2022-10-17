@@ -3,7 +3,7 @@
 
 title: Curso de Python US
 author: Javier Linares Torres
-logo: images/python-logo-1.png
+logo: images/logo-us.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
