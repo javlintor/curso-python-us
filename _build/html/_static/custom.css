@@ -1,6 +1,0 @@
-.sticky-top {
-    position: static;
-}
-.sticky-top:hover {
-    position: sticky;
-}

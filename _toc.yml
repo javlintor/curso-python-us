@@ -13,6 +13,9 @@ chapters:
   - file: notebooks/numpy/introduction-numpy.ipynb
   - file: notebooks/numpy/numpy-basics.ipynb
   - file: notebooks/numpy/nn-with-numpy.ipynb
+- file: notebooks/matplotlib/title.md
+  sections: 
+  - file: notebooks/matplotlib/introduction-matplotlib.ipynb
 # - file: notebooks/pandas/title.md
 #   sections: 
 #   - file: notebooks/pandas/introduction-pandas.ipynb
