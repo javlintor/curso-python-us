@@ -547,6 +547,91 @@ title="Print to PDF"
 </div>
 <p>estamos creando un objeto de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> con el valor 300 asignado a la variable <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 <p><img alt="picture" src="https://drive.google.com/uc?id=1LxoXumDnVh9kwvcSFYoN_1mIG39qO5LV" /></p>
+<p>Podemos consultar la dirección del objeto creado en memoria con la función <code class="docutils literal notranslate"><span class="pre">id</span></code> y el número de bytes reservado para guardarlo con la <code class="docutils literal notranslate"><span class="pre">getsizeof</span></code> dentro del módulo <code class="docutils literal notranslate"><span class="pre">sys</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072849904
+28
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si ahora realizamos otra asignación a la variable ya creada</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">n</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python no creará un nuevo objeto, si no solamente una nueva referencia, que apunta al mismo objeto creado con anterioridad</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072849904
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="picture" src="https://drive.google.com/uc?id=1wI1R_M0z9A8k5ynOnlO8U3FK10wUKZwf" /></p>
+<p>Asignando la variable <code class="docutils literal notranslate"><span class="pre">m</span></code> a otro objeto, su referencia en memoria cambiará</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072847792
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="picture" src="https://drive.google.com/uc?id=1L6hU-KtS7T9nZNtx_hc2650Zp5Er3WJ5" /></p>
+<p>En caso de que <code class="docutils literal notranslate"><span class="pre">n</span></code> cambie también su referencia, el objeto que guardaba el entero <code class="docutils literal notranslate"><span class="pre">300</span></code> se queda sin referencias</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="picture" src="https://drive.google.com/uc?id=1535KCfXgHMpIOSyBn67llPnBTeLNszf3" /></p>
+<p>El ciclo de vida de un objeto comienza cuando se crea, y durante el mismo puede tener múltiples referencias que se van creando y borrando. Sin embargo, cuando el número de referencias es cero, el objeto queda inaccesible.</p>
+<p>Python incorpora lo que se denomina un <a class="reference external" href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)"><strong>recolector de basura</strong></a>, o <em>garbage collector</em>, que se encarga de reclamar la memoria que ocupan los objetos que son innaccesibles.</p>
+<p>Finalmente, es importante notar que a la hora de nombrar las variables podemos utilizar cadenas de longitud arbitraria que sean combinación de letras mayúsculas y minúsculas, dígitos y guión bajo (<code class="docutils literal notranslate"><span class="pre">_</span></code>) -siempre que no empiecen por un dígito-. No obstante, según la guía de estilos para Python <a class="reference external" href="https://peps.python.org/pep-0008/#function-and-variable-names">PEP 8</a> los nombres de variables deben ser en minúscula y con espacios separados por guiones bajos, lo que se denomina <em>Snake Case</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numberofcollegegraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># mal</span>
+<span class="n">NUMBEROFCOLLEGEGRADUATES</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># uppercase, reservado para variables globales</span>
+<span class="n">numberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># Camel Case, reservado para clases</span>
+<span class="n">NumberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># mal</span>
+<span class="n">number_of_college_graduates</span> <span class="o">=</span> <span class="mi">2500</span>     <span class="c1"># Snake Case     </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="my-exercise">
+
+<p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
+<section id="exercise-content">
+<p>Crea objetos de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> y consulta cuánta memoria ocupan. ¿Depende el espacio sólo del tipo?</p>
+</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="expresiones">
