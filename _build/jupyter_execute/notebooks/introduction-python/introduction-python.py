@@ -11,6 +11,7 @@
 # - Es un lenguaje **interpretado**. 
 # - Es de **tipado fuerte y dinámico**. 
 # - Es **multiplataforma**. 
+# - Python es un lenguaje de **propósito general**, lo que significa que puede usarse para crear una variedad de programas diferentes y no está especializado para ningún problema específico.
 # - Tiene una amplia **librería estándar** además de una extensa comunidad que da soporte a una variedad de paquetes de terceros. El repositorio de referencia para paquetes de Python es el [Python Package Index](https://pypi.org/)
 # 
 # Podemos visitar [la encuesta anual de Stackoverflow](https://survey.stackoverflow.co/2022/#technology-most-popular-technologies) sobre uso y opinión de diferentes tecnologías para hacernos una idea de la presencia del entorno Python en el mundo del desarrollo, sobre todo en campos cercanos a la Ciencia de Datos. 
@@ -75,10 +76,4 @@ print(sys.version)
 
 
 import this
-
-
-# In[ ]:
-
-
-
 
