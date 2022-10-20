@@ -177,7 +177,17 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="simple">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
+     Introducción a Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matplotlib/advanced-graphics.html">
+     Gráficos Avanzados en Matplotlib
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -471,25 +481,19 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="principios-basicos-de-python">
 <h1>Principios básicos de Python<a class="headerlink" href="#principios-basicos-de-python" title="Enlazar permanentemente con este título">#</a></h1>
 <p>En esta sección vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
+<hr class="docutils" />
 <section id="predefinidos-variables-y-expresiones">
 <h2>Predefinidos, Variables y Expresiones<a class="headerlink" href="#predefinidos-variables-y-expresiones" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Python incorpora una serie de tipos predefinidos o primitivos como <strong>enteros</strong>, <strong>flotantes</strong>, <strong>cadenas</strong> o <strong>booleanos</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>              <span class="c1"># int </span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>              <span class="c1"># int </span>
 <span class="mf">4.2</span>             <span class="c1"># float</span>
 <span class="s2">&quot;forty-two&quot;</span>     <span class="c1"># str</span>
 <span class="kc">True</span>            <span class="c1"># bool</span>
+<span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># complex</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 </section>
+<hr class="docutils" />
 <section id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Una <strong>variable</strong> es un nombre al que asignamos algún valor. Para definir una variable en Python escribimos el nombre de la misma seguido del símbolo igual <code class="docutils literal notranslate"><span class="pre">=</span></code> más el valor que queremos asignarle</p>
@@ -500,11 +504,16 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Python tiene <strong>tipado dinánimo</strong>, es decir, no es necesario indicar al intérprete cuál es el tipo de cada variable, si no que lo infiere por sí solo en función de la forma en la que lo escribamos y la expresión en la que se utilice.</p>
+<p>Python tiene <strong>tipado dinámico</strong>, es decir, no es necesario indicar al intérprete cuál es el tipo de cada variable, si no que lo infiere por sí solo en función de la forma en la que lo escribamos y la expresión en la que se utilice.</p>
 <p>Para obtener el tipo de un objeto utilizamos la función <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
 </div>
@@ -525,12 +534,25 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
 </div>
+</div>
+</div>
+<p>En realidad una variable es un nombre simbólico que hace de referencia o puntero a un objeto que se crea en memoria. Una vez hemos asignado el objeto a nuestra variable, podemos referenciarla por su nombre.</p>
+<p>Por ejemplo, al crear la variable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">300</span>
+</pre></div>
+</div>
+<p>estamos creando un objeto de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code> con el valor 300 asignado a la variable <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p><img alt="picture" src="https://drive.google.com/uc?id=1LxoXumDnVh9kwvcSFYoN_1mIG39qO5LV" /></p>
 </section>
+<hr class="docutils" />
 <section id="expresiones">
 <h2>Expresiones<a class="headerlink" href="#expresiones" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Una <strong>expresión</strong> es una combinación de valores, variables y operadores que produce un resultado.</p>
-<p>Escribiendo expresiones podemos utilizar Python como si de una calculadora se tratara.</p>
+<p>Escribiendo expresiones podemos utilizar Python como si de una calculadora se tratara, utilizando las operaciones aritméticas habituales (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>) con el orden habitual de estas.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>            <span class="c1"># 4</span>
 <span class="mi">50</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span>         <span class="c1"># 20</span>
 <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>   <span class="c1"># 5.0</span>
