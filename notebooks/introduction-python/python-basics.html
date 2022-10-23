@@ -663,6 +663,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>En esta última celdilla hemos importado el <strong>módulo</strong> estándar <code class="docutils literal notranslate"><span class="pre">math</span></code>, que incorpora un conjunto de funciones de funciones matemáticas como la exponencial, logaritmos o funciones trigonométricas. Antes de acceder a las funciones definidas en un módulo es necesario importarlo.</p>
 <p>Es posible escribir definiciones en las que explícitamente indiquemos el tipo con un fin meramente informativo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -956,10 +957,120 @@ title="Print to PDF"
 <section id="enteros">
 <h3>Enteros<a class="headerlink" href="#enteros" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Como hemos visto ya, los <strong>enteros</strong> en Python son utilizados para representar el conjunto de números enteros <span class="math notranslate nohighlight">\(\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots \}\)</span> mediante el tipo predefinido <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-<p>A partir de Python</p>
+<p>Puedes crear enteros arbitrariamente grandes, Python reservará tanta memoria como sea necesario (hasta quedarnos sin memoria) para almacenarlo.</p>
+<p>La conversión de <code class="docutils literal notranslate"><span class="pre">float</span></code> a <code class="docutils literal notranslate"><span class="pre">int</span></code> se realiza truncando los decimales mediante la función <code class="docutils literal notranslate"><span class="pre">math.floor</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.3</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.7</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="flotantes">
 <h3>Flotantes<a class="headerlink" href="#flotantes" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Los <strong>flotantes</strong> se utilizan para representar números reales con un número determinado de cifras decimales. El tipo para representar estos objetos es <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;0.43784&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.43784
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los flotantes también se pueden definir utilizando <strong>notación científica</strong>, que se implementa mediente el carácter <code class="docutils literal notranslate"><span class="pre">e</span></code> para simbolizar <span class="math notranslate nohighlight">\(\times 10\)</span>. Por ejemplo</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(2.5 \times 10^3 →\)</span> <code class="docutils literal notranslate"><span class="pre">2.5e3</span></code></p></li>
+<li><p><span class="math notranslate nohighlight">\(1.34 \times 10^{-7} →\)</span> <code class="docutils literal notranslate"><span class="pre">1.34e-7</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.5e3</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.34e-7</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2500.0
+1.34e-07
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este último ejemplo, vemos que a la hora de llamar a la función <code class="docutils literal notranslate"><span class="pre">print</span></code>, Python decide si mostrar el número en notación científica o escribir todas las cifras.</p>
 </section>
 </section>
 <hr class="docutils" />
