@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Construyendo una red neuronal desde cero con Numpy &#8212; Curso de Python US</title>
+    <title>Booleanos &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Matplotlib" href="../matplotlib/title.html" />
-    <link rel="prev" title="Operaciones básicas de Numpy" href="numpy-basics.html" />
+    <link rel="next" title="Tipos secuenciales" href="sequential-types.html" />
+    <link rel="prev" title="Strings" href="strings.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -119,70 +119,70 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction-python/title.html">
-   Introducción a Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction-python/introduction-python.html">
-     Introducción a Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction-python/python-basics.html">
-     Principios básicos de Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction-python/numeric-types.html">
-     Tipos numéricos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction-python/strings.html">
-     Strings
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction-python/booleans.html">
-     Booleanos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../introduction-python/sequential-types.html">
-     Tipos secuenciales
-    </a>
-   </li>
-  </ul>
- </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="title.html">
-   Numpy
+   Introducción a Python
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="introduction-numpy.html">
-     Introducción a numpy
+    <a class="reference internal" href="introduction-python.html">
+     Introducción a Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="numpy-basics.html">
-     Operaciones básicas de Numpy
+    <a class="reference internal" href="python-basics.html">
+     Principios básicos de Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numeric-types.html">
+     Tipos numéricos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="strings.html">
+     Strings
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
+     Booleanos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sequential-types.html">
+     Tipos secuenciales
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/title.html">
+   Numpy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/introduction-numpy.html">
+     Introducción a numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy-basics.html">
+     Operaciones básicas de Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/nn-with-numpy.html">
      Construyendo una red neuronal desde cero con Numpy
     </a>
    </li>
@@ -274,7 +274,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/numpy/nn-with-numpy.ipynb"
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/booleans.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -292,7 +292,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/numpy/nn-with-numpy.ipynb"
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/booleans.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -352,7 +352,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/nn-with-numpy.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/booleans.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -380,7 +380,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/numpy/nn-with-numpy.ipynb"
+        <a href="../../_sources/notebooks/introduction-python/booleans.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -429,7 +429,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Construyendo una red neuronal desde cero con Numpy</h1>
+                <h1>Booleanos</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -441,9 +441,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="construyendo-una-red-neuronal-desde-cero-con-numpy">
-<h1>Construyendo una red neuronal desde cero con Numpy<a class="headerlink" href="#construyendo-una-red-neuronal-desde-cero-con-numpy" title="Enlazar permanentemente con este título">#</a></h1>
-<p>En esta sección vamos a utilizar nuestro conocimiento sobre Numpy para construir una red neuronal desde cero</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="booleanos">
+<h1>Booleanos<a class="headerlink" href="#booleanos" title="Enlazar permanentemente con este título">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -459,7 +458,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./notebooks/numpy"
+            path: "./notebooks/introduction-python"
         },
         predefinedOutput: true
     }
@@ -473,17 +472,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="numpy-basics.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="strings.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Operaciones básicas de Numpy</p>
+            <p class="prev-next-title">Strings</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../matplotlib/title.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="sequential-types.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Matplotlib</p>
+        <p class="prev-next-title">Tipos secuenciales</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

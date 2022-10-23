@@ -54,12 +54,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Numpy" href="../numpy/title.html" />
+    <link rel="next" title="Tipos numéricos" href="numeric-types.html" />
     <link rel="prev" title="Introducción a Python" href="introduction-python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -139,6 +137,26 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Principios básicos de Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numeric-types.html">
+     Tipos numéricos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="strings.html">
+     Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="booleans.html">
+     Booleanos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sequential-types.html">
+     Tipos secuenciales
     </a>
    </li>
   </ul>
@@ -437,23 +455,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipos-numericos">
-   Tipos numéricos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enteros">
-     Enteros
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#flotantes">
-     Flotantes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cadenas">
    Cadenas
   </a>
@@ -530,23 +531,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipos-numericos">
-   Tipos numéricos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enteros">
-     Enteros
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#flotantes">
-     Flotantes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cadenas">
    Cadenas
   </a>
@@ -600,7 +584,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="principios-basicos-de-python">
 <h1>Principios básicos de Python<a class="headerlink" href="#principios-basicos-de-python" title="Enlazar permanentemente con este título">#</a></h1>
-<p>En esta sección vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
+<p>En esta sección y las siguientes vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
 <hr class="docutils" />
 <section id="predefinidos-variables-y-expresiones">
 <h2>Predefinidos, Variables y Expresiones<a class="headerlink" href="#predefinidos-variables-y-expresiones" title="Enlazar permanentemente con este título">#</a></h2>
@@ -942,221 +926,6 @@ title="Print to PDF"
 </div>
 </section>
 <hr class="docutils" />
-<section id="tipos-numericos">
-<h2>Tipos numéricos<a class="headerlink" href="#tipos-numericos" title="Enlazar permanentemente con este título">#</a></h2>
-<p>El conjunto de operaciones entre tipos numéricos se resumen en la siguiente tabla</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Operation</p></th>
-<th class="text-align:center head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span>&#160; </code></p></td>
-<td class="text-align:center"><p>Sum of two numbers</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span>&#160; </code></p></td>
-<td class="text-align:center"><p>Difference of two numbers</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span>&#160; </code></p></td>
-<td class="text-align:center"><p>Product of two numbers</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span>&#160; </code></p></td>
-<td class="text-align:center"><p>Quotient of two numbers</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span> </code></p></td>
-<td class="text-align:center"><p>Quotient of two numbers, returned as an integer</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span>&#160; </code></p></td>
-<td class="text-align:center"><p>x “modulo”: y: The remainder of x / y for positive x, y</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span> </code></p></td>
-<td class="text-align:center"><p>x raised to the power y</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-x</span>&#160;&#160;&#160;&#160; </code></p></td>
-<td class="text-align:center"><p>A negated number</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span>&#160;&#160; </code></p></td>
-<td class="text-align:center"><p>The absolute value of a number</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span> </code></p></td>
-<td class="text-align:center"><p>Check if two numbers have the same value</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span> </code></p></td>
-<td class="text-align:center"><p>Check if two numbers have different values</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span>&#160; </code></p></td>
-<td class="text-align:center"><p>Check if x is greater than y</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span> </code></p></td>
-<td class="text-align:center"><p>Check if x is greater than or equal to y</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span>&#160; </code></p></td>
-<td class="text-align:center"><p>Check if x is less than y</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span> </code></p></td>
-<td class="text-align:center"><p>Check if x is less than or equal to y</p></td>
-</tr>
-</tbody>
-</table>
-<section id="enteros">
-<h3>Enteros<a class="headerlink" href="#enteros" title="Enlazar permanentemente con este título">#</a></h3>
-<p>Como hemos visto ya, los <strong>enteros</strong> en Python son utilizados para representar el conjunto de números enteros <span class="math notranslate nohighlight">\(\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots \}\)</span> mediante el tipo predefinido <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-<p>Puedes crear enteros arbitrariamente grandes, Python reservará tanta memoria como sea necesario (hasta quedarnos sin memoria) para almacenarlo.</p>
-<p>La conversión de <code class="docutils literal notranslate"><span class="pre">float</span></code> a <code class="docutils literal notranslate"><span class="pre">int</span></code> se realiza truncando los decimales mediante la función <code class="docutils literal notranslate"><span class="pre">math.floor</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.3</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.7</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="flotantes">
-<h3>Flotantes<a class="headerlink" href="#flotantes" title="Enlazar permanentemente con este título">#</a></h3>
-<p>Los <strong>flotantes</strong> se utilizan para representar números reales con un número determinado de cifras decimales. El tipo para representar estos objetos es <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;0.43784&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.43784
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.0
-</pre></div>
-</div>
-</div>
-</div>
-<p>Los flotantes también se pueden definir utilizando <strong>notación científica</strong>, que se implementa mediente el carácter <code class="docutils literal notranslate"><span class="pre">e</span></code> para simbolizar <span class="math notranslate nohighlight">\(\times 10\)</span>. Por ejemplo</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(2.5 \times 10^3 →\)</span> <code class="docutils literal notranslate"><span class="pre">2.5e3</span></code></p></li>
-<li><p><span class="math notranslate nohighlight">\(1.34 \times 10^{-7} →\)</span> <code class="docutils literal notranslate"><span class="pre">1.34e-7</span></code></p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.5e3</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">1.34e-7</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2500.0
-1.34e-07
-</pre></div>
-</div>
-</div>
-</div>
-<p>En este último ejemplo, vemos que a la hora de llamar a la función <code class="docutils literal notranslate"><span class="pre">print</span></code>, Python decide si mostrar el número en notación científica o escribir todas las cifras.</p>
-<p>Aunque los enteros de Python pueden tener una longitud tan grande como queramos, los flotantes <em>tienen una cantida limitada de decimales que pueden almacenar</em>, en concreto Python dispone de 64 bits de memoria en la mayoría de los casos para guardar el número. Esto se traduce en que usualmente tendremos una capacidad máxima de almacenar <strong>16 decimales</strong> cuando el número se escribe en notación científica.</p>
-<p>En el siguiente ejemplo vemos que al convertir un entero de 100 dígitos a flotante sólo podemos retener 16.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una cadena de longitud 100 llena de 1s</span>
-<span class="n">digit_str</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span> 
-<span class="c1"># Convertirmos a entero</span>
-<span class="n">digit_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
-<span class="c1"># Convertimos a float</span>
-<span class="n">digit_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">digit_int</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digit_int</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digit_float</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.111111111111111e+99
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<hr class="docutils" />
 <section id="cadenas">
 <h2>Cadenas<a class="headerlink" href="#cadenas" title="Enlazar permanentemente con este título">#</a></h2>
 </section>
@@ -1217,10 +986,10 @@ title="Print to PDF"
             <p class="prev-next-title">Introducción a Python</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../numpy/title.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="numeric-types.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Numpy</p>
+        <p class="prev-next-title">Tipos numéricos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
