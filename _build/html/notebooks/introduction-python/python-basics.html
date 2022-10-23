@@ -434,6 +434,48 @@ title="Print to PDF"
    Expresiones
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cadenas">
+   Cadenas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-tipo-none">
+   El tipo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     None
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#booleanos">
+   Booleanos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-secuenciales">
+   Tipos secuenciales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listas">
+     Listas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuplas">
+     Tuplas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diccionarios">
+     Diccionarios
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -468,6 +510,48 @@ title="Print to PDF"
    Expresiones
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cadenas">
+   Cadenas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-tipo-none">
+   El tipo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     None
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#booleanos">
+   Booleanos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-secuenciales">
+   Tipos secuenciales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listas">
+     Listas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuplas">
+     Tuplas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diccionarios">
+     Diccionarios
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -480,7 +564,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="principios-basicos-de-python">
 <h1>Principios básicos de Python<a class="headerlink" href="#principios-basicos-de-python" title="Enlazar permanentemente con este título">#</a></h1>
-<p>En esta sección vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
+<p>En esta sección y las siguientes vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
 <hr class="docutils" />
 <section id="predefinidos-variables-y-expresiones">
 <h2>Predefinidos, Variables y Expresiones<a class="headerlink" href="#predefinidos-variables-y-expresiones" title="Enlazar permanentemente con este título">#</a></h2>
@@ -489,7 +573,7 @@ title="Print to PDF"
 <span class="mf">4.2</span>             <span class="c1"># float</span>
 <span class="s2">&quot;forty-two&quot;</span>     <span class="c1"># str</span>
 <span class="kc">True</span>            <span class="c1"># bool</span>
-<span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># complex</span>
+<span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span>          <span class="c1"># complex</span>
 </pre></div>
 </div>
 </section>
@@ -505,7 +589,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>Python tiene <strong>tipado dinámico</strong>, es decir, no es necesario indicar al intérprete cuál es el tipo de cada variable, si no que lo infiere por sí solo en función de la forma en la que lo escribamos y la expresión en la que se utilice.</p>
-<p>Para obtener el tipo de un objeto utilizamos la función <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
+<p>Para obtener el tipo de un objeto utilizamos la función <code class="docutils literal notranslate"><span class="pre">type</span></code>. Para verificar si una variable es de un tipo tenemos la función <code class="docutils literal notranslate"><span class="pre">isinstance</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -518,6 +602,32 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<p>En esta última celdilla hemos importado el <strong>módulo</strong> estándar <code class="docutils literal notranslate"><span class="pre">math</span></code>, que incorpora un conjunto de funciones de funciones matemáticas como la exponencial, logaritmos o funciones trigonométricas. Antes de acceder a las funciones definidas en un módulo es necesario importarlo.</p>
 <p>Es posible escribir definiciones en las que explícitamente indiquemos el tipo con un fin meramente informativo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -618,18 +728,82 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numberofcollegegraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># mal</span>
 <span class="n">NUMBEROFCOLLEGEGRADUATES</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># uppercase, reservado para variables globales</span>
-<span class="n">numberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># Camel Case, reservado para clases</span>
-<span class="n">NumberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># mal</span>
+<span class="n">numberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># mal</span>
+<span class="n">NumberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># Camel Case, reservado para clases</span>
 <span class="n">number_of_college_graduates</span> <span class="o">=</span> <span class="mi">2500</span>     <span class="c1"># Snake Case     </span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="exercise admonition" id="my-exercise">
+<p>Existe un conjunto de <strong>nombres reservados</strong> que no pueden ser utilizados para nombrar una variable</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>def</p></td>
+<td><p>if</p></td>
+<td><p>raise</p></td>
+</tr>
+<tr class="row-odd"><td><p>None</p></td>
+<td><p>del</p></td>
+<td><p>import</p></td>
+<td><p>return</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>elif</p></td>
+<td><p>in</p></td>
+<td><p>try</p></td>
+</tr>
+<tr class="row-odd"><td><p>and</p></td>
+<td><p>else</p></td>
+<td><p>is</p></td>
+<td><p>while</p></td>
+</tr>
+<tr class="row-even"><td><p>as</p></td>
+<td><p>except</p></td>
+<td><p>lambda</p></td>
+<td><p>with</p></td>
+</tr>
+<tr class="row-odd"><td><p>assert</p></td>
+<td><p>finally</p></td>
+<td><p>nonlocal</p></td>
+<td><p>yield</p></td>
+</tr>
+<tr class="row-even"><td><p>break</p></td>
+<td><p>for</p></td>
+<td><p>not</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>class</p></td>
+<td><p>form</p></td>
+<td><p>or</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>continue</p></td>
+<td><p>global</p></td>
+<td><p>pass</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<div class="exercise admonition" id="python-basics-memory-types">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
 <section id="exercise-content">
-<p>Crea objetos de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> y consulta cuánta memoria ocupan. ¿Depende el espacio sólo del tipo?</p>
+<p>Crea objetos de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code> y consulta cuánta memoria ocupan. ¿Depende el espacio sólo del tipo?</p>
+</section>
+</div>
+<div class="exercise admonition" id="python-basics-reserved-names-error">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2 </span></p>
+<section id="exercise-content">
+<p>¿Qué tipo de error obtenemos al nombrar una variable con un nombre reservado?</p>
 </section>
 </div>
 </section>
@@ -656,6 +830,105 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Otras operaciones importantes entre tipos numéricos son el operador potencia <code class="docutils literal notranslate"><span class="pre">**</span></code>, cociente <code class="docutils literal notranslate"><span class="pre">//</span></code> y resto, <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">**</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>256
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span> <span class="o">//</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">23</span> <span class="o">%</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como hemos comentado antes, Python puede modificar el tipado de una variable cuando aparece en una expresión. Este <strong>tipado implícito</strong> puede causar errores inesperados, pero a cambio podemos simplificar nuestro código.</p>
+<p>Por ejemplo, al aplicar el operador suma <code class="docutils literal notranslate"><span class="pre">+</span></code> entre un entero y un flotante, Python convertirá el entero en flotante y aplicará en operador posteriormente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para realizar un <strong>tipado explícito</strong>, llamamos directamente al tipo que queremos convertir</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;8&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;8&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="cadenas">
+<h2>Cadenas<a class="headerlink" href="#cadenas" title="Enlazar permanentemente con este título">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="el-tipo-none">
+<h2>El tipo <code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#el-tipo-none" title="Enlazar permanentemente con este título">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="booleanos">
+<h2>Booleanos<a class="headerlink" href="#booleanos" title="Enlazar permanentemente con este título">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="tipos-secuenciales">
+<h2>Tipos secuenciales<a class="headerlink" href="#tipos-secuenciales" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="listas">
+<h3>Listas<a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">#</a></h3>
+</section>
+<section id="tuplas">
+<h3>Tuplas<a class="headerlink" href="#tuplas" title="Enlazar permanentemente con este título">#</a></h3>
+</section>
+<section id="diccionarios">
+<h3>Diccionarios<a class="headerlink" href="#diccionarios" title="Enlazar permanentemente con este título">#</a></h3>
+</section>
 </section>
 </section>
 

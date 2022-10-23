@@ -1,0 +1,41 @@
+a = 1.3
+print(int(a))
+
+b = 1.7
+print(int(b))
+
+isinstance(1, float)
+
+isinstance(1., float)
+
+type(10 / 5)
+
+float("0.43784")
+
+float(-3)
+
+a = 2.5e3
+b = 1.34e-7
+print(a)
+print(b)
+
+# Creamos una cadena de longitud 100 llena de 1s
+digit_str = "1"*100 
+# Convertirmos a entero
+digit_int = int("1"*100)
+# Convertimos a float
+digit_float = float(digit_int)
+
+digit_int
+
+digit_float
+
+digit_float == digit_float + 1
+
+0.1 + 0.1 + 0.1 - 0.3 == 0
+
+a = 0.1 + 0.1 + 0.1 - 0.3
+print(a)
+
+import math
+math.isclose(a, 0, abs_tol=1e-5)
