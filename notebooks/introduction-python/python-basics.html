@@ -772,17 +772,62 @@ title="Print to PDF"
 </div>
 </div>
 <p>Existe un conjunto de <strong>nombres reservados</strong> que no pueden ser utilizados para nombrar una variable</p>
-<p>|          |         |          |        |
-| -         |         |          |        |
-| False    | def     | if       | raise  |
-| None     | del     | import   | return |
-| True     | elif    | in       | try    |
-| and      | else    | is       | while  |
-| as       | except  | lambda   | with   |
-| assert   | finally | nonlocal | yield  |
-| break    | for     | not      |        |
-| class    | form    | or       |        |
-| continue | global  | pass     |        |</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>def</p></td>
+<td><p>if</p></td>
+<td><p>raise</p></td>
+</tr>
+<tr class="row-odd"><td><p>None</p></td>
+<td><p>del</p></td>
+<td><p>import</p></td>
+<td><p>return</p></td>
+</tr>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>elif</p></td>
+<td><p>in</p></td>
+<td><p>try</p></td>
+</tr>
+<tr class="row-odd"><td><p>and</p></td>
+<td><p>else</p></td>
+<td><p>is</p></td>
+<td><p>while</p></td>
+</tr>
+<tr class="row-even"><td><p>as</p></td>
+<td><p>except</p></td>
+<td><p>lambda</p></td>
+<td><p>with</p></td>
+</tr>
+<tr class="row-odd"><td><p>assert</p></td>
+<td><p>finally</p></td>
+<td><p>nonlocal</p></td>
+<td><p>yield</p></td>
+</tr>
+<tr class="row-even"><td><p>break</p></td>
+<td><p>for</p></td>
+<td><p>not</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>class</p></td>
+<td><p>form</p></td>
+<td><p>or</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>continue</p></td>
+<td><p>global</p></td>
+<td><p>pass</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 <div class="exercise admonition" id="python-basics-memory-types">
 
 <p class="admonition-title"><span class="caption-number">Exercise 1 </span></p>
@@ -1071,6 +1116,44 @@ title="Print to PDF"
 </div>
 </div>
 <p>En este último ejemplo, vemos que a la hora de llamar a la función <code class="docutils literal notranslate"><span class="pre">print</span></code>, Python decide si mostrar el número en notación científica o escribir todas las cifras.</p>
+<p>Aunque los enteros de Python pueden tener una longitud tan grande como queramos, los flotantes <em>tienen una cantida limitada de decimales que pueden almacenar</em>, en concreto Python dispone de 64 bits de memoria en la mayoría de los casos para guardar el número. Esto se traduce en que usualmente tendremos una capacidad máxima de almacenar <strong>16 decimales</strong> cuando el número se escribe en notación científica.</p>
+<p>En el siguiente ejemplo vemos que al convertir un entero de 100 dígitos a flotante sólo podemos retener 16.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una cadena de longitud 100 llena de 1s</span>
+<span class="n">digit_str</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span> 
+<span class="c1"># Convertirmos a entero</span>
+<span class="n">digit_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Convertimos a float</span>
+<span class="n">digit_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">digit_int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digit_int</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">digit_float</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.111111111111111e+99
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <hr class="docutils" />
