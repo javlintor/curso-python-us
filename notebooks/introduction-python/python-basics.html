@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
@@ -471,6 +473,28 @@ title="Print to PDF"
    Booleanos
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-secuenciales">
+   Tipos secuenciales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listas">
+     Listas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuplas">
+     Tuplas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diccionarios">
+     Diccionarios
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -541,6 +565,28 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#booleanos">
    Booleanos
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-secuenciales">
+   Tipos secuenciales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listas">
+     Listas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuplas">
+     Tuplas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diccionarios">
+     Diccionarios
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -724,7 +770,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Existe un conjunto de nombres reservados que no pueden ser utilizados para nombrar una variable</p>
+<p>Existe un conjunto de <strong>nombres reservados</strong> que no pueden ser utilizados para nombrar una variable</p>
 <p>|          |         |          |        |
 | -         |         |          |        |
 | False    | def     | if       | raise  |
@@ -831,7 +877,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Para realizar un <strong>tipado explícito</strong>, llamamos directamente el tipo que queremos convertir</p>
+<p>Para realizar un <strong>tipado explícito</strong>, llamamos directamente al tipo que queremos convertir</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;8&quot;</span>
@@ -909,6 +955,8 @@ title="Print to PDF"
 </table>
 <section id="enteros">
 <h3>Enteros<a class="headerlink" href="#enteros" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Como hemos visto ya, los <strong>enteros</strong> en Python son utilizados para representar el conjunto de números enteros <span class="math notranslate nohighlight">\(\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots \}\)</span> mediante el tipo predefinido <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>A partir de Python</p>
 </section>
 <section id="flotantes">
 <h3>Flotantes<a class="headerlink" href="#flotantes" title="Enlazar permanentemente con este título">#</a></h3>
@@ -925,6 +973,19 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="booleanos">
 <h2>Booleanos<a class="headerlink" href="#booleanos" title="Enlazar permanentemente con este título">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="tipos-secuenciales">
+<h2>Tipos secuenciales<a class="headerlink" href="#tipos-secuenciales" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="listas">
+<h3>Listas<a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">#</a></h3>
+</section>
+<section id="tuplas">
+<h3>Tuplas<a class="headerlink" href="#tuplas" title="Enlazar permanentemente con este título">#</a></h3>
+</section>
+<section id="diccionarios">
+<h3>Diccionarios<a class="headerlink" href="#diccionarios" title="Enlazar permanentemente con este título">#</a></h3>
+</section>
 </section>
 </section>
 
