@@ -440,11 +440,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predefinidos-variables-y-expresiones">
-   Predefinidos, Variables y Expresiones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variables">
    Variables
   </a>
@@ -516,11 +511,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predefinidos-variables-y-expresiones">
-   Predefinidos, Variables y Expresiones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variables">
    Variables
   </a>
@@ -585,9 +575,6 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="principios-basicos-de-python">
 <h1>Principios básicos de Python<a class="headerlink" href="#principios-basicos-de-python" title="Enlazar permanentemente con este título">#</a></h1>
 <p>En esta sección y las siguientes vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
-<hr class="docutils" />
-<section id="predefinidos-variables-y-expresiones">
-<h2>Predefinidos, Variables y Expresiones<a class="headerlink" href="#predefinidos-variables-y-expresiones" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Python incorpora una serie de tipos predefinidos o primitivos como <strong>enteros</strong>, <strong>flotantes</strong>, <strong>cadenas</strong> o <strong>booleanos</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>              <span class="c1"># int </span>
 <span class="mf">4.2</span>             <span class="c1"># float</span>
@@ -596,7 +583,6 @@ title="Print to PDF"
 <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span>          <span class="c1"># complex</span>
 </pre></div>
 </div>
-</section>
 <hr class="docutils" />
 <section id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Enlazar permanentemente con este título">#</a></h2>
@@ -689,7 +675,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072849904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140598752835760
 28
 </pre></div>
 </div>
@@ -711,22 +697,37 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072849904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140598752835760
 </pre></div>
 </div>
 </div>
 </div>
 <p><img alt="picture" src="https://drive.google.com/uc?id=1wI1R_M0z9A8k5ynOnlO8U3FK10wUKZwf" /></p>
+<p>Para comprobar si dos variables referencian el mismo objeto utlizamos la función <code class="docutils literal notranslate"><span class="pre">is</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="ow">is</span> <span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <p>Asignando la variable <code class="docutils literal notranslate"><span class="pre">m</span></code> a otro objeto, su referencia en memoria cambiará</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span> <span class="ow">is</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072847792
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140598672148560
+False
 </pre></div>
 </div>
 </div>
