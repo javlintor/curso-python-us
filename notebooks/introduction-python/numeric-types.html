@@ -451,6 +451,11 @@ title="Print to PDF"
    Flotantes
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operadoes-de-asignacion-aumentada">
+   Operadoes de asignación aumentada
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -480,6 +485,11 @@ title="Print to PDF"
    Flotantes
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operadoes-de-asignacion-aumentada">
+   Operadoes de asignación aumentada
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -490,7 +500,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/numeric_types.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/numeric-types.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="tipos-numericos">
 <h1>Tipos numéricos<a class="headerlink" href="#tipos-numericos" title="Enlazar permanentemente con este título">#</a></h1>
 <p>El conjunto de operaciones entre tipos numéricos se resumen en la siguiente tabla</p>
@@ -757,6 +767,55 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="operadoes-de-asignacion-aumentada">
+<h2>Operadoes de asignación aumentada<a class="headerlink" href="#operadoes-de-asignacion-aumentada" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En Python disponemos de un ajato muy útil a la hora de actualizar una variable vía una operación aritmética. Por ejemplo, si tenemos una variable <code class="docutils literal notranslate"><span class="pre">x</span></code> y queremos aumentar su valor en <code class="docutils literal notranslate"><span class="pre">1</span></code>, en lugar de escribir</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos utilzar el <strong>operador de asignación aumentada</strong> asociado a <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otros ejemplos pueden ser los operadores <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, <code class="docutils literal notranslate"><span class="pre">**=</span></code>, <code class="docutils literal notranslate"><span class="pre">%=</span></code> etc. En general, lo que estamos haciendo es calcular un nuevo valor de nuestra variable y posteriormente asignándolo a la misma. Esta técnica también se puede utilizar con tipo que no sean numéricos, por ejemplo con una cadena</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="s2">&quot;bar&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foobar
 </pre></div>
 </div>
 </div>
