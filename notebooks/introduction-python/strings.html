@@ -682,7 +682,7 @@ En un lugar de la mancha de cuyo nombre no quiero acor
 <hr class="docutils" />
 <section id="f-strings">
 <h2>f-strings<a class="headerlink" href="#f-strings" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Las cadenas formateadas o <em>f-strings</em> nos permiten incrustar variables en una cadena con una sintaxis muy cómoda. Para definir una cadena mediante este método, escribimos una f justo antes de las comillas (ya sean simples, dobles o triples). Veámoslo con un ejemplo</p>
+<p>Las cadenas formateadas o <em>f-strings</em> nos permiten incrustar variables en una cadena con una sintaxis muy cómoda. Para definir una cadena mediante este método, escribimos una <code class="docutils literal notranslate"><span class="pre">f</span></code> justo antes de las comillas (ya sean simples, dobles o triples). Veámoslo con un ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Antonio&quot;</span>
@@ -714,7 +714,20 @@ En un lugar de la mancha de cuyo nombre no quiero acor
 </div>
 </div>
 </div>
-<p>Las cadenas formatedas no están disponibles en versiones de Python anteriores a la 3.6</p>
+<p>Las cadenas formatedas no están disponibles en versiones de Python anteriores a la 3.6, en su lugar hay que usar la antigua sintaxis con la función <code class="docutils literal notranslate"><span class="pre">format</span></code>. Para mostrar un número concreto de decimales u otras opciones, existe la posibilidad de formatear las cadenas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El número 𝜋 con 7 decimales: </span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s2">0.7f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El número 𝜋 con 7 decimales: 3.1415927
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="strings-split">
 
 <p class="admonition-title"><span class="caption-number">Exercise 6 </span></p>
