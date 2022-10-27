@@ -593,17 +593,17 @@ En un lugar de la mancha de cuyo nombre no quiero acor
 <p>Si queremos escribir una cadena a lo largo de varias líneas, podemos utilizar comillas triples y ahorrarnos en <code class="docutils literal notranslate"><span class="pre">\n</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;foo...</span>
-<span class="s2">...bar&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">foo...</span>
+<span class="s2">...bar</span>
+<span class="s2">&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foo...
 ...bar
-True
 </pre></div>
 </div>
 </div>
@@ -620,7 +620,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;43243hello&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hello&#39;
 </pre></div>
 </div>
 </div>
@@ -633,7 +633,7 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;89432FDSJL4392&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;89FDSHJFJL43FD92&#39;
 </pre></div>
 </div>
 </div>
@@ -682,7 +682,7 @@ True
 <hr class="docutils" />
 <section id="f-strings">
 <h2>f-strings<a class="headerlink" href="#f-strings" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Las cadenas formateadas, o <em>f-strings</em> nos permiten incrustar variables en una cadena con una sintaxis muy cómoda. Para definir una cadena mediante este método, escribimos una f justo antes de las comillas (ya sean simples, dobles o triples). Veámoslo con un ejemplo</p>
+<p>Las cadenas formateadas o <em>f-strings</em> nos permiten incrustar variables en una cadena con una sintaxis muy cómoda. Para definir una cadena mediante este método, escribimos una f justo antes de las comillas (ya sean simples, dobles o triples). Veámoslo con un ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Antonio&quot;</span>
@@ -737,6 +737,13 @@ True
 </pre></div>
 </div>
 <p>¿Se tiene que <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code>? ¿Por qué?</p>
+</section>
+</div>
+<div class="exercise admonition" id="strings-check-name">
+
+<p class="admonition-title"><span class="caption-number">Exercise 8 </span></p>
+<section id="exercise-content">
+<p>Utilizando la variable <code class="docutils literal notranslate"><span class="pre">ascii_lowercase</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">string</span></code>, escribe una cadena formateada que indique si tu nombre contiene la decimosegunda letra del abecedario.</p>
 </section>
 </div>
 </section>
