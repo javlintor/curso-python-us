@@ -449,6 +449,16 @@ title="Print to PDF"
    Los booleanos son enteros
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-tipo-none">
+   El tipo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     None
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -476,6 +486,16 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#los-booleanos-son-enteros">
    Los booleanos son enteros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-tipo-none">
+   El tipo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     None
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -578,6 +598,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>A la hora de evaluar un operador lógico, Python hace los cálculos necesarios para computar el argumento izquierdo y, en caso de ser necesario, evalúa el argumento derecho.</p>
 <p>Los <strong>operadores simbólicos</strong> se comportan igual que su correspondiente operador lógico cuando los utilizamos con booleanos. Sin embargo, estos operadores también se emplean para representar <a class="reference external" href="https://en.wikipedia.org/wiki/Bitwise_operation"><em>operaciones a nivel de bits</em></a>. Por ejemplo, el <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> representa el <em>bitwise-and</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -748,6 +769,50 @@ title="Print to PDF"
 <p>¿Por qué no devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code>? ¿Cómo podemos arreglarlo?</p>
 </section>
 </div>
+</section>
+<hr class="docutils" />
+<section id="el-tipo-none">
+<h2>El tipo <code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#el-tipo-none" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Existe otro tipo que suele ser utilizado junto con booleanos, el <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>. Este tipo tiene solo un objeto, <code class="docutils literal notranslate"><span class="pre">None</span></code>, que se suele utilizar para representar que un dato es vacío o desconocido.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NoneType
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dado que <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> contiene solo un tipo, lo que se suele hacer para comprobar si un objeto pertenece a esta clase es verificar si dicho objeto es <code class="docutils literal notranslate"><span class="pre">None</span></code>. Recordemos que el operador para ver si dos objetos son <em>idénticos</em> es <code class="docutils literal notranslate"><span class="pre">is</span></code>, mientras que usamos <code class="docutils literal notranslate"><span class="pre">==</span></code> para comparar valores o estados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por ahora es suficiente que sepamos que existe, ya veremos cómo utilizarlo cuando hablemos de <strong>flujos de control</strong>.</p>
 </section>
 </section>
 
