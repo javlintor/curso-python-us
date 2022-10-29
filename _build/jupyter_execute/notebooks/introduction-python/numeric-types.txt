@@ -39,3 +39,15 @@ print(a)
 
 import math
 math.isclose(a, 0, abs_tol=1e-5)
+
+x = 1
+x = x + 1
+print(x)
+
+x = 1
+x += 1
+print(x)
+
+a = "foo"
+a += "bar"
+print(a)

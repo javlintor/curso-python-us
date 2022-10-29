@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Booleanos &#8212; Curso de Python US</title>
+    <title>Listas &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Numpy" href="../numpy/title.html" />
-    <link rel="prev" title="Strings" href="strings.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -118,17 +116,17 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="title.html">
    Introducción a Python
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="introduction-python.html">
      Introducción a Python
@@ -149,8 +147,8 @@ const thebe_selector_output = ".output, .cell_output"
      Strings
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="booleans.html">
      Booleanos
     </a>
    </li>
@@ -269,7 +267,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/booleans.ipynb"
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/listas.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,7 +285,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/booleans.ipynb"
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/listas.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -347,7 +345,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/booleans.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/listas.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -375,7 +373,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/introduction-python/booleans.ipynb"
+        <a href="../../_sources/notebooks/introduction-python/listas.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -435,23 +433,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operaciones-logicas">
-   Operaciones lógicas
+  <a class="reference internal nav-link" href="#las-listas-son-secuencias">
+   Las listas son secuencias
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#los-booleanos-son-enteros">
-   Los booleanos son enteros
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-tipo-none">
-   El tipo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     None
-    </span>
-   </code>
+  <a class="reference internal nav-link" href="#las-listas-son-mutables">
+   Las listas son mutables
   </a>
  </li>
 </ul>
@@ -463,7 +451,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Booleanos</h1>
+                <h1>Listas</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -474,23 +462,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#operaciones-logicas">
-   Operaciones lógicas
+  <a class="reference internal nav-link" href="#las-listas-son-secuencias">
+   Las listas son secuencias
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#los-booleanos-son-enteros">
-   Los booleanos son enteros
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-tipo-none">
-   El tipo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     None
-    </span>
-   </code>
+  <a class="reference internal nav-link" href="#las-listas-son-mutables">
+   Las listas son mutables
   </a>
  </li>
 </ul>
@@ -503,289 +481,112 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="booleanos">
-<h1>Booleanos<a class="headerlink" href="#booleanos" title="Enlazar permanentemente con este título">#</a></h1>
-<p>Existen dos objetos de <strong>tipo booleano</strong> <code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
-</ul>
-<p>ya hemos visto anteriormente funciones que devuelven valores booleanos como <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> o los operadores <code class="docutils literal notranslate"><span class="pre">is</span></code> o <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
+  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/listas.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="listas">
+<h1>Listas<a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Las <strong>listas</strong> son un tipo de objeto que nos permite guardar una secuencia de otros objetos, actualizarlos, añadir nuevos y borrarlos. A diferencia de todos los tipos que hemos visto hasta ahora, las listas con objetos <strong>mutables</strong>, es decir, pueden cambiar en la ejecución de nuestro programa.</p>
+<p>Para crear una lista en Python usamos corchetes y escribimos sus elementos separados por comas <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code>. Los objetos de una lista <strong>no tienen por qué ser del mismo tipo de objeto</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.5, None, &#39;foo&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
 </pre></div>
 </div>
 </div>
 </div>
-<hr class="docutils" />
-<section id="operaciones-logicas">
-<h2>Operaciones lógicas<a class="headerlink" href="#operaciones-logicas" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Python incluye operadores estándar para realizar <strong>operaciones lógicas</strong> básicas</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p>Operador Lógico</p></th>
-<th class="text-align:center head"><p>Operador Simbólico</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p>and</p></td>
-<td class="text-align:center"><p>&amp;</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p>or</p></td>
-<td class="text-align:center"><p>|</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p>not</p></td>
-<td class="text-align:center"><p></p></td>
-</tr>
-</tbody>
-</table>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># lista vacía</span>
+<span class="p">[]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
 </div>
 </div>
+<p>Puedes incluir variables y expresiones en la definición de la lista. Python evaluará dichas expresiones y luego construirá la lista.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+<span class="p">[</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="mi">5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[True, &#39;Foo&#39;, 25, [1, 2]]
 </pre></div>
 </div>
 </div>
 </div>
+<p>El tipo <code class="docutils literal notranslate"><span class="pre">list</span></code> puede ser utilizado para convertir otros tipos de objetos a listas, en concreto aquellos que sean <strong>iterables</strong>, cosa que definiremos más adelante.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="kc">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>A la hora de evaluar un operador lógico, Python hace los cálculos necesarios para computar el argumento izquierdo y, en caso de ser necesario, evalúa el argumento derecho.</p>
-<p>Los <strong>operadores simbólicos</strong> se comportan igual que su correspondiente operador lógico cuando los utilizamos con booleanos. Sin embargo, estos operadores también se emplean para representar <a class="reference external" href="https://en.wikipedia.org/wiki/Bitwise_operation"><em>operaciones a nivel de bits</em></a>. Por ejemplo, el <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> representa el <em>bitwise-and</em></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">&amp;</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
-</div>
-<p>es bastante común encontarse con resultados inesperados cuando se utilizan estos operadores, ya que por ejemplo tienen un orden de evaluación distinto. Por ello, siempre que sea posible, intentaremos usar los operadores lógicos, lo que se considera un estilo más <em>pythónico</em>. Sin embargo, no se puede definir un comportamiento especial para los operadores lógicos <code class="docutils literal notranslate"><span class="pre">and</span></code> y <code class="docutils literal notranslate"><span class="pre">or</span></code> cuando definamos nuestras clases, de ahí que sea necesario usar los operadores <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> y <code class="docutils literal notranslate"><span class="pre">|</span></code> en paquetes como <code class="docutils literal notranslate"><span class="pre">numpy</span></code> o <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
-<p>El orden de preferencia con los operadores lógicos es el siguiente: <code class="docutils literal notranslate"><span class="pre">not</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">and</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">or</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>Para alterar el orden de preferencia en Python podemos utilizar parétesis</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span> <span class="ow">and</span> <span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<p>Los <strong>operadores de comparación</strong> usuales también devuelven booleanos y tienen preferencia frente a los operadores lógicos. No está mal añadir paréntesis redundantes si ayuda a legibilidad de la expresión</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39; &#39;, &#39;w&#39;, &#39;o&#39;, &#39;r&#39;, &#39;l&#39;, &#39;d&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">10.5</span> <span class="o">&gt;=</span> <span class="mf">4.7</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">4</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="los-booleanos-son-enteros">
-<h2>Los booleanos son enteros<a class="headerlink" href="#los-booleanos-son-enteros" title="Enlazar permanentemente con este título">#</a></h2>
-<p>En realidad el tipo booleano es un caso particular de entero, o más precisamente es una subclase.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
-</div>
-<p>Como tales, podemos usarlos en operaciones matemáticas de forma totalmente intercambiable por los enteros 0 y 1.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">*</span><span class="kc">True</span> <span class="o">-</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="o">/</span> <span class="kc">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">97</span><span class="o">-</span><span class="n">f8487d9d0863</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kc">True</span> <span class="o">/</span> <span class="kc">False</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">7</span><span class="n">ade7017386b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="ne">ZeroDivisionError</span>: division by zero
+<span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
 </pre></div>
 </div>
 </div>
 </div>
-<div class="exercise admonition" id="booleans-expression">
-
-<p class="admonition-title"><span class="caption-number">Exercise 9 </span></p>
-<section id="exercise-content">
-<ul class="simple">
-<li><p>Suponiendo que <code class="docutils literal notranslate"><span class="pre">x</span></code> es de tipo <code class="docutils literal notranslate"><span class="pre">int</span></code>, escribe una expresión que devuelva <code class="docutils literal notranslate"><span class="pre">True</span></code> si el resto de dividir <code class="docutils literal notranslate"><span class="pre">x</span></code> entre 7 es par o <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p></li>
-<li><p>Escribe una expresión que evalúe si una variable <code class="docutils literal notranslate"><span class="pre">x</span></code> es booleana o un flotante.</p></li>
-</ul>
-</section>
-</div>
-<div class="exercise admonition" id="booleans-expression-2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 10 </span></p>
-<section id="exercise-content">
-<p>Dado <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">10</span></code>, considera la siguiente expresión</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">10</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">a</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<p>¿Por qué no devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code>? ¿Cómo podemos arreglarlo?</p>
-</section>
-</div>
-</section>
-<hr class="docutils" />
-<section id="el-tipo-none">
-<h2>El tipo <code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#el-tipo-none" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Existe otro tipo que suele ser utilizado junto con booleanos, el <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>. Este tipo tiene solo un objeto, <code class="docutils literal notranslate"><span class="pre">None</span></code>, que se suele utilizar para representar que un dato es vacío o desconocido.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NoneType
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Dado que <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> contiene solo un tipo, lo que se suele hacer para comprobar si un objeto pertenece a esta clase es verificar si dicho objeto es <code class="docutils literal notranslate"><span class="pre">None</span></code>. Recordemos que el operador para ver si dos objetos son <em>idénticos</em> es <code class="docutils literal notranslate"><span class="pre">is</span></code>, mientras que usamos <code class="docutils literal notranslate"><span class="pre">==</span></code> para comparar valores o estados.</p>
+<hr class="docutils" />
+<section id="las-listas-son-secuencias">
+<h2>Las listas son secuencias<a class="headerlink" href="#las-listas-son-secuencias" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Al igual que las cadenas, las listas son secuencias, por lo que el orden de sus objetos es importante y podemos acceder a los mismo mediante un índice entero que empieza en cero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">22</span>
-<span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># El orden importa</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -795,19 +596,181 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Podemos utilizar la misma sintaxis de indexado que vimos con las cadenas utilizando corchetes y <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
+<p>En las secuencias, el método que nos da la longitud del objeto es <code class="docutils literal notranslate"><span class="pre">len</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
 </div>
-<p>Por ahora es suficiente que sepamos que existe, ya veremos cómo utilizarlo cuando hablemos de <strong>flujos de control</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">d7736ab3e6ed</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: object of type &#39;int&#39; has no len()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="las-listas-son-mutables">
+<h2>Las listas son mutables<a class="headerlink" href="#las-listas-son-mutables" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Las listas son utilizadas cuando queramos almacenar datos que pueden cambiar o deben actualizarse, ya que <em>las listas pueden cambiar una vez han sido creadas</em>, o dicho de otro modo, son objetos <strong>mutables</strong>. Veámoslo con un ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># asignamos una cadena al segundo objeto de x</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, &#39;apple&#39;, 6, 8, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># podemos realizar asignaciones a nivel de lista</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, -3, -4, -5, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dos métodos muy utilizados a la hora de manipular listas son el <code class="docutils literal notranslate"><span class="pre">append</span></code> que nos permiten añadir un elemento a la cola de lista y <code class="docutils literal notranslate"><span class="pre">extend</span></code> para añadir varios</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10, &#39;foo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a extend tenemos que pasarle una lista de objetos</span>
+<span class="n">x</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10, &#39;foo&#39;, True, False, None]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Estos métodos realizan las operaciones <em>inplace</em>, es decir, modifican el objeto sin necesidad de tener que asignarlo. No tiene sentido escribir algo como <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x.append(&quot;foo&quot;)</span></code></p>
+<p>Otros métodos que pueden ser útiles con listas son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pop(n)</span></code>: devuelve el elemento <code class="docutils literal notranslate"><span class="pre">n</span></code>-ésimo y lo borra de la lista. Devuelve un <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> si <code class="docutils literal notranslate"><span class="pre">n</span></code> está fuera del índice.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove(a)</span></code>: borra el primer elemento cuyo valor coincida con <code class="docutils literal notranslate"><span class="pre">a</span></code>. Devuelve un <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> si no encuentra el valor</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
+<span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;c&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;d&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;d&#39;, &#39;a&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;d&#39;, &#39;a&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -838,20 +801,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="strings.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Strings</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../numpy/title.html" title="siguiente página">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Numpy</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

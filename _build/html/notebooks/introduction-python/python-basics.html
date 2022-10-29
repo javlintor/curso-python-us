@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Numpy" href="../numpy/title.html" />
+    <link rel="next" title="Tipos numéricos" href="numeric-types.html" />
     <link rel="prev" title="Introducción a Python" href="introduction-python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -137,6 +137,21 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Principios básicos de Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numeric-types.html">
+     Tipos numéricos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="strings.html">
+     Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="booleans.html">
+     Booleanos
     </a>
    </li>
   </ul>
@@ -420,11 +435,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predefinidos-variables-y-expresiones">
-   Predefinidos, Variables y Expresiones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variables">
    Variables
   </a>
@@ -435,46 +445,9 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cadenas">
-   Cadenas
+  <a class="reference internal nav-link" href="#comentarios">
+   Comentarios
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-tipo-none">
-   El tipo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     None
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#booleanos">
-   Booleanos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipos-secuenciales">
-   Tipos secuenciales
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#listas">
-     Listas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tuplas">
-     Tuplas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diccionarios">
-     Diccionarios
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -496,11 +469,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predefinidos-variables-y-expresiones">
-   Predefinidos, Variables y Expresiones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#variables">
    Variables
   </a>
@@ -511,46 +479,9 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cadenas">
-   Cadenas
+  <a class="reference internal nav-link" href="#comentarios">
+   Comentarios
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-tipo-none">
-   El tipo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     None
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#booleanos">
-   Booleanos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipos-secuenciales">
-   Tipos secuenciales
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#listas">
-     Listas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tuplas">
-     Tuplas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diccionarios">
-     Diccionarios
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -565,9 +496,6 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="principios-basicos-de-python">
 <h1>Principios básicos de Python<a class="headerlink" href="#principios-basicos-de-python" title="Enlazar permanentemente con este título">#</a></h1>
 <p>En esta sección y las siguientes vamos a familiarizarnos con los tipos predefinidos de Python y cómo manejarlos para transformar los diferentes datos de nuestro programa.</p>
-<hr class="docutils" />
-<section id="predefinidos-variables-y-expresiones">
-<h2>Predefinidos, Variables y Expresiones<a class="headerlink" href="#predefinidos-variables-y-expresiones" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Python incorpora una serie de tipos predefinidos o primitivos como <strong>enteros</strong>, <strong>flotantes</strong>, <strong>cadenas</strong> o <strong>booleanos</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>              <span class="c1"># int </span>
 <span class="mf">4.2</span>             <span class="c1"># float</span>
@@ -576,7 +504,6 @@ title="Print to PDF"
 <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span>          <span class="c1"># complex</span>
 </pre></div>
 </div>
-</section>
 <hr class="docutils" />
 <section id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Enlazar permanentemente con este título">#</a></h2>
@@ -669,7 +596,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072849904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140598752835760
 28
 </pre></div>
 </div>
@@ -691,22 +618,37 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072849904
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140598752835760
 </pre></div>
 </div>
 </div>
 </div>
 <p><img alt="picture" src="https://drive.google.com/uc?id=1wI1R_M0z9A8k5ynOnlO8U3FK10wUKZwf" /></p>
+<p>Para comprobar si dos variables referencian el mismo objeto utlizamos la función <code class="docutils literal notranslate"><span class="pre">is</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="ow">is</span> <span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <p>Asignando la variable <code class="docutils literal notranslate"><span class="pre">m</span></code> a otro objeto, su referencia en memoria cambiará</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span> <span class="ow">is</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>139992072847792
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>140598672148560
+False
 </pre></div>
 </div>
 </div>
@@ -906,29 +848,18 @@ title="Print to PDF"
 </div>
 </section>
 <hr class="docutils" />
-<section id="cadenas">
-<h2>Cadenas<a class="headerlink" href="#cadenas" title="Enlazar permanentemente con este título">#</a></h2>
-</section>
-<hr class="docutils" />
-<section id="el-tipo-none">
-<h2>El tipo <code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#el-tipo-none" title="Enlazar permanentemente con este título">#</a></h2>
-</section>
-<hr class="docutils" />
-<section id="booleanos">
-<h2>Booleanos<a class="headerlink" href="#booleanos" title="Enlazar permanentemente con este título">#</a></h2>
-</section>
-<hr class="docutils" />
-<section id="tipos-secuenciales">
-<h2>Tipos secuenciales<a class="headerlink" href="#tipos-secuenciales" title="Enlazar permanentemente con este título">#</a></h2>
-<section id="listas">
-<h3>Listas<a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">#</a></h3>
-</section>
-<section id="tuplas">
-<h3>Tuplas<a class="headerlink" href="#tuplas" title="Enlazar permanentemente con este título">#</a></h3>
-</section>
-<section id="diccionarios">
-<h3>Diccionarios<a class="headerlink" href="#diccionarios" title="Enlazar permanentemente con este título">#</a></h3>
-</section>
+<section id="comentarios">
+<h2>Comentarios<a class="headerlink" href="#comentarios" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En Python, podemos comentar nuestro código escribiendo el símbolo <code class="docutils literal notranslate"><span class="pre">#</span></code>, de modo que todo lo que escribamos a la derecha de <code class="docutils literal notranslate"><span class="pre">#</span></code> en la misma línea será ignorado por el intérprete.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esto es un comentario </span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># Esto es un comentario tras una asignación</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Escribir comentarios cuando estemos creando nuestro código es fundamental, sobre todo de cara a que otros (incluyendo nuestro yo del futuro) podamos entenderlo más fácilmente. No obstante, debería ser más importante centrarnos en que nuestro código sea legible que en escribir comentarios para todo. Véase <a class="reference external" href="https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/">este blog</a> para buenas prácticas a la hora de escribir comentarios.</p>
 </section>
 </section>
 
@@ -966,10 +897,10 @@ title="Print to PDF"
             <p class="prev-next-title">Introducción a Python</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../numpy/title.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="numeric-types.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Numpy</p>
+        <p class="prev-next-title">Tipos numéricos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

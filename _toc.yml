@@ -11,7 +11,7 @@ chapters:
   - file: notebooks/introduction-python/numeric-types.ipynb
   - file: notebooks/introduction-python/strings.ipynb
   - file: notebooks/introduction-python/booleans.ipynb
-  - file: notebooks/introduction-python/sequential-types.ipynb
+  - file: notebooks/introduction-python/lists.ipynb
 - file: notebooks/numpy/title.md
   sections: 
   - file: notebooks/numpy/introduction-numpy.ipynb
