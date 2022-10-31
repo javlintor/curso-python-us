@@ -12,6 +12,10 @@ chapters:
   - file: notebooks/introduction-python/strings.ipynb
   - file: notebooks/introduction-python/booleans.ipynb
   - file: notebooks/introduction-python/lists.ipynb
+  - file: notebooks/introduction-python/other-data-structures.ipynb
+  - file: notebooks/introduction-python/control-flow.ipynb
+  - file: notebooks/introduction-python/functions.ipynb
+  - file: notebooks/introduction-python/exercises.ipynb
 - file: notebooks/numpy/title.md
   sections: 
   - file: notebooks/numpy/introduction-numpy.ipynb
