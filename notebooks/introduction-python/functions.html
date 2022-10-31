@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introducción a Python &#8212; Curso de Python US</title>
+    <title>Funciones &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,13 +54,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Principios básicos de Python" href="python-basics.html" />
-    <link rel="prev" title="Introducción a Python" href="title.html" />
+    <link rel="next" title="Numpy" href="../numpy/title.html" />
+    <link rel="prev" title="Estructuras de control" href="control-flow.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -131,8 +129,8 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="introduction-python.html">
      Introducción a Python
     </a>
    </li>
@@ -171,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
      Estructuras de control
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="functions.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Funciones
     </a>
    </li>
@@ -291,7 +289,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/introduction-python.ipynb"
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/functions.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -309,7 +307,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb"
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/functions.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -369,7 +367,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/introduction-python.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/functions.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -397,7 +395,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/introduction-python/introduction-python.ipynb"
+        <a href="../../_sources/notebooks/introduction-python/functions.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -434,90 +432,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#descargar-python">
-   Descargar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#donde-ejecutar-python">
-   Dónde ejecutar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">
-   Notebooks de Jupyter/Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-sobre-python">
-   Más sobre Python
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introducción a Python</h1>
+                <h1>Funciones</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#descargar-python">
-   Descargar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#donde-ejecutar-python">
-   Dónde ejecutar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">
-   Notebooks de Jupyter/Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-sobre-python">
-   Más sobre Python
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -525,104 +456,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/Introduccion.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-python">
-<h1>Introducción a Python<a class="headerlink" href="#introduccion-a-python" title="Enlazar permanentemente con este título">#</a></h1>
-<p><a class="reference external" href="https://www.python.org/">Python</a> es un <strong>lenguaje de programación</strong> altamente popular y con una sintaxis sencilla, lo que lo hace fácilmente accesible para programadores no experimentados. No obstante, es una herramienta muy potente que puede ayudarnos a resolver problemas de muy diferente índole.</p>
-<p>Entre sus características principales destacan:</p>
-<ul class="simple">
-<li><p>Es un lenguaje <strong>interpretado</strong>.</p></li>
-<li><p>Es de <strong>tipado fuerte y dinámico</strong>.</p></li>
-<li><p>Es <strong>multiplataforma</strong>.</p></li>
-<li><p>Python es un lenguaje de <strong>propósito general</strong>, lo que significa que puede usarse para crear una variedad de programas diferentes y no está especializado para ningún problema específico.</p></li>
-<li><p>Tiene una amplia <strong>librería estándar</strong> además de una extensa comunidad que da soporte a una variedad de paquetes de terceros. El repositorio de referencia para paquetes de Python es el <a class="reference external" href="https://pypi.org/">Python Package Index</a></p></li>
-</ul>
-<p>Podemos visitar <a class="reference external" href="https://survey.stackoverflow.co/2022/#technology-most-popular-technologies">la encuesta anual de Stackoverflow</a> sobre uso y opinión de diferentes tecnologías para hacernos una idea de la presencia del entorno Python en el mundo del desarrollo, sobre todo en campos cercanos a la Ciencia de Datos.</p>
-<section id="descargar-python">
-<h2>Descargar Python<a class="headerlink" href="#descargar-python" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Podemos descargar Python desde <a class="reference external" href="https://www.python.org/">su sitio oficial</a>. Actualmente, la última versión disponible es la 3.10.8, aunque en este curso utilizaremos la versión</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7.14 (default, Sep  8 2022, 00:06:44) 
-[GCC 7.5.0]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Python incluye un gestor de paquetes llamado <a class="reference external" href="https://pypi.org/project/pip/">pip</a>, que nos permite instalar/desinstalar/actualizar paquetes alojados en el Python Project Index u otros repositorios. Además existen distribuciones como <a class="reference external" href="https://www.anaconda.com/">anaconda</a> que nos facilitan el manejo de paquetes.</p>
-<p>En este curso no nos tendremos que preocupar de manejar paquetes y sus dependencias ya que trabajaremos con <strong>Google Colab</strong>, que nos proporciona directamente el acceso a un gran número de paquetes y funcionalidades del ecosistema Python.</p>
-</section>
-<section id="donde-ejecutar-python">
-<h2>Dónde ejecutar Python<a class="headerlink" href="#donde-ejecutar-python" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Hay muchos entornos en los que un intérprete de Python puede correr como un IDE (Integrated Development Environment -como <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, <a class="reference external" href="https://www.jetbrains.com/es-es/pycharm/">Pycharm</a> o <a class="reference external" href="https://atom.io/">Atom</a>-), un navegador o una terminal.</p>
-<p>Para ejecutar Python 3 desde la terminal, escribimos <code class="docutils literal notranslate"><span class="pre">python3</span></code> en el prompt y se lanzará una aplicación</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.9.1</span> <span class="p">(</span><span class="n">v3</span><span class="mf">.9.1</span><span class="p">:</span><span class="mf">1e5</span><span class="n">d33e9b9</span><span class="p">,</span> <span class="n">Dec</span>  <span class="mi">7</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">52</span><span class="p">)</span>
-<span class="p">[</span><span class="n">Clang</span> <span class="mf">6.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">600.0.57</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
-<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span>
-</pre></div>
-</div>
-<p>Una herramienta muy utilizada es el entorno de trabajo <a class="reference external" href="https://jupyter.org/"><strong>Jupyter</strong></a>, que puede ser instalado vía <code class="docutils literal notranslate"><span class="pre">pip</span></code> mediante</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">notebook</span>
-</pre></div>
-</div>
-<p>Jupyter Notebook lanza una aplicación que por defecto corre en el puerto 8888 de nuestro <code class="docutils literal notranslate"><span class="pre">localhost</span></code> en la que mediante un kernel de Python podemos ir ejecutando código en celdillas. Esto nos permite tener feedback casi inmedianto de nuestras implementaciones y es una herramienta adecuada cuando queramos experimentar o familiarizarnos con algún paquete.</p>
-<p>Google Colab nos permite trabajar con notebooks en nuestro navegador sin necesidad de instalar Python ni jupyter en nuestra máquina. En este caso perdemos capacidad para configurar nuestro entorno, pero estaremos alineados a la hora de seguir el curso.</p>
-</section>
-<section id="notebooks-de-jupyter-colab">
-<h2>Notebooks de Jupyter/Colab<a class="headerlink" href="#notebooks-de-jupyter-colab" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Ya sea en Jupyter o en Google Colab, trabajaremos con cuadernos (o notebooks) de Python, que son archivos de texto con la extensión <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> (a diferencia de los archivos <code class="docutils literal notranslate"><span class="pre">.py</span></code>, correspondientes a los ejecutables y módulos de Python).</p>
-<p>Cada cuaderno está compuesto por una secuencia de celdillas, que pueden ser de tipo <em>ejecutable</em> o <em>markdown</em>. En las cendillas de tipo ejecutable escribiremos nuestro código Python, mientras que en las celdas de tipo markdown podremos crear cabeceras, listas, resaltar texto con <strong>negrita</strong> o <em>cursiva</em> e incluso incorporar fórmulas matemáticas con <em>Latex</em></p>
-<div class="math notranslate nohighlight">
-\[
-f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
-\]</div>
-<p>Todo ello para explicar y realizar anotaciones sobre nuestro código.</p>
-</section>
-<section id="mas-sobre-python">
-<h2>Más sobre Python<a class="headerlink" href="#mas-sobre-python" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Python fue creado en 1991 por Rossum y su nombre se debe a un famoso grupo de comedia británico llamado <em>Monty Python</em>, de ahí que en muchos ejemplos encontremos variables dummy llamadas como <code class="docutils literal notranslate"><span class="pre">spam</span></code> y <code class="docutils literal notranslate"><span class="pre">eggs</span></code> en lugar de los típicos <code class="docutils literal notranslate"><span class="pre">foo</span></code>, <code class="docutils literal notranslate"><span class="pre">bar</span></code>.</p>
-<p>Su popularidad se debe principalmente a que es fácil de aprender y es utilizado para construir aplicaciones en el lado del servidor a través del framework <code class="docutils literal notranslate"><span class="pre">django</span></code>, así como el tratamiento y análisis de datos en ecosistemas <strong>big data</strong> y el desarrollo de soluciones basadas en el <strong>machine learning</strong>.</p>
-<p>Python es un lenguaje que hace especial énfasis en su <strong>legibilidad</strong>, evitando el uso de corchetes y semicolons en favor de la indentación. La filosofía de un buen <em>pythonista</em> puede leerse en <em>The Zen of Python</em></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren&#39;t special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you&#39;re Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it&#39;s a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="funciones">
+<h1>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -652,17 +487,17 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="title.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="control-flow.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Introducción a Python</p>
+            <p class="prev-next-title">Estructuras de control</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python-basics.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="../numpy/title.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Principios básicos de Python</p>
+        <p class="prev-next-title">Numpy</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
