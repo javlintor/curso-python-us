@@ -509,7 +509,7 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="tuplas">
 <h2>Tuplas<a class="headerlink" href="#tuplas" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Las <strong>tuplas</strong> son similares a las listas en el sentido de que nos permiten guardar un número arbitrario de objetos, siempre que sean objetos inmutables (enteros, cadenas, tuplas, etc). Para definir una tupla utilizamos paréntesis <code class="docutils literal notranslate"><span class="pre">()</span></code></p>
+<p>Las <strong>tuplas</strong> son similares a las listas en el sentido de que nos permiten guardar un número arbitrario de objetos y acceder a los mismos mediante índices, es decir, son objetos secuenciales. Para definir una tupla utilizamos paréntesis <code class="docutils literal notranslate"><span class="pre">()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">foo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
@@ -521,6 +521,71 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bar</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;fjkdsljfd&quot;</span><span class="o">.</span><span class="n">islower</span><span class="p">(),</span> <span class="mi">2</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(False, True, False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tuple
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las tuplas son utilizadas para guardar una colección de datos en una estructura simple e <strong>inmutable</strong>, es decir, no podremos modificarlas una vez sean creadas: ni reemplezar, añadir o borrar sus elementos. Dicho de otro modo, es un único objeto formado por distintas partes más que una colección de distintos objetos como una lista.</p>
+<div class="exercise admonition" id="other-data-structures-tuples-inmmutable">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<section id="exercise-content">
+<p>¿Qué error obtenemos al intentar modificar un objeto de una lista?</p>
+</section>
+</div>
+<p>Por consistencia, existen las tuplas de longitud 0 y 1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zero_tuple</span> <span class="o">=</span> <span class="p">()</span>
+<span class="n">one_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,)</span> <span class="c1"># notemos la coma</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aunque podemos utilizar índices numéricos para acceder a los elementos de la tupla, es más común <em>deshacer</em> la tupla en variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">holding</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">490.10</span><span class="p">)</span>
+<span class="n">address</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;www.python.org&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+
+<span class="n">name</span><span class="p">,</span> <span class="n">shares</span><span class="p">,</span> <span class="n">price</span> <span class="o">=</span> <span class="n">holding</span>
+<span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">address</span>
 </pre></div>
 </div>
 </div>
