@@ -474,6 +474,24 @@ title="Print to PDF"
      Comprobar pertenencia
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto">
+     Obtener el índice de la primera instancia de un objeto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contar-el-numero-de-ocurrencias">
+     Contar el número de ocurrencias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexado-y-slicing">
+     Indexado y
+     <em>
+      slicing
+     </em>
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -508,6 +526,24 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#comprobar-pertenencia">
      Comprobar pertenencia
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto">
+     Obtener el índice de la primera instancia de un objeto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contar-el-numero-de-ocurrencias">
+     Contar el número de ocurrencias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexado-y-slicing">
+     Indexado y
+     <em>
+      slicing
+     </em>
     </a>
    </li>
   </ul>
@@ -699,6 +735,158 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</div>
+</section>
+<section id="obtener-el-indice-de-la-primera-instancia-de-un-objeto">
+<h3>Obtener el índice de la primera instancia de un objeto<a class="headerlink" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;cat cat cat&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mf">1566917e62</span><span class="n">a3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;moo&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: &#39;m&#39; is not in list
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="contar-el-numero-de-ocurrencias">
+<h3>Contar el número de ocurrencias<a class="headerlink" href="#contar-el-numero-de-ocurrencias" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;the cat in the hat&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexado-y-slicing">
+<h3>Indexado y <em>slicing</em><a class="headerlink" href="#indexado-y-slicing" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Como ya hemos visto, podemos acceder a objetos individuales utilizando in índice entero que empieza en cero. Este índice puede ser negativo si queremos buscar desde el final de la secuencia</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+<span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos ir más allá y pedir un subconjunto de la sucencia con las operaciones de <em>slicing</em>, cuya sintaxis básica es <code class="docutils literal notranslate"><span class="pre">seq[start:stop:step]</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
+<span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;abcd&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;aceg&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por defecto, <code class="docutils literal notranslate"><span class="pre">start=0</span></code>, <code class="docutils literal notranslate"><span class="pre">stop=len(seq)</span></code> y <code class="docutils literal notranslate"><span class="pre">step=1</span></code>. Si utilizamos valores negativos para <code class="docutils literal notranslate"><span class="pre">step</span></code> invertiremos el orden de la secuencia</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seq</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;gfedcba&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aunque la sintaxis con <code class="docutils literal notranslate"><span class="pre">:</span></code> es la más frecuente, está bien saber que en Python existe el objeto de tipo <code class="docutils literal notranslate"><span class="pre">slice</span></code> para definir nuestra selección de forma independiente a la secuencia. Para ello utilizamos el tipo <code class="docutils literal notranslate"><span class="pre">slice</span></code> con los tres argumentos que hemos visto: <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> y <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reverse</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">reverse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>slice
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="other-data-structures-slices">
+
+<p class="admonition-title"><span class="caption-number">Exercise 14 </span></p>
+<section id="exercise-content">
+<p>¿Qué error obtenemos cuando intentamos acceder a un índice que no existe para una secuencia?</p>
+</section>
+</div>
+<div class="exercise admonition" id="other-data-structures-slices-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 15 </span></p>
+<section id="exercise-content">
+<p>Considera la siguiente tupla</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Indexa o utiliza slides para obtener</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">6)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(4,)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> utilizando un índice negativo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(6,</span> <span class="pre">8)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">6)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(8,</span> <span class="pre">6,</span> <span class="pre">4,</span> <span class="pre">2)</span></code></p></li>
+</ol>
+</section>
 </div>
 </section>
 </section>
