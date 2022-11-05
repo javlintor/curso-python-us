@@ -498,12 +498,12 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#diccionarios">
    Diccionarios
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
+   Comparación complejidad computacional
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
-     Comparación complejidad computacional
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pertenencia">
      Pertenencia
@@ -569,12 +569,12 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#diccionarios">
    Diccionarios
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
+   Comparación complejidad computacional
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
-     Comparación complejidad computacional
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pertenencia">
      Pertenencia
@@ -943,12 +943,35 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="diccionarios">
 <h2>Diccionarios<a class="headerlink" href="#diccionarios" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Un <strong>diccionario</strong></p>
+<p>Un <strong>diccionario</strong> es un objeto que nos permite guardar campos informados mediante una clave. Para crearlos escribimos pares de clave - valor separados por <code class="docutils literal notranslate"><span class="pre">:</span></code> entre corchetes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;GOOG&quot;</span><span class="p">:</span> <span class="mf">490.1</span><span class="p">,</span> 
+    <span class="s2">&quot;AAPL&quot;</span><span class="p">:</span> <span class="mf">123.5</span><span class="p">,</span> 
+    <span class="s2">&quot;IBM&quot;</span><span class="p">:</span> <span class="mf">91.5</span><span class="p">,</span> 
+    <span class="s2">&quot;MSFT&quot;</span><span class="p">:</span> <span class="mf">52.13</span>
+<span class="p">}</span>
+
+<span class="c1"># diccionario vacío </span>
+<span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se pueden crear también diccionarios a partir del constructor <code class="docutils literal notranslate"><span class="pre">dict</span></code>, que acepta un iterable de pares de clave-valor empaquetados en una secuencia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruit_or_veggie</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;carrot&quot;</span><span class="p">,</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <hr class="docutils" />
 <section id="comparacion-complejidad-computacional">
-<h3>Comparación complejidad computacional<a class="headerlink" href="#comparacion-complejidad-computacional" title="Enlazar permanentemente con este título">#</a></h3>
+<h2>Comparación complejidad computacional<a class="headerlink" href="#comparacion-complejidad-computacional" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Vamos a comparar las diferentes estructuras de datos que hemos visto en cuanto a su tiempo de cómputo para diferentes tareas</p>
-</section>
 <section id="pertenencia">
 <h3>Pertenencia<a class="headerlink" href="#pertenencia" title="Enlazar permanentemente con este título">#</a></h3>
 <div class="cell docutils container">
@@ -1023,6 +1046,9 @@ title="Print to PDF"
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/other-data-structures_51_0.png" src="../../_images/other-data-structures_51_0.png" />
 </div>
 </div>
 </section>
