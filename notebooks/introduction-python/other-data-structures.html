@@ -954,7 +954,7 @@ title="Print to PDF"
 <span class="p">}</span>
 
 <span class="c1"># diccionario vacío </span>
-<span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">empty_dict</span> <span class="o">=</span> <span class="p">{}</span>    <span class="c1"># también se crea con dict()</span>
 </pre></div>
 </div>
 </div>
@@ -966,6 +966,127 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</div>
+<p>Para acceder a un valor del diccionario a través de la clave se pueden utilizar corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code> con la clave entre comillas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span><span class="p">[</span><span class="s2">&quot;GOOG&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>490.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>aunque es más recomendable utilizar el método <code class="docutils literal notranslate"><span class="pre">get</span></code>, ya que si la clave buscada no se encuentra devuelve un <code class="docutils literal notranslate"><span class="pre">None</span></code> o el valor por defecto que le indiquemos, en lugar de levantar un error tipo <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;GOOG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>490.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AMZ&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>    <span class="c1"># devuelve 0.0 si no encuentra la clave AMZ</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span><span class="p">[</span><span class="s2">&quot;AMZ&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">31</span><span class="o">-</span><span class="n">a5e5920f828e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">prices</span><span class="p">[</span><span class="s2">&quot;AMZ&quot;</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: &#39;AMZ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los diccionarios son objetos <strong>mutables</strong>, podemos añadir elementos directamente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span><span class="p">[</span><span class="s2">&quot;AMZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">90.98</span>
+<span class="n">prices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;GOOG&#39;: 490.1, &#39;AAPL&#39;: 123.5, &#39;IBM&#39;: 91.5, &#39;MSFT&#39;: 52.13, &#39;AMZ&#39;: 90.98}
+</pre></div>
+</div>
+</div>
+</div>
+<p>para ello también tenemos el método <code class="docutils literal notranslate"><span class="pre">update</span></code>, que acepta otro diccionario o un iterable de pares clave-valor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruit_or_veggie</span><span class="o">.</span><span class="n">update</span><span class="p">([(</span><span class="s2">&quot;grape&quot;</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;onion&quot;</span><span class="p">,</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">)])</span>
+<span class="n">fruit_or_veggie</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;apple&#39;: &#39;fruit&#39;,
+ &#39;carrot&#39;: &#39;vegetable&#39;,
+ &#39;grape&#39;: &#39;fruit&#39;,
+ &#39;onion&#39;: &#39;vegetable&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>para borrar un elemento utilizamos <code class="docutils literal notranslate"><span class="pre">del</span></code> (leventa error si no encuentra la clave) o el método <code class="docutils literal notranslate"><span class="pre">pop</span></code> como vimos en listas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">prices</span><span class="p">[</span><span class="s2">&quot;AMZ&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;GOOG&#39;: 490.1, &#39;AAPL&#39;: 123.5, &#39;IBM&#39;: 91.5, &#39;MSFT&#39;: 52.13}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="other-data-structures-dict">
+
+<p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
+<section id="exercise-content">
+<p>Dada la siguiente tupla de nombres</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s2">&quot;Alicia&quot;</span><span class="p">,</span> <span class="s2">&quot;Eva&quot;</span><span class="p">,</span> <span class="s2">&quot;Manolo&quot;</span><span class="p">,</span> <span class="s2">&quot;Virginia&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>y sus correspondientes calificaciones</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">5.2</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>crea un diccionario que mapee nombres con calificaciones. Luego, actualiza la nota de Virginia a un <code class="docutils literal notranslate"><span class="pre">5.0</span></code>. Finalmente, añade a Alberto, que ha cateado con un <code class="docutils literal notranslate"><span class="pre">2.7</span></code>.</p>
+</section>
 </div>
 </section>
 <hr class="docutils" />
@@ -1015,8 +1136,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
 <span class="n">t_range</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_membership_time_from_range</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
@@ -1040,7 +1160,7 @@ title="Print to PDF"
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;tamaño iterable&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;tiempo (s)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Tiempo de pertenencia para diferentes iterables&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Tiempo de cómputo en verificar pertenencia&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1048,7 +1168,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/other-data-structures_51_0.png" src="../../_images/other-data-structures_51_0.png" />
+<img alt="../../_images/other-data-structures_65_0.png" src="../../_images/other-data-structures_65_0.png" />
 </div>
 </div>
 </section>
