@@ -848,7 +848,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Estos métodos realizan las operaciones <em>inplace</em>, es decir, modifican el objeto sin necesidad de tener que asignarlo. No tiene sentido escribir algo como <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x.append(&quot;foo&quot;)</span></code></p>
+<p>Estos métodos realizan las operaciones <em>inplace</em>, es decir, modifican el objeto sin necesidad de tener que asignarlo. No tiene sentido escribir algo como <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x.append(&quot;foo&quot;)</span></code>, de hecho el método <code class="docutils literal notranslate"><span class="pre">append</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 <p>Otros métodos que pueden ser útiles con listas son</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pop(n)</span></code>: devuelve el elemento <code class="docutils literal notranslate"><span class="pre">n</span></code>-ésimo y lo borra de la lista. Devuelve un <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> si <code class="docutils literal notranslate"><span class="pre">n</span></code> está fuera del índice.</p></li>
@@ -951,6 +951,23 @@ title="Print to PDF"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="kc">True</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 </pre></div>
 </div>
+</section>
+</div>
+<div class="exercise admonition" id="lists-comparison">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<section id="exercise-content">
+<p>Condiera una lista <code class="docutils literal notranslate"><span class="pre">s</span></code> y definamos</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>Indica si las siguientes expresiones son verdaderas o falsas</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">==</span> <span class="pre">s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">is</span> <span class="pre">s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">is</span> <span class="pre">t</span></code></p></li>
+</ul>
 </section>
 </div>
 </section>
