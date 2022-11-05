@@ -970,6 +970,49 @@ title="Print to PDF"
 </ul>
 </section>
 </div>
+<p>Para el siguiente ejercicio, puedes utilizar el módulo <code class="docutils literal notranslate"><span class="pre">time</span></code> o el <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html"><strong>comando mágico</strong></a> de jupyter <code class="docutils literal notranslate"><span class="pre">%%time</span></code> para obtener el tiempo de ejecución de una celdilla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+
+<span class="mi">3</span><span class="o">**</span><span class="mi">999</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9 µs, sys: 0 ns, total: 9 µs
+Wall time: 13.4 µs
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>440690273160268878963485086584048121988474010917382722554973456075609532448901633180259437950202687321303259232290860785316984860700206303955114241752651224675873408399440267959338258076321613758130133372529539347042982605207698146020522057684695558163502059375160114801849018132346298605821789418305378740276756187926194096742805466102629298972852134694966312536457747390615453312898505588339646862703020142029890479621367604783461882915721944003538122044057700922967618406667
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="mi">3</span><span class="o">**</span><span class="mi">999</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution time: </span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">0.8f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.00009036 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="lists-membership">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<section id="exercise-content">
+<p>Usando la estructura <code class="docutils literal notranslate"><span class="pre">list(range(n)</span></code>, crea listas de diferentes tamaños y estima la complejidad computacional en cuanto a tiempo de cómputo de comprobar la pertenencia a una lista.</p>
+</section>
+</div>
 </section>
 </section>
 
