@@ -500,6 +500,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjuntos">
+   Conjuntos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
    Comparación complejidad computacional
   </a>
@@ -568,6 +573,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diccionarios">
    Diccionarios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjuntos">
+   Conjuntos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1091,6 +1101,19 @@ title="Print to PDF"
 <blockquote>
 <div><p>Un diccionario <strong>puede almacenar cualquier tipo de objeto</strong>, pero las claves deben ser siempre <strong>inmutables</strong>, o más generalmente, <strong>hasheables</strong>.</p>
 </div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> 
+    <span class="s2">&quot;moo&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="nb">print</span><span class="p">,</span>
+    <span class="mf">3.4</span><span class="p">:</span> <span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="c1"># es altamente no recomendable usar floats como claves </span>
+    <span class="kc">False</span><span class="p">:[]</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="other-data-structures-dict-2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 21 </span></p>
@@ -1098,6 +1121,79 @@ title="Print to PDF"
 <p>¿Qué tipo de error obtenemos al crear un diccionario con una clave que sea mutable?</p>
 </section>
 </div>
+<p>Cuando iteramos sobre un diccionario, se utilizan las claves como referencia. Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="s2">&quot;value3&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">example_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;key1&#39;, &#39;key2&#39;, &#39;key3&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;value1&quot;</span> <span class="ow">in</span> <span class="n">example_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">example_dict</span><span class="p">)</span> <span class="c1"># nos da el número de claves</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para acceder a los valores de un diccionario, hay que invocar al método <code class="docutils literal notranslate"><span class="pre">values</span></code>. Si queremos los pares clave-valor como duplas, llamamos a <code class="docutils literal notranslate"><span class="pre">items</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">example_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;value1&#39;, &#39;value2&#39;, &#39;value3&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">example_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;key1&#39;, &#39;value1&#39;), (&#39;key2&#39;, &#39;value2&#39;), (&#39;key3&#39;, &#39;value3&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="conjuntos">
+<h2>Conjuntos<a class="headerlink" href="#conjuntos" title="Enlazar permanentemente con este título">#</a></h2>
 </section>
 <hr class="docutils" />
 <section id="comparacion-complejidad-computacional">
@@ -1178,7 +1274,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/other-data-structures_67_0.png" src="../../_images/other-data-structures_67_0.png" />
+<img alt="../../_images/other-data-structures_77_0.png" src="../../_images/other-data-structures_77_0.png" />
 </div>
 </div>
 </section>
