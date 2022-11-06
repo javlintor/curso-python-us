@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Numpy" href="../numpy/title.html" />
+    <link rel="next" title="Otras estructuras de datos" href="other-data-structures.html" />
     <link rel="prev" title="Booleanos" href="booleans.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -157,6 +157,26 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Listas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="other-data-structures.html">
+     Otras estructuras de datos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="control-flow.html">
+     Estructuras de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="functions.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises.html">
+     Ejercicios del capítulo 1
     </a>
    </li>
   </ul>
@@ -440,6 +460,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#las-listas-son-iterables">
+   Las listas son iterables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#las-listas-son-secuencias">
    Las listas son secuencias
   </a>
@@ -469,6 +494,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#las-listas-son-iterables">
+   Las listas son iterables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#las-listas-son-secuencias">
    Las listas son secuencias
   </a>
@@ -488,10 +518,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/listas.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/lists.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="listas">
 <h1>Listas<a class="headerlink" href="#listas" title="Enlazar permanentemente con este título">#</a></h1>
-<p>Las <strong>listas</strong> son un tipo de objeto que nos permite guardar una secuencia de otros objetos, actualizarlos, añadir nuevos y borrarlos. A diferencia de todos los tipos que hemos visto hasta ahora, las listas con objetos <strong>mutables</strong>, es decir, pueden cambiar en la ejecución de nuestro programa.</p>
+<p>Las <strong>listas</strong> son un tipo de objeto que nos permite guardar una secuencia de otros objetos, actualizarlos, añadir nuevos y borrarlos. A diferencia de todos los tipos que hemos visto hasta ahora, las listas con objetos <strong>mutables</strong>, es decir, pueden cambiar durante la ejecución de nuestro programa.</p>
 <p>Para crear una lista en Python usamos corchetes y escribimos sus elementos separados por comas <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code>. Los objetos de una lista <strong>no tienen por qué ser del mismo tipo de objeto</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,9 +617,112 @@ title="Print to PDF"
 </div>
 </div>
 <hr class="docutils" />
+<section id="las-listas-son-iterables">
+<h2>Las listas son iterables<a class="headerlink" href="#las-listas-son-iterables" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Los <strong>objetos iterables</strong> son aquellos compatibles con operaciones de iteración, la más común de ellas el buque <em>for</em>, que veremos más adelante. Otros objetos iterables pueden ser las tuplas, los diccionarios, los conjuntos, los rangos, los generadores, los arrays de numpy etc. Dado un iterable <code class="docutils literal notranslate"><span class="pre">s</span></code>, podemos realizar las siguientes operaciones</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Operación</p></th>
+<th class="text-align:left head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">vars</span> <span class="pre">in</span> <span class="pre">s:</span></code></p></td>
+<td class="text-align:left"><p>Iteración</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">...</span> <span class="pre">=</span> <span class="pre">s</span></code></p></td>
+<td class="text-align:left"><p>Deshacer en variables</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">s</span></code> <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">s</span></code></p></td>
+<td class="text-align:left"><p>Pertenencia</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">*s,</span> <span class="pre">b]</span></code></p></td>
+<td class="text-align:left"><p>Expandir</p></td>
+</tr>
+</tbody>
+</table>
+<p>Veamos algunos ejemplos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">items</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 4 5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">items</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">items</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Existen muchas funciones predefinidas que aceptan un iterable como argumento, aquí exponemos algunas de ellas</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Función</p></th>
+<th class="text-align:left head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">list(s)</span></code></p></td>
+<td class="text-align:left"><p>Crea una lista a partir de <code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">tuple(s)</span></code></p></td>
+<td class="text-align:left"><p>Crea una tupla a partir de <code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">set(s)</span></code></p></td>
+<td class="text-align:left"><p>Crea una conjunto a partir de <code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">min(s,</span> <span class="pre">[,key])</span></code></p></td>
+<td class="text-align:left"><p>Mínimo de <code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">max(s,</span> <span class="pre">[,key])</span></code></p></td>
+<td class="text-align:left"><p>Máximo de <code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">any(s)</span></code></p></td>
+<td class="text-align:left"><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> si algún item de <code class="docutils literal notranslate"><span class="pre">s</span></code> es verdadero</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">all(s)</span></code></p></td>
+<td class="text-align:left"><p>Devuelve <code class="docutils literal notranslate"><span class="pre">True</span></code> si todos los items de <code class="docutils literal notranslate"><span class="pre">s</span></code> son verdaderos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">sum(s,</span> <span class="pre">[,</span> <span class="pre">initial])</span></code></p></td>
+<td class="text-align:left"><p>Suma de <code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">sorted(s,</span> <span class="pre">[,</span> <span class="pre">key])</span></code></p></td>
+<td class="text-align:left"><p>Crea una lista ordenada</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
 <section id="las-listas-son-secuencias">
 <h2>Las listas son secuencias<a class="headerlink" href="#las-listas-son-secuencias" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Al igual que las cadenas, las listas son secuencias, por lo que el orden de sus objetos es importante y podemos acceder a los mismo mediante un índice entero que empieza en cero.</p>
+<p>Al igual que las cadenas, las listas <strong>son secuencias</strong>, por lo que el orden de sus objetos es importante y podemos acceder a los mismo mediante un índice entero que empieza en cero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># El orden importa</span>
@@ -715,11 +848,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Estos métodos realizan las operaciones <em>inplace</em>, es decir, modifican el objeto sin necesidad de tener que asignarlo. No tiene sentido escribir algo como <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x.append(&quot;foo&quot;)</span></code></p>
+<p>Estos métodos realizan las operaciones <em>inplace</em>, es decir, modifican el objeto sin necesidad de tener que asignarlo. No tiene sentido escribir algo como <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x.append(&quot;foo&quot;)</span></code>, de hecho el método <code class="docutils literal notranslate"><span class="pre">append</span></code> devuelve <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
 <p>Otros métodos que pueden ser útiles con listas son</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pop(n)</span></code>: devuelve el elemento <code class="docutils literal notranslate"><span class="pre">n</span></code>-ésimo y lo borra de la lista. Devuelve un <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> si <code class="docutils literal notranslate"><span class="pre">n</span></code> está fuera del índice.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">remove(a)</span></code>: borra el primer elemento cuyo valor coincida con <code class="docutils literal notranslate"><span class="pre">a</span></code>. Devuelve un <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> si no encuentra el valor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove(a)</span></code>: borra el primer elemento cuyo valor coincida con <code class="docutils literal notranslate"><span class="pre">a</span></code>. Devuelve un <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> si no encuentra el valor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">insert(n,</span> <span class="pre">a)</span></code>: inserta el objeto <code class="docutils literal notranslate"><span class="pre">a</span></code> en la posición <code class="docutils literal notranslate"><span class="pre">n</span></code>-ésima de la lista</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -778,6 +912,107 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;b&#39;, &#39;d&#39;, None, &#39;a&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos concatenar listas usando el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>. En caso de tener listas anidadas, es posible aplicar directamente más de una operación de indexado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;bar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="lists-index">
+
+<p class="admonition-title"><span class="caption-number">Exercise 11 </span></p>
+<section id="exercise-content">
+<p>Modifica la siguiente lista</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>para obtener</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="kc">True</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="lists-comparison">
+
+<p class="admonition-title"><span class="caption-number">Exercise 12 </span></p>
+<section id="exercise-content">
+<p>Condiera una lista <code class="docutils literal notranslate"><span class="pre">s</span></code> y definamos</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>Indica si las siguientes expresiones son verdaderas o falsas</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">==</span> <span class="pre">s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">is</span> <span class="pre">s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">is</span> <span class="pre">t</span></code></p></li>
+</ul>
+</section>
+</div>
+<p>Para el siguiente ejercicio, puedes utilizar el módulo <code class="docutils literal notranslate"><span class="pre">time</span></code> o el <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html"><strong>comando mágico</strong></a> de jupyter <code class="docutils literal notranslate"><span class="pre">%%time</span></code> para obtener el tiempo de ejecución de una celdilla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+
+<span class="mi">3</span><span class="o">**</span><span class="mi">999</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9 µs, sys: 0 ns, total: 9 µs
+Wall time: 13.4 µs
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>440690273160268878963485086584048121988474010917382722554973456075609532448901633180259437950202687321303259232290860785316984860700206303955114241752651224675873408399440267959338258076321613758130133372529539347042982605207698146020522057684695558163502059375160114801849018132346298605821789418305378740276756187926194096742805466102629298972852134694966312536457747390615453312898505588339646862703020142029890479621367604783461882915721944003538122044057700922967618406667
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="mi">3</span><span class="o">**</span><span class="mi">999</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution time: </span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">0.8f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Execution time: 0.00009036 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="lists-membership">
+
+<p class="admonition-title"><span class="caption-number">Exercise 13 </span></p>
+<section id="exercise-content">
+<p>Usando la estructura <code class="docutils literal notranslate"><span class="pre">list(range(n)</span></code>, crea listas de diferentes tamaños y estima la complejidad computacional en cuanto a tiempo de cómputo de comprobar la pertenencia a una lista.</p>
+</section>
+</div>
 </section>
 </section>
 
@@ -815,10 +1050,10 @@ title="Print to PDF"
             <p class="prev-next-title">Booleanos</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../numpy/title.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="other-data-structures.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Numpy</p>
+        <p class="prev-next-title">Otras estructuras de datos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

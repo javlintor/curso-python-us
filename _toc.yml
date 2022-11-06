@@ -3,9 +3,9 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: notebooks/introduction-python/title.md
-  sections: 
+parts:
+- caption: Introducción a Python
+  chapters: 
   - file: notebooks/introduction-python/introduction-python.ipynb
   - file: notebooks/introduction-python/python-basics.ipynb
   - file: notebooks/introduction-python/numeric-types.ipynb
@@ -16,13 +16,13 @@ chapters:
   - file: notebooks/introduction-python/control-flow.ipynb
   - file: notebooks/introduction-python/functions.ipynb
   - file: notebooks/introduction-python/exercises.ipynb
-- file: notebooks/numpy/title.md
-  sections: 
+- caption: Numpy
+  chapters: 
   - file: notebooks/numpy/introduction-numpy.ipynb
   - file: notebooks/numpy/numpy-basics.ipynb
   - file: notebooks/numpy/nn-with-numpy.ipynb
-- file: notebooks/matplotlib/title.md
-  sections: 
+- caption: Matplotlib
+  chapters: 
   - file: notebooks/matplotlib/introduction-matplotlib.ipynb
   - file: notebooks/matplotlib/advanced-graphics.ipynb
 # - file: notebooks/pandas/title.md
@@ -33,4 +33,6 @@ chapters:
 # - file: notebooks/matplotlib/title.md
 #   sections: 
 #   - file: notebooks/matplotlib/matplotlib.ipynb
-- file: bibliography.md
+- caption: Bilbiografía
+  chapters:
+  - file: bibliography.md

@@ -14,6 +14,15 @@ list(1)
 
 list([1])
 
+items = [3, 4, 5]
+x, y, z = items
+print(x, y, z)
+
+"a" in items
+
+a = [1, 2, *items, 6]
+a
+
 # El orden importa
 [1, "a", True] == ["a", 1, True]
 
@@ -56,3 +65,20 @@ x
 x.remove("a")
 
 x
+
+x.insert(2, None)
+x
+
+x = [[1, "foo"], ["bar", None], True, 3.5]
+x[1][0]
+
+%%time
+
+3**999
+
+import time
+
+start = time.time()
+3**999
+end = time.time()
+print(f"Execution time: {end - start:0.8f} seconds")
