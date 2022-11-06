@@ -37,7 +37,7 @@ y también su correspondiente solución
 
 que sirven para renderizar los ejercicios y sus soluciones con un formato más visual, todo ello está alojado en [el directorio `notebooks` del repositorio principal](https://github.com/javlintor/curso-python-us/tree/main/notebooks).
 
-# Contribuye 💻
+## Contribuye 💻
 
 Para contribuir con el curso, ya sea para proponer la solución de algún ejercicio o nuevos ejercicios, corregir erratas, mejorar el contenido del curso, o cualquier cosa que se te ocurra, puedes seguir los siguientes pasos
 - crea una **bifurcación** del repositorio en tu cuenta de [github](https://github.com/), pulsando el botón `fork` que aparece arriba a la derecha.
