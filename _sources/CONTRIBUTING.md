@@ -1,4 +1,4 @@
-# Contribuye 💻
+## Contribuye 💻
 
 Para contribuir con el curso, ya sea para proponer la solución de algún ejercicio o nuevos ejercicios, corregir erratas, mejorar el contenido del curso, o cualquier cosa que se te ocurra, puedes seguir los siguientes pasos
 - crea una **bifurcación** del repositorio en tu cuenta de [github](https://github.com/), pulsando el botón `fork` que aparece arriba a la derecha.
