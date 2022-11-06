@@ -490,6 +490,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjuntos">
+   Conjuntos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
    Comparación complejidad computacional
   </a>
@@ -558,6 +563,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diccionarios">
    Diccionarios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjuntos">
+   Conjuntos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1043,7 +1053,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>para borrar un elemento utilizamos <code class="docutils literal notranslate"><span class="pre">del</span></code> (leventa error si no encuentra la clave) o el método <code class="docutils literal notranslate"><span class="pre">pop</span></code> como vimos en listas.</p>
+<p>para borrar un elemento utilizamos <code class="docutils literal notranslate"><span class="pre">del</span></code> (leventa error si no encuentra la clave) o el método <code class="docutils literal notranslate"><span class="pre">pop</span></code> o <code class="docutils literal notranslate"><span class="pre">remove</span></code> como vimos en listas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">prices</span><span class="p">[</span><span class="s2">&quot;AMZ&quot;</span><span class="p">]</span>
@@ -1172,6 +1182,102 @@ title="Print to PDF"
 </div>
 </section>
 <hr class="docutils" />
+<section id="conjuntos">
+<h2>Conjuntos<a class="headerlink" href="#conjuntos" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Los <strong>conjuntos</strong> nos sirven para crear una estructura de objetos <strong>únicos</strong> y <strong>sin orden</strong>. Por lo tanto son útiles para</p>
+<ul class="simple">
+<li><p>Filtrar objetos repetidos de una colección.</p></li>
+<li><p>Comprobar pertenencia de un objeto en tiempo constante.</p></li>
+<li><p>Verificar si una colección de objetos contiene a otra.
+La estructura de conjunto utiliza el método <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> que incoporan los objetos hasheables para guardarlos. Es parecido a los diccionarios pero sin utilizar una clave, por lo tanto <strong>no podemos guardar objetos mutables en un conjunto</strong>.</p></li>
+</ul>
+<p>Para crear un conjunto utilizamos corchetes <code class="docutils literal notranslate"><span class="pre">{}</span></code> o la función <code class="docutils literal notranslate"><span class="pre">set</span></code>, a la que podemos pasar cualquier iterable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)}</span>
+<span class="n">my_set</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{(1, 2, 3), 1, 3.4, False, &#39;apple&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;baz&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="n">fd79aa68f5c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;baz&quot;</span><span class="p">]}</span>
+
+<span class="ne">TypeError</span>: unhashable type: &#39;list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al igual que los diccionarios, los conjuntos son objetos <strong>iterables que no son secuencias</strong>. A continuación mostramos las operaciones más usuales entre conjuntos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">}</span>
+
+<span class="c1"># unión</span>
+<span class="n">x</span> <span class="o">|</span> <span class="n">y</span>  <span class="c1"># o x.union(y)</span>
+<span class="c1"># {&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;}</span>
+
+<span class="c1"># intersección</span>
+<span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span>  <span class="c1"># o x.intersection(y)</span>
+<span class="c1"># {&#39;a&#39;, &#39;b&#39;}</span>
+
+<span class="c1"># diferencia</span>
+<span class="n">x</span> <span class="o">-</span> <span class="n">y</span>  <span class="c1"># o x.difference(y)</span>
+<span class="c1"># {&#39;c&#39;, &#39;d&#39;}</span>
+
+<span class="c1"># diferencia simétrica</span>
+<span class="n">x</span> <span class="o">^</span> <span class="n">y</span>  <span class="c1"># o x.symmetric_difference(y)</span>
+<span class="c1"># {&#39;c&#39;, &#39;d&#39;, &#39;e&#39;}</span>
+
+<span class="c1"># verifica subconjunto</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">&gt;=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="c1"># True</span>
+
+<span class="c1"># verifica igualdad </span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los conjuntos con objetos <strong>mutables</strong>, podemos modificarlos con los métodos <code class="docutils literal notranslate"><span class="pre">add</span></code> (añade un elemento), <code class="docutils literal notranslate"><span class="pre">update</span></code> (añade varios elementos mediante un iterable) o <code class="docutils literal notranslate"><span class="pre">remove</span></code>. Existe una versión <strong>inmutable</strong> de los conjuntos, llamada <code class="docutils literal notranslate"><span class="pre">fronzenset</span></code>.</p>
+<div class="exercise admonition" id="other-data-structures-sets">
+
+<p class="admonition-title"><span class="caption-number">Exercise 22 </span></p>
+<section id="exercise-content">
+<p>Considera las siguientes listas de nombres:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Curie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Feynman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Heisenberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohm&quot;</span><span class="p">,</span> <span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Hopper&quot;</span><span class="p">,</span> <span class="s2">&quot;Montalcini&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Einsteins&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Escribe expresiones que devuelvan:</p>
+<ol class="simple">
+<li><p>Número total de nombres únicos.</p></li>
+<li><p>Nombres de A que no están en B.</p></li>
+<li><p>Número de nombres de A que no están en B o nombres de B que no están en A</p></li>
+</ol>
+</section>
+</div>
+<p>Existen otras muchas estructuras de datos altamente optimizadas para tareas concretas en el módulo <a class="reference external" href="https://docs.python.org/3/library/collections.html"><code class="docutils literal notranslate"><span class="pre">collections</span></code></a></p>
+</section>
+<hr class="docutils" />
 <section id="comparacion-complejidad-computacional">
 <h2>Comparación complejidad computacional<a class="headerlink" href="#comparacion-complejidad-computacional" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Vamos a comparar las diferentes estructuras de datos que hemos visto en cuanto a su tiempo de cómputo para diferentes tareas</p>
@@ -1250,7 +1356,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/other-data-structures_76_0.png" src="../../_images/other-data-structures_76_0.png" />
+<img alt="../../_images/other-data-structures_84_0.png" src="../../_images/other-data-structures_84_0.png" />
 </div>
 </div>
 </section>
