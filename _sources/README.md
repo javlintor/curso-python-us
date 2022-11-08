@@ -46,6 +46,8 @@ Para contribuir con el curso, ya sea para proponer la solución de algún ejerci
 
 No existe ninguna política para contribuir, pero intenta dar contexto a tu propuesta y que los archivos modificados estén dentro del directorio `notebooks/`. Ten en cuanta que **las etiquetas de los ejercicios son únicas** y que **justo al empezar una solución hay que referenciar el ejercicio correspondiente**. 
 
+Cualquier incidencia o propuesta de mejora, no dudes en escribir en el [apartado de issues](https://github.com/javlintor/curso-python-us/issues) del repositorio.
+
 ## Se agradece
 
-Si te gusta el contenido del curso o crees que te ha resultado útil, no olvides premiar con una estrella ⭐️ a este [repositorio](https://github.com/javlintor/curso-python-us).
+Si te gusta el contenido del curso o crees que te ha resultado útil, no olvides premiar con una estrella ⭐️ a este [repositorio](https://github.com/javlintor/curso-python-us). 
