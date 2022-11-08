@@ -453,6 +453,25 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#bloques-condicionales">
    Bloques condicionales
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">
+     Declaraciones
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       if
+      </span>
+     </code>
+     -
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       else
+      </span>
+     </code>
+     en línea
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -477,6 +496,25 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#bloques-condicionales">
    Bloques condicionales
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">
+     Declaraciones
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       if
+      </span>
+     </code>
+     -
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       else
+      </span>
+     </code>
+     en línea
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -594,6 +632,30 @@ title="Print to PDF"
 </ul>
 </section>
 </div>
+<section id="declaraciones-if-else-en-linea">
+<h3>Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea<a class="headerlink" href="#declaraciones-if-else-en-linea" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Como ya hemos visto en las expresiones de comprensión, Python soporta una sintaxis que nos permite escribir bloques <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en la misma línea. Por ejemplo el siguiente código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;positive&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;negative&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>es equivalente a</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;positive&quot;</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;negative&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
