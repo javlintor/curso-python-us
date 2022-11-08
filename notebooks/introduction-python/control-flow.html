@@ -453,6 +453,40 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="estructuras-de-control">
 <h1>Estructuras de control<a class="headerlink" href="#estructuras-de-control" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Hasta ahora, el código que hemos escrito se ejecuta de forma secuencial y lineal, pero normalmente nos interesará introducir un <strong>control del flujo</strong> para crear estructuras que nos permiten introducir una lógica que haga nuestro código más útil. Para ello en esta sección y las siguientes, vamos a ver</p>
+<ul class="simple">
+<li><p>bloques de tipo if, elif, else</p></li>
+<li><p>bucles tipo for y while</p></li>
+<li><p>funciones</p></li>
+<li><p>clases</p></li>
+</ul>
+<p>Antes de ello, es importante notar que <strong>Python hace uso de la indentación para definir el alcance</strong> de un fragmento de nuestro programa. Mientras que otros programas utilizan corchetes y delimitadores, en Python utilizamos indentación para definir bucles, funciones, clases etc.</p>
+<blockquote>
+<div><p>En Python, uno o más espacios en blanco son interpretados como una indentación. Lo que sí es fundamental es utilizar siempre el mismo número de espacios en blanco.</p>
+</div></blockquote>
+<p>Por ejemplo</p>
+<p>Buena indentación ✅</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 4 espacios</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># 4 espacios</span>
+</pre></div>
+</div>
+<p>Mal ❌</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>  
+       <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>   
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  
+    <span class="k">return</span> <span class="n">z</span> 
+
+<span class="c1"># Debemos usar siempre el mismo número de espacios</span>
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>  
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>  
+  <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>    
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
