@@ -473,6 +473,27 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bucles-for-y-while">
+   Bucles
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     for
+    </span>
+   </code>
+   y
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     while
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bucles-while">
+   Bucles while
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -515,6 +536,27 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bucles-for-y-while">
+   Bucles
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     for
+    </span>
+   </code>
+   y
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     while
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bucles-while">
+   Bucles while
+  </a>
  </li>
 </ul>
 
@@ -656,6 +698,79 @@ title="Print to PDF"
 </div>
 </div>
 </section>
+</section>
+<hr class="docutils" />
+<section id="bucles-for-y-while">
+<h2>Bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#bucles-for-y-while" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Con un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code>podemos iterar sobre una colección de items almacenados en un objeto <strong>iterable</strong>, ejecutando un bloque de código una vez por cada iteración. Por ejemplo el siguiente código devuelve los números positivos de una tupla</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mf">22.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">num</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La sintaxis general para un <code class="docutils literal notranslate"><span class="pre">for</span></code> es la siguiente</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="n">block</span> <span class="n">of</span> <span class="n">code</span>
+</pre></div>
+</div>
+<p>donde <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> es un nombre de variable válido e <code class="docutils literal notranslate"><span class="pre">&lt;iterable&gt;</span></code> es cualquier objeto iterable. La expresion que define el bucle debe acabar en <code class="docutils literal notranslate"><span class="pre">:</span></code> y el cuerpo del bucle debe tener al menos un espacio en blanco de identación. El bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> se comporta de la siguiente manera</p>
+<ol class="simple">
+<li><p>Pide el siguiente objeto del iterable.</p></li>
+<li><p>Si el iterable es vacío, sale fuera del cuerpo</p></li>
+<li><p>Si no, lo asigna a <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> y ejecuta el cuerpo del bucle.</p></li>
+<li><p>Vuelve al paso 1.</p></li>
+</ol>
+<p>Una observación importate es que la variable del bucle <strong>persistirá</strong> con el último valor que haya tomado después de que el mismo se haya ejecutado. Por ello, intenta escribir código que no dependa de la variable de iteración fuera del bucle for. Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Foo
+Foo
+1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+<span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;abcdefghijklmnopqrstuvwxyz&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="control-flow-for">
+
+<p class="admonition-title"><span class="caption-number">Exercise 27 </span></p>
+<section id="exercise-content">
+<p>Utilizando la cadena <code class="docutils literal notranslate"><span class="pre">ascii_lowercase</span></code> definida en el módulo <code class="docutils literal notranslate"><span class="pre">string</span></code>, escribe las letras consonantes del abecedario.</p>
+</section>
+</div>
+</section>
+<hr class="docutils" />
+<section id="bucles-while">
+<h2>Bucles while<a class="headerlink" href="#bucles-while" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Un bucle while nos permite repetir una serie de instrucciones <strong>hasta que alguna condición no sea verdadera</strong>. La estructura es la siguiente</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="n">block</span> <span class="n">of</span> <span class="n">code</span>
+</pre></div>
+</div>
 </section>
 </section>
 
