@@ -494,6 +494,27 @@ title="Print to PDF"
    Bucles while
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#break-continue-y-else">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     break
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     continue
+    </span>
+   </code>
+   y
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     else
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -556,6 +577,27 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bucles-while">
    Bucles while
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#break-continue-y-else">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     break
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     continue
+    </span>
+   </code>
+   y
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     else
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -770,6 +812,134 @@ Foo
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="n">block</span> <span class="n">of</span> <span class="n">code</span>
 </pre></div>
+</div>
+<p>En este caso, el comportamiento viene dada por</p>
+<ol class="simple">
+<li><p>Se llamada a <code class="docutils literal notranslate"><span class="pre">bool(condition)</span></code> y se ejecuta el cuerpo en caso de sea <code class="docutils literal notranslate"><span class="pre">True</span></code>. En otro caso, el cuerpo no se ejecuta.</p></li>
+<li><p>Si el bloque se ha ejecutado, vuelta al paso 1.</p></li>
+</ol>
+<p>Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notemos el valor final de la variable <code class="docutils literal notranslate"><span class="pre">total</span></code>.</p>
+<blockquote>
+<div><p>Si alguna vez ejecutas por error un bucle <code class="docutils literal notranslate"><span class="pre">while</span></code> infito, puedes interrumpir o reiniciar el kernel para salir o si estás ejecutando desde una terminal, pulsando <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code>.</p>
+</div></blockquote>
+<div class="exercise admonition" id="control-flow-while">
+
+<p class="admonition-title"><span class="caption-number">Exercise 28 </span></p>
+<section id="exercise-content">
+<p>Dada una lista <code class="docutils literal notranslate"><span class="pre">x</span></code> de números no negativos de longitud estrictamente positiva, añade a la lista la suma de la misma hasta que dicha suma sea mayor o igual a 100. Utiliza la función <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p>
+</section>
+</div>
+</section>
+<hr class="docutils" />
+<section id="break-continue-y-else">
+<h2><code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#break-continue-y-else" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Ahora vamos a ver algunos comandos que nos permitirán personalizar el comportamiento de nuestros bucles. Los comandos <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">break</span></code> se utilizan en el cuerpo de los bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code>, en concreto</p>
+<ul class="simple">
+<li><p>Al encontrar <code class="docutils literal notranslate"><span class="pre">break</span></code>, automáticamente salimos del bucle en cuestión.</p></li>
+<li><p>Si utilizamos <code class="docutils literal notranslate"><span class="pre">continue</span></code>, saltamos a la siguiente iteración del mismo.</p></li>
+</ul>
+<p>Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  ...next iteration
+2  ...next iteration
+3  ...break!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...continue!&quot;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1  ...next iteration
+2  ...next iteration
+3  ...continue!
+4  ...next iteration
+5  ...next iteration
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por otro lado, el comando <code class="docutils literal notranslate"><span class="pre">else</span></code> se utiliza en conjunción con <code class="docutils literal notranslate"><span class="pre">break</span></code> para ejecutar un bloque de código tras un bucle <strong>siempre y cuando no se haya encotnrado ningún <code class="docutils literal notranslate"><span class="pre">break</span></code></strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2  ...next iteration
+4  ...next iteration
+6  ...next iteration
+foo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2  ...break!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="control-flow-break-continue">
+
+<p class="admonition-title"><span class="caption-number">Exercise 29 </span></p>
+<section id="exercise-content">
+<p>Estudia como se comportan <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code> cuando tenemos varios bucles anidados.</p>
+</section>
 </div>
 </section>
 </section>
