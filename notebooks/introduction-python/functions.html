@@ -454,6 +454,16 @@ title="Print to PDF"
    Argumentos por defecto
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argumentos-variacionales">
+   Argumentos variacionales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argumentos-nombrados-y-posicionales">
+   Argumentos nombrados y posicionales
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -476,6 +486,16 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#argumentos-por-defecto">
    Argumentos por defecto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argumentos-variacionales">
+   Argumentos variacionales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argumentos-nombrados-y-posicionales">
+   Argumentos nombrados y posicionales
   </a>
  </li>
 </ul>
@@ -605,9 +625,128 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<hr class="docutils" />
+<section id="argumentos-variacionales">
+<h2>Argumentos variacionales<a class="headerlink" href="#argumentos-variacionales" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Una función en Python puede aceptar <strong>un número variable</strong> de argumentos si un asterisco <code class="docutils literal notranslate"><span class="pre">*</span></code> se utiliza antes del nombre de una variable, que por convenio suele denominarse <code class="docutils literal notranslate"><span class="pre">*args</span></code>. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">first</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">product</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">product</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso, todos los argumentos extra se localizan en la variable <code class="docutils literal notranslate"><span class="pre">args</span></code> como una tupla. Podemos por lo tanto trabajar con los argumentos utilizando las operaciones estándar de secuencias: iteración, slicing, desempaquetado etc.</p>
+</section>
+<hr class="docutils" />
+<section id="argumentos-nombrados-y-posicionales">
+<h2>Argumentos nombrados y posicionales<a class="headerlink" href="#argumentos-nombrados-y-posicionales" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Los argumentos de las funciones también pueden nombrarse explícitamente para cada parámetro cuando son invocadas, además en ese caso el orden de los argumentos no importa siempre que cada uno tome <strong>un único valor</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos llamarla como <code class="docutils literal notranslate"><span class="pre">f(x=3,</span> <span class="pre">y=22,</span> <span class="pre">w=&quot;foo&quot;,</span> <span class="pre">z=[1,</span> <span class="pre">2])</span></code> y alterar el orden. Los argumentos en los que explicitamos el nombre son denominados <strong>argumentos nombrados</strong> y el resto <strong>argumentos posicionales</strong>. Si combinamos ambos, tendremos que tener en cuenta que los posicionales deben ir siempre primero y que ningún argumento reciba más de un valor. Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅</span>
+<span class="n">f</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">79</span><span class="n">c55e15d211</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># ❌</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="ne">TypeError</span>: f() got multiple values for argument &#39;w&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos obligar al uso de argumentos nombrados en nuestras funciones añadiendo argumentos tras un asterisco <code class="docutils literal notranslate"><span class="pre">*</span></code>. Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">first</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;Data.csv&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">875</span><span class="n">c77499821</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;Data.csv&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: read_data() takes 1 positional argument but 2 were given
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;Data.csv&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
