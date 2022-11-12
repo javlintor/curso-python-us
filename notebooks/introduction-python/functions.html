@@ -464,6 +464,11 @@ title="Print to PDF"
    Argumentos nombrados y posicionales
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argumentos-variacionales-nombrados">
+   Argumentos variacionales nombrados
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -496,6 +501,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#argumentos-nombrados-y-posicionales">
    Argumentos nombrados y posicionales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argumentos-variacionales-nombrados">
+   Argumentos variacionales nombrados
   </a>
  </li>
 </ul>
@@ -747,6 +757,49 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;Data.csv&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="argumentos-variacionales-nombrados">
+<h2>Argumentos variacionales nombrados<a class="headerlink" href="#argumentos-variacionales-nombrados" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Si el último argumento de una función tiene el prefijo <code class="docutils literal notranslate"><span class="pre">**</span></code>, todos los argumentos nombrados que no coincidan con los anteriormente definidos se guardarán en un diccionario que se pasa a la función, que por convenio suele llamarse <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="n">font_color</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;font_color&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">bg_color</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;bg_color&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># otros argumentos...</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="c1"># lanza un error si hay otras configuraciones </span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Combinando el uso de <code class="docutils literal notranslate"><span class="pre">*</span></code> y <code class="docutils literal notranslate"><span class="pre">**</span></code> podemos escribir funciones que aceptan cualquier combinatión de argumentos. Los argumentos posicionales son pasado como una tupla y los nombrados como un diccionario</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 2)
+{&#39;a&#39;: &#39;foo&#39;, &#39;debug&#39;: False}
 </pre></div>
 </div>
 </div>
