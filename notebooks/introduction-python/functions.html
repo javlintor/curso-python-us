@@ -482,8 +482,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-lambda">
+   Funciones lambda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#map-filter-reduce">
    Map, Filter, Reduce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decoradores">
+   Decoradores
   </a>
  </li>
 </ul>
@@ -536,8 +546,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-lambda">
+   Funciones lambda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#map-filter-reduce">
    Map, Filter, Reduce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decoradores">
+   Decoradores
   </a>
  </li>
 </ul>
@@ -1113,7 +1133,7 @@ f(n) =  \begin{cases}
 <p>Cada vez que ejecutamos una función se crea <strong>un espacio de nombres local</strong>, que es un entorno que contiene el nombre y los valores de los parámetros de la fucnión así como variables que son asignadas dentro de la función. Las variables no definidas en el espacio local de una función son buscadas de forma dinámica (es decir, durante la ejecución de la función cuando es llamada) en el espacio global de nombres.</p>
 <p>En este contexto son dos los tipos de errores que nos podemos encontrar</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">UnboundeLocalError</span></code>: variable local que todavía no ha sido asignada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UnboundedLocalError</span></code>: variable local que todavía no ha sido asignada.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NameError</span></code>: se menciona una variable que no está ni el espacio de nombres local ni global.</p></li>
 </ul>
 <p>Considera los siguientes ejemplos</p>
@@ -1232,9 +1252,43 @@ f(n) =  \begin{cases}
 </div>
 </section>
 <hr class="docutils" />
+<section id="funciones-lambda">
+<h2>Funciones lambda<a class="headerlink" href="#funciones-lambda" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Se puden definir funciones <strong>anónimas</strong>, es decir, no tienen un nombre asignado, mediante las denominadas <strong>expresiones lambda</strong>, que tienen la siguiente sintaxis</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">args</span><span class="p">:</span> <span class="n">expression</span>
+</pre></div>
+</div>
+<p>donde <code class="docutils literal notranslate"><span class="pre">args</span></code> son parámetros separados por comas y <code class="docutils literal notranslate"><span class="pre">expression</span></code> es una expresión (una concatenación de operadores; no se realizan bucles, ni asignaciones etc). Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las expresiones lambda son útiles cuando por ejemplo pasemos una función como parámetro a una función de orden superior.</p>
+<div class="exercise admonition" id="functions-lambda">
+
+<p class="admonition-title"><span class="caption-number">Exercise 35 </span></p>
+<section id="exercise-content">
+<p>Pasa una función lambda al parámetro <code class="docutils literal notranslate"><span class="pre">key</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list">del método <code class="docutils literal notranslate"><span class="pre">sort</span></code></a> para ordenar una lista (de menor a mayor) de cadenas por order alfabético pero empezando por el último elemento de la cadena. Por ejemplo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</div>
+</section>
+<hr class="docutils" />
 <section id="map-filter-reduce">
 <h2>Map, Filter, Reduce<a class="headerlink" href="#map-filter-reduce" title="Enlazar permanentemente con este título">#</a></h2>
-<p>En Python soporta lo que se denomina el concepto de <strong>funciones de orden superior</strong>. Esto significa que podemos usar funciones como argumentos de otras funciones, almacenarlas en estructuras de datos, devolver una función en una función etc. Considera el siguiente ejemplo</p>
+<p>Python soporta lo que se denomina el concepto de <strong>funciones de orden superior</strong>. Esto significa que podemos usar funciones como argumentos de otras funciones, almacenarlas en estructuras de datos, devolver una función en una función etc. Considera el siguiente ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -1256,6 +1310,79 @@ f(n) =  \begin{cases}
 </div>
 </div>
 </div>
+<p>En este contexto, Python incorporta algunas funciones que nos permiten trabajar con funciones y que son la base de las expresiones de comprensión. Por un lado tenemos <code class="docutils literal notranslate"><span class="pre">filter</span></code> para filtrar según una función que devuelva un booleano y <code class="docutils literal notranslate"><span class="pre">map</span></code> para aplicar una función a un iterable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">filt</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">filt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>filter
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>map
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tanto <code class="docutils literal notranslate"><span class="pre">filter</span></code> como <code class="docutils literal notranslate"><span class="pre">map</span></code> devuelven <strong>generadores</strong>.</p>
+<p>Finalmente, existe la función <code class="docutils literal notranslate"><span class="pre">reduce</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code> para aplicar una función de dos parámetros a los objetos de un iterable de forma reiterada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span> 
+<span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
+</pre></div>
+</div>
+</div>
+</div>
+<p>La función reduce tiene un parámetro opcional <code class="docutils literal notranslate"><span class="pre">initial</span></code> por si queremos añadirlo al principio del iterable antes de ejecutar las evaluaciones de la función.</p>
+<div class="exercise admonition" id="functions-reduce">
+
+<p class="admonition-title"><span class="caption-number">Exercise 36 </span></p>
+<section id="exercise-content">
+<p>Utiliza <code class="docutils literal notranslate"><span class="pre">reduce</span></code> sobre un iterable para obtener</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(((((</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="functions-reduce-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 37 </span></p>
+<section id="exercise-content">
+<p>Implementa la función <code class="docutils literal notranslate"><span class="pre">reduce</span></code> por ti mismo.</p>
+</section>
+</div>
+</section>
+<hr class="docutils" />
+<section id="decoradores">
+<h2>Decoradores<a class="headerlink" href="#decoradores" title="Enlazar permanentemente con este título">#</a></h2>
 </section>
 </section>
 
