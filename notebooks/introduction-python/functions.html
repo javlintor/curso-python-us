@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
@@ -479,6 +481,11 @@ title="Print to PDF"
    Llamadas a la función y alcance
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map-filter-reduce">
+   Map, Filter, Reduce
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -526,6 +533,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#llamadas-a-la-funcion-y-alcance">
    Llamadas a la función y alcance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map-filter-reduce">
+   Map, Filter, Reduce
   </a>
  </li>
 </ul>
@@ -580,6 +592,13 @@ title="Print to PDF"
 </div>
 </div>
 <p>Cuando la ejecución de una función termina sin encontrar ningún return, ésta devuelve <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="exercise admonition" id="functions-def">
+
+<p class="admonition-title"><span class="caption-number">Exercise 33 </span></p>
+<section id="exercise-content">
+<p>Escribe una función <code class="docutils literal notranslate"><span class="pre">count_even</span></code> que acepte un argumento llamado <code class="docutils literal notranslate"><span class="pre">numbers</span></code>,  que será un iterable que contenga enteros, y devuelva cúantos son pares.</p>
+</section>
+</div>
 <hr class="docutils" />
 <section id="argumentos-por-defecto">
 <h2>Argumentos por defecto<a class="headerlink" href="#argumentos-por-defecto" title="Enlazar permanentemente con este título">#</a></h2>
@@ -866,6 +885,24 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</div>
+<div class="exercise admonition" id="functions-recursive">
+
+<p class="admonition-title"><span class="caption-number">Exercise 34 </span></p>
+<section id="exercise-content">
+<p>Dado un entero positivo <span class="math notranslate nohighlight">\(n\)</span>, consideremos la siguiente función</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(n) =  \begin{cases}
+      n / 2, &amp; \text{si }\ n\text{ es par} \\
+      3n + 1, &amp; \text{en caso contrario.}
+\end{cases}
+\end{split}\]</div>
+<p>Definimos <strong>la órbita de <span class="math notranslate nohighlight">\(n\)</span></strong> como el conjunto de enteros que se obtienen al aplicar reiteradamente <span class="math notranslate nohighlight">\(f\)</span> hasta obtener 1. Escribe una función <code class="docutils literal notranslate"><span class="pre">collatz</span></code> que acepte un número arbitrario de enteros y devuelva un diccionario donde las claves sean los enteros y los valores listas con sus correspondientes órbitas.</p>
+<blockquote>
+<div><p>La <a class="reference external" href="https://en.wikipedia.org/wiki/Collatz_conjecture">Conjetura de Collatz</a> propone que todo entero tiene una órbita finita.</p>
+</div></blockquote>
+</section>
 </div>
 </section>
 <hr class="docutils" />
@@ -1189,6 +1226,32 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
 13
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="map-filter-reduce">
+<h2>Map, Filter, Reduce<a class="headerlink" href="#map-filter-reduce" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En Python soporta lo que se denomina el concepto de <strong>funciones de orden superior</strong>. Esto significa que podemos usar funciones como argumentos de otras funciones, almacenarlas en estructuras de datos, devolver una función en una función etc. Considera el siguiente ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">after</span><span class="p">(</span><span class="n">seconds</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Foo!&quot;</span><span class="p">)</span>
+
+<span class="n">after</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">foo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Foo!
 </pre></div>
 </div>
 </div>
