@@ -469,6 +469,11 @@ title="Print to PDF"
    Argumentos variacionales nombrados
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nombres-documentacion-e-indicaciones-de-tipado">
+   Nombres, Documentación e indicaciones de tipado
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -506,6 +511,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#argumentos-variacionales-nombrados">
    Argumentos variacionales nombrados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nombres-documentacion-e-indicaciones-de-tipado">
+   Nombres, Documentación e indicaciones de tipado
   </a>
  </li>
 </ul>
@@ -800,6 +810,93 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 2)
 {&#39;a&#39;: &#39;foo&#39;, &#39;debug&#39;: False}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="nombres-documentacion-e-indicaciones-de-tipado">
+<h2>Nombres, Documentación e indicaciones de tipado<a class="headerlink" href="#nombres-documentacion-e-indicaciones-de-tipado" title="Enlazar permanentemente con este título">#</a></h2>
+<p>La convención estándar para nombrar funciones es utilizar <em>snake_case</em>, al igual que en las variables. Si se pretende que una función no sea utilizada directamente, si no que implementa algún tipo de detalle interno en nuestro programa, se suele empezar el nombre de la variable por un guión bajo.</p>
+<p>Como todo lo que definimos en Python, <strong>las funciones también son objetos</strong>, y tienen una serie de atributos que es importante conocer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El nombre de la función queda guardado en el atributo <code class="docutils literal notranslate"><span class="pre">__name__</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">square</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;square&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es común que la primera expresión que aparece en una función sea una cadena describiendo su uso. Por ejemplo,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el factorial de n. Por ejemplo, </span>
+
+<span class="sd">    &gt;&gt;&gt; factorial(6)</span>
+<span class="sd">    120</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La variable de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> que guarda la documentación está en el atributo <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> de la función. A menudo es consultado por jupyter o IDEs para mostrarla al usuario.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Calcula el factorial de n. Por ejemplo, 
+
+    &gt;&gt;&gt; factorial(6)
+    120
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>También se pueden realizar anotaciones sobre el tipado de los argumentos y del valor a devolver por la función. Como ya vimos, este tipo de indicaciones <strong>son totalmente ignoradas por el intérprete de Python</strong>, solo sirven para herramientas como <a class="reference external" href="https://pylint.pycqa.org/en/latest/">pylint</a> que comprueban la consistencia de nuestro código sin ejecutarlo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esta información queda guardada en forma de diccionario en el atributo <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">factorial</span><span class="o">.</span><span class="vm">__annotations__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n&#39;: int, &#39;return&#39;: int}
 </pre></div>
 </div>
 </div>
