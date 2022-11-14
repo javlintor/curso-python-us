@@ -517,6 +517,22 @@ title="Print to PDF"
 </div>
 </section>
 </div>
+<div class="exercise admonition" id="chapter1-exercises-3">
+
+<p class="admonition-title"><span class="caption-number">Exercise 40 </span></p>
+<section id="exercise-content">
+<p>Visita (este sitio web)[<a class="reference external" href="https://gutenberg.org/browse/scores/top#books-last30">https://gutenberg.org/browse/scores/top#books-last30</a>] y copia el enlace de descarga de un libro a tu elección en texto plano en una variable <code class="docutils literal notranslate"><span class="pre">url</span></code>. Por ejemplo, <a class="reference external" href="https://gutenberg.org/cache/epub/1342/pg1342.txt">este</a> es el enlace de descar de <em>Orgullo y Prejuicio</em>.</p>
+<p>Utiliza el módulo <code class="docutils literal notranslate"><span class="pre">requests</span></code> para realizar una petición http y guardar el cuerpo de la respuesta en una variable <code class="docutils literal notranslate"><span class="pre">book</span></code> tal y como se indica a continuación</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://gutenberg.org/cache/epub/1342/pg1342.txt&quot;</span>
+<span class="n">book_request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">book_request</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+<p>Escribe una función <code class="docutils literal notranslate"><span class="pre">count_words</span></code> que devuelva un diccionario con las 50 palabras más frecuentes del libro que tenga como claves dichas palabras y como valor el número de apariciones.</p>
+</section>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
