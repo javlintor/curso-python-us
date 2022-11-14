@@ -16,6 +16,11 @@ parts:
   - file: notebooks/introduction-python/control-flow.ipynb
   - file: notebooks/introduction-python/functions.ipynb
   - file: notebooks/introduction-python/exercises.ipynb
+- caption: Introducción a Programación Orientada a Objetos
+  chapters: 
+  - file: notebooks/oop/classes.ipynb
+  - file: notebooks/oop/opp-basics.ipynb
+  - file: notebooks/oop/exercises.ipynb
 - caption: Numpy
   chapters: 
   - file: notebooks/numpy/introduction-numpy.ipynb
