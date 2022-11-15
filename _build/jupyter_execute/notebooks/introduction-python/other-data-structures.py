@@ -603,8 +603,6 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.style.use("fivethirtyeight")
-
 def get_membership_time_from_range(i):
     iterable = range(i)
     execution_time = get_membership_time_from_iterable(i - 1, iterable)
@@ -659,7 +657,7 @@ fig.show()
 
 # ## Borra un elemento
 
-# In[ ]:
+# In[2]:
 
 
 i = 5
@@ -767,10 +765,4 @@ ax.set_title("Tiempo de cómputo longitud")
 ax.grid(True)
 ax.legend()
 fig.show()
-
-
-# In[ ]:
-
-
-
 
