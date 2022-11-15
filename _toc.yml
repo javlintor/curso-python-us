@@ -16,7 +16,6 @@ parts:
   - file: notebooks/introduction-python/control-flow.ipynb
   - file: notebooks/introduction-python/functions.ipynb
   - file: notebooks/introduction-python/classes.ipynb
-  - file: notebooks/introduction-python/opp-basics.ipynb
   - file: notebooks/introduction-python/exercises.ipynb
 - caption: Numpy
   chapters: 

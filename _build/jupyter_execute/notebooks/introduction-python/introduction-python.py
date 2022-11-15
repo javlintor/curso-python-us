@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/Introduccion.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+# <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 # # Introducción a Python 
 # 
 # [Python](https://www.python.org/) es un **lenguaje de programación** altamente popular y con una sintaxis sencilla, lo que lo hace fácilmente accesible para programadores no experimentados. No obstante, es una herramienta muy potente que puede ayudarnos a resolver problemas de muy diferente índole. 
+# 
+# ![picture](https://drive.google.com/uc?id=1ugvfeCFADgTHKgK49asYtnAQjjfN_PCZ)
 # 
 # Entre sus características principales destacan: 
 # - Es un lenguaje **interpretado**. 
@@ -20,7 +22,7 @@
 # 
 # Podemos descargar Python desde [su sitio oficial](https://www.python.org/). Actualmente, la última versión disponible es la 3.10.8, aunque en este curso utilizaremos la versión 
 
-# In[2]:
+# In[ ]:
 
 
 import sys
@@ -72,7 +74,7 @@ print(sys.version)
 # 
 # Python es un lenguaje que hace especial énfasis en su **legibilidad**, evitando el uso de corchetes y semicolons en favor de la indentación. La filosofía de un buen *pythonista* puede leerse en *The Zen of Python* 
 
-# In[1]:
+# In[ ]:
 
 
 import this

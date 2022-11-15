@@ -1,0 +1,93 @@
+if not set(): 
+    print("foo")
+
+num = 2
+
+if num >= 0:
+    sign = "positive"
+else:
+    sign = "negative"
+
+sign = "positive" if num >=0 else "negative"
+
+total = 0
+for num in (-22.0, 3.5, 8.1, -10, 0.5):
+    if num > 0:
+        total = total + num
+
+for x in [0, 1]:
+    print("Foo")
+print(x)
+
+import string
+string.ascii_lowercase
+
+total = 0
+while total < 3:
+    total += 1  
+
+print(total)  
+
+for item in [1, 2, 3, 4, 5]:
+    if item == 3:
+        print(item, " ...break!")
+        break
+    print(item, " ...next iteration")
+
+for item in [1, 2, 3, 4, 5]:
+    if item == 3:
+        print(item, " ...continue!")
+        continue
+    print(item, " ...next iteration")
+
+for item in [2, 4, 6]:
+    if item == 3:
+        print(item, " ...break!")
+        break
+    print(item, " ...next iteration")
+else:
+    print("foo")
+
+for item in [2, 4, 6]:
+    if item == 2:
+        print(item, " ...break!")
+        break
+    print(item, " ...next iteration")
+else:
+    print("foo")
+
+r = range(0, 20, 2)
+print(r)
+print(11 in r)
+print(10 in r)
+print(r.index(10))
+print(r[5])
+print(r[:5])
+print(r[-1])
+
+my_enum = enumerate(["apple", "banana", "cat", "dog"])
+
+list(my_enum)
+
+names = ["Angie", "Brian", "Cassie", "David"]
+exam_1_scores = [90, 82, 79, 87]
+exam_2_scores = [95, 84, 72, 91]
+
+my_zip = zip(names, exam_1_scores, exam_2_scores)
+
+list(my_zip)
+
+from itertools import chain
+
+gen_1 = range(0, 5, 2)
+gen_2 = (i**2 for i in range(3, 6))
+iter_3 = ["moo", "cow"]
+iter_4 = "him"
+
+chain(gen_1, gen_2, iter_3, iter_4)
+
+from itertools import product
+my_comb = product([0, 1], range(3))
+list(my_comb)
+
+
