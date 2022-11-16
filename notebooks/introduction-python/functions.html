@@ -944,19 +944,22 @@ f(n) =  \begin{cases}
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#functions-recursive"> Exercise 35</a></p>
 <section id="solution-content">
-<p>def compute_orbit(n):
-l = []
-while n &gt; 1:
-l.append(n)
-if n % 2 == 0:
-n = n // 2
-else:
-n = 3*n + 1
-l.append(1)
-return l</p>
-<p>def collatz(*args):
-ret = {n:compute_orbit(n) for n in args}
-return ret</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_orbit</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">l</span>
+
+<span class="k">def</span> <span class="nf">collatz</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span><span class="n">compute_orbit</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">args</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">ret</span>
+</pre></div>
+</div>
 </section>
 </div>
 </section>
