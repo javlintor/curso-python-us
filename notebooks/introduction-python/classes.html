@@ -459,7 +459,22 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="clases">
 <h1>Clases<a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">#</a></h1>
 <p>Como ya hemos visto cuando hemos tratado con los predefinidas de Python (cadenas, enteros, booleanos etc), una clase es una forma de encapsular un conjunto de datos o <strong>atributos</strong> más una serie de <strong>métodos</strong> que nos permiten gestionar estos datos e interactuar con el resto del programa.</p>
-<p>Para definir una clase en Python, utilizamos el comando <code class="docutils literal notranslate"><span class="pre">class</span></code>. Por ejemplo</p>
+<p>Para definir una clase en Python, utilizamos el comando <code class="docutils literal notranslate"><span class="pre">class</span></code>. Por ejemplo, imaginemos que queremos trabajar con puntos del plano en nuestro programa. Sería interesante crear una clase como la siguiente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Punto</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        
+    <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este ejemplo,</p>
 </section>
 
     <script type="text/x-thebe-config">
