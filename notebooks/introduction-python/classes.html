@@ -459,6 +459,11 @@ title="Print to PDF"
    Métodos especiales
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subclases-y-herencia">
+   Subclases y herencia
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -481,6 +486,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#metodos-especiales">
    Métodos especiales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subclases-y-herencia">
+   Subclases y herencia
   </a>
  </li>
 </ul>
@@ -515,7 +525,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>Al definir una clase, estamos describiendo <em>una estructura o patrón</em> que queremos seguir a la hora de <strong>crear instancias de la clase</strong>. En la definición de la clase, <code class="docutils literal notranslate"><span class="pre">self</span></code> hace referencia al propio objeto. Siempre es el primer argumento de los métodos que se definen en la clase. Este primer argumento no se hará explícito cuando se use el método, sino que toma su valor del objeto sobre el que se evalúa el método.</p>
-<p>El método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> es un método especial que define <strong>cómo se construyen inicialmente los objetos de la clase</strong>. En el ejemplo anterior, el constructor recibe como argumentos de entrada dos valores <code class="docutils literal notranslate"><span class="pre">x</span></code>e <code class="docutils literal notranslate"><span class="pre">y</span></code> (por defecto con valor 0). Esos valores se almacenan respectivamente en los atributos de la clase <code class="docutils literal notranslate"><span class="pre">x</span></code>e <code class="docutils literal notranslate"><span class="pre">y</span></code> (que en este caso tienen el mismo nombre, pero no necesariamente tiene que ser así).</p>
+<p>El método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> es un método especial que define <strong>cómo se construyen inicialmente los objetos de la clase</strong>. En el ejemplo anterior, el constructor recibe como argumentos de entrada dos valores <code class="docutils literal notranslate"><span class="pre">x</span></code>e <code class="docutils literal notranslate"><span class="pre">y</span></code> (por defecto con valor 0). Esos valores se almacenan respectivamente en los atributos de la clase <code class="docutils literal notranslate"><span class="pre">x</span></code> e <code class="docutils literal notranslate"><span class="pre">y</span></code> (que en este caso tienen el mismo nombre, pero no necesariamente tiene que ser así).</p>
 <blockquote>
 <div><p>Siempre que creemos una instancia de la clase, llamaremos al método <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p>
 </div></blockquote>
@@ -629,9 +639,7 @@ title="Print to PDF"
 <p>Hay otros <strong>métodos especiales</strong> que se pueden definir en todas las clases, y que tienen nombres especiales reservados. No es obligatorio definirlos, pero si se definen en la clase tienen una finalidad específica. Tienen sus nombres entre dobles guinoes bajos, como <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>, que sirve para definir cómo se comparan dos objetos de la clase; o <code class="docutils literal notranslate"><span class="pre">__str__</span></code>, que sirve para proporcionar una representación de un objeto de la clase en forma de cadena.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="k">class</span> <span class="nc">PuntoV2</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PuntoV2</span><span class="p">():</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
@@ -711,9 +719,12 @@ title="Print to PDF"
 
 <p class="admonition-title"><span class="caption-number">Exercise 40 </span></p>
 <section id="exercise-content">
-<p>Crea la clase <code class="docutils literal notranslate"><span class="pre">PointV3</span></code> copiando el código de <code class="docutils literal notranslate"><span class="pre">PointV2</span></code> y añadiendo un método <code class="docutils literal notranslate"><span class="pre">__add__</span></code> que nos permita sumar puntos del plano.</p>
+<p>Crea la clase <code class="docutils literal notranslate"><span class="pre">PointV3</span></code> copiando el código de <code class="docutils literal notranslate"><span class="pre">PointV2</span></code> y añadiendo el método especial <code class="docutils literal notranslate"><span class="pre">__add__</span></code> que nos permita sumar puntos del plano. Añade otro método que incluya un parámetro <code class="docutils literal notranslate"><span class="pre">p</span></code> para calcular la <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm">norma p</a> de un punto</p>
 </section>
 </div>
+</section>
+<section id="subclases-y-herencia">
+<h2>Subclases y herencia<a class="headerlink" href="#subclases-y-herencia" title="Enlazar permanentemente con este título">#</a></h2>
 </section>
 </section>
 
