@@ -745,7 +745,7 @@ title="Print to PDF"
         <span class="n">son_iguales</span> <span class="o">=</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> 
             <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">y</span> <span class="ow">and</span> 
-            <span class="bp">self</span><span class="o">.</span><span class="n">radio</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">circulo</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">radio</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">son_iguales</span>
 
@@ -756,6 +756,25 @@ title="Print to PDF"
 </div>
 </div>
 <p>En este ejemplo, estamos accediendo a los métodos de la clase base mediante la función <code class="docutils literal notranslate"><span class="pre">super()</span></code>, en particular estamos creando los atributos correspondiente a la clase <code class="docutils literal notranslate"><span class="pre">PuntoV2</span></code> más el nuevo atributo <code class="docutils literal notranslate"><span class="pre">radio</span></code>. También estamos redefiniendo los métodos <code class="docutils literal notranslate"><span class="pre">distancia_al_origen</span></code>, <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> y <code class="docutils literal notranslate"><span class="pre">__str__</span></code>. Finalmente, añadimos un nuevo método <code class="docutils literal notranslate"><span class="pre">calcula_area</span></code>, que no pertenece a la clase <code class="docutils literal notranslate"><span class="pre">Punto</span></code>.</p>
+<div class="exercise admonition" id="classes-shopping-list">
+
+<p class="admonition-title"><span class="caption-number">Exercise 41 </span></p>
+<section id="exercise-content">
+<p>Crea una clase <code class="docutils literal notranslate"><span class="pre">CarritoCompra</span></code>, donde cada instancia almacenará listas de cadenas represenstando productos</p>
+<ul class="simple">
+<li><p>una lista para productos que necesitamos, <code class="docutils literal notranslate"><span class="pre">necesitados</span></code>.</p></li>
+<li><p>otra para productos ya comprados, <code class="docutils literal notranslate"><span class="pre">comprados</span></code>.</p></li>
+</ul>
+<p>Crea un método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> que acepte una cadena o un iterable de cadenas representando productos que se añadiran a la lista de necesitados y además métodos para</p>
+<ul class="simple">
+<li><p>añadir nuevos elementos necesitados al carrito,</p></li>
+<li><p>marcar un producto como comprado,</p></li>
+<li><p>eliminar productos, ya sea de la lista de necesitados o comprados,</p></li>
+<li><p>listar los elementos necesitaods formateados y en orden alfabético,</p></li>
+<li><p>igual para comprados.</p></li>
+</ul>
+</section>
+</div>
 </section>
 </section>
 
