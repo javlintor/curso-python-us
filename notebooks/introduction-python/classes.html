@@ -512,14 +512,13 @@ title="Print to PDF"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
         
     <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dist</span>
-    
 </pre></div>
 </div>
 </div>
@@ -543,7 +542,7 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">setattr</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">delattr</span></code></p></li>
 </ul>
-<p>para manejar los atributos.</p>
+<p>que aceptan como primer parámetro un objeto y como segundo una cadena con el nombre del atributo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">x</span>
@@ -640,12 +639,12 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PuntoV2</span><span class="p">():</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
         
     <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dist</span>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">punto</span><span class="p">):</span>
@@ -719,7 +718,7 @@ title="Print to PDF"
 
 <p class="admonition-title"><span class="caption-number">Exercise 40 </span></p>
 <section id="exercise-content">
-<p>Crea la clase <code class="docutils literal notranslate"><span class="pre">PointV3</span></code> copiando el código de <code class="docutils literal notranslate"><span class="pre">PointV2</span></code> y añadiendo el método especial <code class="docutils literal notranslate"><span class="pre">__add__</span></code> que nos permita sumar puntos del plano. Añade otro método que incluya un parámetro <code class="docutils literal notranslate"><span class="pre">p</span></code> para calcular la <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm">norma p</a> de un punto</p>
+<p>Crea la clase <code class="docutils literal notranslate"><span class="pre">PointV3</span></code> copiando el código de <code class="docutils literal notranslate"><span class="pre">PointV2</span></code> y añadiendo el método especial <code class="docutils literal notranslate"><span class="pre">__add__</span></code> que nos permita sumar puntos del plano. Añade otro método que incluya un parámetro <code class="docutils literal notranslate"><span class="pre">p</span></code> para calcular la <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm">norma p</a> de un punto. Crea otro método <code class="docutils literal notranslate"><span class="pre">dot</span></code> que implemente el producto escalar de los vectores correspondientes.</p>
 </section>
 </div>
 </section>
