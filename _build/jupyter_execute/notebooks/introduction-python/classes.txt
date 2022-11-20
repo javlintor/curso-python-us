@@ -1,0 +1,74 @@
+import math
+
+class Punto:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+        
+    def distancia_al_origen(self):
+        dist = math.sqrt(self.x**2 + self.y**2)
+        return dist
+
+p = Punto(2,3)
+
+p.x
+
+p.y
+
+p.distancia_al_origen()
+
+dir(p)
+
+class PuntoV2():
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+        
+    def distancia_al_origen(self):
+        dist = math.sqrt(self.x**2 + self.y**2)
+        return dist
+
+    def __eq__(self,punto):
+        return self.x == punto.x and self.y == punto.y
+
+    def __str__(self):
+        return f"Punto(x = {self.x:.3f}, y = {self.y:.3f})"
+
+a = Punto(1, 1)
+p = PuntoV2(3, 4)
+q = PuntoV2(2, 5)
+r = PuntoV2(3, 4)
+
+print(a)
+
+print(p)
+
+p == q
+
+p == r
+
+class Circulo(PuntoV2):
+    def __init__(self, radio=1, x=0, y=0):
+        super().__init__(x, y)
+        self.radio = radio
+
+    def distancia_al_origen(self):
+        dist = math.sqrt(self.x**2 + self.y**2) - self.radio
+        return dist
+
+    def calcula_area(self):
+        area = 2 * math.pi * self.radio**2
+        return area
+
+    def __eq__(self, circulo):
+        son_iguales = (
+            self.x == circulo.x and 
+            self.y == circulo.y and 
+            self.radio == self.radio
+        )
+        return son_iguales
+
+    def __str__(self):
+        return f"Circulo (x = {self.x:.3f}, y = {self.y:.3f}, radio = {self.radio:.3})"
+
+

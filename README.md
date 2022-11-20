@@ -51,3 +51,14 @@ Cualquier incidencia o propuesta de mejora, no dudes en escribir en el [apartado
 ## Se agradece
 
 Si te gusta el contenido del curso o crees que te ha resultado útil, no olvides premiar con una estrella ⭐️ a este [repositorio](https://github.com/javlintor/curso-python-us). 
+
+## Referencias 
+El material en el que se han basado los capítulos es el siguiente: 
+1. [Introducción a Python](introduction-python): 
+    - {cite}`beazley2021python`
+    - {cite}`Soklaski2021`
+    - {cite}`Pythonorg`
+
+2. [Numpy](numpy):
+    - {cite}`mckinney2012python`
+    - {cite}`harrison2021effective`

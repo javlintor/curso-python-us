@@ -596,7 +596,7 @@ next(even_gen)
 # ### Pertenencia
 # 
 
-# In[ ]:
+# In[1]:
 
 
 import time
@@ -657,14 +657,7 @@ fig.show()
 
 # ## Borra un elemento
 
-# In[2]:
-
-
-i = 5
-iterable = set(range(i))
-
-
-# In[ ]:
+# In[3]:
 
 
 repeat = 10
@@ -712,7 +705,7 @@ ax.legend()
 fig.show()
 
 
-# In[ ]:
+# In[4]:
 
 
 def get_len_time_from_range(i):

@@ -9,6 +9,12 @@ def foo():
 a, b = foo()
 print(a, b)
 
+def count_even(numbers):
+    l = len([x for x in numbers if x % 2 == 0])
+    return l
+
+count_even([2, 3, 4, 5, 6, -2])
+
 def f(a, b=3):
     print(a)
     print(b)

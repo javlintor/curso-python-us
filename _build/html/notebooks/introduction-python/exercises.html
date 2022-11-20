@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Introducción a numpy" href="../numpy/introduction-numpy.html" />
+    <link rel="next" title="Operaciones básicas de Numpy" href="../numpy/numpy-basics.html" />
     <link rel="prev" title="Clases" href="classes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -186,11 +186,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/introduction-numpy.html">
-   Introducción a numpy
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/numpy-basics.html">
    Operaciones básicas de Numpy
@@ -458,9 +453,9 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ejercicios-de-introduccion-a-python">
 <h1>Ejercicios de Introducción a Python<a class="headerlink" href="#ejercicios-de-introduccion-a-python" title="Enlazar permanentemente con este título">#</a></h1>
-<div class="exercise admonition" id="chapter1-exercises">
+<div class="exercise admonition" id="chapter1-merge">
 
-<p class="admonition-title"><span class="caption-number">Exercise 39 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 42 </span></p>
 <section id="exercise-content">
 <p>Crea una función <code class="docutils literal notranslate"><span class="pre">merge</span></code> que acepte un número arbitrario de diccionarios y devuelva un diccionario cuyas claves sean las uniones de las claves de los diccionarios de entradas y los valores listas donde se concatenan los valores de los diccionarios originales. Por ejemplo,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
@@ -492,7 +487,7 @@ title="Print to PDF"
 </div>
 <div class="exercise admonition" id="chapter1-exercises-4">
 
-<p class="admonition-title"><span class="caption-number">Exercise 40 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 43 </span></p>
 <section id="exercise-content">
 <p>Considera el siguiente ejemplo</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
@@ -502,9 +497,9 @@ title="Print to PDF"
 <p>¿Cambia algún elemento de la lista <code class="docutils literal notranslate"><span class="pre">a</span></code> tras ejecutar <code class="docutils literal notranslate"><span class="pre">b.append(100)</span></code>?¿Y tras ejecutar <code class="docutils literal notranslate"><span class="pre">b[2][0]</span> <span class="pre">=</span> <span class="pre">-100</span></code>? ¿Por qué?</p>
 </section>
 </div>
-<div class="exercise admonition" id="chapter1-exercises-2">
+<div class="exercise admonition" id="chapter1-concat_to_str">
 
-<p class="admonition-title"><span class="caption-number">Exercise 41 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 44 </span></p>
 <section id="exercise-content">
 <p>Crea una función <code class="docutils literal notranslate"><span class="pre">concat_to_str</span></code> que convierta una secuencia de objetos de Python en una cadena de transcripciones siguiendo las siguientes normas:</p>
 <ul class="simple">
@@ -529,9 +524,9 @@ title="Print to PDF"
 </div>
 </section>
 </div>
-<div class="exercise admonition" id="chapter1-exercises-3">
+<div class="exercise admonition" id="chapter1-books">
 
-<p class="admonition-title"><span class="caption-number">Exercise 42 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 45 </span></p>
 <section id="exercise-content">
 <p>Visita <a class="reference external" href="https://gutenberg.org/browse/scores/top#books-last30">este sitio web</a> y copia el enlace de descarga de un libro a tu elección en texto plano en una variable <code class="docutils literal notranslate"><span class="pre">url</span></code>. Por ejemplo, <a class="reference external" href="https://gutenberg.org/cache/epub/1342/pg1342.txt">este</a> es el enlace de descarga de <em>Orgullo y Prejuicio</em>.</p>
 <p>Utiliza el módulo <code class="docutils literal notranslate"><span class="pre">requests</span></code> para realizar una petición http y guardar el cuerpo de la respuesta en una variable <code class="docutils literal notranslate"><span class="pre">book</span></code> tal y como se indica a continuación</p>
@@ -543,6 +538,25 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Escribe una función <code class="docutils literal notranslate"><span class="pre">count_words</span></code> que devuelva un diccionario con las 50 palabras más frecuentes del libro que tenga como claves dichas palabras y como valor el número de apariciones.</p>
+</section>
+</div>
+<div class="exercise admonition" id="chapter1-shopping-cart">
+
+<p class="admonition-title"><span class="caption-number">Exercise 46 </span></p>
+<section id="exercise-content">
+<p>Crea una clase <code class="docutils literal notranslate"><span class="pre">CarritoCompra</span></code>, donde cada instancia almacenará dos listas de cadenas representando productos</p>
+<ul class="simple">
+<li><p>una lista para productos que necesitamos, <code class="docutils literal notranslate"><span class="pre">necesitados</span></code>.</p></li>
+<li><p>otra para productos ya comprados, <code class="docutils literal notranslate"><span class="pre">comprados</span></code>.</p></li>
+</ul>
+<p>Un producto no puede aparecer más de una vez en cada lista.</p>
+<p>Crea un método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> que acepte una cadena o un iterable de cadenas representando productos que se añadirán a la lista de <code class="docutils literal notranslate"><span class="pre">necesitados</span></code> y además métodos para</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">añade_necestiados</span></code>: añadir nuevos elementos necesitados al carrito,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compra</span></code>: marcar un producto como comprado (pasa de necesitados a comprados),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elimina_necesitados</span></code>, <code class="docutils literal notranslate"><span class="pre">elimina_comprados</span></code>: eliminar productos, ya sea de la lista de necesitados o comprados,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lista_necestiados</span></code> y <code class="docutils literal notranslate"><span class="pre">lista_comprados</span></code>: listar los elementos necesitados o comprados en orden alfabético.</p></li>
+</ul>
 </section>
 </div>
 </section>
@@ -581,10 +595,10 @@ title="Print to PDF"
             <p class="prev-next-title">Clases</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../numpy/introduction-numpy.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="../numpy/numpy-basics.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Introducción a numpy</p>
+        <p class="prev-next-title">Operaciones básicas de Numpy</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

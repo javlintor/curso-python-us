@@ -3,6 +3,7 @@
 
 # <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+# (introduction-python)=
 # # Introducción a Python 
 # 
 # [Python](https://www.python.org/) es un **lenguaje de programación** altamente popular y con una sintaxis sencilla, lo que lo hace fácilmente accesible para programadores no experimentados. No obstante, es una herramienta muy potente que puede ayudarnos a resolver problemas de muy diferente índole. 
