@@ -458,7 +458,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ejercicios-de-introduccion-a-python">
 <h1>Ejercicios de Introducción a Python<a class="headerlink" href="#ejercicios-de-introduccion-a-python" title="Enlazar permanentemente con este título">#</a></h1>
-<div class="exercise admonition" id="chapter1-exercises">
+<div class="exercise admonition" id="chapter1-merge">
 
 <p class="admonition-title"><span class="caption-number">Exercise 42 </span></p>
 <section id="exercise-content">
@@ -502,7 +502,7 @@ title="Print to PDF"
 <p>¿Cambia algún elemento de la lista <code class="docutils literal notranslate"><span class="pre">a</span></code> tras ejecutar <code class="docutils literal notranslate"><span class="pre">b.append(100)</span></code>?¿Y tras ejecutar <code class="docutils literal notranslate"><span class="pre">b[2][0]</span> <span class="pre">=</span> <span class="pre">-100</span></code>? ¿Por qué?</p>
 </section>
 </div>
-<div class="exercise admonition" id="chapter1-exercises-2">
+<div class="exercise admonition" id="chapter1-concat_to_str">
 
 <p class="admonition-title"><span class="caption-number">Exercise 44 </span></p>
 <section id="exercise-content">
@@ -529,7 +529,7 @@ title="Print to PDF"
 </div>
 </section>
 </div>
-<div class="exercise admonition" id="chapter1-exercises-3">
+<div class="exercise admonition" id="chapter1-books">
 
 <p class="admonition-title"><span class="caption-number">Exercise 45 </span></p>
 <section id="exercise-content">
@@ -543,6 +543,25 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Escribe una función <code class="docutils literal notranslate"><span class="pre">count_words</span></code> que devuelva un diccionario con las 50 palabras más frecuentes del libro que tenga como claves dichas palabras y como valor el número de apariciones.</p>
+</section>
+</div>
+<div class="exercise admonition" id="chapter1-shopping-cart">
+
+<p class="admonition-title"><span class="caption-number">Exercise 46 </span></p>
+<section id="exercise-content">
+<p>Crea una clase <code class="docutils literal notranslate"><span class="pre">CarritoCompra</span></code>, donde cada instancia almacenará dos listas de cadenas representando productos</p>
+<ul class="simple">
+<li><p>una lista para productos que necesitamos, <code class="docutils literal notranslate"><span class="pre">necesitados</span></code>.</p></li>
+<li><p>otra para productos ya comprados, <code class="docutils literal notranslate"><span class="pre">comprados</span></code>.</p></li>
+</ul>
+<p>Un producto no puede aparecer más de una vez en cada lista.</p>
+<p>Crea un método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> que acepte una cadena o un iterable de cadenas representando productos que se añadirán a la lista de <code class="docutils literal notranslate"><span class="pre">necesitados</span></code> y además métodos para</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">añade_necestiados</span></code>: añadir nuevos elementos necesitados al carrito,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compra</span></code>: marcar un producto como comprado (pasa de necesitados a comprados),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elimina_necesitados</span></code>, <code class="docutils literal notranslate"><span class="pre">elimina_comprados</span></code>: eliminar productos, ya sea de la lista de necesitados o comprados,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lista_necestiados</span></code> y <code class="docutils literal notranslate"><span class="pre">lista_comprados</span></code>: listar los elementos necesitados o comprados en orden alfabético.</p></li>
+</ul>
 </section>
 </div>
 </section>
