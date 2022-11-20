@@ -1406,6 +1406,8 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+
 <span class="k">def</span> <span class="nf">get_membership_time_from_range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="n">iterable</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">execution_time</span> <span class="o">=</span> <span class="n">get_membership_time_from_iterable</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">iterable</span><span class="p">)</span>
