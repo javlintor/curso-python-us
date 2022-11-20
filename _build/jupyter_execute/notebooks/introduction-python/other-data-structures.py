@@ -603,6 +603,8 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 
+get_ipython().run_line_magic('config', "InlineBackend.figure_format='retina'")
+
 def get_membership_time_from_range(i):
     iterable = range(i)
     execution_time = get_membership_time_from_iterable(i - 1, iterable)
@@ -657,7 +659,7 @@ fig.show()
 
 # ## Borra un elemento
 
-# In[3]:
+# In[2]:
 
 
 repeat = 10
@@ -705,7 +707,7 @@ ax.legend()
 fig.show()
 
 
-# In[4]:
+# In[3]:
 
 
 def get_len_time_from_range(i):
