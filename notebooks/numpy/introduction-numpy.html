@@ -458,21 +458,21 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#arrays-de-numpy">
    Arrays de Numpy
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-de-arrays">
+   Creación de arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-datos-en-las-componentes-de-un-array-dtype">
+   Tipos de datos en las componentes de un array (
+   <em>
+    dtype
+   </em>
+   )
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creacion-de-arrays">
-     Creación de arrays
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tipos-de-datos-en-las-componentes-de-un-array-dtype">
-     Tipos de datos en las componentes de un array (
-     <em>
-      dtype
-     </em>
-     )
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-arrays">
      Operaciones aritméticas con arrays
@@ -569,21 +569,21 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#arrays-de-numpy">
    Arrays de Numpy
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-de-arrays">
+   Creación de arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-datos-en-las-componentes-de-un-array-dtype">
+   Tipos de datos en las componentes de un array (
+   <em>
+    dtype
+   </em>
+   )
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creacion-de-arrays">
-     Creación de arrays
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tipos-de-datos-en-las-componentes-de-un-array-dtype">
-     Tipos de datos en las componentes de un array (
-     <em>
-      dtype
-     </em>
-     )
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-arrays">
      Operaciones aritméticas con arrays
@@ -669,7 +669,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-numpy">
 <span id="numpy"></span><h1>Introducción a Numpy<a class="headerlink" href="#introduccion-a-numpy" title="Enlazar permanentemente con este título">#</a></h1>
-<p>Numpy es quizás el paquete de <strong>computación numérica</strong> más importante de Python. Se desarrolló como un paquete completo de álgebra lineal de código abierto para Python que podía rivalizar con MATLAB y similares. Es una biblioteca de Python con una larga historia y mucha funcionalidad, ya sea directamente en ella o construida a su alrededor (ver <a class="reference external" href="https://scipy.org/">SciPy</a> y diferentes scikits). Es la base de otros paquetes del ecosistema de ciencia de datos</p>
+<p>Numpy es quizás el paquete de <strong>computación numérica</strong> más importante de Python. Se desarrolló como un paquete completo de álgebra lineal de código abierto para Python que podía rivalizar con MATLAB y similares. Tiene una larga historia y mucha funcionalidad, ya sea directamente en ella o construida a su alrededor (ver <a class="reference external" href="https://scipy.org/">SciPy</a> y diferentes scikits). Es la base de otros paquetes del ecosistema de ciencia de datos de diferentes índole</p>
 <ul class="simple">
 <li><p>Extraer, transformar y cargar datos: <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>, <a class="reference external" href="https://www.dask.org/">Dask</a>, <a class="reference external" href="https://opencv.org/">OpenCV</a></p></li>
 <li><p>Visualización de datos: <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>, <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a>.</p></li>
@@ -793,10 +793,11 @@ title="Print to PDF"
 <img alt="../../_images/introduction-numpy_10_0.png" src="../../_images/introduction-numpy_10_0.png" />
 </div>
 </div>
+<hr class="docutils" />
 <section id="arrays-de-numpy">
 <h2>Arrays de Numpy<a class="headerlink" href="#arrays-de-numpy" title="Enlazar permanentemente con este título">#</a></h2>
 <p>La estructura de datos principal de Numpy es el <strong>array n-dimensional</strong>. Como hemos dicho, Numpy nos permite operar sobre los arrays en su totalidad,  especificando las operaciones como si lo hiciéramos con las componentes individuales.</p>
-<p>Hay muchas formas de crear arrays, pero vamos a empezar creando un array de números psuedoaletorios obtenidos como muestras de una distribución normal de media 0 y desviación típica 1 para empezar a explorar los atributos y posibles operaciones.</p>
+<p>Hay muchas formas de crear arrays, como veremos más adelante, pero vamos a empezar creando un array de números psuedoaletorios obtenidos como muestras de una distribución normal de media 0 y desviación típica 1 para empezar a explorar los atributos y posibles operaciones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -805,8 +806,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.92636183, -2.55089466, -0.88577683],
-       [-0.13163882,  0.52617196,  0.77661784]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.49216224,  0.39838633, -2.31397379],
+       [ 0.28564078, -0.65423239,  0.00934151]])
 </pre></div>
 </div>
 </div>
@@ -819,8 +820,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-19.26361831, -25.50894661,  -8.85776834],
-       [ -1.3163882 ,   5.26171964,   7.76617837]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -4.92162244,   3.98386328, -23.13973788],
+       [  2.85640779,  -6.54232392,   0.09341509]])
 </pre></div>
 </div>
 </div>
@@ -833,8 +834,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-3.85272366, -5.10178932, -1.77155367],
-       [-0.26327764,  1.05234393,  1.55323567]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.98432449,  0.79677266, -4.62794758],
+       [ 0.57128156, -1.30846478,  0.01868302]])
 </pre></div>
 </div>
 </div>
@@ -847,14 +848,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.92636183, -2.55089466, -0.88577683],
-       [-0.13163882,  0.52617196,  0.77661784]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.49216224,  0.39838633, -2.31397379],
+       [ 0.28564078, -0.65423239,  0.00934151]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Los arrays de numpy deben ser <strong>homogéneos</strong>, es decir todas sus componentes del mismo tipo. Numpy incorpora una <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.byte">una variedad extensa de tipos</a>, pero los más usuales son los de tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code> y <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
-<p><img alt="picture" src="https://drive.google.com/uc?id=100e_ZChM2lfsF6KXERc4dhy1okf6rYS5" /></p>
+<p>Los arrays de numpy deben ser <strong>homogéneos</strong>, es decir todas sus componentes del mismo tipo (tipos predefinidos por numpy, que veremos más adelante).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
@@ -884,8 +884,10 @@ title="Print to PDF"
 </div>
 </div>
 <p>En la terminología de numpy, cada una de las dimensiones se denominan «ejes» (<em>axis</em>), y se numeran consecutivamente desde 0. Por ejemplo, en un array bidimensional, el eje 0 (<em>axis=0</em>) corresponde a las filas y el eje 1 corresponde a las columnas (<em>axis=1</em>).</p>
+</section>
+<hr class="docutils" />
 <section id="creacion-de-arrays">
-<h3>Creación de arrays<a class="headerlink" href="#creacion-de-arrays" title="Enlazar permanentemente con este título">#</a></h3>
+<h2>Creación de arrays<a class="headerlink" href="#creacion-de-arrays" title="Enlazar permanentemente con este título">#</a></h2>
 <p>La manera más fácil de crear arrays es mediante el método <code class="docutils literal notranslate"><span class="pre">np.array</span></code>. Basta con aplicarlo a cualquier objeto de tipo secuencial que sea susceptible de transformarse en un array. Por ejemplo, una lista de números se transforma en un array unidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -991,19 +993,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Podemos usar también <code class="docutils literal notranslate"><span class="pre">reshape</span></code> para transformar entre distintas dimensiones. Por ejemplo, un uso típico es crear un array bidimensional a partir de uno unidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">M</span><span class="o">=</span><span class="n">L</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">L</span><span class="p">,</span><span class="n">M</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">M</span>
 </pre></div>
 </div>
 </div>
@@ -1036,9 +1031,49 @@ title="Print to PDF"
 </div>
 </div>
 </section>
+<hr class="docutils" />
 <section id="tipos-de-datos-en-las-componentes-de-un-array-dtype">
-<h3>Tipos de datos en las componentes de un array (<em>dtype</em>)<a class="headerlink" href="#tipos-de-datos-en-las-componentes-de-un-array-dtype" title="Enlazar permanentemente con este título">#</a></h3>
-<p>El tipo de dato de las componentes de un array está implícito cuando se crea, pero podemos especificarlo:</p>
+<h2>Tipos de datos en las componentes de un array (<em>dtype</em>)<a class="headerlink" href="#tipos-de-datos-en-las-componentes-de-un-array-dtype" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Numpy incorpora una <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.byte">una variedad extensa de tipos</a>, pero los más usuales son los de tipo <code class="docutils literal notranslate"><span class="pre">float_</span></code>, <code class="docutils literal notranslate"><span class="pre">int_</span></code> y <code class="docutils literal notranslate"><span class="pre">bool</span></code>. Podemos acceder al tipo de un array con el método <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
+<p><img alt="picture" src="https://drive.google.com/uc?id=100e_ZChM2lfsF6KXERc4dhy1okf6rYS5" /></p>
+<p>El tipo de dato de las componentes de un array está <strong>implícito</strong> cuando se crea, pero podemos especificarlo:</p>
+<p>Podemos pedir información de los tipo usando funciones como <code class="docutils literal notranslate"><span class="pre">iinfo</span></code> o <code class="docutils literal notranslate"><span class="pre">finfo</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iinfo(min=-2147483648, max=2147483647, dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iinfo(min=0, max=255, dtype=uint8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>finfo(resolution=1e-15, min=-1.7976931348623157e+308, max=1.7976931348623157e+308, dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
@@ -1112,7 +1147,6 @@ int32
 </div>
 </div>
 </div>
-</section>
 <section id="operaciones-aritmeticas-con-arrays">
 <h3>Operaciones aritméticas con arrays<a class="headerlink" href="#operaciones-aritmeticas-con-arrays" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Una de las características más interesantes de numpy es la posibilidad de aplicar eficientes operaciones aritméticas «componente a componente» entre arrays, sin necesidad de usar bucles <code class="docutils literal notranslate"><span class="pre">for</span></code>. Basta con usar la correspondiente operación numérica de python.</p>
