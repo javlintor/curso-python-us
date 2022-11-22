@@ -474,30 +474,27 @@ title="Print to PDF"
    </em>
    )
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-arrays">
+   Operaciones aritméticas con arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexado-y-slicing">
+   Indexado y
+   <em>
+    slicing
+   </em>
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-arrays">
-     Operaciones aritméticas con arrays
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indexado-y-slicing-operaciones-basicas">
-     Indexado y
+    <a class="reference internal nav-link" href="#indexado-usando-slices">
+     Indexado usando
      <em>
-      slicing
+      slices
      </em>
-     (operaciones básicas)
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indexado-usando-slices">
-       Indexado usando
-       <em>
-        slices
-       </em>
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#indexado-con-booleanos">
@@ -585,30 +582,27 @@ title="Print to PDF"
    </em>
    )
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-arrays">
+   Operaciones aritméticas con arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexado-y-slicing">
+   Indexado y
+   <em>
+    slicing
+   </em>
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-arrays">
-     Operaciones aritméticas con arrays
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indexado-y-slicing-operaciones-basicas">
-     Indexado y
+    <a class="reference internal nav-link" href="#indexado-usando-slices">
+     Indexado usando
      <em>
-      slicing
+      slices
      </em>
-     (operaciones básicas)
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indexado-usando-slices">
-       Indexado usando
-       <em>
-        slices
-       </em>
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#indexado-con-booleanos">
@@ -1205,8 +1199,10 @@ int32
 </div>
 </div>
 </div>
+</section>
+<hr class="docutils" />
 <section id="operaciones-aritmeticas-con-arrays">
-<h3>Operaciones aritméticas con arrays<a class="headerlink" href="#operaciones-aritmeticas-con-arrays" title="Enlazar permanentemente con este título">#</a></h3>
+<h2>Operaciones aritméticas con arrays<a class="headerlink" href="#operaciones-aritmeticas-con-arrays" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Una de las características más interesantes de numpy es la posibilidad de aplicar eficientes operaciones aritméticas «componente a componente» entre arrays, sin necesidad de usar bucles <code class="docutils literal notranslate"><span class="pre">for</span></code>. Basta con usar la correspondiente operación numérica de python.</p>
 <p>Veamos algunos ejemplos:</p>
 <div class="cell docutils container">
@@ -1243,11 +1239,11 @@ int32
 </div>
 </div>
 </div>
-<p>En principio, para poder aplicar estas operaciones entre arrays, se deben aplicar sobre arrays con las mismas dimensiones (el mismo <code class="docutils literal notranslate"><span class="pre">shape</span></code>). Es posible operar entre arrays de distintas dimensiones, con el mecanismo de <em>broadcasting</em>, pero es ésta una característica avanzada de numpy que no veremos aquí.</p>
+<p>En principio, para poder aplicar estas operaciones entre arrays, se deben aplicar sobre arrays con las mismas dimensiones (el mismo <code class="docutils literal notranslate"><span class="pre">shape</span></code>). Es posible operar entre arrays de distintas dimensiones, con el mecanismo de <em>broadcasting</em>, que veremos más adelante.</p>
 <p>Podemos efectuar operaciones entre arrays y números (<em>escalares</em>), indicando con ello que la operación con el escalar se aplica a cada uno de los componentes del array. Vemos algunos ejemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">+</span><span class="n">B</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">+</span> <span class="n">B</span>
 </pre></div>
 </div>
 </div>
@@ -1287,7 +1283,7 @@ int32
 <p>Igualmente, podemos efectuar comparaciones aritméticas entre dos arrays, obteniendo el correspondiente array de booleanos como resultado:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">&gt;</span> <span class="n">B</span><span class="o">-</span><span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">&gt;</span> <span class="n">B</span> <span class="o">-</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
@@ -1298,10 +1294,11 @@ int32
 </div>
 </div>
 </div>
-<p>En todos los casos anteriores, nótese que estas operaciones no modifican los arrays sobre los que se aplican, sino que obtienen un nuevo array con el correspondiente resultado.</p>
+<p>En todos los casos anteriores, nótese que estas operaciones <strong>no modifican los arrays sobre los que se aplican</strong>, sino que obtienen un nuevo array con el correspondiente resultado.</p>
 </section>
-<section id="indexado-y-slicing-operaciones-basicas">
-<h3>Indexado y <em>slicing</em> (operaciones básicas)<a class="headerlink" href="#indexado-y-slicing-operaciones-basicas" title="Enlazar permanentemente con este título">#</a></h3>
+<hr class="docutils" />
+<section id="indexado-y-slicing">
+<h2>Indexado y <em>slicing</em><a class="headerlink" href="#indexado-y-slicing" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Otra de las características más interesantes de numpy es la gran flexibilidad para acceder a las componentes de un array, o a un subconjunto del mismo. Vamos a ver a continuación algunos ejemplos básicos.</p>
 <p><strong>Arrays unidimensonales</strong></p>
 <p>Para arrays unidimensionales, el acceso es muy parecido al de listas. Por ejemplo, acceso a las componentes:</p>
@@ -1343,7 +1340,7 @@ int32
 </div>
 </div>
 </div>
-<p>Sin embargo, hay una diferencia fundamental: en general en python, el slicing siempre crea <em>una copia</em> de la secuencia original. En numpy, el <em>slicing</em> es una <em>vista</em> de array original. Esto tiene como consecuencia que las modificaciones que se realicen sobre dicha vista se están realizando sobre el array original. Por ejemplo:</p>
+<p>Sin embargo, hay una diferencia fundamental: en general en python, el slicing siempre crea <em>una copia</em> de la secuencia original (aunque no de los elementos). En numpy, el <em>slicing</em> es una <em>vista</em> de array original. Esto tiene como consecuencia que las modificaciones que se realicen sobre dicha vista se están realizando sobre el array original. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
@@ -1480,6 +1477,30 @@ int32
 </div>
 </div>
 </div>
+<p>Similuar a la función <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> de Python, tenemos la función <code class="docutils literal notranslate"><span class="pre">np.ndenumearte</span></code> para iterar con los elementos del array y su índice</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">C3d</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[((0, 0, 0), 1),
+ ((0, 0, 1), 2),
+ ((0, 0, 2), 3),
+ ((0, 1, 0), 4),
+ ((0, 1, 1), 5),
+ ((0, 1, 2), 6),
+ ((1, 0, 0), 7),
+ ((1, 0, 1), 8),
+ ((1, 0, 2), 9),
+ ((1, 1, 0), 10),
+ ((1, 1, 1), 11),
+ ((1, 1, 2), 12)]
+</pre></div>
+</div>
+</div>
+</div>
 <p>Vamos a guardar una copia de de ese subarray y lo modificamos en el original con el número <code class="docutils literal notranslate"><span class="pre">42</span></code> en todas las posiciones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1517,34 +1538,15 @@ int32
 </div>
 </div>
 </div>
-<p>Como antes, podemos en este array de tres adimensiones acceder a una de sus componentes, especificando los tres índices:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
-</pre></div>
-</div>
-</div>
-</div>
-<p>Si sólo especificamos dos de los tres índices, accedemos al correspondiente subarray unidimensional:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7, 8, 9])
-</pre></div>
-</div>
-</div>
+<div class="exercise admonition" id="introduction-numpy-indexing">
+
+<p class="admonition-title"><span class="caption-number">Exercise 48 </span></p>
+<section id="exercise-content">
+<p>Devuelve el número 813 indexando el array <code class="docutils literal notranslate"><span class="pre">np.arange(2100).reshape((25,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">2))</span></code>.</p>
+</section>
 </div>
 <section id="indexado-usando-slices">
-<h4>Indexado usando <em>slices</em><a class="headerlink" href="#indexado-usando-slices" title="Enlazar permanentemente con este título">#</a></h4>
+<h3>Indexado usando <em>slices</em><a class="headerlink" href="#indexado-usando-slices" title="Enlazar permanentemente con este título">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span>
@@ -1656,7 +1658,6 @@ int32
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="indexado-con-booleanos">
 <h3>Indexado con booleanos<a class="headerlink" href="#indexado-con-booleanos" title="Enlazar permanentemente con este título">#</a></h3>
