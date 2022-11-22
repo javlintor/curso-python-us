@@ -490,6 +490,22 @@ title="Print to PDF"
 </div>
 </section>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">d_ref</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d_ref</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">d_ref</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">d_ref</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">d_ref</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="chapter1-exercises-4">
 
 <p class="admonition-title"><span class="caption-number">Exercise 43 </span></p>
@@ -529,6 +545,35 @@ title="Print to PDF"
 </div>
 </section>
 </div>
+<p>mapping = {
+«-»: «menos»,
+«1»: «uno»,
+«2»: «dos»,
+«3»: «tres»,
+«4»: «cuatro»,
+«5»: «cinco»,
+«6»: «seis»,
+«7»: «siete»,
+«8»: «ocho»,
+«9»: «nueve»,
+«0»: «cero»
+}</p>
+<p>def traduce_entero(i):
+digits = [mapping[i_str] for i_str in str(i)]
+return «-«.join(digits)</p>
+<p>def traduce(i):
+if not isinstance(i, bool) and isinstance(i, int):
+return traduce_entero(i)
+elif isinstance(i, float):
+return traduce_entero(int(i)) + » y decimales»
+elif isinstance(i, str):
+return i
+else:
+return «<OTRO>»</p>
+<p>def concat_to_str(s):
+traducciones = [traduce(i) for i in s]
+ret = » | «.join(traducciones)
+return ret</p>
 <div class="exercise admonition" id="chapter1-books">
 
 <p class="admonition-title"><span class="caption-number">Exercise 45 </span></p>
