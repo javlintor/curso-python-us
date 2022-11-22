@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
@@ -691,8 +693,8 @@ title="Print to PDF"
 <p>Lo que sigue es un ejemplo de un array de numpy unidimensional con un millón de componentes, y el análogo como lista python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
-<span class="n">list1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -708,6 +710,22 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.8 ms ± 3.99 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 836 ms ± 9.39 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Numpy también suele optimizar el espacio en memoria necesitado para guardar un array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">arr1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80000104
+90000120
 </pre></div>
 </div>
 </div>
@@ -790,7 +808,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-numpy_10_0.png" src="../../_images/introduction-numpy_10_0.png" />
+<img alt="../../_images/introduction-numpy_12_0.png" src="../../_images/introduction-numpy_12_0.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -854,7 +872,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Los arrays de numpy deben ser <strong>homogéneos</strong>, es decir todas sus componentes del mismo tipo (tipos predefinidos por numpy, que veremos más adelante).</p>
+<p>Los arrays de numpy deben ser <strong>homogéneos</strong>, es decir todas sus componentes son del mismo tipo (tipos predefinidos por numpy, que veremos más adelante).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
@@ -867,7 +885,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>El método <code class="docutils literal notranslate"><span class="pre">ndim</span></code> nos da el número de dimensiones, y el método <code class="docutils literal notranslate"><span class="pre">shape</span></code> nos da el tamaño de cada dimensión, en forma de tupla.</p>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">ndim</span></code> nos da el número de dimensiones, y <code class="docutils literal notranslate"><span class="pre">shape</span></code> nos da el tamaño de cada dimensión, en forma de tupla. También tenemos <code class="docutils literal notranslate"><span class="pre">size</span></code>, que nos da el número de elementos que existen en el array.</p>
 <p>En este caso, tenemos que <code class="docutils literal notranslate"><span class="pre">data</span></code> es un array bidimensional, con 2 «filas» y 3 «columnas»:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -997,9 +1015,9 @@ title="Print to PDF"
 <p>Podemos usar también <code class="docutils literal notranslate"><span class="pre">reshape</span></code> para transformar entre distintas dimensiones. Por ejemplo, un uso típico es crear un array bidimensional a partir de uno unidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">L</span><span class="p">,</span> <span class="n">M</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">v</span><span class="p">,</span> <span class="n">M</span>
 </pre></div>
 </div>
 </div>
@@ -1031,6 +1049,45 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Otro generador muy utilizado es <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code>, que nos permite generar <span class="math notranslate nohighlight">\(n\)</span> puntos igualmente separados en el un intervalo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5 elementos igualmente espaciados en el intervalo [-1, 1]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># 2 elementos en el intervalo [3, 4]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 100 elementos entre [-pi, pi]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cuando trabajamos con números aleatorios, es recomendable crear un <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">generador de números aleatorios</a>. Existe un método <code class="docutils literal notranslate"><span class="pre">defult_rng</span></code> para ello</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="c1"># mean and standard deviation</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="introduction-numpy">
+
+<p class="admonition-title"><span class="caption-number">Exercise 47 </span></p>
+<section id="exercise-content">
+<p>Crea un array de enteros tridimensional que tenga -1 en la diagonal y 1 en el resto</p>
+</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="tipos-de-datos-en-las-componentes-de-un-array-dtype">
@@ -1038,6 +1095,22 @@ title="Print to PDF"
 <p>Numpy incorpora una <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.byte">una variedad extensa de tipos</a>, pero los más usuales son los de tipo <code class="docutils literal notranslate"><span class="pre">float_</span></code>, <code class="docutils literal notranslate"><span class="pre">int_</span></code> y <code class="docutils literal notranslate"><span class="pre">bool</span></code>. Podemos acceder al tipo de un array con el método <code class="docutils literal notranslate"><span class="pre">dtype</span></code>.</p>
 <p><img alt="picture" src="https://drive.google.com/uc?id=100e_ZChM2lfsF6KXERc4dhy1okf6rYS5" /></p>
 <p>El tipo de dato de las componentes de un array está <strong>implícito</strong> cuando se crea, pero podemos especificarlo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64
+int32
+</pre></div>
+</div>
+</div>
+</div>
 <p>Podemos pedir información de los tipo usando funciones como <code class="docutils literal notranslate"><span class="pre">iinfo</span></code> o <code class="docutils literal notranslate"><span class="pre">finfo</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1071,22 +1144,6 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>finfo(resolution=1e-15, min=-1.7976931348623157e+308, max=1.7976931348623157e+308, dtype=float64)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64
-int32
 </pre></div>
 </div>
 </div>
