@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Ejercicios de Introducción a Python &#8212; Curso de Python US</title>
+    <title>Indexado, Slicing y operaciones básicas &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Introducción a Numpy" href="../numpy/introduction-numpy.html" />
-    <link rel="prev" title="Clases" href="classes.html" />
+    <link rel="next" title="Construyendo una red neuronal desde cero con Numpy" href="nn-with-numpy.html" />
+    <link rel="prev" title="Introducción a Numpy" href="introduction-numpy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -123,59 +123,59 @@ const thebe_selector_output = ".output, .cell_output"
   Introducción a Python
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction-python.html">
+  <a class="reference internal" href="../introduction-python/introduction-python.html">
    Introducción a Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="python-basics.html">
+  <a class="reference internal" href="../introduction-python/python-basics.html">
    Principios básicos de Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="numeric-types.html">
+  <a class="reference internal" href="../introduction-python/numeric-types.html">
    Tipos numéricos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="strings.html">
+  <a class="reference internal" href="../introduction-python/strings.html">
    Strings
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="booleans.html">
+  <a class="reference internal" href="../introduction-python/booleans.html">
    Booleanos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lists.html">
+  <a class="reference internal" href="../introduction-python/lists.html">
    Listas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="other-data-structures.html">
+  <a class="reference internal" href="../introduction-python/other-data-structures.html">
    Otras estructuras de datos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="control-flow.html">
+  <a class="reference internal" href="../introduction-python/control-flow.html">
    Estructuras de control
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
+  <a class="reference internal" href="../introduction-python/functions.html">
    Funciones
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="classes.html">
+  <a class="reference internal" href="../introduction-python/classes.html">
    Clases
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/exercises.html">
    Ejercicios de Introducción a Python
   </a>
  </li>
@@ -185,19 +185,19 @@ const thebe_selector_output = ".output, .cell_output"
   Numpy
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/introduction-numpy.html">
+  <a class="reference internal" href="introduction-numpy.html">
    Introducción a Numpy
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/index-slicing.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Indexado, Slicing y operaciones básicas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/nn-with-numpy.html">
+  <a class="reference internal" href="nn-with-numpy.html">
    Construyendo una red neuronal desde cero con Numpy
   </a>
  </li>
@@ -289,7 +289,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/exercises.ipynb"
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/numpy/index-slicing.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -307,7 +307,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/exercises.ipynb"
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/numpy/index-slicing.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -367,7 +367,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/exercises.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/index-slicing.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -395,7 +395,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/introduction-python/exercises.ipynb"
+        <a href="../../_sources/notebooks/numpy/index-slicing.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -444,7 +444,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Ejercicios de Introducción a Python</h1>
+                <h1>Indexado, Slicing y operaciones básicas</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -456,114 +456,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="ejercicios-de-introduccion-a-python">
-<h1>Ejercicios de Introducción a Python<a class="headerlink" href="#ejercicios-de-introduccion-a-python" title="Enlazar permanentemente con este título">#</a></h1>
-<div class="exercise admonition" id="chapter1-merge">
-
-<p class="admonition-title"><span class="caption-number">Exercise 42 </span></p>
-<section id="exercise-content">
-<p>Crea una función <code class="docutils literal notranslate"><span class="pre">merge</span></code> que acepte un número arbitrario de diccionarios y devuelva un diccionario cuyas claves sean las uniones de las claves de los diccionarios de entradas y los valores listas donde se concatenan los valores de los diccionarios originales. Por ejemplo,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
-    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
-    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="kc">None</span>
-<span class="p">}</span>
-
-<span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello world&quot;</span><span class="p">,</span> 
-    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;five&quot;</span>
-<span class="p">}</span>
-
-<span class="n">dict3</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;yes&quot;</span>
-<span class="p">}</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">merge</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">,</span> <span class="n">dict3</span><span class="p">)</span>
-
-<span class="p">{</span>
-    <span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hello world&#39;</span><span class="p">],</span> 
-    <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;yes&#39;</span><span class="p">],</span> 
-    <span class="s1">&#39;baz&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">],</span> 
-    <span class="mi">5</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;five&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="exercise admonition" id="chapter1-exercises-4">
-
-<p class="admonition-title"><span class="caption-number">Exercise 43 </span></p>
-<section id="exercise-content">
-<p>Considera el siguiente ejemplo</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>¿Cambia algún elemento de la lista <code class="docutils literal notranslate"><span class="pre">a</span></code> tras ejecutar <code class="docutils literal notranslate"><span class="pre">b.append(100)</span></code>?¿Y tras ejecutar <code class="docutils literal notranslate"><span class="pre">b[2][0]</span> <span class="pre">=</span> <span class="pre">-100</span></code>? ¿Por qué?</p>
-</section>
-</div>
-<div class="exercise admonition" id="chapter1-concat_to_str">
-
-<p class="admonition-title"><span class="caption-number">Exercise 44 </span></p>
-<section id="exercise-content">
-<p>Crea una función <code class="docutils literal notranslate"><span class="pre">concat_to_str</span></code> que convierta una secuencia de objetos de Python en una cadena de transcripciones siguiendo las siguientes normas:</p>
-<ul class="simple">
-<li><p>Si el objeto es un entero, entonces escribimos cada dígito en español separados por guiones. Si el entero es negativo, lo indicamos empezando la cadena por <code class="docutils literal notranslate"><span class="pre">menos</span></code>:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">142</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">uno-cuatro-dos</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-12</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">menos-uno-dos</span></code></p></li>
-</ul>
-</li>
-<li><p>Si el objeto es un flotante, nos quedamos con la parte entera y hacemos lo mismo que en el caso anterior añadiendo <code class="docutils literal notranslate"><span class="pre">&quot;y</span> <span class="pre">decimales&quot;</span></code> al final.</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">12.324</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">uno-dos</span> <span class="pre">y</span> <span class="pre">decimales</span></code></p></li>
-</ul>
-</li>
-<li><p>Si el objeto es una cadena, lo dejamos como está.</p></li>
-<li><p>Si el objeto es de otro tipo (incluido <code class="docutils literal notranslate"><span class="pre">bool</span></code>), añadimos <code class="docutils literal notranslate"><span class="pre">&quot;&lt;OTRO&gt;&quot;</span></code>.</p></li>
-</ul>
-<p>Las transcripciones deben estar separas por <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">|</span> <span class="pre">&quot;</span></code>. Por ejemplo,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">concat_to_str</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.23</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="go">&quot;uno-dos | menos-uno-cuatro y decimales&quot; | hello | &lt;OTRO&gt; | &lt;OTRO&gt; | uno-cero y decimales | cinco&quot;</span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="exercise admonition" id="chapter1-books">
-
-<p class="admonition-title"><span class="caption-number">Exercise 45 </span></p>
-<section id="exercise-content">
-<p>Visita <a class="reference external" href="https://gutenberg.org/browse/scores/top#books-last30">este sitio web</a> y copia el enlace de descarga de un libro a tu elección en texto plano en una variable <code class="docutils literal notranslate"><span class="pre">url</span></code>. Por ejemplo, <a class="reference external" href="https://gutenberg.org/cache/epub/1342/pg1342.txt">este</a> es el enlace de descarga de <em>Orgullo y Prejuicio</em>.</p>
-<p>Utiliza el módulo <code class="docutils literal notranslate"><span class="pre">requests</span></code> para realizar una petición http y guardar el cuerpo de la respuesta en una variable <code class="docutils literal notranslate"><span class="pre">book</span></code> tal y como se indica a continuación</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://gutenberg.org/cache/epub/1342/pg1342.txt&quot;</span>
-<span class="n">book_request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">book</span> <span class="o">=</span> <span class="n">book_request</span><span class="o">.</span><span class="n">text</span>
-</pre></div>
-</div>
-<p>Escribe una función <code class="docutils literal notranslate"><span class="pre">count_words</span></code> que devuelva un diccionario con las 50 palabras más frecuentes del libro que tenga como claves dichas palabras y como valor el número de apariciones.</p>
-</section>
-</div>
-<div class="exercise admonition" id="chapter1-shopping-cart">
-
-<p class="admonition-title"><span class="caption-number">Exercise 46 </span></p>
-<section id="exercise-content">
-<p>Crea una clase <code class="docutils literal notranslate"><span class="pre">CarritoCompra</span></code>, donde cada instancia almacenará dos listas de cadenas representando productos</p>
-<ul class="simple">
-<li><p>una lista para productos que necesitamos, <code class="docutils literal notranslate"><span class="pre">necesitados</span></code>.</p></li>
-<li><p>otra para productos ya comprados, <code class="docutils literal notranslate"><span class="pre">comprados</span></code>.</p></li>
-</ul>
-<p>Un producto no puede aparecer más de una vez en cada lista.</p>
-<p>Crea un método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> que acepte una cadena o un iterable de cadenas representando productos que se añadirán a la lista de <code class="docutils literal notranslate"><span class="pre">necesitados</span></code> y además métodos para</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">añade_necestiados</span></code>: añadir nuevos elementos necesitados al carrito,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">compra</span></code>: marcar un producto como comprado (pasa de necesitados a comprados),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">elimina_necesitados</span></code>, <code class="docutils literal notranslate"><span class="pre">elimina_comprados</span></code>: eliminar productos, ya sea de la lista de necesitados o comprados,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lista_necestiados</span></code> y <code class="docutils literal notranslate"><span class="pre">lista_comprados</span></code>: listar los elementos necesitados o comprados en orden alfabético.</p></li>
-</ul>
-</section>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="indexado-slicing-y-operaciones-basicas">
+<h1>Indexado, Slicing y operaciones básicas<a class="headerlink" href="#indexado-slicing-y-operaciones-basicas" title="Enlazar permanentemente con este título">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -579,7 +473,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./notebooks/introduction-python"
+            path: "./notebooks/numpy"
         },
         predefinedOutput: true
     }
@@ -593,17 +487,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="classes.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="introduction-numpy.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Clases</p>
+            <p class="prev-next-title">Introducción a Numpy</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../numpy/introduction-numpy.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="nn-with-numpy.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Introducción a Numpy</p>
+        <p class="prev-next-title">Construyendo una red neuronal desde cero con Numpy</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
