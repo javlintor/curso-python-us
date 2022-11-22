@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
@@ -476,13 +478,6 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fancy-indexing">
-     <em>
-      Fancy Indexing
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trasposicion-de-arrays-y-producto-matricial">
      Trasposición de arrays y producto matricial
     </a>
@@ -560,13 +555,6 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fancy-indexing">
-     <em>
-      Fancy Indexing
-     </em>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trasposicion-de-arrays-y-producto-matricial">
      Trasposición de arrays y producto matricial
     </a>
@@ -616,6 +604,13 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="indexado-slicing-y-operaciones-basicas">
 <h1>Indexado, Slicing y operaciones básicas<a class="headerlink" href="#indexado-slicing-y-operaciones-basicas" title="Enlazar permanentemente con este título">#</a></h1>
 <p>Vamos a explorar más a fondo la diferentes formas que tenemos de acceder y operar con componentes de un array multidimensional.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <section id="indexado-y-slicing">
 <h2>Indexado y <em>slicing</em><a class="headerlink" href="#indexado-y-slicing" title="Enlazar permanentemente con este título">#</a></h2>
@@ -779,6 +774,16 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]])</span>
+<span class="n">C3d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 1,  2,  3],
+        [ 4,  5,  6]],
+
+       [[ 7,  8,  9],
+        [10, 11, 12]]])
 </pre></div>
 </div>
 </div>
@@ -978,11 +983,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="exercise admonition" id="index-slicing-3x2x2">
+<div class="exercise admonition" id="index-slicing-3x4x2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 49 </span></p>
 <section id="exercise-content">
-<p>Crea un array tridimensional de dimensiones (3, 2, 2) y obtén el subarray indicada en la figura
+<p>Crea un array tridimensional de dimensiones <span class="math notranslate nohighlight">\((3, 4, 2)\)</span> y obtén el subarray indicada en la figura
 <img alt="picture" src="https://drive.google.com/uc?id=1HEtbq_Y1YVh6jscdHEhYYz-iM5FNMyJP" /></p>
 </section>
 </div>
@@ -1177,104 +1182,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="fancy-indexing">
-<h3><em>Fancy Indexing</em><a class="headerlink" href="#fancy-indexing" title="Enlazar permanentemente con este título">#</a></h3>
-<p>El término <em>fancy indexing</em> se usa en numpy para <strong>indexado usando arrays de enteros</strong>. Veamos un ejemplo:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
-<span class="n">arr</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0., 0.],
-       [1., 1., 1., 1.],
-       [2., 2., 2., 2.],
-       [3., 3., 3., 3.],
-       [4., 4., 4., 4.],
-       [5., 5., 5., 5.],
-       [6., 6., 6., 6.],
-       [7., 7., 7., 7.]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Indexando con <code class="docutils literal notranslate"><span class="pre">[4,3,0,6]</span></code> nos permite obtener las filas indicadas en el orden dado:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4., 4., 4., 4.],
-       [3., 3., 3., 3.],
-       [0., 0., 0., 0.],
-       [6., 6., 6., 6.]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Si usamos más de un array para hacer <em>fancy indexing</em>, entonces toma los componentes descritos por la tupla de índices correspondiente al <code class="docutils literal notranslate"><span class="pre">zip</span></code> de los arrays de índices. Veámoslos con el siguiente ejemplo:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">arr</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3],
-       [ 4,  5,  6,  7],
-       [ 8,  9, 10, 11],
-       [12, 13, 14, 15],
-       [16, 17, 18, 19],
-       [20, 21, 22, 23],
-       [24, 25, 26, 27],
-       [28, 29, 30, 31]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4, 23, 29, 10])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Se han obtenido los elementos de índices <code class="docutils literal notranslate"><span class="pre">(1,0)</span></code>, <code class="docutils literal notranslate"><span class="pre">(5,3)</span></code>, <code class="docutils literal notranslate"><span class="pre">(7,1)</span></code> y <code class="docutils literal notranslate"><span class="pre">(2,2)</span></code>:</p>
-<p>Quizás en este último caso, lo «natural» sería que nos hubiera devuelto el subarray formado por las filas 1, 5, 7 y 2 (en ese orden), y de ahí solo las columnas 0, 3 , 1 y 2 (en ese orden.</p>
-<p>Para obtener eso debemos hacer la siguiente operación:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]][:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4,  7,  5,  6],
-       [20, 23, 21, 22],
-       [28, 31, 29, 30],
-       [ 8, 11,  9, 10]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dos observaciones importantes sobre el <em>fancy indexing</em>:</p>
-<ul class="simple">
-<li><p>Siempre devuelve arrays unidimensionales.</p></li>
-<li><p>A diferencia del <em>slicing</em>, siempre construye una copia del array sobre el que se aplica (nunca una <em>vista</em>).</p></li>
-</ul>
 </section>
 <section id="trasposicion-de-arrays-y-producto-matricial">
 <h3>Trasposición de arrays y producto matricial<a class="headerlink" href="#trasposicion-de-arrays-y-producto-matricial" title="Enlazar permanentemente con este título">#</a></h3>
