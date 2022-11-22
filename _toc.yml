@@ -20,7 +20,7 @@ parts:
 - caption: Numpy
   chapters: 
   - file: notebooks/numpy/introduction-numpy.ipynb
-  - file: notebooks/numpy/numpy-basics.ipynb
+  - file: notebooks/numpy/index-slicing.ipynb
   - file: notebooks/numpy/nn-with-numpy.ipynb
 - caption: Matplotlib
   chapters: 
