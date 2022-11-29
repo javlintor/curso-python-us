@@ -1083,7 +1083,7 @@ int32
 </div>
 </div>
 </div>
-<p>Podemos incluso convertir el <code class="docutils literal notranslate"><span class="pre">dtype</span></code> de un array que ya se ha creado, usando el método <code class="docutils literal notranslate"><span class="pre">astype</span></code>. En el ejemplo que sigue, a partir de un array de enteros, obtenemos uno de números de coma flotante:</p>
+<p>Podemos incluso <strong>convertir el <code class="docutils literal notranslate"><span class="pre">dtype</span></code> de un array</strong> que ya se ha creado, usando el método <code class="docutils literal notranslate"><span class="pre">astype</span></code>. En el ejemplo que sigue, a partir de un array de enteros, obtenemos uno de números de coma flotante:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arr = np.array([1, 2, 3, 4, 5])
@@ -1180,7 +1180,7 @@ B = np.array([[8.1, -22, 12.3], [6.1, 7.8, 9.2]])
 </div>
 </div>
 </div>
-<p>En principio, para poder aplicar estas operaciones entre arrays, se deben aplicar sobre arrays con las mismas dimensiones (el mismo <code class="docutils literal notranslate"><span class="pre">shape</span></code>). Es posible operar entre arrays de distintas dimensiones, con el mecanismo de <em>broadcasting</em>, que veremos más adelante.</p>
+<p>En principio, para poder aplicar estas operaciones entre arrays, se deben aplicar sobre arrays con las mismas dimensiones (el mismo <code class="docutils literal notranslate"><span class="pre">shape</span></code>). Es posible operar entre arrays de distintas dimensiones, con el <strong>mecanismo de broadcasting</strong>, que veremos más adelante.</p>
 <p>Podemos efectuar operaciones entre arrays y números (<em>escalares</em>), indicando con ello que la operación con el escalar se aplica a cada uno de los componentes del array. Vemos algunos ejemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1202,8 +1202,8 @@ B = np.array([[8.1, -22, 12.3], [6.1, 7.8, 9.2]])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.    , 0.5   , 0.3333],
-       [0.25  , 0.2   , 0.1667]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        , 0.5       , 0.33333333],
+       [0.25      , 0.2       , 0.16666667]])
 </pre></div>
 </div>
 </div>
@@ -1215,8 +1215,8 @@ B = np.array([[8.1, -22, 12.3], [6.1, 7.8, 9.2]])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.    , 1.4142, 1.7321],
-       [2.    , 2.2361, 2.4495]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        , 1.41421356, 1.73205081],
+       [2.        , 2.23606798, 2.44948974]])
 </pre></div>
 </div>
 </div>
