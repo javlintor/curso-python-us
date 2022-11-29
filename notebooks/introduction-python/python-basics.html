@@ -530,7 +530,7 @@ title="Print to PDF"
 <p>Una <strong>variable</strong> es un nombre al que asignamos algún valor. Para definir una variable en Python escribimos el nombre de la misma seguido del símbolo igual <code class="docutils literal notranslate"><span class="pre">=</span></code> más el valor que queremos asignarle</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 42
 </pre></div>
 </div>
 </div>
@@ -539,7 +539,7 @@ title="Print to PDF"
 <p>Para obtener el tipo de un objeto utilizamos la función <code class="docutils literal notranslate"><span class="pre">type</span></code>. Para verificar si una variable es de un tipo tenemos la función <code class="docutils literal notranslate"><span class="pre">isinstance</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(42)
 </pre></div>
 </div>
 </div>
@@ -551,7 +551,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>isinstance(&quot;foo&quot;, str)
 </pre></div>
 </div>
 </div>
@@ -563,8 +563,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+type(math.pi)
 </pre></div>
 </div>
 </div>
@@ -578,7 +578,7 @@ title="Print to PDF"
 <p>Es posible escribir definiciones en las que explícitamente indiquemos el tipo con un fin meramente informativo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x: int = 42
 </pre></div>
 </div>
 </div>
@@ -586,8 +586,8 @@ title="Print to PDF"
 <p>El intérprete de Python ignorará por completo este tipado manual. Esta sintaxis puede ser útil a la hora de mejorar la legibilidad del código y también puede ser utilizado por herramientas de terceros que verifiquen la consistencia del mismo, pero no cambiaremos el tipo de la variable. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x: str = 42
+type(x)
 </pre></div>
 </div>
 </div>
@@ -607,11 +607,11 @@ title="Print to PDF"
 <p>Podemos consultar la dirección del objeto creado en memoria con la función <code class="docutils literal notranslate"><span class="pre">id</span></code> y el número de bytes reservado para guardarlo con la <code class="docutils literal notranslate"><span class="pre">getsizeof</span></code> dentro del módulo <code class="docutils literal notranslate"><span class="pre">sys</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import sys
 
-<span class="n">n</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+n = 300
+print(id(n))
+print(sys.getsizeof(n))
 </pre></div>
 </div>
 </div>
@@ -625,7 +625,7 @@ title="Print to PDF"
 <p>Si ahora realizamos otra asignación a la variable ya creada</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">n</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = n
 </pre></div>
 </div>
 </div>
@@ -633,7 +633,7 @@ title="Print to PDF"
 <p>Python no creará un nuevo objeto, si no solamente una nueva referencia, que apunta al mismo objeto creado con anterioridad</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(id(m))
 </pre></div>
 </div>
 </div>
@@ -647,7 +647,7 @@ title="Print to PDF"
 <p>Para comprobar si dos variables referencian el mismo objeto utlizamos la función <code class="docutils literal notranslate"><span class="pre">is</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="ow">is</span> <span class="n">m</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n is m
 </pre></div>
 </div>
 </div>
@@ -660,9 +660,9 @@ title="Print to PDF"
 <p>Asignando la variable <code class="docutils literal notranslate"><span class="pre">m</span></code> a otro objeto, su referencia en memoria cambiará</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">400</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">m</span> <span class="ow">is</span> <span class="n">n</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m = 400
+print(id(m))
+print(m is n)
 </pre></div>
 </div>
 </div>
@@ -677,7 +677,7 @@ False
 <p>En caso de que <code class="docutils literal notranslate"><span class="pre">n</span></code> cambie también su referencia, el objeto que guardaba el entero <code class="docutils literal notranslate"><span class="pre">300</span></code> se queda sin referencias</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n = &quot;foo&quot;
 </pre></div>
 </div>
 </div>
@@ -688,11 +688,11 @@ False
 <p>Finalmente, es importante notar que a la hora de nombrar las variables podemos utilizar cadenas de longitud arbitraria que sean combinación de letras mayúsculas y minúsculas, dígitos y guión bajo (<code class="docutils literal notranslate"><span class="pre">_</span></code>) -siempre que no empiecen por un dígito-. No obstante, según la guía de estilos para Python <a class="reference external" href="https://peps.python.org/pep-0008/#function-and-variable-names">PEP 8</a> los nombres de variables deben ser en minúscula y con espacios separados por guiones bajos, lo que se denomina <em>Snake Case</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numberofcollegegraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># mal</span>
-<span class="n">NUMBEROFCOLLEGEGRADUATES</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># uppercase, reservado para variables globales</span>
-<span class="n">numberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># mal</span>
-<span class="n">NumberOfCollegeGraduates</span> <span class="o">=</span> <span class="mi">2500</span>        <span class="c1"># Camel Case, reservado para clases</span>
-<span class="n">number_of_college_graduates</span> <span class="o">=</span> <span class="mi">2500</span>     <span class="c1"># Snake Case     </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numberofcollegegraduates = 2500        # mal
+NUMBEROFCOLLEGEGRADUATES = 2500        # uppercase, reservado para variables globales
+numberOfCollegeGraduates = 2500        # mal
+NumberOfCollegeGraduates = 2500        # Camel Case, reservado para clases
+number_of_college_graduates = 2500     # Snake Case     
 </pre></div>
 </div>
 </div>
@@ -782,7 +782,7 @@ False
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>2 + 3 * 4
 </pre></div>
 </div>
 </div>
@@ -795,7 +795,7 @@ False
 <p>Otras operaciones importantes entre tipos numéricos son el operador potencia <code class="docutils literal notranslate"><span class="pre">**</span></code>, cociente <code class="docutils literal notranslate"><span class="pre">//</span></code> y resto, <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">**</span> <span class="mi">8</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>2 ** 8
 </pre></div>
 </div>
 </div>
@@ -807,7 +807,7 @@ False
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span> <span class="o">//</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>16 // 3
 </pre></div>
 </div>
 </div>
@@ -819,7 +819,7 @@ False
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">23</span> <span class="o">%</span> <span class="mi">7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>23 % 7
 </pre></div>
 </div>
 </div>
@@ -833,11 +833,11 @@ False
 <p>Por ejemplo, al aplicar el operador suma <code class="docutils literal notranslate"><span class="pre">+</span></code> entre un entero y un flotante, Python convertirá el entero en flotante y aplicará en operador posteriormente.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">.5</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 1
+b = .5
+print(type(a))
+print(type(b))
+print(type(a + b))
 </pre></div>
 </div>
 </div>
@@ -852,10 +852,10 @@ False
 <p>Para realizar un <strong>tipado explícito</strong>, llamamos directamente al tipo que queremos convertir</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;8&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;8&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = &quot;8&quot;
+b = int(&quot;8&quot;)
+print(type(a))
+print(type(b))
 </pre></div>
 </div>
 </div>
@@ -873,8 +873,8 @@ False
 <p>En Python, podemos comentar nuestro código escribiendo el símbolo <code class="docutils literal notranslate"><span class="pre">#</span></code>, de modo que todo lo que escribamos a la derecha de <code class="docutils literal notranslate"><span class="pre">#</span></code> en la misma línea será ignorado por el intérprete.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esto es un comentario </span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># Esto es un comentario tras una asignación</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Esto es un comentario 
+a = 1 + 2 # Esto es un comentario tras una asignación
 </pre></div>
 </div>
 </div>

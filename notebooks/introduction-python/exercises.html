@@ -490,9 +490,11 @@ title="Print to PDF"
 </div>
 </section>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="solution dropdown admonition" id="notebooks/introduction-python/exercises-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#chapter1-merge"> Exercise 42</a></p>
+<section id="solution-content">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">d_ref</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -504,7 +506,7 @@ title="Print to PDF"
     <span class="k">return</span> <span class="n">d_ref</span>
 </pre></div>
 </div>
-</div>
+</section>
 </div>
 <div class="exercise admonition" id="chapter1-exercises-4">
 
@@ -545,35 +547,46 @@ title="Print to PDF"
 </div>
 </section>
 </div>
-<p>mapping = {
-«-»: «menos»,
-«1»: «uno»,
-«2»: «dos»,
-«3»: «tres»,
-«4»: «cuatro»,
-«5»: «cinco»,
-«6»: «seis»,
-«7»: «siete»,
-«8»: «ocho»,
-«9»: «nueve»,
-«0»: «cero»
-}</p>
-<p>def traduce_entero(i):
-digits = [mapping[i_str] for i_str in str(i)]
-return «-«.join(digits)</p>
-<p>def traduce(i):
-if not isinstance(i, bool) and isinstance(i, int):
-return traduce_entero(i)
-elif isinstance(i, float):
-return traduce_entero(int(i)) + » y decimales»
-elif isinstance(i, str):
-return i
-else:
-return «<OTRO>»</p>
-<p>def concat_to_str(s):
-traducciones = [traduce(i) for i in s]
-ret = » | «.join(traducciones)
-return ret</p>
+<div class="solution dropdown admonition" id="notebooks/introduction-python/exercises-solution-4">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#chapter1-concat_to_str"> Exercise 44</a></p>
+<section id="solution-content">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="s2">&quot;menos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="s2">&quot;uno&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="s2">&quot;dos&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="s2">&quot;tres&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;4&quot;</span><span class="p">:</span> <span class="s2">&quot;cuatro&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;5&quot;</span><span class="p">:</span> <span class="s2">&quot;cinco&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;6&quot;</span><span class="p">:</span> <span class="s2">&quot;seis&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;7&quot;</span><span class="p">:</span> <span class="s2">&quot;siete&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;8&quot;</span><span class="p">:</span> <span class="s2">&quot;ocho&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;9&quot;</span><span class="p">:</span> <span class="s2">&quot;nueve&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="s2">&quot;cero&quot;</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">traduce_entero</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i_str</span><span class="p">]</span> <span class="k">for</span> <span class="n">i_str</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">traduce</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">traduce_entero</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">traduce_entero</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; y decimales&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">i</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="s2">&quot;&lt;OTRO&gt;&quot;</span>
+
+<span class="k">def</span> <span class="nf">concat_to_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">traducciones</span> <span class="o">=</span> <span class="p">[</span><span class="n">traduce</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">traducciones</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span>
+</pre></div>
+</div>
+</section>
+</div>
 <div class="exercise admonition" id="chapter1-books">
 
 <p class="admonition-title"><span class="caption-number">Exercise 45 </span></p>

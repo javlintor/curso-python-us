@@ -548,7 +548,7 @@ title="Print to PDF"
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
 </pre></div>
 </div>
 </div>
@@ -557,8 +557,8 @@ title="Print to PDF"
 <p>Lo que sigue es un ejemplo de un array de numpy unidimensional con un millón de componentes, y el análogo como lista python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
-<span class="n">list1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arr1 = np.arange(10000000)
+list1 = list(range(10000000))
 </pre></div>
 </div>
 </div>
@@ -566,8 +566,8 @@ title="Print to PDF"
 <p>Vamos a obtener el array resultante de multiplicar por 2 cada componente, y veamos el tiempo de CPU que se emplea. Nótese que en el caso de numpy, dicha operación se especifica simplemente como «multiplicar por 2» el array. En el caso de las listas, tenemos que usar un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> para la misma operación. Obsérvese la gran diferencia en el tiempo de ejecución:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> for _ in range(10): arr2 = arr1 * 2
-<span class="o">%</span><span class="k">timeit</span> for _ in range(10): list2 = [x * 2 for x in list1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%timeit for _ in range(10): arr2 = arr1 * 2
+%timeit for _ in range(10): list2 = [x * 2 for x in list1]
 </pre></div>
 </div>
 </div>
@@ -581,9 +581,9 @@ title="Print to PDF"
 <p>Numpy también suele optimizar el espacio en memoria necesitado para guardar un array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">arr1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import sys 
+print(sys.getsizeof(arr1))
+print(sys.getsizeof(list1))
 </pre></div>
 </div>
 </div>
@@ -597,77 +597,77 @@ title="Print to PDF"
 <p>Comparamos en la siguiente gráfico el tiempo que tardamos en sumar los <code class="docutils literal notranslate"><span class="pre">n</span></code> primeros números usando listas de Python o arrays de numpy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%config InlineBackend.figure_format=&#39;retina&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+import matplotlib.pyplot as plt
 
-<span class="k">def</span> <span class="nf">get_ex_time</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tries</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">ex_times</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tries</span><span class="p">):</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-            <span class="n">ex_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> 
-            <span class="n">ex_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ex_time</span><span class="p">)</span>
-        <span class="n">mean_ex_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ex_times</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">mean_ex_time</span>
-    <span class="k">return</span> <span class="n">wrapper</span>
+def get_ex_time(f, tries=10):
+    def wrapper(*args, **kwargs):
+        ex_times = []
+        for _ in range(tries):
+            start = time.time()
+            f(*args, **kwargs)
+            end = time.time()
+            ex_time = end - start 
+            ex_times.append(ex_time)
+        mean_ex_time = np.mean(ex_times)
+        return mean_ex_time
+    return wrapper
 
-<span class="nd">@get_ex_time</span>
-<span class="k">def</span> <span class="nf">get_duplicate_time_python</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+@get_ex_time
+def get_duplicate_time_python(i):
+    return list(2*x for x in range(i))
 
-<span class="nd">@get_ex_time</span>
-<span class="k">def</span> <span class="nf">get_duplicate_time_numpy</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+@get_ex_time
+def get_duplicate_time_numpy(i):
+    return 2*np.arange(i)
 
-<span class="nd">@get_ex_time</span>
-<span class="k">def</span> <span class="nf">get_sum_time_python</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+@get_ex_time
+def get_sum_time_python(i):
+    return sum(range(i))
 
-<span class="nd">@get_ex_time</span>
-<span class="k">def</span> <span class="nf">get_sum_time_numpy</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+@get_ex_time
+def get_sum_time_numpy(i):
+    return np.sum(np.arange(i))
 
-<span class="n">n</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">)]</span>
-<span class="n">t_duplicate_python</span><span class="o">=</span> <span class="p">[</span><span class="n">get_duplicate_time_python</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
-<span class="n">t_duplicate_numpy</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_duplicate_time_numpy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
-<span class="n">t_sum_python</span><span class="o">=</span> <span class="p">[</span><span class="n">get_sum_time_python</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
-<span class="n">t_sum_numpy</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_sum_time_numpy</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">]</span>
+n = [10**i for i in range(9)]
+t_duplicate_python= [get_duplicate_time_python(i) for i in n]
+t_duplicate_numpy = [get_duplicate_time_numpy(i) for i in n]
+t_sum_python= [get_sum_time_python(i) for i in n]
+t_sum_numpy = [get_sum_time_numpy(i) for i in n]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">t_duplicate_python</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">t_duplicate_numpy</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numpy&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;tamaño&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;tiempo (s)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Multiplicar por 2 usando Python puro vs numpy&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">t_sum_python</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">t_sum_numpy</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numpy&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;tamaño&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;tiempo (s)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sumar n primeros elementos usando Python puro vs numpy&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(2, 1, figsize=(9, 7))
+ax[0].plot(n, t_duplicate_python, &quot;o-&quot;, label=&quot;Python&quot;)
+ax[0].plot(n, t_duplicate_numpy, &quot;o-&quot;, label=&quot;Numpy&quot;)
+ax[0].set_xscale(&quot;log&quot;)
+ax[0].set_yscale(&quot;log&quot;)
+ax[0].set_xlabel(&quot;tamaño&quot;)
+ax[0].set_ylabel(&quot;tiempo (s)&quot;)
+ax[0].set_title(&quot;Multiplicar por 2 usando Python puro vs numpy&quot;)
+ax[0].grid(True)
+ax[0].legend()
+ax[1].plot(n, t_sum_python, &quot;o-&quot;, label=&quot;Python&quot;)
+ax[1].plot(n, t_sum_numpy, &quot;o-&quot;, label=&quot;Numpy&quot;)
+ax[1].set_xscale(&quot;log&quot;)
+ax[1].set_yscale(&quot;log&quot;)
+ax[1].set_xlabel(&quot;tamaño&quot;)
+ax[1].set_ylabel(&quot;tiempo (s)&quot;)
+ax[1].set_title(&quot;Sumar n primeros elementos usando Python puro vs numpy&quot;)
+ax[1].grid(True)
+ax[1].legend()
+fig.tight_layout()
+fig.show()
 </pre></div>
 </div>
 </div>
@@ -682,8 +682,8 @@ title="Print to PDF"
 <p>Hay muchas formas de crear arrays, como veremos más adelante, pero vamos a empezar creando un array de números psuedoaletorios obtenidos como muestras de una distribución normal de media 0 y desviación típica 1 para empezar a explorar los atributos y posibles operaciones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = np.random.randn(2, 3)
+data
 </pre></div>
 </div>
 </div>
@@ -697,7 +697,7 @@ title="Print to PDF"
 <p>Podemos por ejemplo obtener el array resultante de multiplicar cada componente del array por 10, sin necesidad de hacerlo elemento a elemento</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">*</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data * 10
 </pre></div>
 </div>
 </div>
@@ -711,7 +711,7 @@ title="Print to PDF"
 <p>O la suma de cada componente consigo mismo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">+</span> <span class="n">data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data + data
 </pre></div>
 </div>
 </div>
@@ -725,7 +725,7 @@ title="Print to PDF"
 <p>Nótese que las operaciones anteriores <strong>no cambian el array sobre el que operan</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data
 </pre></div>
 </div>
 </div>
@@ -739,7 +739,7 @@ title="Print to PDF"
 <p>Los arrays de numpy deben ser <strong>homogéneos</strong>, es decir todas sus componentes son del mismo tipo (tipos predefinidos por numpy, que veremos más adelante).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data.dtype
 </pre></div>
 </div>
 </div>
@@ -753,8 +753,8 @@ title="Print to PDF"
 <p>En este caso, tenemos que <code class="docutils literal notranslate"><span class="pre">data</span></code> es un array bidimensional, con 2 «filas» y 3 «columnas»:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(data.ndim)
+print(data.shape)
 </pre></div>
 </div>
 </div>
@@ -774,9 +774,9 @@ title="Print to PDF"
 <p>La manera más fácil de crear arrays es mediante el método <code class="docutils literal notranslate"><span class="pre">np.array</span></code>. Basta con aplicarlo a cualquier objeto de tipo secuencial que sea susceptible de transformarse en un array. Por ejemplo, una lista de números se transforma en un array unidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
-<span class="n">arr1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data1 = [6, 7.5, 8, 0, 1]
+arr1 = np.array(data1)
+arr1
 </pre></div>
 </div>
 </div>
@@ -789,9 +789,9 @@ title="Print to PDF"
 <p>Si le pasamos listas anidadas con una estructura correcta, podemos obtener el correspondiente array bidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
-<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
-<span class="n">arr2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data2 = [[1, 2, 3, 4], [5, 6, 7, 8]]
+arr2 = np.array(data2)
+arr2
 </pre></div>
 </div>
 </div>
@@ -805,7 +805,7 @@ title="Print to PDF"
 <p>Hay otras maneras de crear arrays. Damos a continuación solo algunos ejemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.zeros(10)
 </pre></div>
 </div>
 </div>
@@ -817,7 +817,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.ones((3, 6))
 </pre></div>
 </div>
 </div>
@@ -831,7 +831,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.arange(20)
 </pre></div>
 </div>
 </div>
@@ -844,7 +844,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.eye(7)
 </pre></div>
 </div>
 </div>
@@ -862,7 +862,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.diag(range(5))
 </pre></div>
 </div>
 </div>
@@ -879,9 +879,9 @@ title="Print to PDF"
 <p>Podemos usar también <code class="docutils literal notranslate"><span class="pre">reshape</span></code> para transformar entre distintas dimensiones. Por ejemplo, un uso típico es crear un array bidimensional a partir de uno unidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">v</span><span class="p">,</span> <span class="n">M</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>v = np.arange(12)
+M = v.reshape(3, 4)
+v, M
 </pre></div>
 </div>
 </div>
@@ -897,7 +897,7 @@ title="Print to PDF"
 <p>Hasta ahora sólo hemos visto ejemplos de arrays unidimensionales y bidimensionales. Estas son las dimensiones más frecuentes, pero numpy soporta arrays con cualquier número finito de dimensiones. Por ejemplo, aquí vemos un array de tres dimensiones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.zeros((2, 3, 2))
 </pre></div>
 </div>
 </div>
@@ -916,14 +916,14 @@ title="Print to PDF"
 <p>Otro generador muy utilizado es <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code>, que nos permite generar <span class="math notranslate nohighlight">\(n\)</span> puntos igualmente separados en el un intervalo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5 elementos igualmente espaciados en el intervalo [-1, 1]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># 5 elementos igualmente espaciados en el intervalo [-1, 1]
+a = np.linspace(-1, 1, 5)
 
-<span class="c1"># 2 elementos en el intervalo [3, 4]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+# 2 elementos en el intervalo [3, 4]
+b = np.linspace(3, 4, 2)
 
-<span class="c1"># 100 elementos entre [-pi, pi]</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+# 100 elementos entre [-pi, pi]
+c = np.linspace(-np.pi, np.pi, 100)
 </pre></div>
 </div>
 </div>
@@ -931,16 +931,16 @@ title="Print to PDF"
 <p>Cuando trabajamos con números aleatorios, es recomendable crear un <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html">generador de números aleatorios</a>. Existe un método <code class="docutils literal notranslate"><span class="pre">defult_rng</span></code> para ello</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rng = np.random.default_rng()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="c1"># mean and standard deviation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mu, sigma = 0, 0.1 # mean and standard deviation
 
-<span class="n">s</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+s = rng.normal(mu, sigma, (10, 100))
 </pre></div>
 </div>
 </div>
@@ -961,10 +961,10 @@ title="Print to PDF"
 <p>El tipo de dato de las componentes de un array está <strong>implícito</strong> cuando se crea, pero podemos especificarlo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arr1 = np.array([1, 2, 3], dtype=np.float64)
+arr2 = np.array([1, 2, 3], dtype=np.int32)
+print(arr1.dtype)
+print(arr2.dtype)
 </pre></div>
 </div>
 </div>
@@ -978,7 +978,7 @@ int32
 <p>Podemos pedir información de los tipo usando funciones como <code class="docutils literal notranslate"><span class="pre">iinfo</span></code> o <code class="docutils literal notranslate"><span class="pre">finfo</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.iinfo(&quot;int32&quot;)
 </pre></div>
 </div>
 </div>
@@ -990,7 +990,7 @@ int32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.iinfo(&quot;uint8&quot;)
 </pre></div>
 </div>
 </div>
@@ -1002,7 +1002,7 @@ int32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.finfo(&quot;float64&quot;)
 </pre></div>
 </div>
 </div>
@@ -1015,8 +1015,8 @@ int32
 <p>Podemos incluso convertir el <code class="docutils literal notranslate"><span class="pre">dtype</span></code> de un array que ya se ha creado, usando el método <code class="docutils literal notranslate"><span class="pre">astype</span></code>. En el ejemplo que sigue, a partir de un array de enteros, obtenemos uno de números de coma flotante:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="n">arr</span><span class="o">.</span><span class="n">dtype</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arr = np.array([1, 2, 3, 4, 5])
+arr.dtype
 </pre></div>
 </div>
 </div>
@@ -1028,9 +1028,9 @@ int32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">float_arr</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-<span class="n">float_arr</span><span class="o">.</span><span class="n">dtype</span>
-<span class="n">float_arr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>float_arr = arr.astype(np.float64)
+float_arr.dtype
+float_arr
 </pre></div>
 </div>
 </div>
@@ -1043,9 +1043,9 @@ int32
 <p>Podemos incluso pasar de coma flotante a enteros, en cuyo caso se trunca la parte decimal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">12.9</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">])</span>
-<span class="n">arr</span>
-<span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arr = np.array([3.7, -1.2, -2.6, 0.5, 12.9, 10.1])
+arr
+arr.astype(np.int32)
 </pre></div>
 </div>
 </div>
@@ -1058,8 +1058,8 @@ int32
 <p>O pasar de strings a punto flotante, siempre que los strings del array tengan sentido como números:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;1.25&#39;</span><span class="p">,</span> <span class="s1">&#39;-9.6&#39;</span><span class="p">,</span> <span class="s1">&#39;42&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">)</span>
-<span class="n">numeric_strings</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numeric_strings = np.array([&#39;1.25&#39;, &#39;-9.6&#39;, &#39;42&#39;], dtype=np.string_)
+numeric_strings.astype(float)
 </pre></div>
 </div>
 </div>
@@ -1077,15 +1077,15 @@ int32
 <p>Veamos algunos ejemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">8.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">,</span> <span class="mf">12.3</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.1</span><span class="p">,</span> <span class="mf">7.8</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.array([[1., 2., 3.], [4., 5., 6.]])
+B = np.array([[8.1, -22, 12.3], [6.1, 7.8, 9.2]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">*</span> <span class="n">B</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A * B
 </pre></div>
 </div>
 </div>
@@ -1098,7 +1098,7 @@ int32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A - B
 </pre></div>
 </div>
 </div>
@@ -1113,7 +1113,7 @@ int32
 <p>Podemos efectuar operaciones entre arrays y números (<em>escalares</em>), indicando con ello que la operación con el escalar se aplica a cada uno de los componentes del array. Vemos algunos ejemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">+</span> <span class="n">B</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>3 + B
 </pre></div>
 </div>
 </div>
@@ -1126,7 +1126,7 @@ int32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="n">A</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>1 / A
 </pre></div>
 </div>
 </div>
@@ -1139,7 +1139,7 @@ int32
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">**</span> <span class="mf">0.5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A ** 0.5
 </pre></div>
 </div>
 </div>
@@ -1153,7 +1153,7 @@ int32
 <p>Igualmente, podemos efectuar comparaciones aritméticas entre dos arrays, obteniendo el correspondiente array de booleanos como resultado:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">&gt;</span> <span class="n">B</span> <span class="o">-</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A &gt; B - 5
 </pre></div>
 </div>
 </div>
