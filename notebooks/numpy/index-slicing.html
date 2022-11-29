@@ -651,7 +651,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Sin embargo, hay una diferencia fundamental: en general en python, el slicing siempre crea <em>una copia</em> de la secuencia original (aunque no de los elementos). En numpy, el <em>slicing</em> es una <em>vista</em> de array original. Esto tiene como consecuencia que las modificaciones que se realicen sobre dicha vista se están realizando sobre el array original. Por ejemplo:</p>
+<p>Sin embargo, hay una diferencia fundamental: en general en python, el slicing siempre crea <em>una copia</em> de la secuencia original (aunque no de los elementos) a la hora de hacer asignaciones. En numpy, el <em>slicing</em> es una <em>vista</em> de array original. Esto tiene como consecuencia que <strong>las modificaciones que se realicen sobre dicha vista se están realizando sobre el array original</strong>. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
@@ -798,7 +798,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Similuar a la función <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> de Python, tenemos la función <code class="docutils literal notranslate"><span class="pre">np.ndenumearte</span></code> para iterar con los elementos del array y su índice</p>
+<p>Similar a la función <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> de Python, tenemos la función <code class="docutils literal notranslate"><span class="pre">np.ndenumearte</span></code> para iterar con los elementos del array y su índice</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">C3d</span><span class="p">)]</span>
