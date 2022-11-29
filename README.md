@@ -52,6 +52,9 @@ Cualquier incidencia o propuesta de mejora, no dudes en escribir en el [apartado
 
 Si te gusta el contenido del curso o crees que te ha resultado útil, no olvides premiar con una estrella ⭐️ a este [repositorio](https://github.com/javlintor/curso-python-us). 
 
+## Discord 
+Existe un [servidor de Discord](https://discord.gg/Aqx7AkAA) para seguir las clases del curso.
+
 ## Referencias 
 El material en el que se han basado los capítulos es el siguiente: 
 1. [Introducción a Python](introduction-python): 
