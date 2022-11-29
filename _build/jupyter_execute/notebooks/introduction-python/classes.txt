@@ -19,6 +19,8 @@ p.distancia_al_origen()
 
 dir(p)
 
+import math
+
 class PuntoV2():
     def __init__(self, x=0, y=0):
         self.x = x
@@ -53,7 +55,7 @@ class Circulo(PuntoV2):
         self.radio = radio
 
     def distancia_al_origen(self):
-        dist = math.sqrt(self.x**2 + self.y**2) - self.radio
+        dist = abs(super().distancia_al_origen() - self.radio)
         return dist
 
     def calcula_area(self):
@@ -71,4 +73,8 @@ class Circulo(PuntoV2):
     def __str__(self):
         return f"Circulo (x = {self.x:.3f}, y = {self.y:.3f}, radio = {self.radio:.3})"
 
+circulo = Circulo()
 
+circulo.radio
+
+circulo.distancia_al_origen()

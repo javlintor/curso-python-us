@@ -596,14 +596,19 @@ next(even_gen)
 # ### Pertenencia
 # 
 
-# In[1]:
+# In[4]:
+
+
+get_ipython().run_line_magic('config', "InlineBackend.figure_format='retina'")
+
+
+# In[5]:
 
 
 import time
 import numpy as np
 import matplotlib.pyplot as plt
 
-get_ipython().run_line_magic('config', "InlineBackend.figure_format='retina'")
 
 def get_membership_time_from_range(i):
     iterable = range(i)
@@ -659,7 +664,7 @@ fig.show()
 
 # ## Borra un elemento
 
-# In[2]:
+# In[6]:
 
 
 repeat = 10
@@ -707,7 +712,7 @@ ax.legend()
 fig.show()
 
 
-# In[3]:
+# In[7]:
 
 
 def get_len_time_from_range(i):
