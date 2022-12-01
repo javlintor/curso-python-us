@@ -1404,16 +1404,15 @@ justify-content: center;">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
 <span class="n">yarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
-<span class="n">cond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Si quisiéramos obtener el array que en cada componente tiene el valor de <code class="docutils literal notranslate"><span class="pre">xs</span></code> si el correspondiente en <code class="docutils literal notranslate"><span class="pre">cond</span></code> es <code class="docutils literal notranslate"><span class="pre">True</span></code>, o el valor de <code class="docutils literal notranslate"><span class="pre">ys</span></code> si el correspondiente en <code class="docutils literal notranslate"><span class="pre">cond</span></code> es <code class="docutils literal notranslate"><span class="pre">False</span></code>, podemos hacer lo siguiente:</p>
+<p>Si quisiéramos obtener el array que en cada componente tiene el valor de <code class="docutils literal notranslate"><span class="pre">xarr</span></code> si el correspondiente en <code class="docutils literal notranslate"><span class="pre">mask</span></code> es <code class="docutils literal notranslate"><span class="pre">True</span></code>, o el valor de <code class="docutils literal notranslate"><span class="pre">yarr</span></code> si el correspondiente en <code class="docutils literal notranslate"><span class="pre">cond</span></code> es <code class="docutils literal notranslate"><span class="pre">False</span></code>, podemos hacer lo siguiente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="k">if</span> <span class="n">c</span> <span class="k">else</span> <span class="n">y</span><span class="p">)</span>
-          <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xarr</span><span class="p">,</span> <span class="n">yarr</span><span class="p">,</span> <span class="n">cond</span><span class="p">)]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="k">if</span> <span class="n">c</span> <span class="k">else</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xarr</span><span class="p">,</span> <span class="n">yarr</span><span class="p">,</span> <span class="n">cond</span><span class="p">)]</span>
 <span class="n">result</span>
 </pre></div>
 </div>
@@ -1427,7 +1426,7 @@ justify-content: center;">
 <p>Sin embargo, esto tiene dos problemas: no es lo suficientemente eficiente, y además no se traslada bien a arrays multidimensionales. Afortunadamente, tenemos <code class="docutils literal notranslate"><span class="pre">np.where</span></code> para hacer esto de manera conveniente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="n">xarr</span><span class="p">,</span> <span class="n">yarr</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">xarr</span><span class="p">,</span> <span class="n">yarr</span><span class="p">)</span>
 <span class="n">result</span>
 </pre></div>
 </div>
@@ -1441,21 +1440,21 @@ justify-content: center;">
 <p>No necesariamente el segundo y el tercer argumento tiene que ser arrays. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
-<span class="n">F</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">F</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">F</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">F</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[-0.6525, -1.2183, -1.3326,  1.0746],
-        [ 0.7236,  0.69  ,  1.0015, -0.5031],
-        [-0.6223, -0.9212, -0.7262,  0.2229],
-        [ 0.0513, -1.1577,  0.8167,  0.4336]]),
- array([[-2, -2, -2,  2],
-        [ 2,  2,  2, -2],
-        [-2, -2, -2,  2],
-        [ 2, -2,  2,  2]]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 1.13337281, -0.29586843,  0.8864085 , -0.18065892],
+        [ 0.38622589,  0.54599472, -0.96802548, -1.06468639],
+        [-0.50519463,  1.02762712, -1.15038418, -0.76742521],
+        [ 0.09167195,  0.17300111, -0.00608156, -0.67838085]]),
+ array([[ 2, -2,  2, -2],
+        [ 2,  2, -2, -2],
+        [-2,  2, -2, -2],
+        [ 2,  2, -2, -2]]))
 </pre></div>
 </div>
 </div>
@@ -1476,6 +1475,37 @@ justify-content: center;">
 </div>
 </div>
 </div>
+<p>También existe la función <code class="docutils literal notranslate"><span class="pre">np.select</span></code> para concatenar varias máscaras consecutivas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Poco probable&quot;</span><span class="p">,</span> <span class="s2">&quot;Algo probable&quot;</span><span class="p">],</span> <span class="s2">&quot;Frecuente&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&#39;Algo probable&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;],
+       [&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Algo probable&#39;],
+       [&#39;Frecuente&#39;, &#39;Algo probable&#39;, &#39;Algo probable&#39;, &#39;Frecuente&#39;],
+       [&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;]], dtype=&#39;&lt;U13&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="index-slicing-masks">
+
+<p class="admonition-title"><span class="caption-number">Exercise 53 </span></p>
+<section id="exercise-content">
+<p>Crea una función que transforme un array para aplicar elemento a elemento la siguiente función</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ f(x) = \begin{cases}
+        exp(x/2)  &amp; \text{si } x &lt; 0 \\
+        1-x &amp; \text{si } 0 \leq x \leq 1 \\
+        0 &amp; \text{si } x &gt; 1
+        \end{cases}
+\end{split}\]</div>
+</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="funciones-estadisticas">
@@ -1493,17 +1523,17 @@ justify-content: center;">
 <p>Veamos algunos ejemplos, generando en primer lugar un array con elementos generados aleatoriamente (siguiendo una distribución normal):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">G</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.0107,  1.8249, -0.9975,  0.8506],
-       [-0.1316,  0.9124,  0.1882,  2.1695],
-       [-0.1149,  2.0037,  0.0296,  0.7953],
-       [ 0.1181, -0.7485,  0.585 ,  0.1527],
-       [-1.5657, -0.5625, -0.0327, -0.929 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.68491589, -0.23523322, -2.76736549, -0.43965882],
+       [ 0.22389174, -1.35095128, -1.2144756 ,  0.91728043],
+       [-1.00750282, -0.16612372, -0.39660649,  0.83973848],
+       [-0.30367717, -0.22319543, -0.89858875,  0.77081771],
+       [-0.8379791 , -1.9252893 ,  0.51596257,  1.90659715]])
 </pre></div>
 </div>
 </div>
@@ -1515,7 +1545,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.558182835908912
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-5.907443254834764
 </pre></div>
 </div>
 </div>
@@ -1527,7 +1557,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2779091417954456
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.29537216274173816
 </pre></div>
 </div>
 </div>
@@ -1539,9 +1569,10 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.0107, 2.8356, 1.8381, 2.6887, 2.5571, 3.4695, 3.6577, 5.8272,
-       5.7123, 7.716 , 7.7456, 8.5408, 8.6589, 7.9104, 8.4954, 8.6481,
-       7.0824, 6.5199, 6.4872, 5.5582])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.68491589,  0.44968266, -2.31768283, -2.75734165, -2.53344991,
+       -3.88440119, -5.09887679, -4.18159636, -5.18909919, -5.35522291,
+       -5.7518294 , -4.91209092, -5.21576809, -5.43896352, -6.33755228,
+       -5.56673457, -6.40471367, -8.33000297, -7.8140404 , -5.90744325])
 </pre></div>
 </div>
 </div>
@@ -1554,7 +1585,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.6722,  0.7846,  0.6784,  0.0268, -0.7725])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.68933541, -0.35606368, -0.18262364, -0.16366091, -0.08517717])
 </pre></div>
 </div>
 </div>
@@ -1567,7 +1598,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.6833,  3.4299, -0.2274,  3.039 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.24035148, -3.90079295, -4.76107377,  3.99477494])
 </pre></div>
 </div>
 </div>
@@ -1580,11 +1611,11 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.0107,  1.8249, -0.9975,  0.8506],
-       [ 0.8792,  2.7373, -0.8093,  3.0201],
-       [ 0.7642,  4.741 , -0.7797,  3.8153],
-       [ 0.8823,  3.9925, -0.1947,  3.968 ],
-       [-0.6833,  3.4299, -0.2274,  3.039 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.68491589, -0.23523322, -2.76736549, -0.43965882],
+       [ 0.90880762, -1.5861845 , -3.98184109,  0.47762161],
+       [-0.0986952 , -1.75230822, -4.37844759,  1.31736009],
+       [-0.40237238, -1.97550365, -5.27703634,  2.0881778 ],
+       [-1.24035148, -3.90079295, -4.76107377,  3.99477494]])
 </pre></div>
 </div>
 </div>
@@ -1613,20 +1644,22 @@ justify-content: center;">
 <h2>Métodos para arrays booleanos<a class="headerlink" href="#metodos-para-arrays-booleanos" title="Enlazar permanentemente con este título">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">H</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.4826, -0.0363,  1.0954,  0.9809, -0.5895,  1.5817, -0.5287,
-        0.457 ,  0.93  , -1.5693, -1.0225, -0.4028,  0.2205, -0.1934,
-        0.6692, -1.649 , -2.2528, -1.1668,  0.3536,  0.7021, -0.2746,
-       -0.1391,  0.1077, -0.6065, -0.4171, -0.017 , -1.2241, -1.8008,
-        1.6347,  0.989 ,  0.4579,  0.5552,  1.3067, -0.4406, -0.3014,
-        0.4988, -0.824 ,  1.3206,  0.508 , -0.6534,  0.187 , -0.3917,
-       -0.2723, -0.0171,  0.6803,  0.6355, -0.7572,  0.7181, -0.3043,
-       -1.6778])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.31221291,  1.56967722,  0.64659751,  1.59055759, -0.50877387,
+        0.39315115,  0.17978496, -1.40080765,  1.2648086 ,  1.24498056,
+        0.77711498,  0.53461436,  1.9270288 , -1.76172807,  0.76938447,
+        0.02688926,  0.55401308,  0.59583002, -1.42020342, -0.83772874,
+        0.31099587,  0.93897547, -0.52569519,  0.54406783,  0.48768047,
+        1.93537571,  1.40380082, -0.90466407,  0.99602652, -1.05326757,
+        0.93986836,  1.64924643,  0.5234202 , -1.143551  , -0.3527974 ,
+       -0.8186683 , -0.49117583,  1.38803065,  0.08890935, -0.16538177,
+       -1.28836987, -0.75332339,  1.34554354, -0.14845712, -0.67386971,
+        0.79067447,  1.59720976, -0.37162296, -2.69831205, -0.63596522])
 </pre></div>
 </div>
 </div>
@@ -1639,7 +1672,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29
 </pre></div>
 </div>
 </div>
@@ -1767,10 +1800,22 @@ justify-content: center;">
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">arch</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <p>En caso de que fuera necesario, podríamos incluso guardar incluso los datos en formato comprimido con <code class="docutils literal notranslate"><span class="pre">savez_compressed</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="s1">&#39;arrays_comprimidos.npz&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">arr</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="s1">&#39;arrays_comprimidos.npz&#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">J</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">J</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
