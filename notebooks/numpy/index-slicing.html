@@ -1180,6 +1180,13 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<div class="exercise admonition" id="index-slicing-bool">
+
+<p class="admonition-title"><span class="caption-number">Exercise 51 </span></p>
+<section id="exercise-content">
+<p>Devuelve las filas de <code class="docutils literal notranslate"><span class="pre">data</span></code> correspondientes a aquellos nombres que empiecen por «B» o «J». Puedes utilizar la función <code class="docutils literal notranslate"><span class="pre">np.char.startswith</span></code>.</p>
+</section>
+</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -1189,7 +1196,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">D</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1203,7 +1210,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1217,24 +1224,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">D</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3,  4],
-       [ 5,  6,  7,  8,  9],
-       [10, 11, 12, 13, 14]])
-</pre></div>
-</div>
-</div>
-</div>
 <p>En el cálculo matricial será de mucha utilidad el método <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> de numpy, que sirve tanto para calcular el producto escalar como el producto matricial. Veamos varios usos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">E</span>
 </pre></div>
 </div>
@@ -1253,7 +1246,7 @@ title="Print to PDF"
 <p>Ejemplos de producto escalar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">E</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># producto escalar de dos columnas</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">E</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># producto escalar de dos columnas</span>
 </pre></div>
 </div>
 </div>
