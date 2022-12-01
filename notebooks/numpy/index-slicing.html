@@ -1318,6 +1318,41 @@ justify-content: center;">
 </div>
 </div>
 </div>
+<p>Existe otro operador <code class="docutils literal notranslate"><span class="pre">matmul</span></code> (o su versión con el operador <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) que también multiplica matrices. Se diferencian cuando los arrays con de más de dos dimensiones ya</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 7, 4, 3, 7, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>`np.dot(A, B)[x1, x2, x3, y1, y2, y3] = A[x1, x2, x3, :].dot(B[y1, y2, :, y3])``</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># similar a A @ B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 7, 4, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>La diferencia radica en que <code class="docutils literal notranslate"><span class="pre">dot</span></code> el producto escalara del último eje de A con el penúltimo de B para cada combinación de dimensiones y <code class="docutils literal notranslate"><span class="pre">matmul</span></code> considera los arrays como <em>arrays de matrices</em>, donde las dos últimas dimensiones son la parte matricial.</p>
 </section>
 <section id="funciones-universales-sobre-arrays-componente-a-componente">
 <h2>Funciones universales sobre arrays (componente a componente)<a class="headerlink" href="#funciones-universales-sobre-arrays-componente-a-componente" title="Enlazar permanentemente con este título">#</a></h2>
