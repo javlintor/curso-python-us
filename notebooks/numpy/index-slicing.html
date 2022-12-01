@@ -673,30 +673,16 @@ title="Print to PDF"
 </div>
 <p>Y además hay que tener en cuenta que cualquier referencia a una vista es en realidad una referencia a los datos originales, y que las modificaciones que se realicen a través de esa referencia, se realizarán igualmente sobre el original.</p>
 <p>Veámos esto con el siguiente ejemplo:</p>
+<p>Modificamos la componente 1 de <code class="docutils literal notranslate"><span class="pre">v_slice</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># C_slice referencia a las componenentes 5, 6 y 7 del array C.</span>
-<span class="n">C_slice</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">C_slice</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12345</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v_slice</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12, 12, 12])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Modificamos la componente 1 de <code class="docutils literal notranslate"><span class="pre">C_slice</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12345</span>
-<span class="n">C_slice</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   12, 12345,    12])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   12 12345    12]
 </pre></div>
 </div>
 </div>
@@ -704,27 +690,12 @@ title="Print to PDF"
 <p>Pero la componente 1 de <code class="docutils literal notranslate"><span class="pre">C_slice</span></code> es en realidad la componente 6 de <code class="docutils literal notranslate"><span class="pre">C</span></code>, así que <code class="docutils literal notranslate"><span class="pre">C</span></code> ha cambiado:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([    0,     2,     4,     6,     8,    12, 12345,    12,    16,
-          18])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Podemos incluso cambiar toda la subsecuencia, cambiando así es parte del array original:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C_slice</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="n">C</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  2,  4,  6,  8, 64, 64, 64, 16, 18])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[    0     1     2     3     4    12 12345    12     8     9]
 </pre></div>
 </div>
 </div>
@@ -985,12 +956,36 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Finalmente, notemos que podemos usar cualquier <code class="docutils literal notranslate"><span class="pre">slice</span></code> de Python para arrays</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">slice_1</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">slice_2</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="n">slice_1</span><span class="p">,</span> <span class="n">slice_2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7, 9],
+       [4, 6]])
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="index-slicing-3x4x2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 50 </span></p>
 <section id="exercise-content">
-<p>Crea un array tridimensional de dimensiones <span class="math notranslate nohighlight">\((3, 4, 2)\)</span> y obtén el subarray indicada en la figura
-<img alt="picture" src="https://drive.google.com/uc?id=1HEtbq_Y1YVh6jscdHEhYYz-iM5FNMyJP" /></p>
+<p>Crea un array tridimensional de dimensiones <span class="math notranslate nohighlight">\((3, 4, 2)\)</span> y obtén el subarray indicada en la figura (<code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(1,</span> <span class="pre">2)</span></code>). Obtén también un subarray a tu elección de dimensiones <span class="math notranslate nohighlight">\((2, 3, 1)\)</span>.</p>
+<div>
+<img src="https://drive.google.com/uc?id=1HEtbq_Y1YVh6jscdHEhYYz-iM5FNMyJP" width="200"/>
+</div>
 </section>
 </div>
 </section>
@@ -1007,19 +1002,20 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.0929,  0.2817,  0.769 ,  1.2464],
-       [ 1.0072, -1.2962,  0.275 ,  0.2289],
-       [ 1.3529,  0.8864, -2.0016, -0.3718],
-       [ 1.669 , -0.4386, -0.5397,  0.477 ],
-       [ 3.2489, -1.0212, -0.5771,  0.1241],
-       [ 0.3026,  0.5238,  0.0009,  1.3438],
-       [-0.7135, -0.8312, -2.3702, -1.8608]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.44063746, -1.11963796, -0.11357337,  1.67201443],
+       [ 0.29911287,  0.98359735, -1.61058049,  0.06604592],
+       [-0.50621499,  2.88774985,  1.15602948, -1.18517869],
+       [-0.82098324, -0.67415496,  1.47930044,  0.78054045],
+       [ 2.17932731,  0.15856538,  2.23699234, -1.53647514],
+       [-0.50045438,  0.01701318, -1.07381922, -0.51022621],
+       [-0.88772062,  0.64848485, -0.32367461,  0.40911413]])
 </pre></div>
 </div>
 </div>
@@ -1046,8 +1042,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.0929,  0.2817,  0.769 ,  1.2464],
-       [ 1.669 , -0.4386, -0.5397,  0.477 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.44063746, -1.11963796, -0.11357337,  1.67201443],
+       [-0.82098324, -0.67415496,  1.47930044,  0.78054045]])
 </pre></div>
 </div>
 </div>
@@ -1060,8 +1056,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.769 ,  1.2464],
-       [-0.5397,  0.477 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.11357337,  1.67201443],
+       [ 1.47930044,  0.78054045]])
 </pre></div>
 </div>
 </div>
@@ -1073,7 +1069,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.2464, 0.477 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.67201443, 0.78054045])
 </pre></div>
 </div>
 </div>
@@ -1086,11 +1082,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.0072, -1.2962,  0.275 ,  0.2289],
-       [ 1.3529,  0.8864, -2.0016, -0.3718],
-       [ 3.2489, -1.0212, -0.5771,  0.1241],
-       [ 0.3026,  0.5238,  0.0009,  1.3438],
-       [-0.7135, -0.8312, -2.3702, -1.8608]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.29911287,  0.98359735, -1.61058049,  0.06604592],
+       [-0.50621499,  2.88774985,  1.15602948, -1.18517869],
+       [ 2.17932731,  0.15856538,  2.23699234, -1.53647514],
+       [-0.50045438,  0.01701318, -1.07381922, -0.51022621],
+       [-0.88772062,  0.64848485, -0.32367461,  0.40911413]])
 </pre></div>
 </div>
 </div>
@@ -1117,10 +1113,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.0929,  0.2817,  0.769 ,  1.2464],
-       [ 1.3529,  0.8864, -2.0016, -0.3718],
-       [ 1.669 , -0.4386, -0.5397,  0.477 ],
-       [ 3.2489, -1.0212, -0.5771,  0.1241]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.44063746, -1.11963796, -0.11357337,  1.67201443],
+       [-0.50621499,  2.88774985,  1.15602948, -1.18517869],
+       [-0.82098324, -0.67415496,  1.47930044,  0.78054045],
+       [ 2.17932731,  0.15856538,  2.23699234, -1.53647514]])
 </pre></div>
 </div>
 </div>
@@ -1128,18 +1124,18 @@ title="Print to PDF"
 <p>Y como en los anteriores indexados, podemos usar el indexado booleano para modificar componentes de los arrays. Lo siguiente pone a 0 todos los componentes neativos de <code class="docutils literal notranslate"><span class="pre">data</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">&lt;</span><span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False, False],
-       [False,  True, False, False],
-       [False, False,  True,  True],
-       [False,  True,  True, False],
-       [False,  True,  True, False],
        [False, False, False, False],
-       [ True,  True,  True,  True]])
+       [False, False, False, False],
+       [False, False, False, False],
+       [False, False, False, False],
+       [False, False, False, False],
+       [False, False, False, False]])
 </pre></div>
 </div>
 </div>
@@ -1152,18 +1148,18 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.0929, 0.2817, 0.769 , 1.2464],
-       [1.0072, 0.    , 0.275 , 0.2289],
-       [1.3529, 0.8864, 0.    , 0.    ],
-       [1.669 , 0.    , 0.    , 0.477 ],
-       [3.2489, 0.    , 0.    , 0.1241],
-       [0.3026, 0.5238, 0.0009, 1.3438],
-       [0.    , 0.    , 0.    , 0.    ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.        , 0.        , 1.67201443],
+       [0.29911287, 0.98359735, 0.        , 0.06604592],
+       [0.        , 2.88774985, 1.15602948, 0.        ],
+       [0.        , 0.        , 1.47930044, 0.78054045],
+       [2.17932731, 0.15856538, 2.23699234, 0.        ],
+       [0.        , 0.01701318, 0.        , 0.        ],
+       [0.        , 0.64848485, 0.        , 0.40911413]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Obsérvese que ahora <code class="docutils literal notranslate"><span class="pre">data&lt;0</span></code> es un array de booleanos bidimensional con la misma estructura que el propio <code class="docutils literal notranslate"><span class="pre">data</span></code> y que por tanto tanto estamos haciendo indexado booleano sobre ambos ejes.</p>
+<p>Obsérvese que ahora <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> es un array de booleanos bidimensional con la misma estructura que el propio <code class="docutils literal notranslate"><span class="pre">data</span></code> y que por tanto tanto estamos haciendo indexado booleano sobre ambos ejes.</p>
 <p>Podríamos incluso fijar un valor a filas completas, usando indexado por un booleano unidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1173,13 +1169,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7.    , 7.    , 7.    , 7.    ],
-       [1.0072, 0.    , 0.275 , 0.2289],
-       [7.    , 7.    , 7.    , 7.    ],
-       [7.    , 7.    , 7.    , 7.    ],
-       [7.    , 7.    , 7.    , 7.    ],
-       [0.3026, 0.5238, 0.0009, 1.3438],
-       [0.    , 0.    , 0.    , 0.    ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7.        , 7.        , 7.        , 7.        ],
+       [0.29911287, 0.98359735, 0.        , 0.06604592],
+       [7.        , 7.        , 7.        , 7.        ],
+       [7.        , 7.        , 7.        , 7.        ],
+       [7.        , 7.        , 7.        , 7.        ],
+       [0.        , 0.01701318, 0.        , 0.        ],
+       [0.        , 0.64848485, 0.        , 0.40911413]])
 </pre></div>
 </div>
 </div>
