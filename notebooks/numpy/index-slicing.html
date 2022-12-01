@@ -1188,6 +1188,28 @@ justify-content: center;">
 <p>Devuelve las filas de <code class="docutils literal notranslate"><span class="pre">data</span></code> correspondientes a aquellos nombres que empiecen por «B» o «J». Puedes utilizar la función <code class="docutils literal notranslate"><span class="pre">np.char.startswith</span></code>.</p>
 </section>
 </div>
+<div class="exercise admonition" id="index-slicing-flip">
+
+<p class="admonition-title"><span class="caption-number">Exercise 52 </span></p>
+<section id="exercise-content">
+<p>Crea una función <code class="docutils literal notranslate"><span class="pre">flip</span></code> que tome como inputs un array <code class="docutils literal notranslate"><span class="pre">arr</span></code> y un número entero positivo <code class="docutils literal notranslate"><span class="pre">i</span></code> e <em>invierta</em> el eje i-ésimo, es decir, si la dimensión del eje <span class="math notranslate nohighlight">\(i\)</span> vale <span class="math notranslate nohighlight">\(d_i\)</span>, la transformación lleva el elemento con índice <span class="math notranslate nohighlight">\((x_1, \dots, x_i, \dots, x_n)\)</span> en <span class="math notranslate nohighlight">\((x_1, \dots, x_i^*, \dots, x_n)\)</span> donde <span class="math notranslate nohighlight">\(x_i + x_i^* = d_i + 1\)</span></p>
+<p>Por ejemplo,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">arr</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="p">[[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span><span class="p">]]</span>
+ 
+<span class="n">flip</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="p">[[</span><span class="mi">2</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">8</span> <span class="mi">7</span> <span class="mi">6</span><span class="p">]]</span>
+</pre></div>
+</div>
+</section>
+</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -1202,9 +1224,9 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3,  4],
-       [ 5,  6,  7,  8,  9],
-       [10, 11, 12, 13, 14]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]]
 </pre></div>
 </div>
 </div>
@@ -1216,11 +1238,11 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  5, 10],
-       [ 1,  6, 11],
-       [ 2,  7, 12],
-       [ 3,  8, 13],
-       [ 4,  9, 14]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  5 10]
+ [ 1  6 11]
+ [ 2  7 12]
+ [ 3  8 13]
+ [ 4  9 14]]
 </pre></div>
 </div>
 </div>
@@ -1234,12 +1256,12 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.8608,  0.5601, -1.2659],
-       [ 0.1198, -1.0635,  0.3329],
-       [-2.3594, -0.1995, -1.542 ],
-       [-0.9707, -1.307 ,  0.2863],
-       [ 0.378 , -0.7539,  0.3313],
-       [ 1.3497,  0.0699,  0.2467]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.98911369, -1.13298039,  0.89947532],
+       [ 0.83876947, -2.04803026,  0.43605043],
+       [-1.41849927, -1.07503232,  0.60719754],
+       [ 0.44784829,  0.19511807,  1.10301797],
+       [ 0.90283653, -0.87698213, -1.18602109],
+       [ 0.57073338,  1.29648296, -0.03642366]])
 </pre></div>
 </div>
 </div>
@@ -1252,7 +1274,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9393581459889597
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9633116274009399
 </pre></div>
 </div>
 </div>
@@ -1264,64 +1286,34 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.252231064146922
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.058037907436637
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># producto de una matriz por un vector</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">E</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># producto de una matriz por un vector</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9.2291, 0.9394, 4.948 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3.07104632,  1.88295636,  3.16720679,  0.32809962, -0.96620111,
+       -2.06617217])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">E</span><span class="p">)</span>   <span class="c1"># producto de dos matrices</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>   <span class="c1"># producto de dos matrices</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9.2291,  0.9394,  4.948 ],
-       [ 0.9394,  3.7662, -1.3622],
-       [ 4.948 , -1.3622,  4.3437]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="p">,</span><span class="n">E</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>   <span class="c1"># producto de dos matrices</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.6573, -1.1203,  3.8712, -0.2591, -1.167 , -1.4349],
-       [-1.1203,  1.2562, -0.5838,  1.369 ,  0.9573,  0.1695],
-       [ 3.8712, -0.5838,  7.9844,  2.1096, -1.2522, -3.5789],
-       [-0.2591,  1.369 ,  2.1096,  2.7327,  0.7133, -1.3309],
-       [-1.167 ,  0.9573, -1.2522,  0.7133,  0.821 ,  0.5392],
-       [-1.4349,  0.1695, -3.5789, -1.3309,  0.5392,  1.8875]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">E</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">[:,:</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># producto de dos matrices</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[9.2291],
-       [0.9394],
-       [4.948 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 5.03543877,  0.96331163, -1.98283348],
+       [ 0.96331163,  9.12180378, -1.35677399],
+       [-1.98283348, -1.35677399,  3.99250604]])
 </pre></div>
 </div>
 </div>
@@ -1350,8 +1342,8 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 1.    , 1.4142, 1.7321, 2.    , 2.2361, 2.4495, 2.6458,
-       2.8284, 3.    ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 1.        , 1.41421356, 1.73205081, 2.        ,
+       2.23606798, 2.44948974, 2.64575131, 2.82842712, 3.        ])
 </pre></div>
 </div>
 </div>
@@ -1363,8 +1355,10 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[   1.    ,    2.7183,    7.3891,   20.0855,   54.5982],
-       [ 148.4132,  403.4288, 1096.6332, 2980.958 , 8103.0839]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
+        5.45981500e+01],
+       [1.48413159e+02, 4.03428793e+02, 1.09663316e+03, 2.98095799e+03,
+        8.10308393e+03]])
 </pre></div>
 </div>
 </div>
@@ -1372,17 +1366,17 @@ justify-content: center;">
 <p>Existen funciones universales que actúan sobre dos arrays, ya que realizan operaciones binarias:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span><span class="n">y</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-0.0119,  1.0048,  1.3272, -0.9193, -1.5491,  0.0222,  0.7584,
-        -0.6605]),
- array([ 0.8626, -0.01  ,  0.05  ,  0.6702,  0.853 , -0.9559, -0.0235,
-        -2.3042]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 1.26954129,  2.32087495, -0.41369321, -0.20419624,  0.2945571 ,
+         0.15677367, -0.00644131, -1.71812512]),
+ array([ 1.42765671, -1.39627172, -0.72182775,  0.05451158,  0.25879696,
+        -0.37308506,  0.09863521, -0.09249888]))
 </pre></div>
 </div>
 </div>
@@ -1400,7 +1394,6 @@ justify-content: center;">
 </div>
 </div>
 </div>
-<p>Existe una numerosa colección de <em>ufuncs</em> tanto unarias como bianrias. Se recomienda consultar el manual.</p>
 </section>
 <hr class="docutils" />
 <section id="expresiones-condicionales-vectorizadas-con-where">
