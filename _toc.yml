@@ -25,7 +25,6 @@ parts:
 - caption: Matplotlib
   chapters: 
   - file: notebooks/matplotlib/introduction-matplotlib.ipynb
-  - file: notebooks/matplotlib/advanced-graphics.ipynb
 # - file: notebooks/pandas/title.md
 #   sections: 
 #   - file: notebooks/pandas/introduction-pandas.ipynb
