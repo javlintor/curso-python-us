@@ -580,6 +580,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
 import pandas as pd
+import matplotlib
 </pre></div>
 </div>
 </div>
@@ -587,6 +588,8 @@ import pandas as pd
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%config InlineBackend.figure_format=&#39;retina&#39;
+%matplotlib inline
+matplotlib.rcParams[&#39;figure.figsize&#39;] = (20, 10)
 </pre></div>
 </div>
 </div>
@@ -624,7 +627,7 @@ ax2.scatter(np.arange(30), np.arange(30) + 3 * np.random.randn(30))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fdd6e3c52b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fcf351c7df0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_8_1.png" src="../../_images/introduction-matplotlib_8_1.png" />
@@ -691,7 +694,7 @@ ax[1].plot(x, np.cos(x));
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdd6dda3ee0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcf34c36fd0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_22_1.png" src="../../_images/introduction-matplotlib_22_1.png" />
@@ -707,7 +710,7 @@ plt.plot(x, np.sin(x))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdd6dd010a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcf333385b0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_25_1.png" src="../../_images/introduction-matplotlib_25_1.png" />
@@ -722,7 +725,7 @@ plt.plot(x, np.cos(x))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdd6dce6460&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcf33297880&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_27_1.png" src="../../_images/introduction-matplotlib_27_1.png" />
@@ -880,7 +883,7 @@ plt.scatter(x, y, marker=&#39;o&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fdd6de68460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fcf32ed55b0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_48_1.png" src="../../_images/introduction-matplotlib_48_1.png" />
@@ -914,7 +917,7 @@ s.plot()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c2530d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf32fd27c0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_56_1.png" src="../../_images/introduction-matplotlib_56_1.png" />
@@ -932,7 +935,7 @@ df.plot()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c1c2550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf33065bb0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_59_1.png" src="../../_images/introduction-matplotlib_59_1.png" />
@@ -953,7 +956,7 @@ data.plot.barh(ax=axes[1], color=&#39;k&#39;, alpha=0.7)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c156100&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf3316f400&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_62_1.png" src="../../_images/introduction-matplotlib_62_1.png" />
@@ -978,7 +981,7 @@ df
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-884ab5ed-cf0f-48a9-8d40-705e465a2b80">
+  <div id="df-66c508fe-e66d-493d-be93-845c3ba9cba3">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1050,7 +1053,7 @@ df
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-884ab5ed-cf0f-48a9-8d40-705e465a2b80')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-66c508fe-e66d-493d-be93-845c3ba9cba3')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1101,12 +1104,12 @@ df
 
       <script>
         const buttonEl =
-          document.querySelector('#df-884ab5ed-cf0f-48a9-8d40-705e465a2b80 button.colab-df-convert');
+          document.querySelector('#df-66c508fe-e66d-493d-be93-845c3ba9cba3 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-884ab5ed-cf0f-48a9-8d40-705e465a2b80');
+          const element = document.querySelector('#df-66c508fe-e66d-493d-be93-845c3ba9cba3');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1134,7 +1137,7 @@ df
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c1e4b20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf331b4520&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_66_1.png" src="../../_images/introduction-matplotlib_66_1.png" />
@@ -1147,10 +1150,10 @@ df
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1440x720 with 0 Axes&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1440x720 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1163,7 +1166,7 @@ df
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6bf8ae20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf32e40040&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_69_1.png" src="../../_images/introduction-matplotlib_69_1.png" />
