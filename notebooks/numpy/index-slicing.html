@@ -1881,11 +1881,12 @@ justify-content: center;">
 
 <p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
 <section id="exercise-content">
-<p>Una de las posibles técnicas que existen para comprimir una imagen es utilizar <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">la descomposición SVD (Singular Value Decomposition)</a> que nos permite expresar una matrix <span class="math notranslate nohighlight">\(A\)</span> de dimensiones <span class="math notranslate nohighlight">\(n\times m\)</span> como un producto
-$<span class="math notranslate nohighlight">\( 
+<p>Una de las posibles técnicas que existen para comprimir una imagen es utilizar <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">la descomposición SVD (Singular Value Decomposition)</a> que nos permite expresar una matrix <span class="math notranslate nohighlight">\(A\)</span> de dimensiones <span class="math notranslate nohighlight">\(n\times m\)</span> como un producto</p>
+<div class="math notranslate nohighlight">
+\[ 
 A = U \Sigma V^t
-\)</span><span class="math notranslate nohighlight">\(
-donde \)</span>U<span class="math notranslate nohighlight">\( y \)</span>V<span class="math notranslate nohighlight">\( son cuadradas de dimensiones \)</span>n<span class="math notranslate nohighlight">\( y \)</span>m<span class="math notranslate nohighlight">\( respectivamente y \)</span>\Sigma<span class="math notranslate nohighlight">\( es diagonal y está formada por los [valores singulares](https://en.wikipedia.org/wiki/Singular_value) de \)</span>A$ ordenados de mayor a menor.</p>
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son cuadradas de dimensiones <span class="math notranslate nohighlight">\(n\)</span> y <span class="math notranslate nohighlight">\(m\)</span> respectivamente y <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal y está formada por los <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value">valores singulares</a> de <span class="math notranslate nohighlight">\(A\)</span> ordenados de mayor a menor.</p>
 <p>Recuerda que una imagen no es más que un conjunto de 3 matrices, cada una representando la intensidad de la grilla de píxeles para cada color (rojo, verde y azul). Una forma de comprimir una imagen consiste en quedarse con los <span class="math notranslate nohighlight">\(k\)</span> primeros valores singulares para cada color e intercambiar <span class="math notranslate nohighlight">\(k\)</span> por una se las dimensiones que representan el alto o el bajo de la imagen.</p>
 <p>Crea una función <code class="docutils literal notranslate"><span class="pre">aproxima_img</span></code> que tome un array de dimensión <span class="math notranslate nohighlight">\((3, h, w)\)</span> y devuelva otra imagen aproximada de dimensión <span class="math notranslate nohighlight">\((3, h, w)\)</span> utilizando los k primeros valores singulares. Para ello,</p>
 <ol class="simple">
