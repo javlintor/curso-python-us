@@ -1930,48 +1930,47 @@ A = U \Sigma V^t
 </ol>
 </section>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;alhambra.jpg&quot;</span><span class="p">)</span>
+<div class="exercise admonition" id="index-slicing-convolution-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 56 </span></p>
+<section id="exercise-content">
+<p>Importa una imagen de tu elección utilizando la función <code class="docutils literal notranslate"><span class="pre">imread</span></code> de la librería <code class="docutils literal notranslate"><span class="pre">cv2</span></code>. Crea un array <code class="docutils literal notranslate"><span class="pre">kernel</span></code> de dimensión <span class="math notranslate nohighlight">\((n, n)\)</span> y realiza la convolución de tu imagen con <code class="docutils literal notranslate"><span class="pre">kernel</span></code> mediante la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html#scipy.signal.convolve2d"><code class="docutils literal notranslate"><span class="pre">scipy.signal.convolve2d</span></code></a> (parámetro <code class="docutils literal notranslate"><span class="pre">mode='same'</span></code>).</p>
+<p>Algunos ejemplos interesantes de kernel pueden ser los siguientes:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n = 3\)</span> con valores</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+-3 &amp; 0 &amp; 3\\
+-10 &amp; 0 &amp; 10\\
+-3 &amp; 0 &amp; 3
+\end{pmatrix} 
+\end{split}\]</div>
+<ul class="simple">
+<li><p>similar al anterior,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+-3 &amp; -10 &amp; -3\\
+0 &amp; 0 &amp; 0\\
+3 &amp; 10 &amp; 3
+\end{pmatrix} 
+\end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n \approx 50\)</span>, generados con <code class="docutils literal notranslate"><span class="pre">scipy.signal.windows.gaussian</span></code> (puedes utilizar la función <code class="docutils literal notranslate"><span class="pre">np.outer</span></code> para realizar un producto exterior)</p></li>
+<li><p>Operador complejo de Sharr</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scharr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">3</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="o">-</span><span class="mi">10</span><span class="n">j</span><span class="p">,</span>  <span class="o">+</span><span class="mi">3</span> <span class="o">-</span><span class="mi">3</span><span class="n">j</span><span class="p">],</span>
+
+                   <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="o">+</span><span class="mi">10</span> <span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">],</span>
+
+                   <span class="p">[</span> <span class="o">-</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="mi">10</span><span class="n">j</span><span class="p">,</span>  <span class="o">+</span><span class="mi">3</span> <span class="o">+</span><span class="mi">3</span><span class="n">j</span><span class="p">]])</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?cv2.imread
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">im</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(792, 1585, 3)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff60dd4da90&gt;
-</pre></div>
-</div>
-<img alt="../../_images/index-slicing_167_1.png" src="../../_images/index-slicing_167_1.png" />
-</div>
+<p>Puedes visualizar las imágenes con <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.imshow</span></code>.</p>
+</section>
 </div>
 </section>
 </section>
