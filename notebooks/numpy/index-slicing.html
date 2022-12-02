@@ -1934,7 +1934,7 @@ A = U \Sigma V^t
 
 <p class="admonition-title"><span class="caption-number">Exercise 56 </span></p>
 <section id="exercise-content">
-<p>Importa una imagen de tu elección utilizando la función <code class="docutils literal notranslate"><span class="pre">imread</span></code> de la librería <code class="docutils literal notranslate"><span class="pre">cv2</span></code>. Crea un array <code class="docutils literal notranslate"><span class="pre">kernel</span></code> de dimensión <span class="math notranslate nohighlight">\((n, n)\)</span> y realiza la convolución de tu imagen con <code class="docutils literal notranslate"><span class="pre">kernel</span></code> mediante la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html#scipy.signal.convolve2d"><code class="docutils literal notranslate"><span class="pre">scipy.signal.convolve2d</span></code></a> (parámetro <code class="docutils literal notranslate"><span class="pre">mode='same'</span></code>).</p>
+<p>Importa una imagen de tu elección utilizando la función <code class="docutils literal notranslate"><span class="pre">imread</span></code> de la librería <code class="docutils literal notranslate"><span class="pre">cv2</span></code>. Crea un array <code class="docutils literal notranslate"><span class="pre">kernel</span></code> de dimensión <span class="math notranslate nohighlight">\((n, n)\)</span> y realiza la convolución de tu imagen con <code class="docutils literal notranslate"><span class="pre">kernel</span></code> mediante la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html#scipy.signal.convolve2d"><code class="docutils literal notranslate"><span class="pre">scipy.signal.convolve2d</span></code></a> (parámetro <code class="docutils literal notranslate"><span class="pre">mode='same'</span></code>). Si tu imagen tiene varios canales para los colores, aplica el mismo kernel a cada canal.</p>
 <p>Algunos ejemplos interesantes de kernel pueden ser los siguientes:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(n = 3\)</span> con valores</p></li>
@@ -1948,7 +1948,7 @@ A = U \Sigma V^t
 \end{pmatrix} 
 \end{split}\]</div>
 <ul class="simple">
-<li><p>similar al anterior,</p></li>
+<li><p>transpuesta del anterior,</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
