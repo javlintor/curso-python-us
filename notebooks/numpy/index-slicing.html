@@ -508,6 +508,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convoluciones-de-arrays">
+   Convoluciones de arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#procesando-imagenes-con-numpy">
    Procesando imágenes con numpy
   </a>
@@ -585,6 +590,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#entrada-y-salida-de-arrays-en-ficheros">
    Entrada y salida de arrays en ficheros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convoluciones-de-arrays">
+   Convoluciones de arrays
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1870,11 +1880,40 @@ justify-content: center;">
 </div>
 </div>
 </section>
+<hr class="docutils" />
+<section id="convoluciones-de-arrays">
+<h2>Convoluciones de arrays<a class="headerlink" href="#convoluciones-de-arrays" title="Enlazar permanentemente con este título">#</a></h2>
+<div class="exercise admonition" id="index-slicing-convolution">
+
+<p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
+<section id="exercise-content">
+<p>Dadas dos funciones de variable real <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(g\)</span>, definimos la <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution"><strong>convolución</strong></a> de <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(g\)</span> como</p>
+<div class="math notranslate nohighlight">
+\[
+(f*g)(x) = \int_\mathbb{R} f(t)g(x - t)dt.
+\]</div>
+<p>La versión discreta de la anterior definición puede ser la siguiente. Datos <span class="math notranslate nohighlight">\(f=(f_0, \dots, f_{n-1})\)</span> y <span class="math notranslate nohighlight">\(g=(g_0, \dots, g_{m-1})\)</span> dos vectores (representados por arrays unidimensionales) de tamaño <span class="math notranslate nohighlight">\(n\)</span> y <span class="math notranslate nohighlight">\(m\)</span>, respectivamente, definimos el array <code class="docutils literal notranslate"><span class="pre">conv</span></code> de dimensión <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">m</span> <span class="pre">-</span> <span class="pre">1</span></code> cuya componente <span class="math notranslate nohighlight">\(k\)</span> vale</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i + m -1 = k + j}f_ig_j
+\]</div>
+<p>para <span class="math notranslate nohighlight">\(0 \leq k \leq n + m - 1\)</span>.</p>
+<p>Crea una función <code class="docutils literal notranslate"><span class="pre">conv</span></code> que tome como inputs dos arrays y devuelva la convolución de ambos. Por ejemplo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
+<span class="n">conv</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span> <span class="mi">0</span>  <span class="mi">4</span> <span class="mi">11</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mi">40</span> <span class="mi">50</span> <span class="mi">60</span> <span class="mi">70</span> <span class="mi">80</span> <span class="mi">50</span> <span class="mi">26</span>  <span class="mi">9</span>  <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</div>
+</section>
+<hr class="docutils" />
 <section id="procesando-imagenes-con-numpy">
 <h2>Procesando imágenes con numpy<a class="headerlink" href="#procesando-imagenes-con-numpy" title="Enlazar permanentemente con este título">#</a></h2>
 <div class="exercise admonition" id="index-slicing-image">
 
-<p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 55 </span></p>
 <section id="exercise-content">
 <p>Una de las posibles técnicas que existen para comprimir una imagen es utilizar <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">la descomposición SVD (Singular Value Decomposition)</a> que nos permite expresar una matrix <span class="math notranslate nohighlight">\(A\)</span> de dimensiones <span class="math notranslate nohighlight">\(n\times m\)</span> como un producto</p>
 <div class="math notranslate nohighlight">
@@ -1882,14 +1921,57 @@ justify-content: center;">
 A = U \Sigma V^t
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son cuadradas de dimensiones <span class="math notranslate nohighlight">\(n\)</span> y <span class="math notranslate nohighlight">\(m\)</span> respectivamente y <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal y está formada por los <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value">valores singulares</a> de <span class="math notranslate nohighlight">\(A\)</span> ordenados de mayor a menor.</p>
-<p>Recuerda que una imagen no es más que un conjunto de 3 matrices, cada una representando la intensidad de la grilla de píxeles para cada color (rojo, verde y azul). Una forma de comprimir una imagen consiste en quedarse con los <span class="math notranslate nohighlight">\(k\)</span> primeros valores singulares para cada color e intercambiar <span class="math notranslate nohighlight">\(k\)</span> por una se las dimensiones que representan el alto o el bajo de la imagen.</p>
+<p>Recuerda que una imagen no es más que un conjunto de 3 matrices, cada una representando la intensidad de la grilla de píxeles para cada color (rojo, verde y azul). Una forma de comprimir una imagen consiste en quedarse con los <span class="math notranslate nohighlight">\(k\)</span> primeros valores singulares para cada color e intercambiar <span class="math notranslate nohighlight">\(k\)</span> por una se las dimensiones que representan el alto o el ancho de la imagen.</p>
 <p>Crea una función <code class="docutils literal notranslate"><span class="pre">aproxima_img</span></code> que tome un array de dimensión <span class="math notranslate nohighlight">\((3, h, w)\)</span> y devuelva otra imagen aproximada de dimensión <span class="math notranslate nohighlight">\((3, h, w)\)</span> utilizando los k primeros valores singulares. Para ello,</p>
 <ol class="simple">
-<li><p>Utiliza la función <code class="docutils literal notranslate"><span class="pre">misc.face</span></code> para generar una imagen de prueba. Puedes visualizar imágenes con este formato a través del la función <code class="docutils literal notranslate"><span class="pre">imshow</span></code> de <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></p></li>
+<li><p>Utiliza la función <code class="docutils literal notranslate"><span class="pre">misc.face</span></code> para generar una imagen de prueba, o también puedes importar una utilizando <code class="docutils literal notranslate"><span class="pre">im</span> <span class="pre">=</span> <span class="pre">cv2.imread(&quot;img.jpg&quot;)</span></code>. Puedes visualizar imágenes con este formato a través del la función <code class="docutils literal notranslate"><span class="pre">imshow</span></code> de <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> (a veces hay que cambiar de orden los canales).</p></li>
 <li><p>Utiliza la función <code class="docutils literal notranslate"><span class="pre">svd</span></code> de <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> para realizar la descomposición SVD. Mucho cuidado con las dimensiones que espera la función.</p></li>
-<li><p>Otras funciones que pueden ser útiles para el ejercicio: <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code>, <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>, <code class="docutils literal notranslate"><span class="pre">np.fill_diagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">np.clip</span></code></p></li>
+<li><p>Otras funciones que pueden ser útiles para el ejercicio: <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code>, <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>, <code class="docutils literal notranslate"><span class="pre">np.fill_diagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">np.clip</span></code>.</p></li>
 </ol>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;alhambra.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>?cv2.imread
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">im</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(792, 1585, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff60dd4da90&gt;
+</pre></div>
+</div>
+<img alt="../../_images/index-slicing_167_1.png" src="../../_images/index-slicing_167_1.png" />
+</div>
 </div>
 </section>
 </section>
