@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introducción a Matplotlib &#8212; Curso de Python US</title>
+    <title>Introducción a matplotlib &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,10 +54,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Gráficos Avanzados en Matplotlib" href="advanced-graphics.html" />
+    <link rel="next" title="Bibliografía" href="../../bibliography.html" />
     <link rel="prev" title="Construyendo una red neuronal desde cero con Numpy" href="../numpy/nn-with-numpy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -210,12 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Introducción a Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="advanced-graphics.html">
-   Gráficos Avanzados en Matplotlib
+   Introducción a matplotlib
   </a>
  </li>
 </ul>
@@ -432,23 +429,144 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dos-interfaces-posibles">
+   Dos interfaces posibles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estilo-matlab">
+     Estilo «MATLAB»
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estilo-basado-en-objetos">
+     Estilo basado en objetos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficas-simples-con-plot">
+   Gráficas simples con
+   <em>
+    plot
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nubes-de-puntos">
+   Nubes de puntos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficas-con-pandas">
+   Gráficas con pandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficas-de-lineas">
+     Gráficas de líneas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagramas-de-barras">
+   Diagramas de barras
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introducción a Matplotlib</h1>
+                <h1>Introducción a matplotlib</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dos-interfaces-posibles">
+   Dos interfaces posibles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estilo-matlab">
+     Estilo «MATLAB»
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estilo-basado-en-objetos">
+     Estilo basado en objetos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficas-simples-con-plot">
+   Gráficas simples con
+   <em>
+    plot
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nubes-de-puntos">
+   Nubes de puntos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficas-con-pandas">
+   Gráficas con pandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficas-de-lineas">
+     Gráficas de líneas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagramas-de-barras">
+   Diagramas de barras
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -456,9 +574,25 @@ title="Print to PDF"
                 
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/matplotlib/introduction_to_matplotlib.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-matplotlib">
-<h1>Introducción a Matplotlib<a class="headerlink" href="#introduccion-a-matplotlib" title="Enlazar permanentemente con este título">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-matplotlib">
+<span id="matplotlib"></span><h1>Introducción a matplotlib<a class="headerlink" href="#introduccion-a-matplotlib" title="Enlazar permanentemente con este título">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%config InlineBackend.figure_format=&#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matplotlib es una de las prncipales bibliotecas para gráficos y visualización de datos dentro del ecosistema python en Ciencia de los Datos. Vamos a ver una mínima introducción, esperando que características más avanzadas sean investgadas por el propio lector/a, cuando las vaya necesitando.</p>
+<p>Existen varias maneras de usr matplotlib, pero una de las más comunes es a través de pyplot, que nos permitirá una interacción similar a la que se tiene en el sistema MATLAB.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
@@ -466,46 +600,511 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>El siguiente comando nos permite integrarlo en un notebook de Jupyter, y las imágenes saldrán integradas dentro del notebook, bajo la celda que la cree.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-
-x = np.arange(1000)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%matplotlib inline 
 </pre></div>
 </div>
 </div>
 </div>
+<p>Como aperitivo, veamos cómo hacer tres gráficas en una sola figura. En el comenterio correspondiente damos una breve explicación de lo que hace cada comando:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y = x ** 2
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%config InlineBackend.figure_format = &quot;retina&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure() # Se crea una figura (el contenedor de los tres gráficos)
+ax1 = fig.add_subplot(2, 2, 1) # En una rejilla 2x2, se crea la primera caja (axes)
+ax2 = fig.add_subplot(2, 2, 2) # La segunda caja
+fig.add_subplot(2, 2, 3) # La tercera caja
 
-plt.plot(x, y)
-plt.show()
+
+# En la tercera caja (la activa en este momento) dibujamos la gráfica de una función, 
+# mediante el método plot
+plt.plot(np.random.randn(50).cumsum(), &#39;k--&#39;) 
+
+# Volvemos a la segunda caja, usando el objeto asociado correspondiente, y dibujamos un
+# histograma con el método hist
+ax1.hist(np.random.randn(100), bins=20, color=&#39;k&#39;, alpha=0.3) 
+            
+# En la tercera caja, colocamos una nube de puntos con el método scatter    
+ax2.scatter(np.arange(30), np.arange(30) + 3 * np.random.randn(30)) 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_5_0.png" src="../../_images/introduction-matplotlib_5_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc188152518&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_9_1.png" src="../../_images/introduction-matplotlib_9_1.png" />
 </div>
 </div>
+<section id="dos-interfaces-posibles">
+<h2>Dos interfaces posibles<a class="headerlink" href="#dos-interfaces-posibles" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En el ejemplo anterior hemos mezclados dos «estilos» al crear las gráficas. La gráfica de la tercera caja se crea al ser en ese momento el «subplot» activo. Sin embargo, los dos primeros subplots se han «rellenado» a través del objeto correspondiente (ax1 y ax2). Comentemos con algo más de detalle estos dos estilos:</p>
+<section id="estilo-matlab">
+<h3>Estilo «MATLAB»<a class="headerlink" href="#estilo-matlab" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Basado en <code class="docutils literal notranslate"><span class="pre">plt</span></code> y conocido como «estilo MATLAB», crea la figura y cada uno de los subplots, aplicándose los cambios al último creado en cada momento, que es el que está activo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, y)
-plt.show()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, 10, 100)
+
+plt.figure()  # crea figura
+
+# crea la primera de las dos subfiguras y hace un plor de la fucnión seno
+plt.subplot(2, 1, 1) # (rows, columns, panel number)
+plt.plot(x, np.sin(x))
+
+# create la segunda y hace un plot del coseno
+plt.subplot(2, 1, 2)
+plt.plot(x, np.cos(x));
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_6_0.png" src="../../_images/introduction-matplotlib_6_0.png" />
+<img alt="../../_images/introduction-matplotlib_14_0.png" src="../../_images/introduction-matplotlib_14_0.png" />
 </div>
 </div>
+<p>Inconveniente: una vez estamos en el segundo subplot, ¿cómo podemos volver a hacer algo con el primero? En el estilo basado en objetos que explicamos a continuación esto sí es posible.</p>
+</section>
+<section id="estilo-basado-en-objetos">
+<h3>Estilo basado en objetos<a class="headerlink" href="#estilo-basado-en-objetos" title="Enlazar permanentemente con este título">#</a></h3>
+<p>En este caso, sin tener que depender del último objeto activo, los procedimientos de creación de gráficas son métodos de objetos de tipo <code class="docutils literal notranslate"><span class="pre">Figure</span></code> y <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, que se crean al principio, y los cuales «manipulamos» con sus métodos.</p>
+<p>Un objeto de tipo <code class="docutils literal notranslate"><span class="pre">Figure</span></code> se tiene que pensar como un contenedor donde creamos gráficos. Los Los <code class="docutils literal notranslate"><span class="pre">Axes</span></code> son los distintos gráficos dentro de una figura: cajas con marcas y etiquetas y eventualmente con el gráfico de alguna función, por ejemplo.</p>
+<p>Vamos a repetir los dos gráficos antriores, pero al estilo basado en objetos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(2) # de esta manera fig es un objeto Figure y 
+                          # ax es un array con dos objetos &#39;Axes&#39; 
+
+# Llamamso al método plot sobre cada uno de los objetos de tipo Axes
+ax[0].plot(x, np.sin(x))
+ax[1].plot(x, np.cos(x));
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_19_0.png" src="../../_images/introduction-matplotlib_19_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="graficas-simples-con-plot">
+<h2>Gráficas simples con <em>plot</em><a class="headerlink" href="#graficas-simples-con-plot" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Con <code class="docutils literal notranslate"><span class="pre">plot</span></code> creamos una gráfica de una función <span class="math notranslate nohighlight">\(y=f(x)\)</span>.</p>
+<p>Un ejemplo muy simple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(np.arange(10))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc187efd3c8&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_23_1.png" src="../../_images/introduction-matplotlib_23_1.png" />
+</div>
+</div>
+<p>En este caso, nuestra variable dependiente (la <code class="docutils literal notranslate"><span class="pre">y</span></code>) toma valores en los primeros diez números. Por defecto, si no se da los valores de la variable independiente (la <code class="docutils literal notranslate"><span class="pre">x</span></code>), entonces se toma por defecto el corresponiente rango. Por tanto, en este caso la recta representa la función <span class="math notranslate nohighlight">\(y=x\)</span></p>
+<p>Repetimos ahora la gráfica anterior de la funciónj seno:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, 10, 100)
+plt.plot(x, np.sin(x))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc187e610f0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_26_1.png" src="../../_images/introduction-matplotlib_26_1.png" />
+</div>
+</div>
+<p>Podemos tener dos gráficas dentro de la misma caja, basta con llamar dos veces a <code class="docutils literal notranslate"><span class="pre">plt</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x))
+plt.plot(x, np.cos(x))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc187e81da0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_28_1.png" src="../../_images/introduction-matplotlib_28_1.png" />
+</div>
+</div>
+<p>El color de las gráficas se ajusta automáticamente, pero se puede indicar mediante el parámetro <code class="docutils literal notranslate"><span class="pre">color</span></code>de <code class="docutils literal notranslate"><span class="pre">plot</span></code>. He aquí unos cuantos ejemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x - 0), color=&#39;blue&#39;)        # por nombre de color
+plt.plot(x, np.sin(x - 1), color=&#39;g&#39;)           # código corto del color (rgbcmyk)
+plt.plot(x, np.sin(x - 2), color=&#39;0.75&#39;)        # Escala de grises entre 0 y 1
+plt.plot(x, np.sin(x - 3), color=&#39;#FFDD44&#39;)     # Hex código (RRGGBB desde 00 s FF)
+plt.plot(x, np.sin(x - 4), color=(1.0,0.2,0.3)) # RGB tupla, valores 0 a 1
+plt.plot(x, np.sin(x - 5), color=&#39;chartreuse&#39;); # colores soportados por HTML
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_30_0.png" src="../../_images/introduction-matplotlib_30_0.png" />
+</div>
+</div>
+<p>De igual manera, el estilo de dibujo de cada línea se puede dar con <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>. Aquí algunos ejemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, x + 0, linestyle=&#39;solid&#39;)
+plt.plot(x, x + 1, linestyle=&#39;dashed&#39;)
+plt.plot(x, x + 2, linestyle=&#39;dashdot&#39;)
+plt.plot(x, x + 3, linestyle=&#39;dotted&#39;);
+
+# Códigos cortos para lo mismo
+plt.plot(x, x + 4, linestyle=&#39;-&#39;)  # solid
+plt.plot(x, x + 5, linestyle=&#39;--&#39;) # dashed
+plt.plot(x, x + 6, linestyle=&#39;-.&#39;) # dashdot
+plt.plot(x, x + 7, linestyle=&#39;:&#39;);  # dotted
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_32_0.png" src="../../_images/introduction-matplotlib_32_0.png" />
+</div>
+</div>
+<p>Los códigos cortos sirven para de manera compacta indicar todas estas caracterñisticas. Por ejemplo, conjuntamente el color y el estilo de línea:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, x + 0, &#39;-g&#39;)  # solid green
+plt.plot(x, x + 1, &#39;--c&#39;) # dashed cyan
+plt.plot(x, x + 2, &#39;-.k&#39;) # dashdot black
+plt.plot(x, x + 3, &#39;:r&#39;);  # dotted red
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_34_0.png" src="../../_images/introduction-matplotlib_34_0.png" />
+</div>
+</div>
+<p>Aunqe plot deduce bastabte bien los límites de la gráfica, es posible especificar estos límites con <code class="docutils literal notranslate"><span class="pre">xlim</span></code> y <code class="docutils literal notranslate"><span class="pre">ylim</span></code>, com en el ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x))
+
+plt.xlim(-1, 11)
+plt.ylim(-1.5, 1.5)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.5, 1.5)
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_36_1.png" src="../../_images/introduction-matplotlib_36_1.png" />
+</div>
+</div>
+<p>Con el método <code class="docutils literal notranslate"><span class="pre">axis</span></code> podemos dar todos los límites en una sola instrucción. Lo siguiente sería equivalente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x))
+plt.axis([-1, 11, -1.5, 1.5]);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_38_0.png" src="../../_images/introduction-matplotlib_38_0.png" />
+</div>
+</div>
+<p>Podemos decirle incluso que ajuste al máximo los límites:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x))
+plt.axis(&#39;tight&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 10.5, -1.0993384025373631, 1.0996461858110391)
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_40_1.png" src="../../_images/introduction-matplotlib_40_1.png" />
+</div>
+</div>
+<p>O incluse que nos asegure una ratio de aspecto de igual proporcionalidad en ambos ejes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x))
+plt.axis(&#39;equal&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 10.5, -1.0993384025373631, 1.0996461858110391)
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_42_1.png" src="../../_images/introduction-matplotlib_42_1.png" />
+</div>
+</div>
+<p>Otro punto importante es cómo ponemos etiquetas a distintas parttes de las gráficas. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x))
+plt.title(&quot;Curva Seno&quot;)
+plt.xlabel(&quot;x&quot;)
+plt.ylabel(&quot;sin(x)&quot;);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_44_0.png" src="../../_images/introduction-matplotlib_44_0.png" />
+</div>
+</div>
+<p>Cuando se muestran múltiples líneas en una sola caja, puede ser útil mostrar una «leyenda» para cada línea. Esto se consigue mediente <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code>. Nótese también que especificamos la etiqueta de cada línea con el keyword correspondiente en plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(x, np.sin(x), &#39;-g&#39;, label=&#39;sin(x)&#39;)
+plt.plot(x, np.cos(x), &#39;:b&#39;, label=&#39;cos(x)&#39;)
+plt.axis(&#39;equal&#39;)
+
+plt.legend();
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_46_0.png" src="../../_images/introduction-matplotlib_46_0.png" />
+</div>
+</div>
+</section>
+<section id="nubes-de-puntos">
+<h2>Nubes de puntos<a class="headerlink" href="#nubes-de-puntos" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Otra gráfica muy básica dentro de matplotlib son las nubes de puntos. En lugar de unir los puntos con líneas como con <code class="docutils literal notranslate"><span class="pre">plot</span></code>, se representa cada punto de manera individual, con su propia estructura. Lo haremos con el método <code class="docutils literal notranslate"><span class="pre">scatter</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(0, 10, 30)
+y = np.sin(x)
+
+plt.scatter(x, y, marker=&#39;o&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc187decf28&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_49_1.png" src="../../_images/introduction-matplotlib_49_1.png" />
+</div>
+</div>
+<p>El parámetro clave <code class="docutils literal notranslate"><span class="pre">marker</span></code> indica la forma del punto (en este caso, un círculo). Aefectos ilustrativos, la siguiente figura muestra distintos códigos para esa marca y el aspacto que tienen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i,marker in enumerate([&#39;o&#39;, &#39;.&#39;, &#39;,&#39;, &#39;x&#39;, &#39;+&#39;, &#39;v&#39;, &#39;^&#39;, &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;s&#39;, &#39;d&#39;]):
+    plt.scatter(x, y+i, marker=marker)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/introduction-matplotlib_51_0.png" src="../../_images/introduction-matplotlib_51_0.png" />
+</div>
+</div>
+</section>
+<section id="graficas-con-pandas">
+<h2>Gráficas con pandas<a class="headerlink" href="#graficas-con-pandas" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Los objetos pandas (<em>Series</em> y <em>DataFrames</em>) vienen «equipados» con el atributo <code class="docutils literal notranslate"><span class="pre">plot</span></code>que permite ser una serie de gráficos básicos. Veamos algunos ejemplos simples:</p>
+<section id="graficas-de-lineas">
+<h3>Gráficas de líneas<a class="headerlink" href="#graficas-de-lineas" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Por defecto, <code class="docutils literal notranslate"><span class="pre">plot</span></code> en un objeto pandas crea un a gráfica al estilo del <code class="docutils literal notranslate"><span class="pre">plot</span></code>de matplotlib:</p>
+<p>Por ejemplo, para una serie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = pd.Series(np.random.randn(10).cumsum(), index=np.arange(0, 100, 10))
+s.plot()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_57_1.png" src="../../_images/introduction-matplotlib_57_1.png" />
+</div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">plot</span></code> tiene muchas opciones, se recomienda consultar el manual.</p>
+<p>Para un <em>DataFrame</em>, se crea una línea por cada columna, como se muestra en el siguiente ejemplo. Nótese que los límites, colores, leyendas,… se han ajustado automáticamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.DataFrame(np.random.randn(10, 4).cumsum(0),
+                  columns=[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;],
+                  index=np.arange(0, 100, 10))
+df.plot()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_60_1.png" src="../../_images/introduction-matplotlib_60_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="diagramas-de-barras">
+<h2>Diagramas de barras<a class="headerlink" href="#diagramas-de-barras" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Con <code class="docutils literal notranslate"><span class="pre">bar</span></code>y <code class="docutils literal notranslate"><span class="pre">barh</span></code> de <code class="docutils literal notranslate"><span class="pre">plot</span></code>, podemos hacer diagrmas de barras tanto verticales como horizontales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, axes = plt.subplots(2, 1)
+data = pd.Series(np.random.rand(16), index=list(&#39;abcdefghijklmnop&#39;))
+data.plot.bar(ax=axes[0], color=&#39;k&#39;, alpha=0.7) # alpha es el grado de transparencia
+data.plot.barh(ax=axes[1], color=&#39;k&#39;, alpha=0.7)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_63_1.png" src="../../_images/introduction-matplotlib_63_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.random.seed(12348)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con <em>DataFrames</em>, se crea una agrupación de barras por cada fila, como se ve en el siguiente ejemplo. Nótese de nuevo cómo los colores, límites, etiquetas, leyendas,… se han ajustado automáticamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.DataFrame(np.random.rand(6, 4),
+                  index=[&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;, &#39;six&#39;],
+                  columns=pd.Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], name=&#39;Genus&#39;))
+df
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Genus</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>0.370670</td>
+      <td>0.602792</td>
+      <td>0.229159</td>
+      <td>0.486744</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0.420082</td>
+      <td>0.571653</td>
+      <td>0.049024</td>
+      <td>0.880592</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>0.814568</td>
+      <td>0.277160</td>
+      <td>0.880316</td>
+      <td>0.431326</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>0.374020</td>
+      <td>0.899420</td>
+      <td>0.460304</td>
+      <td>0.100843</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>0.433270</td>
+      <td>0.125107</td>
+      <td>0.494675</td>
+      <td>0.961825</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>0.601648</td>
+      <td>0.478576</td>
+      <td>0.205690</td>
+      <td>0.560547</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.plot.bar()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_67_1.png" src="../../_images/introduction-matplotlib_67_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para barras horizontales es la misma idea, pero en este caso las barras se apilan una a continuación de otra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.plot.barh(stacked=True, alpha=0.5)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_70_1.png" src="../../_images/introduction-matplotlib_70_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.close(&#39;all&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -542,10 +1141,10 @@ plt.show()
             <p class="prev-next-title">Construyendo una red neuronal desde cero con Numpy</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="advanced-graphics.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="../../bibliography.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Gráficos Avanzados en Matplotlib</p>
+        <p class="prev-next-title">Bibliografía</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
