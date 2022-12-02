@@ -601,13 +601,6 @@ import pandas as pd
 </div>
 </div>
 <p>El siguiente comando nos permite integrarlo en un notebook de Jupyter, y las imágenes saldrán integradas dentro del notebook, bajo la celda que la cree.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%matplotlib inline 
-</pre></div>
-</div>
-</div>
-</div>
 <p>Como aperitivo, veamos cómo hacer tres gráficas en una sola figura. En el comenterio correspondiente damos una breve explicación de lo que hace cada comando:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,10 +624,10 @@ ax2.scatter(np.arange(30), np.arange(30) + 3 * np.random.randn(30))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc188152518&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fdd6e3c52b0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_9_1.png" src="../../_images/introduction-matplotlib_9_1.png" />
+<img alt="../../_images/introduction-matplotlib_8_1.png" src="../../_images/introduction-matplotlib_8_1.png" />
 </div>
 </div>
 <section id="dos-interfaces-posibles">
@@ -660,7 +653,7 @@ plt.plot(x, np.cos(x));
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_14_0.png" src="../../_images/introduction-matplotlib_14_0.png" />
+<img alt="../../_images/introduction-matplotlib_13_0.png" src="../../_images/introduction-matplotlib_13_0.png" />
 </div>
 </div>
 <p>Inconveniente: una vez estamos en el segundo subplot, ¿cómo podemos volver a hacer algo con el primero? En el estilo basado en objetos que explicamos a continuación esto sí es posible.</p>
@@ -682,7 +675,7 @@ ax[1].plot(x, np.cos(x));
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_19_0.png" src="../../_images/introduction-matplotlib_19_0.png" />
+<img alt="../../_images/introduction-matplotlib_18_0.png" src="../../_images/introduction-matplotlib_18_0.png" />
 </div>
 </div>
 </section>
@@ -698,10 +691,10 @@ ax[1].plot(x, np.cos(x));
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc187efd3c8&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdd6dda3ee0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_23_1.png" src="../../_images/introduction-matplotlib_23_1.png" />
+<img alt="../../_images/introduction-matplotlib_22_1.png" src="../../_images/introduction-matplotlib_22_1.png" />
 </div>
 </div>
 <p>En este caso, nuestra variable dependiente (la <code class="docutils literal notranslate"><span class="pre">y</span></code>) toma valores en los primeros diez números. Por defecto, si no se da los valores de la variable independiente (la <code class="docutils literal notranslate"><span class="pre">x</span></code>), entonces se toma por defecto el corresponiente rango. Por tanto, en este caso la recta representa la función <span class="math notranslate nohighlight">\(y=x\)</span></p>
@@ -714,10 +707,10 @@ plt.plot(x, np.sin(x))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc187e610f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdd6dd010a0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_26_1.png" src="../../_images/introduction-matplotlib_26_1.png" />
+<img alt="../../_images/introduction-matplotlib_25_1.png" src="../../_images/introduction-matplotlib_25_1.png" />
 </div>
 </div>
 <p>Podemos tener dos gráficas dentro de la misma caja, basta con llamar dos veces a <code class="docutils literal notranslate"><span class="pre">plt</span></code>:</p>
@@ -729,10 +722,10 @@ plt.plot(x, np.cos(x))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fc187e81da0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fdd6dce6460&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_28_1.png" src="../../_images/introduction-matplotlib_28_1.png" />
+<img alt="../../_images/introduction-matplotlib_27_1.png" src="../../_images/introduction-matplotlib_27_1.png" />
 </div>
 </div>
 <p>El color de las gráficas se ajusta automáticamente, pero se puede indicar mediante el parámetro <code class="docutils literal notranslate"><span class="pre">color</span></code>de <code class="docutils literal notranslate"><span class="pre">plot</span></code>. He aquí unos cuantos ejemplos:</p>
@@ -748,7 +741,7 @@ plt.plot(x, np.sin(x - 5), color=&#39;chartreuse&#39;); # colores soportados por
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_30_0.png" src="../../_images/introduction-matplotlib_30_0.png" />
+<img alt="../../_images/introduction-matplotlib_29_0.png" src="../../_images/introduction-matplotlib_29_0.png" />
 </div>
 </div>
 <p>De igual manera, el estilo de dibujo de cada línea se puede dar con <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>. Aquí algunos ejemplos:</p>
@@ -768,7 +761,7 @@ plt.plot(x, x + 7, linestyle=&#39;:&#39;);  # dotted
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_32_0.png" src="../../_images/introduction-matplotlib_32_0.png" />
+<img alt="../../_images/introduction-matplotlib_31_0.png" src="../../_images/introduction-matplotlib_31_0.png" />
 </div>
 </div>
 <p>Los códigos cortos sirven para de manera compacta indicar todas estas caracterñisticas. Por ejemplo, conjuntamente el color y el estilo de línea:</p>
@@ -782,7 +775,7 @@ plt.plot(x, x + 3, &#39;:r&#39;);  # dotted red
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_34_0.png" src="../../_images/introduction-matplotlib_34_0.png" />
+<img alt="../../_images/introduction-matplotlib_33_0.png" src="../../_images/introduction-matplotlib_33_0.png" />
 </div>
 </div>
 <p>Aunqe plot deduce bastabte bien los límites de la gráfica, es posible especificar estos límites con <code class="docutils literal notranslate"><span class="pre">xlim</span></code> y <code class="docutils literal notranslate"><span class="pre">ylim</span></code>, com en el ejemplo:</p>
@@ -799,7 +792,7 @@ plt.ylim(-1.5, 1.5)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.5, 1.5)
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_36_1.png" src="../../_images/introduction-matplotlib_36_1.png" />
+<img alt="../../_images/introduction-matplotlib_35_1.png" src="../../_images/introduction-matplotlib_35_1.png" />
 </div>
 </div>
 <p>Con el método <code class="docutils literal notranslate"><span class="pre">axis</span></code> podemos dar todos los límites en una sola instrucción. Lo siguiente sería equivalente:</p>
@@ -811,7 +804,7 @@ plt.axis([-1, 11, -1.5, 1.5]);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_38_0.png" src="../../_images/introduction-matplotlib_38_0.png" />
+<img alt="../../_images/introduction-matplotlib_37_0.png" src="../../_images/introduction-matplotlib_37_0.png" />
 </div>
 </div>
 <p>Podemos decirle incluso que ajuste al máximo los límites:</p>
@@ -826,7 +819,7 @@ plt.axis(&#39;tight&#39;)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 10.5, -1.0993384025373631, 1.0996461858110391)
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_40_1.png" src="../../_images/introduction-matplotlib_40_1.png" />
+<img alt="../../_images/introduction-matplotlib_39_1.png" src="../../_images/introduction-matplotlib_39_1.png" />
 </div>
 </div>
 <p>O incluse que nos asegure una ratio de aspecto de igual proporcionalidad en ambos ejes:</p>
@@ -841,7 +834,7 @@ plt.axis(&#39;equal&#39;)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 10.5, -1.0993384025373631, 1.0996461858110391)
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_42_1.png" src="../../_images/introduction-matplotlib_42_1.png" />
+<img alt="../../_images/introduction-matplotlib_41_1.png" src="../../_images/introduction-matplotlib_41_1.png" />
 </div>
 </div>
 <p>Otro punto importante es cómo ponemos etiquetas a distintas parttes de las gráficas. Por ejemplo:</p>
@@ -855,7 +848,7 @@ plt.ylabel(&quot;sin(x)&quot;);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_44_0.png" src="../../_images/introduction-matplotlib_44_0.png" />
+<img alt="../../_images/introduction-matplotlib_43_0.png" src="../../_images/introduction-matplotlib_43_0.png" />
 </div>
 </div>
 <p>Cuando se muestran múltiples líneas en una sola caja, puede ser útil mostrar una «leyenda» para cada línea. Esto se consigue mediente <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code>. Nótese también que especificamos la etiqueta de cada línea con el keyword correspondiente en plot.</p>
@@ -870,7 +863,7 @@ plt.legend();
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_46_0.png" src="../../_images/introduction-matplotlib_46_0.png" />
+<img alt="../../_images/introduction-matplotlib_45_0.png" src="../../_images/introduction-matplotlib_45_0.png" />
 </div>
 </div>
 </section>
@@ -887,10 +880,10 @@ plt.scatter(x, y, marker=&#39;o&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc187decf28&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fdd6de68460&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_49_1.png" src="../../_images/introduction-matplotlib_49_1.png" />
+<img alt="../../_images/introduction-matplotlib_48_1.png" src="../../_images/introduction-matplotlib_48_1.png" />
 </div>
 </div>
 <p>El parámetro clave <code class="docutils literal notranslate"><span class="pre">marker</span></code> indica la forma del punto (en este caso, un círculo). Aefectos ilustrativos, la siguiente figura muestra distintos códigos para esa marca y el aspacto que tienen:</p>
@@ -902,7 +895,7 @@ plt.scatter(x, y, marker=&#39;o&#39;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_51_0.png" src="../../_images/introduction-matplotlib_51_0.png" />
+<img alt="../../_images/introduction-matplotlib_50_0.png" src="../../_images/introduction-matplotlib_50_0.png" />
 </div>
 </div>
 </section>
@@ -921,10 +914,10 @@ s.plot()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c2530d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_57_1.png" src="../../_images/introduction-matplotlib_57_1.png" />
+<img alt="../../_images/introduction-matplotlib_56_1.png" src="../../_images/introduction-matplotlib_56_1.png" />
 </div>
 </div>
 <p>El método <code class="docutils literal notranslate"><span class="pre">plot</span></code> tiene muchas opciones, se recomienda consultar el manual.</p>
@@ -939,10 +932,10 @@ df.plot()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c1c2550&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_60_1.png" src="../../_images/introduction-matplotlib_60_1.png" />
+<img alt="../../_images/introduction-matplotlib_59_1.png" src="../../_images/introduction-matplotlib_59_1.png" />
 </div>
 </div>
 </section>
@@ -960,10 +953,10 @@ data.plot.barh(ax=axes[1], color=&#39;k&#39;, alpha=0.7)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c156100&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_63_1.png" src="../../_images/introduction-matplotlib_63_1.png" />
+<img alt="../../_images/introduction-matplotlib_62_1.png" src="../../_images/introduction-matplotlib_62_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -984,7 +977,10 @@ df
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-884ab5ed-cf0f-48a9-8d40-705e465a2b80">
+    <div class="colab-df-container">
+      <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1053,7 +1049,83 @@ df
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-884ab5ed-cf0f-48a9-8d40-705e465a2b80')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-884ab5ed-cf0f-48a9-8d40-705e465a2b80 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-884ab5ed-cf0f-48a9-8d40-705e465a2b80');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1062,10 +1134,10 @@ df
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6c1e4b20&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_67_1.png" src="../../_images/introduction-matplotlib_67_1.png" />
+<img alt="../../_images/introduction-matplotlib_66_1.png" src="../../_images/introduction-matplotlib_66_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1091,10 +1163,10 @@ df
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdd6bf8ae20&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_70_1.png" src="../../_images/introduction-matplotlib_70_1.png" />
+<img alt="../../_images/introduction-matplotlib_69_1.png" src="../../_images/introduction-matplotlib_69_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
