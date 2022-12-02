@@ -512,6 +512,11 @@ title="Print to PDF"
    Entrada y salida de arrays en ficheros
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procesando-imagenes-con-numpy">
+   Procesando imágenes con numpy
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -585,6 +590,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#entrada-y-salida-de-arrays-en-ficheros">
    Entrada y salida de arrays en ficheros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#procesando-imagenes-con-numpy">
+   Procesando imágenes con numpy
   </a>
  </li>
 </ul>
@@ -1863,6 +1873,27 @@ justify-content: center;">
 </pre></div>
 </div>
 </div>
+</div>
+</section>
+<section id="procesando-imagenes-con-numpy">
+<h2>Procesando imágenes con numpy<a class="headerlink" href="#procesando-imagenes-con-numpy" title="Enlazar permanentemente con este título">#</a></h2>
+<div class="exercise admonition" id="index-slicing-image">
+
+<p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
+<section id="exercise-content">
+<p>Una de las posibles técnicas que existen para comprimir una imagen es utilizar <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">la descomposición SVD (Singular Value Decomposition)</a> que nos permite expresar una matrix <span class="math notranslate nohighlight">\(A\)</span> de dimensiones <span class="math notranslate nohighlight">\(n\times m\)</span> como un producto
+$<span class="math notranslate nohighlight">\( 
+A = U \Sigma V^t
+\)</span><span class="math notranslate nohighlight">\(
+donde \)</span>U<span class="math notranslate nohighlight">\( y \)</span>V<span class="math notranslate nohighlight">\( son cuadradas de dimensiones \)</span>n<span class="math notranslate nohighlight">\( y \)</span>m<span class="math notranslate nohighlight">\( respectivamente y \)</span>\Sigma<span class="math notranslate nohighlight">\( es diagonal y está formada por los [valores singulares](https://en.wikipedia.org/wiki/Singular_value) de \)</span>A$ ordenados de mayor a menor.</p>
+<p>Recuerda que una imagen no es más que un conjunto de 3 matrices, cada una representando la intensidad de la grilla de píxeles para cada color (rojo, verde y azul). Una forma de comprimir una imagen consiste en quedarse con los <span class="math notranslate nohighlight">\(k\)</span> primeros valores singulares para cada color e intercambiar <span class="math notranslate nohighlight">\(k\)</span> por una se las dimensiones que representan el alto o el bajo de la imagen.</p>
+<p>Crea una función <code class="docutils literal notranslate"><span class="pre">aproxima_img</span></code> que tome un array de dimensión <span class="math notranslate nohighlight">\((3, h, w)\)</span> y devuelva otra imagen aproximada de dimensión <span class="math notranslate nohighlight">\((3, h, w)\)</span> utilizando los k primeros valores singulares. Para ello,</p>
+<ol class="simple">
+<li><p>Utiliza la función <code class="docutils literal notranslate"><span class="pre">misc.face</span></code> para generar una imagen de prueba. Puedes visualizar imágenes con este formato a través del la función <code class="docutils literal notranslate"><span class="pre">imshow</span></code> de <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></p></li>
+<li><p>Utiliza la función <code class="docutils literal notranslate"><span class="pre">svd</span></code> de <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> para realizar la descomposición SVD. Mucho cuidado con las dimensiones que espera la función.</p></li>
+<li><p>Otras funciones que pueden ser útiles para el ejercicio: <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code>, <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>, <code class="docutils literal notranslate"><span class="pre">np.fill_diagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">np.clip</span></code></p></li>
+</ol>
+</section>
 </div>
 </section>
 </section>
