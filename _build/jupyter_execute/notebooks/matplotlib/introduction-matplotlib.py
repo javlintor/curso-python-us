@@ -9,31 +9,28 @@
 
 import numpy as np
 import pandas as pd
+import matplotlib
 
 
-# In[1]:
+# In[2]:
 
 
 get_ipython().run_line_magic('config', "InlineBackend.figure_format='retina'")
+get_ipython().run_line_magic('matplotlib', 'inline')
+matplotlib.rcParams['figure.figsize'] = (20, 10)
 
 
 # Matplotlib es una de las prncipales bibliotecas para gráficos y visualización de datos dentro del ecosistema python en Ciencia de los Datos. Vamos a ver una mínima introducción, esperando que características más avanzadas sean investgadas por el propio lector/a, cuando las vaya necesitando.
 
 # Existen varias maneras de usr matplotlib, pero una de las más comunes es a través de pyplot, que nos permitirá una interacción similar a la que se tiene en el sistema MATLAB. 
 
-# In[2]:
+# In[3]:
 
 
 import matplotlib.pyplot as plt
 
 
 # El siguiente comando nos permite integrarlo en un notebook de Jupyter, y las imágenes saldrán integradas dentro del notebook, bajo la celda que la cree.
-
-# In[3]:
-
-
-get_ipython().run_line_magic('matplotlib', 'inline')
-
 
 # Como aperitivo, veamos cómo hacer tres gráficas en una sola figura. En el comenterio correspondiente damos una breve explicación de lo que hace cada comando:
 

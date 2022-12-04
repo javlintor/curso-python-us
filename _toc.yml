@@ -21,6 +21,8 @@ parts:
   chapters: 
   - file: notebooks/numpy/introduction-numpy.ipynb
   - file: notebooks/numpy/index-slicing.ipynb
+  - file: notebooks/numpy/basic-operations.ipynb
+  - file: notebooks/numpy/exercises.ipynb
   - file: notebooks/numpy/nn-with-numpy.ipynb
 - caption: Matplotlib
   chapters: 

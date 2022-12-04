@@ -19,6 +19,9 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+# avoid some warnings
+myst_footnote_transition: false
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/javlintor/curso-python-us # Online location of your book
