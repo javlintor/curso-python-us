@@ -1,0 +1,1349 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Operaciones Básicas &#8212; Curso de Python US</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo-us.png"/>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Ejercicios" href="exercises.html" />
+    <link rel="prev" title="Indexado, Slicing y operaciones básicas" href="index-slicing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo-us.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Curso de Python US</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Curso de Python US
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción a Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/introduction-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/python-basics.html">
+   Principios básicos de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/numeric-types.html">
+   Tipos numéricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/strings.html">
+   Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/booleans.html">
+   Booleanos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/lists.html">
+   Listas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/other-data-structures.html">
+   Otras estructuras de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/control-flow.html">
+   Estructuras de control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/functions.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/classes.html">
+   Clases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/exercises.html">
+   Ejercicios de Introducción a Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Numpy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction-numpy.html">
+   Introducción a Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="index-slicing.html">
+   Indexado, Slicing y operaciones básicas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Operaciones Básicas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exercises.html">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nn-with-numpy.html">
+   Construyendo una red neuronal desde cero con Numpy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
+   Introducción a matplotlib
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bilbiografía
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bibliography.html">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/numpy/basic-operations.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/numpy/basic-operations.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/javlintor/curso-python-us"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/numpy/basic-operations.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/numpy/basic-operations.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trasposicion-de-arrays-y-producto-matricial">
+   Trasposición de arrays y producto matricial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-universales-sobre-arrays-componente-a-componente">
+   Funciones universales sobre arrays (componente a componente)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expresiones-condicionales-vectorizadas-con-where">
+   Expresiones condicionales vectorizadas con
+   <em>
+    where
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-estadisticas">
+   Funciones estadísticas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos-para-arrays-booleanos">
+   Métodos para arrays booleanos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrada-y-salida-de-arrays-en-ficheros">
+   Entrada y salida de arrays en ficheros
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Operaciones Básicas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trasposicion-de-arrays-y-producto-matricial">
+   Trasposición de arrays y producto matricial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-universales-sobre-arrays-componente-a-componente">
+   Funciones universales sobre arrays (componente a componente)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expresiones-condicionales-vectorizadas-con-where">
+   Expresiones condicionales vectorizadas con
+   <em>
+    where
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-estadisticas">
+   Funciones estadísticas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos-para-arrays-booleanos">
+   Métodos para arrays booleanos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrada-y-salida-de-arrays-en-ficheros">
+   Entrada y salida de arrays en ficheros
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="operaciones-basicas">
+<h1>Operaciones Básicas<a class="headerlink" href="#operaciones-basicas" title="Enlazar permanentemente con este título">#</a></h1>
+<hr class="docutils" />
+<section id="trasposicion-de-arrays-y-producto-matricial">
+<h2>Trasposición de arrays y producto matricial<a class="headerlink" href="#trasposicion-de-arrays-y-producto-matricial" title="Enlazar permanentemente con este título">#</a></h2>
+<p>El método <code class="docutils literal notranslate"><span class="pre">T</span></code> obtiene el array traspuesto de uno dado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>D = np.arange(15).reshape((3, 5))
+print(D)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(D.T)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  5 10]
+ [ 1  6 11]
+ [ 2  7 12]
+ [ 3  8 13]
+ [ 4  9 14]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el cálculo matricial será de mucha utilidad el método <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> de numpy, que sirve tanto para calcular el producto escalar como el producto matricial. Veamos varios usos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>E = rng.normal(0, 1, (6, 3))
+E
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.98911369, -1.13298039,  0.89947532],
+       [ 0.83876947, -2.04803026,  0.43605043],
+       [-1.41849927, -1.07503232,  0.60719754],
+       [ 0.44784829,  0.19511807,  1.10301797],
+       [ 0.90283653, -0.87698213, -1.18602109],
+       [ 0.57073338,  1.29648296, -0.03642366]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejemplos de producto escalar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.dot(E[:, 0], E[:, 1]) # producto escalar de dos columnas
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9633116274009399
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.dot(E[2],E[4]) # producto escalar de dos filas
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.058037907436637
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.dot(E, E[0]) # producto de una matriz por un vector
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3.07104632,  1.88295636,  3.16720679,  0.32809962, -0.96620111,
+       -2.06617217])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.dot(E.T, E)   # producto de dos matrices
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 5.03543877,  0.96331163, -1.98283348],
+       [ 0.96331163,  9.12180378, -1.35677399],
+       [-1.98283348, -1.35677399,  3.99250604]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Existe otro operador <code class="docutils literal notranslate"><span class="pre">matmul</span></code> (o su versión con el operador <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) que también multiplica matrices. Se diferencian cuando los arrays con de más de dos dimensiones ya</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>A = np.arange(3*7*4*5).reshape(3, 7, 4, 5)
+B = np.arange(3*7*5*6).reshape(3, 7, 5, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.dot(A, B).shape
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 7, 4, 3, 7, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">np.dot(A,</span> <span class="pre">B)[x1,</span> <span class="pre">x2,</span> <span class="pre">x3,</span> <span class="pre">y1,</span> <span class="pre">y2,</span> <span class="pre">y3]</span> <span class="pre">=</span> <span class="pre">A[x1,</span> <span class="pre">x2,</span> <span class="pre">x3,</span> <span class="pre">:].dot(B[y1,</span> <span class="pre">y2,</span> <span class="pre">:,</span> <span class="pre">y3])</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.matmul(A, B).shape # similar a A @ B 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 7, 4, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>La diferencia radica en que <code class="docutils literal notranslate"><span class="pre">dot</span></code> el producto escalara del último eje de A con el penúltimo de B para cada combinación de dimensiones y <code class="docutils literal notranslate"><span class="pre">matmul</span></code> considera los arrays como <em>arrays de matrices</em>, donde las dos últimas dimensiones son la parte matricial.</p>
+</section>
+<hr class="docutils" />
+<section id="funciones-universales-sobre-arrays-componente-a-componente">
+<h2>Funciones universales sobre arrays (componente a componente)<a class="headerlink" href="#funciones-universales-sobre-arrays-componente-a-componente" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En este contexto, una función universal (o <em>ufunc</em>) es una función que actúa sobre cada componente de un array o arrays de numpy. Estas funciones son muy eficientes y se denominan <em>vectorizadas</em>. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>M = np.arange(10)
+M
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.sqrt(M) # raiz cuadrada de cada componente
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.        , 1.        , 1.41421356, 1.73205081, 2.        ,
+       2.23606798, 2.44948974, 2.64575131, 2.82842712, 3.        ])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.exp(M.reshape(2,5)) # exponencial de cad componente
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
+        5.45981500e+01],
+       [1.48413159e+02, 4.03428793e+02, 1.09663316e+03, 2.98095799e+03,
+        8.10308393e+03]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Existen funciones universales que actúan sobre dos arrays, ya que realizan operaciones binarias:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = rng.normal(0, 1, 8)
+y = rng.normal(0, 1, 8)
+x, y
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 0.56956657, -0.51172143, -0.12143728,  0.82532196,  0.7631476 ,
+        -0.27892967,  0.01680242, -0.60594816]),
+ array([ 0.494063  , -1.19107762, -0.83504773, -0.16981063,  0.21058211,
+        -0.81745446, -1.13536744, -0.71611566]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.maximum(x, y)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.56956657, -0.51172143, -0.12143728,  0.82532196,  0.7631476 ,
+       -0.27892967,  0.01680242, -0.60594816])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x.max()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8253219591033163
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="expresiones-condicionales-vectorizadas-con-where">
+<h2>Expresiones condicionales vectorizadas con <em>where</em><a class="headerlink" href="#expresiones-condicionales-vectorizadas-con-where" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Veamos cómo podemos usar un versión vectorizada de la función <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<p>Veámoslo con un ejemplo. Supongamos que tenemos dos arrays (unidimensionales) numéricos y otro array booleano del mismo tamaño:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xarr = np.array([1.1, 1.2, 1.3, 1.4, 1.5])
+yarr = np.array([2.1, 2.2, 2.3, 2.4, 2.5])
+mask = np.array([True, False, True, True, False])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si quisiéramos obtener el array que en cada componente tiene el valor de <code class="docutils literal notranslate"><span class="pre">xarr</span></code> si el correspondiente en <code class="docutils literal notranslate"><span class="pre">mask</span></code> es <code class="docutils literal notranslate"><span class="pre">True</span></code>, o el valor de <code class="docutils literal notranslate"><span class="pre">yarr</span></code> si el correspondiente en <code class="docutils literal notranslate"><span class="pre">cond</span></code> es <code class="docutils literal notranslate"><span class="pre">False</span></code>, podemos hacer lo siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = [(x if c else y) for x, y, c in zip(xarr, yarr, cond)]
+result
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.1, 2.2, 1.3, 1.4, 2.5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sin embargo, esto tiene dos problemas: no es lo suficientemente eficiente, y además no se traslada bien a arrays multidimensionales. Afortunadamente, tenemos <code class="docutils literal notranslate"><span class="pre">np.where</span></code> para hacer esto de manera conveniente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = np.where(mask, xarr, yarr)
+result
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.1, 2.2, 1.3, 1.4, 2.5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>No necesariamente el segundo y el tercer argumento tiene que ser arrays. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>F = rng.normal(0, 1, (4, 4))
+
+F, np.where(F &gt; 0, 2, -2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 1.13337281, -0.29586843,  0.8864085 , -0.18065892],
+        [ 0.38622589,  0.54599472, -0.96802548, -1.06468639],
+        [-0.50519463,  1.02762712, -1.15038418, -0.76742521],
+        [ 0.09167195,  0.17300111, -0.00608156, -0.67838085]]),
+ array([[ 2, -2,  2, -2],
+        [ 2,  2, -2, -2],
+        [-2,  2, -2, -2],
+        [ 2,  2, -2, -2]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>O una combinación de ambos. Por ejemplos, para modificar sólo las componentes positivas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.where(F &gt; 0, 2, F) 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.6525, -1.2183, -1.3326,  2.    ],
+       [ 2.    ,  2.    ,  2.    , -0.5031],
+       [-0.6223, -0.9212, -0.7262,  2.    ],
+       [ 2.    , -1.1577,  2.    ,  2.    ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>También existe la función <code class="docutils literal notranslate"><span class="pre">np.select</span></code> para concatenar varias máscaras consecutivas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.select(
+    [np.abs(F) &gt; 2, np.abs(F) &gt; 1],
+    [&quot;Poco probable&quot;, &quot;Algo probable&quot;], 
+    &quot;Frecuente&quot;
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&#39;Algo probable&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;],
+       [&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Algo probable&#39;],
+       [&#39;Frecuente&#39;, &#39;Algo probable&#39;, &#39;Algo probable&#39;, &#39;Frecuente&#39;],
+       [&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;]], dtype=&#39;&lt;U13&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="basic-operations-masks">
+
+<p class="admonition-title"><span class="caption-number">Exercise 53 </span></p>
+<section id="exercise-content">
+<p>Crea una función que transforme un array para aplicar elemento a elemento la siguiente función</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ f(x) = \begin{cases}
+        exp(x/2)  &amp; \text{si } x &lt; 0 \\
+        1-x &amp; \text{si } 0 \leq x \leq 1 \\
+        0 &amp; \text{si } x &gt; 1
+        \end{cases}
+\end{split}\]</div>
+</section>
+</div>
+<div class="solution dropdown admonition" id="notebooks/numpy/basic-operations-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#basic-operations-masks"> Exercise 53</a></p>
+<section id="solution-content">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arr</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">],</span> 
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">arr</span><span class="p">],</span> 
+        <span class="mi">0</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span>
+</pre></div>
+</div>
+</section>
+</div>
+</section>
+<hr class="docutils" />
+<section id="funciones-estadisticas">
+<h2>Funciones estadísticas<a class="headerlink" href="#funciones-estadisticas" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Algunos métodos para calcular indicadores estadísticos sobre los elementos de un array.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.sum</span></code>: suma de los componentes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.mean</span></code>: media aritmética</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.std</span></code> y <code class="docutils literal notranslate"><span class="pre">np.var</span></code>: desviación estándar y varianza, respectivamente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.max</span></code> y <code class="docutils literal notranslate"><span class="pre">np.min</span></code>: máximo y mínimo, resp.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.argmin</span></code> y <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code>: índices de los mínimos o máximos elementos, respectivamente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.cumsum</span></code>: sumas acumuladas de cada componente</p></li>
+</ul>
+<p>Estos métodos también se pueden usar como atributos de los arrays. Es decir, por ejemplo <code class="docutils literal notranslate"><span class="pre">A.sum()</span></code> o <code class="docutils literal notranslate"><span class="pre">A.mean()</span></code>.</p>
+<p>Veamos algunos ejemplos, generando en primer lugar un array con elementos generados aleatoriamente (siguiendo una distribución normal):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G = rng.normal(0, 1, (5, 4))
+G
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.15811704,  1.44470502,  1.1576879 , -1.50808637],
+       [-1.60287482,  2.06124711, -0.2184874 , -1.26752811],
+       [ 0.48962539, -0.24836223, -1.09369912, -1.82517016],
+       [ 1.3622494 ,  0.83213038,  0.28669504,  0.39085677],
+       [ 0.61704406,  0.11210126, -0.23524245, -0.42265811]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G.sum()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4903505871658758
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G.mean()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07451752935829378
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G.cumsum() # por defecto, se aplana el array y se hace la suma acumulada
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.15811704,  2.60282205,  3.76050995,  2.25242358,  0.64954876,
+        2.71079587,  2.49230847,  1.22478036,  1.71440575,  1.46604353,
+        0.3723444 , -1.45282576, -0.09057636,  0.74155402,  1.02824906,
+        1.41910583,  2.03614988,  2.14825114,  1.91300869,  1.49035059])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Todas estas funciones se pueden aplicar a lo largo de un eje, usando el parámetro <code class="docutils literal notranslate"><span class="pre">axis</span></code>. Por ejemplos, para calcular las medias de cada fila (es decir, recorriendo en el sentido de las columnas), aplicamos <code class="docutils literal notranslate"><span class="pre">mean</span></code> por <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(G)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.15811704  1.44470502  1.1576879  -1.50808637]
+ [-1.60287482  2.06124711 -0.2184874  -1.26752811]
+ [ 0.48962539 -0.24836223 -1.09369912 -1.82517016]
+ [ 1.3622494   0.83213038  0.28669504  0.39085677]
+ [ 0.61704406  0.11210126 -0.23524245 -0.42265811]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G.mean(axis=1)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.56310589, -0.2569108 , -0.66940153,  0.7179829 ,  0.01781119])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y la suma de cada columna (es decir, recorriendo las filas), con <code class="docutils literal notranslate"><span class="pre">sum</span></code> por <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G.sum(axis=0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.02416106,  4.20182155, -0.10304603, -4.63258598])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Suma acumulada de cada columna:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G.cumsum(axis=0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.68491589, -0.23523322, -2.76736549, -0.43965882],
+       [ 0.90880762, -1.5861845 , -3.98184109,  0.47762161],
+       [-0.0986952 , -1.75230822, -4.37844759,  1.31736009],
+       [-0.40237238, -1.97550365, -5.27703634,  2.0881778 ],
+       [-1.24035148, -3.90079295, -4.76107377,  3.99477494]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dentro de cada columna, el número de fila donde se alcanza el mínimo se puede hacer asi:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>G, G.argmin(axis=0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 1.15811704,  1.44470502,  1.1576879 , -1.50808637],
+        [-1.60287482,  2.06124711, -0.2184874 , -1.26752811],
+        [ 0.48962539, -0.24836223, -1.09369912, -1.82517016],
+        [ 1.3622494 ,  0.83213038,  0.28669504,  0.39085677],
+        [ 0.61704406,  0.11210126, -0.23524245, -0.42265811]]),
+ array([1, 2, 2, 2]))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="metodos-para-arrays-booleanos">
+<h2>Métodos para arrays booleanos<a class="headerlink" href="#metodos-para-arrays-booleanos" title="Enlazar permanentemente con este título">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>H = rng.normal(0, 1, 50)
+H
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.37538207,  0.88307139, -1.48033047, -0.63881861,  2.19960502,
+       -1.04557441, -1.79101969,  0.09058196, -1.06703354,  1.29961831,
+       -1.68622683, -1.58008397, -0.30115987, -1.03949893, -0.20491355,
+        0.69074324,  0.09264284,  0.24829285,  0.27853556,  0.17902419,
+        0.43198911, -1.50762967, -1.07813134, -0.13374533, -1.21838537,
+       -1.17015638, -0.95365623, -0.49277838,  0.55410651, -1.52619269,
+       -0.4931205 , -1.59242357,  0.69355821, -0.79341399, -0.89048256,
+       -0.20281593, -0.26983338, -1.84487019,  0.13131009, -2.28654886,
+       -0.38557445, -0.40674425, -1.1288668 , -0.31117298,  0.03671756,
+       -0.26609603, -0.61608135, -0.73828882,  1.30595592, -0.3525448 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es bastante frecuente usar <code class="docutils literal notranslate"><span class="pre">sum</span></code> para ontar el número de veces que se cumple una condición en un array, aprovechando que <code class="docutils literal notranslate"><span class="pre">True</span></code> se identifica con 1 y <code class="docutils literal notranslate"><span class="pre">False</span></code> con 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(H &gt; 0).sum() # Number of positive values
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las funciones python <code class="docutils literal notranslate"><span class="pre">any</span></code> y <code class="docutils literal notranslate"><span class="pre">all</span></code> tienen también su correspondiente versión vectorizada. <code class="docutils literal notranslate"><span class="pre">any</span></code> se puede ver como un <em>or</em> generalizado, y <code class="docutils literal notranslate"><span class="pre">all</span></code>como un <em>and</em> generalizado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>bools = np.array([False, False, True, False])
+bools.any(), bools.all()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos comprobar si se cumple <em>alguna vez</em> una condición entre los componentes de un array, o bien si se cumple <em>siempre</em> una condición:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.any(H &gt; 0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.all(H &lt; 10)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.any(H &gt; 15)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.all(H &gt; 0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="entrada-y-salida-de-arrays-en-ficheros">
+<h2>Entrada y salida de arrays en ficheros<a class="headerlink" href="#entrada-y-salida-de-arrays-en-ficheros" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Existen una serie de utilidades para guardar el contenido de un array en un fichero y recuperarlo más tarde.</p>
+<p>Las funciones <code class="docutils literal notranslate"><span class="pre">save</span></code> y <code class="docutils literal notranslate"><span class="pre">load</span></code> hacen esto. Los arrays se almacenan en archivos con extensión <em>npy</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>J = np.arange(10)
+np.save(&#39;un_array&#39;, J)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.load(&#39;un_array.npy&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con <code class="docutils literal notranslate"><span class="pre">savez</span></code>, podemos guardar una serie de arrays en un archivo de extensión <em>npz</em>, asociados a una serie de claves. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.savez(&#39;array_archivo.npz&#39;, a=J, b=J**2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cuando hacemos <code class="docutils literal notranslate"><span class="pre">load</span></code> sobre un archivo <em>npz</em>, cargamos un objeto de tipo diccionario, con el que podemos acceder (de manera perezosa) a los distintos arrays que se han almacenado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arch = np.load(&#39;array_archivo.npz&#39;)
+arch[&#39;b&#39;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arch[&#39;a&#39;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>list(arch)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>En caso de que fuera necesario, podríamos incluso guardar incluso los datos en formato comprimido con <code class="docutils literal notranslate"><span class="pre">savez_compressed</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.savez_compressed(&#39;arrays_comprimidos.npz&#39;, a=J, b=J**2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!ls -lah
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 28K
+drwxr-xr-x 1 root root 4.0K Dec  2 19:05 .
+drwxr-xr-x 1 root root 4.0K Dec  2 17:03 ..
+-rw-r--r-- 1 root root  650 Dec  2 19:03 array_archivo.npz
+-rw-r--r-- 1 root root  424 Dec  2 19:05 arrays_comprimidos.npz
+drwxr-xr-x 4 root root 4.0K Nov 23 14:31 .config
+drwxr-xr-x 1 root root 4.0K Nov 23 14:31 sample_data
+-rw-r--r-- 1 root root  208 Dec  2 19:02 un_array.npy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!rm un_array.npy
+!rm array_archivo.npz
+!rm arrays_comprimidos.npz
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/numpy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index-slicing.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Indexado, Slicing y operaciones básicas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="exercises.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Ejercicios</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Javier Linares Torres<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
