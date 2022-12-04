@@ -525,7 +525,7 @@ title="Print to PDF"
 <p>Para crear una lista en Python usamos corchetes y escribimos sus elementos separados por comas <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code>. Los objetos de una lista <strong>no tienen por qué ser del mismo tipo de objeto</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[3.5, None, &quot;foo&quot;]
 </pre></div>
 </div>
 </div>
@@ -537,7 +537,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type([1, 2, 3])
 </pre></div>
 </div>
 </div>
@@ -549,8 +549,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># lista vacía</span>
-<span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># lista vacía
+[]
 </pre></div>
 </div>
 </div>
@@ -563,8 +563,8 @@ title="Print to PDF"
 <p>Puedes incluir variables y expresiones en la definición de la lista. Python evaluará dichas expresiones y luego construirá la lista.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
-<span class="p">[</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="mi">5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = &quot;foo&quot;
+[2 &lt; 3, x.capitalize(), 5**2, [1, 2]]
 </pre></div>
 </div>
 </div>
@@ -577,7 +577,7 @@ title="Print to PDF"
 <p>El tipo <code class="docutils literal notranslate"><span class="pre">list</span></code> puede ser utilizado para convertir otros tipos de objetos a listas, en concreto aquellos que sean <strong>iterables</strong>, cosa que definiremos más adelante.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>list(&quot;hello world&quot;)
 </pre></div>
 </div>
 </div>
@@ -589,14 +589,14 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>list(1)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">7</span><span class="n">ade7017386b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
@@ -606,7 +606,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>list([1])
 </pre></div>
 </div>
 </div>
@@ -644,9 +644,9 @@ title="Print to PDF"
 <p>Veamos algunos ejemplos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">items</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>items = [3, 4, 5]
+x, y, z = items
+print(x, y, z)
 </pre></div>
 </div>
 </div>
@@ -658,7 +658,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">items</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>&quot;a&quot; in items
 </pre></div>
 </div>
 </div>
@@ -670,8 +670,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">items</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="n">a</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = [1, 2, *items, 6]
+a
 </pre></div>
 </div>
 </div>
@@ -725,8 +725,8 @@ title="Print to PDF"
 <p>Al igual que las cadenas, las listas <strong>son secuencias</strong>, por lo que el orden de sus objetos es importante y podemos acceder a los mismo mediante un índice entero que empieza en cero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># El orden importa</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># El orden importa
+[1, &quot;a&quot;, True] == [&quot;a&quot;, 1, True]
 </pre></div>
 </div>
 </div>
@@ -740,8 +740,8 @@ title="Print to PDF"
 <p>En las secuencias, el método que nos da la longitud del objeto es <code class="docutils literal notranslate"><span class="pre">len</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = [2, 4, 6, 8, 10]
+len(x)
 </pre></div>
 </div>
 </div>
@@ -753,8 +753,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = &quot;hello world&quot;
+len(x)
 </pre></div>
 </div>
 </div>
@@ -766,8 +766,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 1
+len(x)
 </pre></div>
 </div>
 </div>
@@ -790,12 +790,12 @@ title="Print to PDF"
 <p>Las listas son utilizadas cuando queramos almacenar datos que pueden cambiar o deben actualizarse, ya que <em>las listas pueden cambiar una vez han sido creadas</em>, o dicho de otro modo, son objetos <strong>mutables</strong>. Veámoslo con un ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = [2, 4, 6, 8, 10]
+y = [2, 4, 6, 8, 10]
 
-<span class="c1"># asignamos una cadena al segundo objeto de x</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
-<span class="n">x</span>
+# asignamos una cadena al segundo objeto de x
+x[1] = &quot;apple&quot;
+x
 </pre></div>
 </div>
 </div>
@@ -807,9 +807,9 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># podemos realizar asignaciones a nivel de lista</span>
-<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">y</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># podemos realizar asignaciones a nivel de lista
+y[1:4] = [-3, -4, -5]
+y
 </pre></div>
 </div>
 </div>
@@ -822,9 +822,9 @@ title="Print to PDF"
 <p>Dos métodos muy utilizados a la hora de manipular listas son el <code class="docutils literal notranslate"><span class="pre">append</span></code> que nos permiten añadir un elemento a la cola de lista y <code class="docutils literal notranslate"><span class="pre">extend</span></code> para añadir varios</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
-<span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = [2, 4, 6, 8, 10]
+x.append(&quot;foo&quot;)
+x
 </pre></div>
 </div>
 </div>
@@ -836,9 +836,9 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a extend tenemos que pasarle una lista de objetos</span>
-<span class="n">x</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
-<span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># a extend tenemos que pasarle una lista de objetos
+x.extend([True, False, None])
+x
 </pre></div>
 </div>
 </div>
@@ -857,8 +857,8 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
-<span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+x.pop(2)
 </pre></div>
 </div>
 </div>
@@ -870,7 +870,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x
 </pre></div>
 </div>
 </div>
@@ -882,8 +882,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-<span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x.append(&quot;a&quot;)
+x
 </pre></div>
 </div>
 </div>
@@ -895,14 +895,14 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x.remove(&quot;a&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x
 </pre></div>
 </div>
 </div>
@@ -914,8 +914,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x.insert(2, None)
+x
 </pre></div>
 </div>
 </div>
@@ -928,8 +928,8 @@ title="Print to PDF"
 <p>Podemos concatenar listas usando el operador <code class="docutils literal notranslate"><span class="pre">+</span></code>. En caso de tener listas anidadas, es posible aplicar directamente más de una operación de indexado.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = [[1, &quot;foo&quot;], [&quot;bar&quot;, None], True, 3.5]
+x[1][0]
 </pre></div>
 </div>
 </div>
@@ -973,9 +973,9 @@ title="Print to PDF"
 <p>Para el siguiente ejercicio, puedes utilizar el módulo <code class="docutils literal notranslate"><span class="pre">time</span></code> o el <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html"><strong>comando mágico</strong></a> de jupyter <code class="docutils literal notranslate"><span class="pre">%%time</span></code> para obtener el tiempo de ejecución de una celdilla.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
 
-<span class="mi">3</span><span class="o">**</span><span class="mi">999</span>
+3**999
 </pre></div>
 </div>
 </div>
@@ -991,12 +991,12 @@ Wall time: 13.4 µs
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
 
-<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="mi">3</span><span class="o">**</span><span class="mi">999</span>
-<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution time: </span><span class="si">{</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="si">:</span><span class="s2">0.8f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+start = time.time()
+3**999
+end = time.time()
+print(f&quot;Execution time: {end - start:0.8f} seconds&quot;)
 </pre></div>
 </div>
 </div>

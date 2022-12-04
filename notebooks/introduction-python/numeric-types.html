@@ -596,8 +596,8 @@ title="Print to PDF"
 <p>La conversión de <code class="docutils literal notranslate"><span class="pre">float</span></code> a <code class="docutils literal notranslate"><span class="pre">int</span></code> se realiza truncando los decimales mediante la función <code class="docutils literal notranslate"><span class="pre">math.floor</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.3</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 1.3
+print(int(a))
 </pre></div>
 </div>
 </div>
@@ -609,8 +609,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.7</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>b = 1.7
+print(int(b))
 </pre></div>
 </div>
 </div>
@@ -627,7 +627,7 @@ title="Print to PDF"
 <p>Los <strong>flotantes</strong> se utilizan para representar números reales con un número determinado de cifras decimales. El tipo para representar estos objetos es <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>isinstance(1, float)
 </pre></div>
 </div>
 </div>
@@ -639,7 +639,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>isinstance(1., float)
 </pre></div>
 </div>
 </div>
@@ -651,7 +651,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(10 / 5)
 </pre></div>
 </div>
 </div>
@@ -663,7 +663,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;0.43784&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>float(&quot;0.43784&quot;)
 </pre></div>
 </div>
 </div>
@@ -675,7 +675,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>float(-3)
 </pre></div>
 </div>
 </div>
@@ -692,10 +692,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.5e3</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">1.34e-7</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 2.5e3
+b = 1.34e-7
+print(a)
+print(b)
 </pre></div>
 </div>
 </div>
@@ -711,19 +711,19 @@ title="Print to PDF"
 <p>En el siguiente ejemplo vemos que al convertir un entero de 100 dígitos a flotante sólo podemos retener 16.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una cadena de longitud 100 llena de 1s</span>
-<span class="n">digit_str</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span> 
-<span class="c1"># Convertirmos a entero</span>
-<span class="n">digit_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
-<span class="c1"># Convertimos a float</span>
-<span class="n">digit_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">digit_int</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Creamos una cadena de longitud 100 llena de 1s
+digit_str = &quot;1&quot;*100 
+# Convertirmos a entero
+digit_int = int(&quot;1&quot;*100)
+# Convertimos a float
+digit_float = float(digit_int)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">digit_int</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>digit_int
 </pre></div>
 </div>
 </div>
@@ -735,7 +735,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">digit_float</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>digit_float
 </pre></div>
 </div>
 </div>
@@ -748,7 +748,7 @@ title="Print to PDF"
 <p>Modificar un flotante más allá de su precisión no causará ningún efecto</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">digit_float</span> <span class="o">==</span> <span class="n">digit_float</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>digit_float == digit_float + 1
 </pre></div>
 </div>
 </div>
@@ -761,7 +761,7 @@ title="Print to PDF"
 <p>Muchas veces el hecho de tener una precesición numérica finita puede llevar a comportamientos inesperados</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="mf">0.3</span> <span class="o">==</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>0.1 + 0.1 + 0.1 - 0.3 == 0
 </pre></div>
 </div>
 </div>
@@ -773,8 +773,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="mf">0.3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 0.1 + 0.1 + 0.1 - 0.3
+print(a)
 </pre></div>
 </div>
 </div>
@@ -790,8 +790,8 @@ title="Print to PDF"
 <p>Para ello contamos con la función <code class="docutils literal notranslate"><span class="pre">isclose</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+math.isclose(a, 0, abs_tol=1e-5)
 </pre></div>
 </div>
 </div>
@@ -808,9 +808,9 @@ title="Print to PDF"
 <p>En Python disponemos de un ajato muy útil a la hora de actualizar una variable vía una operación aritmética. Por ejemplo, si tenemos una variable <code class="docutils literal notranslate"><span class="pre">x</span></code> y queremos aumentar su valor en <code class="docutils literal notranslate"><span class="pre">1</span></code>, en lugar de escribir</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 1
+x = x + 1
+print(x)
 </pre></div>
 </div>
 </div>
@@ -823,9 +823,9 @@ title="Print to PDF"
 <p>Podemos utilzar el <strong>operador de asignación aumentada</strong> asociado a <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 1
+x += 1
+print(x)
 </pre></div>
 </div>
 </div>
@@ -838,9 +838,9 @@ title="Print to PDF"
 <p>Otros ejemplos pueden ser los operadores <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, <code class="docutils literal notranslate"><span class="pre">**=</span></code>, <code class="docutils literal notranslate"><span class="pre">%=</span></code> etc. En general, lo que estamos haciendo es calcular un nuevo valor de nuestra variable y posteriormente asignándolo a la misma. Esta técnica también se puede utilizar con tipo que no sean numéricos, por ejemplo con una cadena</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
-<span class="n">a</span> <span class="o">+=</span> <span class="s2">&quot;bar&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = &quot;foo&quot;
+a += &quot;bar&quot;
+print(a)
 </pre></div>
 </div>
 </div>

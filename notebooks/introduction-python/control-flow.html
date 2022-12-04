@@ -776,8 +776,8 @@ title="Print to PDF"
 <p>Los tipos numéricos no nulos y las secuencias/colecciones no vacías de evalúan como <code class="docutils literal notranslate"><span class="pre">True</span></code> vía <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">():</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>if not set(): 
+    print(&quot;foo&quot;)
 </pre></div>
 </div>
 </div>
@@ -829,12 +829,12 @@ title="Print to PDF"
 <p>Como ya hemos visto en las expresiones de comprensión, Python soporta una sintaxis que nos permite escribir bloques <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en la misma línea. Por ejemplo el siguiente código</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>num = 2
 
-<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;positive&quot;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;negative&quot;</span>
+if num &gt;= 0:
+    sign = &quot;positive&quot;
+else:
+    sign = &quot;negative&quot;
 </pre></div>
 </div>
 </div>
@@ -842,7 +842,7 @@ title="Print to PDF"
 <p>es equivalente a</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span> <span class="o">=</span> <span class="s2">&quot;positive&quot;</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;negative&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sign = &quot;positive&quot; if num &gt;=0 else &quot;negative&quot;
 </pre></div>
 </div>
 </div>
@@ -867,10 +867,10 @@ title="Print to PDF"
 <p>Con un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code>podemos iterar sobre una colección de items almacenados en un objeto <strong>iterable</strong>, ejecutando un bloque de código una vez por cada iteración. Por ejemplo el siguiente código devuelve los números positivos de una tupla</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mf">22.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">num</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>total = 0
+for num in (-22.0, 3.5, 8.1, -10, 0.5):
+    if num &gt; 0:
+        total = total + num
 </pre></div>
 </div>
 </div>
@@ -890,9 +890,9 @@ title="Print to PDF"
 <p>Una observación importate es que la variable del bucle <strong>persistirá</strong> con el último valor que haya tomado después de que el mismo se haya ejecutado. Por ello, intenta escribir código que no dependa de la variable de iteración fuera del bucle for. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for x in [0, 1]:
+    print(&quot;Foo&quot;)
+print(x)
 </pre></div>
 </div>
 </div>
@@ -906,8 +906,8 @@ Foo
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
-<span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import string
+string.ascii_lowercase
 </pre></div>
 </div>
 </div>
@@ -941,11 +941,11 @@ Foo
 <p>Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>  
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>total = 0
+while total &lt; 3:
+    total += 1  
 
-<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  
+print(total)  
 </pre></div>
 </div>
 </div>
@@ -978,11 +978,11 @@ Foo
 <p>Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for item in [1, 2, 3, 4, 5]:
+    if item == 3:
+        print(item, &quot; ...break!&quot;)
+        break
+    print(item, &quot; ...next iteration&quot;)
 </pre></div>
 </div>
 </div>
@@ -996,11 +996,11 @@ Foo
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...continue!&quot;</span><span class="p">)</span>
-        <span class="k">continue</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for item in [1, 2, 3, 4, 5]:
+    if item == 3:
+        print(item, &quot; ...continue!&quot;)
+        continue
+    print(item, &quot; ...next iteration&quot;)
 </pre></div>
 </div>
 </div>
@@ -1017,13 +1017,13 @@ Foo
 <p>Por otro lado, el comando <code class="docutils literal notranslate"><span class="pre">else</span></code> se utiliza en conjunción con <code class="docutils literal notranslate"><span class="pre">break</span></code> para ejecutar un bloque de código tras un bucle <strong>siempre y cuando no se haya encontrado ningún <code class="docutils literal notranslate"><span class="pre">break</span></code></strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for item in [2, 4, 6]:
+    if item == 3:
+        print(item, &quot; ...break!&quot;)
+        break
+    print(item, &quot; ...next iteration&quot;)
+else:
+    print(&quot;foo&quot;)
 </pre></div>
 </div>
 </div>
@@ -1038,13 +1038,13 @@ foo
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
-        <span class="k">break</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for item in [2, 4, 6]:
+    if item == 2:
+        print(item, &quot; ...break!&quot;)
+        break
+    print(item, &quot; ...next iteration&quot;)
+else:
+    print(&quot;foo&quot;)
 </pre></div>
 </div>
 </div>
@@ -1076,14 +1076,14 @@ foo
 <p>Es bastante común crear listas y tuplas a partir de objetos de tipo <code class="docutils literal notranslate"><span class="pre">range</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">11</span> <span class="ow">in</span> <span class="n">r</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="ow">in</span> <span class="n">r</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>r = range(0, 20, 2)
+print(r)
+print(11 in r)
+print(10 in r)
+print(r.index(10))
+print(r[5])
+print(r[:5])
+print(r[-1])
 </pre></div>
 </div>
 </div>
@@ -1112,9 +1112,9 @@ range(0, 10, 2)
 <p><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> sirve para obtener un iterable de duplas a partir de un iterable. El primer elemento de la tupla es el índice y el segundo el item del objeto a iterar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_enum</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>my_enum = enumerate([&quot;apple&quot;, &quot;banana&quot;, &quot;cat&quot;, &quot;dog&quot;])
 
-<span class="nb">list</span><span class="p">(</span><span class="n">my_enum</span><span class="p">)</span>
+list(my_enum)
 </pre></div>
 </div>
 </div>
@@ -1130,13 +1130,13 @@ range(0, 10, 2)
 <p>En este caso <code class="docutils literal notranslate"><span class="pre">zip</span></code> nos permite condensar varios iterables en uno solo, devolviendo un iterable de tuplas cuyas longitudes coinciden con el número de iterables <em>a comprimir</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Angie&quot;</span><span class="p">,</span> <span class="s2">&quot;Brian&quot;</span><span class="p">,</span> <span class="s2">&quot;Cassie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">]</span>
-<span class="n">exam_1_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">87</span><span class="p">]</span>
-<span class="n">exam_2_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">95</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">91</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>names = [&quot;Angie&quot;, &quot;Brian&quot;, &quot;Cassie&quot;, &quot;David&quot;]
+exam_1_scores = [90, 82, 79, 87]
+exam_2_scores = [95, 84, 72, 91]
 
-<span class="n">my_zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">exam_1_scores</span><span class="p">,</span> <span class="n">exam_2_scores</span><span class="p">)</span>
+my_zip = zip(names, exam_1_scores, exam_2_scores)
 
-<span class="nb">list</span><span class="p">(</span><span class="n">my_zip</span><span class="p">)</span>
+list(my_zip)
 </pre></div>
 </div>
 </div>
@@ -1150,19 +1150,19 @@ range(0, 10, 2)
 <p>El método <code class="docutils literal notranslate"><span class="pre">itertools.chain</span></code> nos permite concatenar varios iterables</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import chain
 
-<span class="n">gen_1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">gen_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">iter_3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;moo&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">]</span>
-<span class="n">iter_4</span> <span class="o">=</span> <span class="s2">&quot;him&quot;</span>
+gen_1 = range(0, 5, 2)
+gen_2 = (i**2 for i in range(3, 6))
+iter_3 = [&quot;moo&quot;, &quot;cow&quot;]
+iter_4 = &quot;him&quot;
 
-<span class="n">chain</span><span class="p">(</span><span class="n">gen_1</span><span class="p">,</span> <span class="n">gen_2</span><span class="p">,</span> <span class="n">iter_3</span><span class="p">,</span> <span class="n">iter_4</span><span class="p">)</span>
+chain(gen_1, gen_2, iter_3, iter_4)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.chain at 0x7fdd9e4f23d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;itertools.chain at 0x7fa554af2e50&gt;
 </pre></div>
 </div>
 </div>
@@ -1173,9 +1173,9 @@ range(0, 10, 2)
 <p>Nos permite generar todas las combinaciones posibles de varios iterables. Podemos evitar anidar varios <code class="docutils literal notranslate"><span class="pre">for</span></code> loops utilizando esta función.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-<span class="n">my_comb</span> <span class="o">=</span> <span class="n">product</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">my_comb</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import product
+my_comb = product([0, 1], range(3))
+list(my_comb)
 </pre></div>
 </div>
 </div>
