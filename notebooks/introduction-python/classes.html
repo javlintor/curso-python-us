@@ -514,16 +514,16 @@ title="Print to PDF"
 <p>Para definir una clase en Python, utilizamos el comando <code class="docutils literal notranslate"><span class="pre">class</span></code>. Por ejemplo, imaginemos que queremos trabajar con puntos del plano en nuestro programa. Sería interesante crear una clase como la siguiente</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
-class Punto:
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
+<span class="k">class</span> <span class="nc">Punto</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
         
-    def distancia_al_origen(self):
-        dist = math.sqrt(self.x**2 + self.y**2)
-        return dist
+    <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dist</span>
 </pre></div>
 </div>
 </div>
@@ -536,7 +536,7 @@ class Punto:
 <p>Para crear <em>objetos</em> de un clase, simplemente se llama al nombre de la clase junto con los argumentos de entrada al constructor (excepto el primer argumento, <code class="docutils literal notranslate"><span class="pre">self</span></code>). Lo que sige define un objeto de la clase <code class="docutils literal notranslate"><span class="pre">Punto</span></code> y lo asigna a una variable <code class="docutils literal notranslate"><span class="pre">p</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p = Punto(2,3)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -550,7 +550,7 @@ class Punto:
 <p>que aceptan como primer parámetro un objeto y como segundo una cadena con el nombre del atributo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p.x
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -562,7 +562,7 @@ class Punto:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p.y
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -574,7 +574,7 @@ class Punto:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p.distancia_al_origen()
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">distancia_al_origen</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -587,7 +587,7 @@ class Punto:
 <p>La función <code class="docutils literal notranslate"><span class="pre">dir(obj)</span></code> nos devuelve el conjunto de métodos disponibles para un objeto.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dir(p)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -643,51 +643,51 @@ class Punto:
 <p>Hay otros <strong>métodos especiales</strong> que se pueden definir en todas las clases, y que tienen nombres especiales reservados. No es obligatorio definirlos, pero si se definen en la clase tienen una finalidad específica. Tienen sus nombres entre dobles guinoes bajos, como <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>, que sirve para definir cómo se comparan dos objetos de la clase; o <code class="docutils literal notranslate"><span class="pre">__str__</span></code>, que sirve para proporcionar una representación de un objeto de la clase en forma de cadena.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
-class PuntoV2():
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
+<span class="k">class</span> <span class="nc">PuntoV2</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
         
-    def distancia_al_origen(self):
-        dist = math.sqrt(self.x**2 + self.y**2)
-        return dist
+    <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dist</span>
 
-    def __eq__(self,punto):
-        return self.x == punto.x and self.y == punto.y
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">punto</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">punto</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">punto</span><span class="o">.</span><span class="n">y</span>
 
-    def __str__(self):
-        return f&quot;Punto(x = {self.x:.3f}, y = {self.y:.3f})&quot;
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Punto(x = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, y = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = Punto(1, 1)
-p = PuntoV2(3, 4)
-q = PuntoV2(2, 5)
-r = PuntoV2(3, 4)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Punto</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">PuntoV2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">PuntoV2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">PuntoV2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(a)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Punto object at 0x7f8c7877dd90&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Punto object at 0x7fc5b0e5ba50&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(p)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -699,7 +699,7 @@ r = PuntoV2(3, 4)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p == q
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">==</span> <span class="n">q</span>
 </pre></div>
 </div>
 </div>
@@ -711,7 +711,7 @@ r = PuntoV2(3, 4)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p == r
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">==</span> <span class="n">r</span>
 </pre></div>
 </div>
 </div>
@@ -735,43 +735,43 @@ r = PuntoV2(3, 4)
 <p>La herencia se especifica incluyendo entre parántesis las clases base de las que queremos heredar en el enunciado <code class="docutils literal notranslate"><span class="pre">class</span></code>. Por ejemplo podemos crear una clase <code class="docutils literal notranslate"><span class="pre">Circulo</span></code> que herede de punto</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Circulo(PuntoV2):
-    def __init__(self, radio=1, x=0, y=0):
-        super().__init__(x, y)
-        self.radio = radio
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Circulo</span><span class="p">(</span><span class="n">PuntoV2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radio</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radio</span> <span class="o">=</span> <span class="n">radio</span>
 
-    def distancia_al_origen(self):
-        dist = abs(super().distancia_al_origen() - self.radio)
-        return dist
+    <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">distancia_al_origen</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dist</span>
 
-    def calcula_area(self):
-        area = 2 * math.pi * self.radio**2
-        return area
+    <span class="k">def</span> <span class="nf">calcula_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">area</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">area</span>
 
-    def __eq__(self, circulo):
-        son_iguales = (
-            self.x == circulo.x and 
-            self.y == circulo.y and 
-            self.radio == self.radio
-        )
-        return son_iguales
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circulo</span><span class="p">):</span>
+        <span class="n">son_iguales</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">y</span> <span class="ow">and</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">radio</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">son_iguales</span>
 
-    def __str__(self):
-        return f&quot;Circulo (x = {self.x:.3f}, y = {self.y:.3f}, radio = {self.radio:.3})&quot;
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Circulo (x = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, y = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, radio = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radio</span><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2">)&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>circulo = Circulo()
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">circulo</span> <span class="o">=</span> <span class="n">Circulo</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>circulo.radio
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">circulo</span><span class="o">.</span><span class="n">radio</span>
 </pre></div>
 </div>
 </div>
@@ -783,7 +783,7 @@ r = PuntoV2(3, 4)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>circulo.distancia_al_origen()
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">circulo</span><span class="o">.</span><span class="n">distancia_al_origen</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

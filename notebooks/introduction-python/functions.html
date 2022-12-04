@@ -575,8 +575,8 @@ title="Print to PDF"
 <p>Las funciones son bloques fundamentales de los programas de Python que nos permiten reutilizar trozos de código. Para definirlas utilizamos <code class="docutils literal notranslate"><span class="pre">def</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add(x, y):
-    return x + y
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -584,7 +584,7 @@ title="Print to PDF"
 <p>En la cabecera de la función (lo que definimos entre <code class="docutils literal notranslate"><span class="pre">def</span></code> y <code class="docutils literal notranslate"><span class="pre">:</span></code>) especificamos el nombre de la función y de los parámetros. El cuerpo de la función es una secuencia de declaraciones que se ejecutan cuando se llama a la función. Para ello, simplemente escribimos el nombre de la función seguido de los argumentos incluidos entre paréntesis</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = add(2, 3)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -592,16 +592,16 @@ title="Print to PDF"
 <p>Si queremos que nuestra función devuelva un valor, utilizamos el comando <code class="docutils literal notranslate"><span class="pre">return</span></code>, que puede aparecer varias veces en el cuerpo de una función. Para devolver varios valores, podemos utilizar tuplas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def foo():
-    return &quot;bar&quot;, &quot;baz&quot;
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a, b = foo()
-print(a, b)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">foo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -640,16 +640,16 @@ print(a, b)
 <p>Podemos incluir valores por defecto en los parámetros de nuestras funciones mediante asignaciones que se realizan en la cabecera de la misma.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(a, b=3):
-    print(a)
-    print(b)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f(a=2)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -662,7 +662,7 @@ print(a, b)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f(a=2, b=1)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -676,15 +676,15 @@ print(a, b)
 <p>Cuando en una función definimos un parámetro con un valor por defecto, ese parámetro y todos los que le siguen son opcionales. De este modo, <strong>es un error de sintaxis especificar un parámetro sin valor por defecto después de un parámetro con uno</strong>. Por ejemplo,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(a, b, c=1, d):
-    pass
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-6-6eed9b32205d&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
-          <span class="o">^</span>
+         <span class="o">^</span>
 <span class="ne">SyntaxError</span>: non-default argument follows default argument
 </pre></div>
 </div>
@@ -693,14 +693,14 @@ print(a, b)
 <p>Otra cosa importante es que <strong>los valores por defecto se evalúan cuando se define la función, no cuando la función se llama</strong>. Mira este ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x, items=[]):
-    items.append(x)
-    return items
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">items</span>
 
-a = f(1)
-b = f(2)
-c = f(3)
-print(c)
+<span class="n">a</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -713,16 +713,16 @@ print(c)
 <p>Por ello, es altamente recomendable usar <em>None</em> en los parámetros <em>vacíos o desconocidos</em> de nuestras funciones e incluir una comprobación.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x, items=None):
-    if items is None:
-        items = []
-    items.append(x)
-    return items
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">items</span>
 
-a = f(1)
-b = f(2)
-c = f(3)
-print(c)
+<span class="n">a</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -739,18 +739,18 @@ print(c)
 <p>Una función en Python puede aceptar <strong>un número variable</strong> de argumentos si un asterisco <code class="docutils literal notranslate"><span class="pre">*</span></code> se utiliza antes del nombre de una variable, que por convenio suele denominarse <code class="docutils literal notranslate"><span class="pre">*args</span></code>. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def product(first, *args):
-    result = first
-    for x in args:
-        result = result * x
-    return result
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">first</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>product(10, 20)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">product</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -762,7 +762,7 @@ print(c)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>product(10, 20, 5)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">product</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -780,8 +780,8 @@ print(c)
 <p>Los argumentos de las funciones también pueden nombrarse explícitamente para cada parámetro cuando son invocadas, además en ese caso el orden de los argumentos no importa siempre que cada uno tome <strong>un único valor</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(w, x, y, z):
-    pass
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
@@ -789,16 +789,16 @@ print(c)
 <p>Podemos llamarla como <code class="docutils literal notranslate"><span class="pre">f(x=3,</span> <span class="pre">y=22,</span> <span class="pre">w=&quot;foo&quot;,</span> <span class="pre">z=[1,</span> <span class="pre">2])</span></code> y alterar el orden. Los argumentos en los que explicitamos el nombre son denominados <strong>argumentos nombrados</strong> y el resto <strong>argumentos posicionales</strong>. Si combinamos ambos, tendremos que tener en cuenta que los posicionales deben ir siempre primero y que ningún argumento reciba más de un valor. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># ✅
-f(&quot;foo&quot;, 3, z=[1, 2], y=22)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅</span>
+<span class="n">f</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># ❌
-f(3, 22, w=&quot;foo&quot;, z=[1, 2])
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ❌</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -817,26 +817,26 @@ f(3, 22, w=&quot;foo&quot;, z=[1, 2])
 <p>Podemos obligar al uso de argumentos nombrados en nuestras funciones añadiendo argumentos tras un asterisco <code class="docutils literal notranslate"><span class="pre">*</span></code>. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def product(first, *args, scale=1):
-    result = first * scale
-    for x in args:
-        result = result * x
-    return result
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">first</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def read_data(filename, *, debug=False):
-    pass
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = read_data(&quot;Data.csv&quot;, True)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;Data.csv&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,7 +853,7 @@ f(3, 22, w=&quot;foo&quot;, z=[1, 2])
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = read_data(&quot;Data.csv&quot;, debug=True)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;Data.csv&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -865,15 +865,15 @@ f(3, 22, w=&quot;foo&quot;, z=[1, 2])
 <p>Si el último argumento de una función tiene el prefijo <code class="docutils literal notranslate"><span class="pre">**</span></code>, todos los argumentos nombrados que no coincidan con los anteriormente definidos se guardarán en un diccionario que se pasa a la función, que por convenio suele llamarse <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def make_table(data, **kwargs):
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_table</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
-    font_color = kwargs.pop(&quot;font_color&quot;, &quot;black&quot;)
-    bg_color = kwargs.pop(&quot;bg_color&quot;, &quot;white&quot;)
-    width = kwargs.pop(&quot;width&quot;, None)
-    # otros argumentos...
-    if kwargs:
-        # lanza un error si hay otras configuraciones 
-        pass
+    <span class="n">font_color</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;font_color&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">bg_color</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;bg_color&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># otros argumentos...</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="c1"># lanza un error si hay otras configuraciones </span>
+        <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
@@ -881,16 +881,16 @@ f(3, 22, w=&quot;foo&quot;, z=[1, 2])
 <p>Combinando el uso de <code class="docutils literal notranslate"><span class="pre">*</span></code> y <code class="docutils literal notranslate"><span class="pre">**</span></code> podemos escribir funciones que aceptan cualquier combinatión de argumentos. Los argumentos posicionales son pasado como una tupla y los nombrados como un diccionario</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(*args, **kwargs):
-    print(args)
-    print(kwargs)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f(3, 2, a=&quot;foo&quot;, debug=False)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -904,19 +904,19 @@ f(3, 22, w=&quot;foo&quot;, z=[1, 2])
 <p>Es posible pasar los argumentos a una función en formato de tupla o diccionario usando <code class="docutils literal notranslate"><span class="pre">*</span></code> y <code class="docutils literal notranslate"><span class="pre">**</span></code> respectivamente</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x, y, z):
-    pass
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="k">pass</span>
 
-s = (1, &quot;foo&quot;, [0, 1])
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
-d = {
-    &quot;x&quot;: 1,
-    &quot;y&quot;: &quot;foo&quot;, 
-    &quot;z&quot;: [0, 1]
-}
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">}</span>
 
-f(*s)
-f(**d)
+<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -969,8 +969,8 @@ f(n) =  \begin{cases}
 <p>Como todo lo que definimos en Python, <strong>las funciones también son objetos</strong>, y tienen una serie de atributos que es importante conocer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def square(x):
-    return x * x
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -978,7 +978,7 @@ f(n) =  \begin{cases}
 <p>El nombre de la función queda guardado en el atributo <code class="docutils literal notranslate"><span class="pre">__name__</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>square.__name__
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">square</span><span class="o">.</span><span class="vm">__name__</span>
 </pre></div>
 </div>
 </div>
@@ -991,17 +991,17 @@ f(n) =  \begin{cases}
 <p>Es común que la primera expresión que aparece en una función sea una cadena describiendo su uso. Por ejemplo,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def factorial(n):
-    &quot;&quot;&quot;
-    Calcula el factorial de n. Por ejemplo, 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el factorial de n. Por ejemplo, </span>
 
-    &gt;&gt;&gt; factorial(6)
-    120
-    &quot;&quot;&quot;
-    if n &lt;= 1:
-        return 1
-    else: 
-        return n*factorial(n-1)
+<span class="sd">    &gt;&gt;&gt; factorial(6)</span>
+<span class="sd">    120</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1009,7 +1009,7 @@ f(n) =  \begin{cases}
 <p>La variable de tipo <code class="docutils literal notranslate"><span class="pre">str</span></code> que guarda la documentación está en el atributo <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> de la función. A menudo es consultado por jupyter o IDEs para mostrarla al usuario.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(factorial.__doc__)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1029,11 +1029,11 @@ f(n) =  \begin{cases}
 <p>También se pueden realizar anotaciones sobre el tipado de los argumentos y del valor a devolver por la función. Como ya vimos, este tipo de indicaciones <strong>son totalmente ignoradas por el intérprete de Python</strong>, solo sirven para herramientas como <a class="reference external" href="https://pylint.pycqa.org/en/latest/">pylint</a> que comprueban la consistencia de nuestro código sin ejecutarlo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def factorial(n: int) -&gt; int:
-    if n &lt;= 1:
-        return 1
-    else: 
-        return n * factorial(n - 1)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1041,7 +1041,7 @@ f(n) =  \begin{cases}
 <p>Esta información queda guardada en forma de diccionario en el atributo <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>factorial.__annotations__
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">factorial</span><span class="o">.</span><span class="vm">__annotations__</span>
 </pre></div>
 </div>
 </div>
@@ -1058,17 +1058,17 @@ f(n) =  \begin{cases}
 <p>Cuando definimos una función, Python crea los objetos definidos en los parámetros por defecto y las respectivas variables en el espacio de nombres local de la función que apuntan a los mismos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def init_foo():
-    print(&quot;foo&quot;)
-    return 0
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init_foo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(arg1=1, arg2=init_foo()):
-    print(a, b)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="n">init_foo</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1080,7 @@ f(n) =  \begin{cases}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arg1
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arg1</span>
 </pre></div>
 </div>
 </div>
@@ -1098,18 +1098,18 @@ f(n) =  \begin{cases}
 <p>Cuando se realiza una llamada a una función, los parámetros (por defecto o no) pasan a ser variables que apuntan a los objetos de entrada de la función. Python crea estas referencias directamente, <strong>sin realizar ningún tipo de copiado</strong>, por ello hay que tener especial precaución con los objetos mutables que se pasan en la llamada de una función.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def square(items):
-    for i, x in enumerate(items):
-        items[i] = x * x
-    return items
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+        <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">items</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = [1, 2, 3, 4, 5]
-square(a)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1121,7 +1121,7 @@ square(a)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
 </pre></div>
 </div>
 </div>
@@ -1134,18 +1134,18 @@ square(a)
 <p>Las funciones que mutan los objetos de entrada o que cambian el estado de otras partes del programa, se dice que tienen <em>side effects</em>. Un indicardor importante para identificarlas es que normalmente estas funciones no devuelven ningún valor. Se puede evitar este tipo de comportamiento en las funciones reasignando el nombre de la variable local.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def square_nse(items):
-    # Nada de side-effects
-    items = [x * x for x in items]
-    return items
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_nse</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="c1"># Nada de side-effects</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">items</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = [1, 2, 3, 4, 5]
-square(a)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1157,7 +1157,7 @@ square(a)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
 </pre></div>
 </div>
 </div>
@@ -1176,10 +1176,10 @@ square(a)
 <p>Considera los siguientes ejemplos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f():
-    n = n + 1
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
 
-f()
+<span class="n">f</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1204,10 +1204,10 @@ f()
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def g():
-    print(non_defined_var)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">non_defined_var</span><span class="p">)</span>
 
-g()
+<span class="n">g</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1232,11 +1232,11 @@ g()
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>global_var = &quot;foo&quot;
-def h():
-    print(global_var)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">global_var</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+<span class="k">def</span> <span class="nf">h</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">global_var</span><span class="p">)</span>
 
-h()
+<span class="n">h</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1249,13 +1249,13 @@ h()
 <p>Las variables definidas dentro de las funciones (incluidos los parámetros) tienen un <em>scope</em> o alcance que restringe su acceso a la definición de la función. Por ello cuando un nombre aparece tanto en el espacio de nombres local como global, su valor depende del <em>scope</em> del mismo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 42
-def f():
-    x = 13
-    print(x)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">13</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-f()
-print(x)
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1269,14 +1269,14 @@ print(x)
 <p>Si dentro de una función queremos acceder al valor global de una variable utilizamos <code class="docutils literal notranslate"><span class="pre">global</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = 42
-def f():
-    global x
-    x = 13
-    print(x)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">13</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-f()
-print(x)
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1298,9 +1298,9 @@ print(x)
 <p>donde <code class="docutils literal notranslate"><span class="pre">args</span></code> son parámetros separados por comas y <code class="docutils literal notranslate"><span class="pre">expression</span></code> es una expresión (una concatenación de operadores; no se realizan bucles, ni asignaciones etc). Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = lambda x, y: x + y
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-a(2, 3)
+<span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1328,16 +1328,16 @@ a(2, 3)
 <p>Python soporta lo que se denomina el concepto de <strong>funciones de orden superior</strong>. Esto significa que podemos usar funciones como argumentos de otras funciones, almacenarlas en estructuras de datos, devolver una función en una función etc. Considera el siguiente ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
-def after(seconds, f):
-    time.sleep(seconds)
-    f()
+<span class="k">def</span> <span class="nf">after</span><span class="p">(</span><span class="n">seconds</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+    <span class="n">f</span><span class="p">()</span>
 
-def foo():
-    print(&quot;Foo!&quot;)
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Foo!&quot;</span><span class="p">)</span>
 
-after(10, foo)
+<span class="n">after</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">foo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1350,16 +1350,16 @@ after(10, foo)
 <p>En este contexto, Python incorporta algunas funciones que nos permiten trabajar con funciones y que son la base de las expresiones de comprensión. Por un lado tenemos <code class="docutils literal notranslate"><span class="pre">filter</span></code> para filtrar según una función que devuelva un booleano y <code class="docutils literal notranslate"><span class="pre">map</span></code> para aplicar una función a un iterable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>nums = list(range(11))
-filt = filter(lambda x: x%3 == 0, nums)
-squares = map(lambda x: x*x, nums)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">filt</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(filt)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">filt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1371,7 +1371,7 @@ squares = map(lambda x: x*x, nums)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(squares)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1385,10 +1385,10 @@ squares = map(lambda x: x*x, nums)
 <p>Finalmente, existe la función <code class="docutils literal notranslate"><span class="pre">reduce</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code> para aplicar una función de dos parámetros a los objetos de un iterable de forma reiterada.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from functools import reduce 
-nums = range(11)
-total = reduce(lambda x, y: x + y, nums)
-print(total)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span> 
+<span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -541,7 +541,7 @@ title="Print to PDF"
 <p>Vamos a explorar más a fondo la diferentes formas que tenemos de acceder y operar con componentes de un array multidimensional.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -554,14 +554,14 @@ title="Print to PDF"
 <p>Para arrays unidimensionales, el acceso es muy parecido al de listas. Por ejemplo, acceso a las componentes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>v = np.arange(10)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>v[5]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -574,12 +574,12 @@ title="Print to PDF"
 <p>La operación de <em>slicing</em> en arrays es similar a la de listas. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>v[5:8]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 6, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12, 12, 12])
 </pre></div>
 </div>
 </div>
@@ -587,19 +587,19 @@ title="Print to PDF"
 <p>Sin embargo, hay una diferencia fundamental: en general en python, el slicing siempre crea <em>una copia</em> de la secuencia original (aunque no de los elementos) a la hora de hacer asignaciones. En numpy, el <em>slicing</em> es una <em>vista</em> de array original. Esto tiene como consecuencia que <strong>las modificaciones que se realicen sobre dicha vista se están realizando sobre el array original</strong>. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = list(range(10))
-l_slice = l[5:8]
-v_slice = v[5:8]
-l_slice[:] = [12, 12, 12]
-v_slice[:] = 12
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">l_slice</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">v_slice</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">l_slice</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">v_slice</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">12</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(l)
-print(v)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -615,8 +615,8 @@ print(v)
 <p>Modificamos la componente 1 de <code class="docutils literal notranslate"><span class="pre">v_slice</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>v_slice[1] = 12345
-print(v_slice)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12345</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v_slice</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -629,7 +629,7 @@ print(v_slice)
 <p>Pero la componente 1 de <code class="docutils literal notranslate"><span class="pre">C_slice</span></code> es en realidad la componente 6 de <code class="docutils literal notranslate"><span class="pre">C</span></code>, así que <code class="docutils literal notranslate"><span class="pre">C</span></code> ha cambiado:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(v)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -645,8 +645,8 @@ print(v_slice)
 <p>Cuando accedemos con un único índice, estamos accediendo al correspondiente subarray de esa posición. Por ejemplo, en array de dos dimensiones, con 3 filas y 3 columnas, la posición 2 es la tercera fila:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-C2d[2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">C2d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -659,7 +659,7 @@ C2d[2]
 <p>De esta manera, recursivamente, podríamos acceder a los componentes individuales de una array de cualquier dimensión. En el ejemplo anterior, el elemento de la primera fila y la tercera columna sería:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[0][2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +672,7 @@ C2d[2]
 <p>Normalmente no se suele usar la notación anterior para acceder a los elementos individuales, sino que se usa un único corchete con los índices separados por comas: Lo siguiente es equivalente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[0, 2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -685,8 +685,8 @@ C2d[2]
 <p>Veamos más ejemplos de acceso y modificación en arrays multidimensionales, en este caso con tres dimensiones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C3d = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]])
-C3d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]])</span>
+<span class="n">C3d</span>
 </pre></div>
 </div>
 </div>
@@ -703,7 +703,7 @@ C3d
 <p>Accediendo a la posición 0 obtenemos el correspondiente subarray de dos dimensiones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C3d[0]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -717,7 +717,7 @@ C3d
 <p>Similar a la función <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> de Python, tenemos la función <code class="docutils literal notranslate"><span class="pre">np.ndenumearte</span></code> para iterar con los elementos del array y su índice</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>[i for i in np.ndenumerate(C3d)]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">C3d</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -741,9 +741,9 @@ C3d
 <p>Vamos a guardar una copia de de ese subarray y lo modificamos en el original con el número <code class="docutils literal notranslate"><span class="pre">42</span></code> en todas las posiciones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>old_values = C3d[0].copy()
-C3d[0] = 42
-C3d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">old_values</span> <span class="o">=</span> <span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">C3d</span>
 </pre></div>
 </div>
 </div>
@@ -760,8 +760,8 @@ C3d
 <p>Y ahora reestablecemos los valores originales:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C3d[0] = old_values
-C3d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_values</span>
+<span class="n">C3d</span>
 </pre></div>
 </div>
 </div>
@@ -786,7 +786,7 @@ C3d
 <h3>Indexado usando <em>slices</em><a class="headerlink" href="#indexado-usando-slices" title="Enlazar permanentemente con este título">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span>
 </pre></div>
 </div>
 </div>
@@ -801,7 +801,7 @@ C3d
 <p>Los <em>slicings</em> en arrays multidimensionales se hacen a lo largo de los correspondientes ejes. Por ejemplo, en un array bidimensional, lo haríamos sobre la secuencia de filas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[:2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -815,7 +815,7 @@ C3d
 <p>Pero también podríamos hacerlo en ambos ejes. Por ejemplo para obtener el subarray hasta la segunda fila y a partir de la primera columna:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[:2, 1:]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -829,7 +829,7 @@ C3d
 <p>Si en alguno de los ejes se usa un índice individual, entonces se pierde una de las dimensiones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[1, :2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -842,7 +842,7 @@ C3d
 <p>Nótese la diferencia con la operación <code class="docutils literal notranslate"><span class="pre">C2d[1:2,:2]</span></code>. Puede parecer que el resultado ha de ser el mismo, pero si se usa slicing en ambos ejes se mantiene el número de dimensiones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[1:2,:2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -855,7 +855,7 @@ C3d
 <p>Más ejemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span>
 </pre></div>
 </div>
 </div>
@@ -869,7 +869,7 @@ C3d
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[:2, 2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -881,17 +881,14 @@ C3d
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[:, :, :, :, :1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">C2d</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">IndexError</span>: too many indices for array: array is 2-dimensional, but 5 were indexed
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1],
+       [4],
+       [7]])
 </pre></div>
 </div>
 </div>
@@ -899,8 +896,8 @@ C3d
 <p>Como hemos visto más arriba, podemos usar <em>slicing</em> para asignar valores a las componentes de un array. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[:2, 1:] = 0
-C2d
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">C2d</span>
 </pre></div>
 </div>
 </div>
@@ -915,15 +912,15 @@ C2d
 <p>Finalmente, notemos que podemos usar cualquier <code class="docutils literal notranslate"><span class="pre">slice</span></code> de Python para arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>slice_1 = slice(2, 0, -1)
-slice_2 = slice(0, 3, 2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slice_1</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">slice_2</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>C2d[slice_1, slice_2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="n">slice_1</span><span class="p">,</span> <span class="n">slice_2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -947,7 +944,7 @@ justify-content: center;">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arr = np.arange(3*4*2).reshape((3, 4, 2))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -959,14 +956,14 @@ justify-content: center;">
 <p>Veamos el siguiente ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>nombres = np.array([&#39;Bob&#39;, &#39;Joe&#39;, &#39;Will&#39;, &#39;Bob&#39;, &#39;Will&#39;, &#39;Joe&#39;, &#39;Joe&#39;])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>nombres.shape
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -978,9 +975,9 @@ justify-content: center;">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rng = np.random.default_rng()
-data = rng.normal(0, 1, (7, 4))
-data
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">data</span>
 </pre></div>
 </div>
 </div>
@@ -998,7 +995,7 @@ data
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[nombres == &quot;Bob&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">nombres</span> <span class="o">==</span> <span class="s2">&quot;Bob&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1013,7 +1010,7 @@ data
 <p>El array de booleanos que vamos a usar será:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>nombres == &#39;Bob&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Bob&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1026,7 +1023,7 @@ data
 <p>Y el indexado con ese array, en el eje de las filas, nos dará el subarray de las filas correspondientes a Bob:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[nombres == &#39;Bob&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Bob&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1040,7 +1037,7 @@ data
 <p>Podemos mezclar indexado booleano con índices concretos o con slicing en distintos ejes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[nombres == &#39;Bob&#39;, 2:]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -1053,7 +1050,7 @@ data
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[nombres == &#39;Bob&#39;, 3]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1066,7 +1063,7 @@ data
 <p>Para usar el indexado complementario (en el ejemplo, las filas correspondientes a las personas que no son Bob), podríamos usar el array de booleanos <code class="docutils literal notranslate"><span class="pre">nombres</span> <span class="pre">!=</span> <span class="pre">'Bob'</span></code>. Sin embargo, es más habitual usar el operador <code class="docutils literal notranslate"><span class="pre">~</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[~(nombres == &#39;Bob&#39;)]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -1084,8 +1081,8 @@ data
 <p>Por ejemplo, para obtener las filas correspondiente a Bob o a Will:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mask = (nombres == &#39;Bob&#39;) | (nombres == &#39;Will&#39;)
-mask
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Will&#39;</span><span class="p">)</span>
+<span class="n">mask</span>
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1094,7 @@ mask
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[mask]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1113,7 +1110,7 @@ mask
 <p>Y como en los anteriores indexados, podemos usar el indexado booleano para modificar componentes de los arrays. Lo siguiente pone a 0 todos los componentes neativos de <code class="docutils literal notranslate"><span class="pre">data</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data &lt; 0
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -1131,7 +1128,7 @@ mask
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[data &lt; 0]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1145,8 +1142,8 @@ mask
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[data &lt; 0] = 0
-data
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">data</span>
 </pre></div>
 </div>
 </div>
@@ -1166,8 +1163,8 @@ data
 <p>Podríamos incluso fijar un valor a filas completas, usando indexado por un booleano unidimensional:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data[~(nombres == &#39;Joe&#39;)] = 7
-data
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Joe&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">data</span>
 </pre></div>
 </div>
 </div>
@@ -1192,18 +1189,18 @@ data
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Noooo
-[nombre for nombre in nombres if nombre.strartswith(&quot;&quot;)]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Noooo</span>
+<span class="p">[</span><span class="n">nombre</span> <span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">nombres</span> <span class="k">if</span> <span class="n">nombre</span><span class="o">.</span><span class="n">strartswith</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>mask = np.char.startswith(nombres, &quot;B&quot;)\
-    | np.char.startswith(nombres, &quot;J&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">char</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">nombres</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>\
+    <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">char</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">nombres</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">)</span>
 
-data[mask]
+<span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
