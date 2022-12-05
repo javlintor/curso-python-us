@@ -695,9 +695,8 @@ A = U \Sigma V^t
 \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
 1 &amp; x_{m1} &amp; \cdots &amp; x_{mn} 
 \end{pmatrix}
-\qquad 
-\text{ es el conjunto de observaciones de las variables regresoras}
 \end{split}\]</div>
+<p>es el conjunto de observaciones de las variables regresoras e</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \hat{y}=
@@ -707,14 +706,14 @@ y_1 \\
 \vdots \\
 y_n
 \end{pmatrix}
-\text{ es el conjunto de observaciones de la variable objetivo}
 \end{split}\]</div>
+<p>es el conjunto de observaciones de la variable objetivo.</p>
 <p>Crea una clase <code class="docutils literal notranslate"><span class="pre">RegresionLineal</span></code> con dos métodos,</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">fit</span></code>: toma como parámetros <code class="docutils literal notranslate"><span class="pre">X</span></code> e <code class="docutils literal notranslate"><span class="pre">y</span></code>, observaciones de las variables regresoras y objetivo, respectivamente, y calcula los coeficientes de la regresión lineal y los guarda en un atributo <code class="docutils literal notranslate"><span class="pre">_theta</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">transform</span></code>: toma como parámetro una serie de observaciones nuevas <code class="docutils literal notranslate"><span class="pre">X</span></code> y devuelve una estimación <code class="docutils literal notranslate"><span class="pre">y_hat</span></code> de la varible objetivo utilizando el método descrito anteriormente.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">entrena</span></code>: toma como parámetros <code class="docutils literal notranslate"><span class="pre">X</span></code> e <code class="docutils literal notranslate"><span class="pre">y</span></code>, observaciones de las variables regresoras y objetivo, respectivamente, y calcula los coeficientes de la regresión lineal y los guarda en un atributo <code class="docutils literal notranslate"><span class="pre">_theta</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transforma</span></code>: toma como parámetro una serie de observaciones nuevas <code class="docutils literal notranslate"><span class="pre">X</span></code> y devuelve una estimación <code class="docutils literal notranslate"><span class="pre">y_hat</span></code> de la varible objetivo utilizando el método descrito anteriormente.</p></li>
 </ul>
-<p>Funciones que puede ser de ayuda: <code class="docutils literal notranslate"><span class="pre">np.linalg.inv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.linalg.pinv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code>.</p>
+<p>Funciones que puede ser de ayuda: <code class="docutils literal notranslate"><span class="pre">np.linalg.inv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.linalg.pinv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">np.hstack</span></code>.</p>
 </section>
 </div>
 </section>
