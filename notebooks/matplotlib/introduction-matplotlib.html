@@ -599,13 +599,13 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Matplotlib es una de las prncipales bibliotecas para gráficos y visualización de datos dentro del ecosistema python en Ciencia de los Datos. Vamos a ver una mínima introducción, esperando que características más avanzadas sean investgadas por el propio lector/a, cuando las vaya necesitando.</p>
-<p>Existen varias maneras de usr matplotlib, pero una de las más comunes es a través de pyplot, que nos permitirá una interacción similar a la que se tiene en el sistema MATLAB.</p>
+<p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a> es una de las prncipales bibliotecas para gráficos y visualización de datos dentro del ecosistema python en Ciencia de los Datos. Vamos a ver una mínima introducción, lo mejor para familiarizarse con la librería es crear nuestros propios gráficos.</p>
+<p>Existen varias maneras de usr matplotlib, pero una de las más comunes es a través de <strong>pyplot</strong>, que nos permitirá una interacción similar a la que se tiene en el sistema MATLAB.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -637,7 +637,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fcf351c7df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f5ae0192280&gt;
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_8_1.png" src="../../_images/introduction-matplotlib_8_1.png" />
@@ -674,16 +674,16 @@ title="Print to PDF"
 <section id="estilo-basado-en-objetos">
 <h3>Estilo basado en objetos<a class="headerlink" href="#estilo-basado-en-objetos" title="Enlazar permanentemente con este título">#</a></h3>
 <p>En este caso, sin tener que depender del último objeto activo, los procedimientos de creación de gráficas son métodos de objetos de tipo <code class="docutils literal notranslate"><span class="pre">Figure</span></code> y <code class="docutils literal notranslate"><span class="pre">Axes</span></code>, que se crean al principio, y los cuales «manipulamos» con sus métodos.</p>
-<p>Un objeto de tipo <code class="docutils literal notranslate"><span class="pre">Figure</span></code> se tiene que pensar como un contenedor donde creamos gráficos. Los Los <code class="docutils literal notranslate"><span class="pre">Axes</span></code> son los distintos gráficos dentro de una figura: cajas con marcas y etiquetas y eventualmente con el gráfico de alguna función, por ejemplo.</p>
+<p>Un objeto de tipo <code class="docutils literal notranslate"><span class="pre">Figure</span></code> se tiene que pensar como un contenedor donde creamos gráficos. Los <code class="docutils literal notranslate"><span class="pre">Axes</span></code> son los distintos gráficos dentro de una figura: cajas con marcas y etiquetas y eventualmente con el gráfico de alguna función, por ejemplo.</p>
 <p>Vamos a repetir los dos gráficos antriores, pero al estilo basado en objetos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># de esta manera fig es un objeto Figure y </span>
                           <span class="c1"># ax es un array con dos objetos &#39;Axes&#39; </span>
 
-<span class="c1"># Llamamso al método plot sobre cada uno de los objetos de tipo Axes</span>
+<span class="c1"># Llamamos al método plot sobre cada uno de los objetos de tipo Axes</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -704,14 +704,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcf34c36fd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f5adfb63850&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_22_1.png" src="../../_images/introduction-matplotlib_22_1.png" />
 </div>
 </div>
 <p>En este caso, nuestra variable dependiente (la <code class="docutils literal notranslate"><span class="pre">y</span></code>) toma valores en los primeros diez números. Por defecto, si no se da los valores de la variable independiente (la <code class="docutils literal notranslate"><span class="pre">x</span></code>), entonces se toma por defecto el corresponiente rango. Por tanto, en este caso la recta representa la función <span class="math notranslate nohighlight">\(y=x\)</span></p>
-<p>Repetimos ahora la gráfica anterior de la funciónj seno:</p>
+<p>Repetimos ahora la gráfica anterior de la función seno:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -720,7 +720,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcf333385b0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f5adfb30c10&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_25_1.png" src="../../_images/introduction-matplotlib_25_1.png" />
@@ -735,10 +735,26 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcf33297880&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f5adfa98070&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/introduction-matplotlib_27_1.png" src="../../_images/introduction-matplotlib_27_1.png" />
+</div>
+</div>
+<p>Si queremos hacerlo con el estilo basado en objetos sería algo así</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f5ade751610&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/introduction-matplotlib_29_1.png" src="../../_images/introduction-matplotlib_29_1.png" />
 </div>
 </div>
 <p>El color de las gráficas se ajusta automáticamente, pero se puede indicar mediante el parámetro <code class="docutils literal notranslate"><span class="pre">color</span></code>de <code class="docutils literal notranslate"><span class="pre">plot</span></code>. He aquí unos cuantos ejemplos:</p>
@@ -754,7 +770,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_29_0.png" src="../../_images/introduction-matplotlib_29_0.png" />
+<img alt="../../_images/introduction-matplotlib_31_0.png" src="../../_images/introduction-matplotlib_31_0.png" />
 </div>
 </div>
 <p>De igual manera, el estilo de dibujo de cada línea se puede dar con <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>. Aquí algunos ejemplos:</p>
@@ -774,7 +790,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_31_0.png" src="../../_images/introduction-matplotlib_31_0.png" />
+<img alt="../../_images/introduction-matplotlib_33_0.png" src="../../_images/introduction-matplotlib_33_0.png" />
 </div>
 </div>
 <p>Los códigos cortos sirven para de manera compacta indicar todas estas caracterñisticas. Por ejemplo, conjuntamente el color y el estilo de línea:</p>
@@ -788,7 +804,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_33_0.png" src="../../_images/introduction-matplotlib_33_0.png" />
+<img alt="../../_images/introduction-matplotlib_35_0.png" src="../../_images/introduction-matplotlib_35_0.png" />
 </div>
 </div>
 <p>Aunqe plot deduce bastabte bien los límites de la gráfica, es posible especificar estos límites con <code class="docutils literal notranslate"><span class="pre">xlim</span></code> y <code class="docutils literal notranslate"><span class="pre">ylim</span></code>, com en el ejemplo:</p>
@@ -805,7 +821,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.5, 1.5)
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_35_1.png" src="../../_images/introduction-matplotlib_35_1.png" />
+<img alt="../../_images/introduction-matplotlib_37_1.png" src="../../_images/introduction-matplotlib_37_1.png" />
 </div>
 </div>
 <p>Con el método <code class="docutils literal notranslate"><span class="pre">axis</span></code> podemos dar todos los límites en una sola instrucción. Lo siguiente sería equivalente:</p>
@@ -817,7 +833,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_37_0.png" src="../../_images/introduction-matplotlib_37_0.png" />
+<img alt="../../_images/introduction-matplotlib_39_0.png" src="../../_images/introduction-matplotlib_39_0.png" />
 </div>
 </div>
 <p>Podemos decirle incluso que ajuste al máximo los límites:</p>
@@ -832,7 +848,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 10.5, -1.0993384025373631, 1.0996461858110391)
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_39_1.png" src="../../_images/introduction-matplotlib_39_1.png" />
+<img alt="../../_images/introduction-matplotlib_41_1.png" src="../../_images/introduction-matplotlib_41_1.png" />
 </div>
 </div>
 <p>O incluse que nos asegure una ratio de aspecto de igual proporcionalidad en ambos ejes:</p>
@@ -847,7 +863,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 10.5, -1.0993384025373631, 1.0996461858110391)
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_41_1.png" src="../../_images/introduction-matplotlib_41_1.png" />
+<img alt="../../_images/introduction-matplotlib_43_1.png" src="../../_images/introduction-matplotlib_43_1.png" />
 </div>
 </div>
 <p>Otro punto importante es cómo ponemos etiquetas a distintas parttes de las gráficas. Por ejemplo:</p>
@@ -861,7 +877,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_43_0.png" src="../../_images/introduction-matplotlib_43_0.png" />
+<img alt="../../_images/introduction-matplotlib_45_0.png" src="../../_images/introduction-matplotlib_45_0.png" />
 </div>
 </div>
 <p>Cuando se muestran múltiples líneas en una sola caja, puede ser útil mostrar una «leyenda» para cada línea. Esto se consigue mediente <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code>. Nótese también que especificamos la etiqueta de cada línea con el keyword correspondiente en plot.</p>
@@ -876,7 +892,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_45_0.png" src="../../_images/introduction-matplotlib_45_0.png" />
+<img alt="../../_images/introduction-matplotlib_47_0.png" src="../../_images/introduction-matplotlib_47_0.png" />
 </div>
 </div>
 </section>
@@ -896,7 +912,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fcf32ed55b0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_48_1.png" src="../../_images/introduction-matplotlib_48_1.png" />
+<img alt="../../_images/introduction-matplotlib_50_1.png" src="../../_images/introduction-matplotlib_50_1.png" />
 </div>
 </div>
 <p>El parámetro clave <code class="docutils literal notranslate"><span class="pre">marker</span></code> indica la forma del punto (en este caso, un círculo). Aefectos ilustrativos, la siguiente figura muestra distintos códigos para esa marca y el aspacto que tienen:</p>
@@ -908,7 +924,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_50_0.png" src="../../_images/introduction-matplotlib_50_0.png" />
+<img alt="../../_images/introduction-matplotlib_52_0.png" src="../../_images/introduction-matplotlib_52_0.png" />
 </div>
 </div>
 </section>
@@ -930,7 +946,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf32fd27c0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_56_1.png" src="../../_images/introduction-matplotlib_56_1.png" />
+<img alt="../../_images/introduction-matplotlib_58_1.png" src="../../_images/introduction-matplotlib_58_1.png" />
 </div>
 </div>
 <p>El método <code class="docutils literal notranslate"><span class="pre">plot</span></code> tiene muchas opciones, se recomienda consultar el manual.</p>
@@ -948,7 +964,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf33065bb0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_59_1.png" src="../../_images/introduction-matplotlib_59_1.png" />
+<img alt="../../_images/introduction-matplotlib_61_1.png" src="../../_images/introduction-matplotlib_61_1.png" />
 </div>
 </div>
 </section>
@@ -969,7 +985,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf3316f400&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_62_1.png" src="../../_images/introduction-matplotlib_62_1.png" />
+<img alt="../../_images/introduction-matplotlib_64_1.png" src="../../_images/introduction-matplotlib_64_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1150,7 +1166,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf331b4520&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_66_1.png" src="../../_images/introduction-matplotlib_66_1.png" />
+<img alt="../../_images/introduction-matplotlib_68_1.png" src="../../_images/introduction-matplotlib_68_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1179,7 +1195,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fcf32e40040&gt;
 </pre></div>
 </div>
-<img alt="../../_images/introduction-matplotlib_69_1.png" src="../../_images/introduction-matplotlib_69_1.png" />
+<img alt="../../_images/introduction-matplotlib_71_1.png" src="../../_images/introduction-matplotlib_71_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
