@@ -656,6 +656,12 @@ A = U \Sigma V^t
         <span class="k">return</span> <span class="n">im_c</span>
 </pre></div>
 </div>
+<p>La función comienza transponiendo la imagen, lo que cambia el orden de las dimensiones de la imagen. Esto se hace porque la función <code class="docutils literal notranslate"><span class="pre">np.linalg.svd</span></code> espera que las matrices que se le proporcionen tengan las filas como vectores en lugar de las columnas, lo que es el caso de una imagen en formato numpy ndarray.</p>
+<p>Luego, la función aplica la descomposición SVD a la imagen transpuesta y almacena los valores singulares en la matriz S. La descomposición SVD de una matriz m x n es una factorización de la forma <span class="math notranslate nohighlight">\(A = USV\)</span></p>
+<p>donde A es la matriz original, U y V son matrices ortogonales y S es una matriz diagonal con valores singulares en la diagonal. Los valores singulares son los valores positivos raíces cuadradas de los valores propios de la matriz A * At (si A es real) o la matriz A * A† (si A es compleja), donde At es la transpuesta de A y A† es la conjugada transpuesta de A.</p>
+<p>La matriz S se construye de manera que tenga 3 filas y la misma cantidad de columnas que la imagen original. Cada una de las filas de S corresponde a un canal de color de la imagen (rojo, verde, azul) y se rellena con los valores singulares correspondientes a ese canal.</p>
+<p>Luego, la función realiza una multiplicación matricial para proyectar la imagen original en un espacio de menor dimensión. Esto se hace multiplicando la matriz <code class="docutils literal notranslate"><span class="pre">U</span></code> por <code class="docutils literal notranslate"><span class="pre">S</span></code> (truncada a su primeras k columnas) y por <code class="docutils literal notranslate"><span class="pre">V</span></code> (truncada a sus primeras k filas). Esto se puede escribir como <code class="docutils literal notranslate"><span class="pre">U</span> <span class="pre">*</span> <span class="pre">S[:,</span> <span class="pre">:,</span> <span class="pre">:k]</span> <span class="pre">*</span> <span class="pre">V[:,</span> <span class="pre">:k,</span> <span class="pre">:]</span></code>. Este producto matricial proyecta la imagen original en un espacio de dimensión k en lugar de en el espacio de dimensión original de la imagen.</p>
+<p>Finalmente, la función transpone la imagen resultante, la normaliza entre 0 y 1 y la devuelve. La normalización consiste en restar el valor mínimo de la imagen a cada pixel de la imagen y luego dividir el resultado por la diferencia entre el valor máximo y el valor mínimo de la imagen. Esto garantiza que todos los valores de la imagen queden entre 0 y 1.</p>
 </section>
 </div>
 <div class="exercise admonition" id="chapter2-images-convolution">
@@ -775,6 +781,33 @@ y_n
 <li><p><code class="docutils literal notranslate"><span class="pre">transforma</span></code>: toma como parámetro una serie de observaciones nuevas <code class="docutils literal notranslate"><span class="pre">X</span></code> y devuelve una estimación <code class="docutils literal notranslate"><span class="pre">y_hat</span></code> de la varible objetivo utilizando el método descrito anteriormente.</p></li>
 </ul>
 <p>Funciones que puede ser de ayuda: <code class="docutils literal notranslate"><span class="pre">np.linalg.inv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.linalg.pinv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">np.hstack</span></code>.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-6">
+
+<p class="admonition-title">Solution to</p>
+<section id="solution-content">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">RegresionLineal</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">entrena</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># Agregamos una columna de unos a X para tener un término independiente</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">])</span>
+
+        <span class="c1"># Calculamos los coeficientes de la regresión lineal utilizando la fórmula normal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">transforma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="c1"># Agregamos una columna de unos a X para tener un término independiente</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">])</span>
+
+        <span class="c1"># Utilizamos los coeficientes entrenados para hacer una predicción</span>
+        <span class="n">y_hat</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_theta</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">y_hat</span>
+</pre></div>
+</div>
 </section>
 </div>
 </section>
