@@ -5,6 +5,12 @@
 # # Introducción a Numpy
 
 # Numpy es quizás el paquete de **computación numérica** más importante de Python. Se desarrolló como un paquete completo de álgebra lineal de código abierto para Python que podía rivalizar con MATLAB y similares. Tiene una larga historia y mucha funcionalidad, ya sea directamente en ella o construida a su alrededor (ver [SciPy](https://scipy.org/) y diferentes scikits). Es la base de otros paquetes del ecosistema de ciencia de datos de diferentes índole
+
+# <div style="display: flex; align-items: center; justify-content: center;">
+#     <img src="../../../../images/numpy.png"/>
+# </div>
+
+# 
 # - Extraer, transformar y cargar datos: [Pandas](https://pandas.pydata.org/), [Dask](https://www.dask.org/), [OpenCV](https://opencv.org/)
 # - Visualización de datos: [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/).
 # - Modelos y evalución: [Scikit-learn](https://scikit-learn.org/stable/), [statsmodels](https://www.statsmodels.org/stable/index.html), [spaCy](https://spacy.io/)

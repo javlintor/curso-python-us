@@ -253,7 +253,7 @@ print(type(b))
 # ## Comentarios
 # En Python, podemos comentar nuestro código escribiendo el símbolo `#`, de modo que todo lo que escribamos a la derecha de `#` en la misma línea será ignorado por el intérprete. 
 
-# In[24]:
+# In[ ]:
 
 
 # Esto es un comentario 
