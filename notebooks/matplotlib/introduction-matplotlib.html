@@ -59,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Bibliografía" href="../../bibliography.html" />
+    <link rel="next" title="Pandas" href="../pandas/introduction-pandas.html" />
     <link rel="prev" title="Construyendo una red neuronal desde cero con Numpy" href="../numpy/nn-with-numpy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -223,6 +223,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Introducción a matplotlib
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/introduction-pandas.html">
+   Pandas
   </a>
  </li>
 </ul>
@@ -562,6 +574,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-matplotlib">
 <span id="matplotlib"></span><h1>Introducción a matplotlib<a class="headerlink" href="#introduccion-a-matplotlib" title="Enlazar permanentemente con este título">#</a></h1>
+<p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a> es una de las prncipales bibliotecas para gráficos y visualización de datos dentro del ecosistema python en Ciencia de los Datos. Vamos a ver una mínima introducción, lo mejor para familiarizarse con la librería es crear nuestros propios gráficos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -571,14 +584,15 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="../../../../images/matplotlib.png"/>
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a> es una de las prncipales bibliotecas para gráficos y visualización de datos dentro del ecosistema python en Ciencia de los Datos. Vamos a ver una mínima introducción, lo mejor para familiarizarse con la librería es crear nuestros propios gráficos.</p>
 <p>Existen varias maneras de usr matplotlib, pero una de las más comunes es a través de <strong>pyplot</strong>, que nos permitirá una interacción similar a la que se tiene en el sistema MATLAB.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -613,7 +627,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_8_0.png" src="../../_images/introduction-matplotlib_8_0.png" />
+<img alt="../../_images/introduction-matplotlib_9_0.png" src="../../_images/introduction-matplotlib_9_0.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -642,7 +656,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_13_0.png" src="../../_images/introduction-matplotlib_13_0.png" />
+<img alt="../../_images/introduction-matplotlib_14_0.png" src="../../_images/introduction-matplotlib_14_0.png" />
 </div>
 </div>
 <p>Inconveniente: una vez estamos en el segundo subplot, ¿cómo podemos volver a hacer algo con el primero? En el estilo basado en objetos que explicamos a continuación esto sí es posible.</p>
@@ -666,7 +680,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_18_0.png" src="../../_images/introduction-matplotlib_18_0.png" />
+<img alt="../../_images/introduction-matplotlib_19_0.png" src="../../_images/introduction-matplotlib_19_0.png" />
 </div>
 </div>
 </section>
@@ -684,7 +698,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_22_0.png" src="../../_images/introduction-matplotlib_22_0.png" />
+<img alt="../../_images/introduction-matplotlib_23_0.png" src="../../_images/introduction-matplotlib_23_0.png" />
 </div>
 </div>
 <p>En este caso, nuestra variable dependiente (la <code class="docutils literal notranslate"><span class="pre">y</span></code>) toma valores en los primeros diez números. Por defecto, si no se da los valores de la variable independiente (la <code class="docutils literal notranslate"><span class="pre">x</span></code>), entonces se toma por defecto el corresponiente rango. Por tanto, en este caso la recta representa la función <span class="math notranslate nohighlight">\(y=x\)</span></p>
@@ -698,7 +712,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_25_0.png" src="../../_images/introduction-matplotlib_25_0.png" />
+<img alt="../../_images/introduction-matplotlib_26_0.png" src="../../_images/introduction-matplotlib_26_0.png" />
 </div>
 </div>
 <p>Podemos tener dos gráficas dentro de la misma caja, basta con llamar dos veces a <code class="docutils literal notranslate"><span class="pre">plt</span></code>:</p>
@@ -711,7 +725,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_27_0.png" src="../../_images/introduction-matplotlib_27_0.png" />
+<img alt="../../_images/introduction-matplotlib_28_0.png" src="../../_images/introduction-matplotlib_28_0.png" />
 </div>
 </div>
 <p>Si queremos hacerlo con el estilo basado en objetos sería algo así</p>
@@ -725,7 +739,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_29_0.png" src="../../_images/introduction-matplotlib_29_0.png" />
+<img alt="../../_images/introduction-matplotlib_30_0.png" src="../../_images/introduction-matplotlib_30_0.png" />
 </div>
 </div>
 <p>El color de las gráficas se ajusta automáticamente, pero se puede indicar mediante el parámetro <code class="docutils literal notranslate"><span class="pre">color</span></code>de <code class="docutils literal notranslate"><span class="pre">plot</span></code>. He aquí unos cuantos ejemplos:</p>
@@ -742,7 +756,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_31_0.png" src="../../_images/introduction-matplotlib_31_0.png" />
+<img alt="../../_images/introduction-matplotlib_32_0.png" src="../../_images/introduction-matplotlib_32_0.png" />
 </div>
 </div>
 <p>De igual manera, el estilo de dibujo de cada línea se puede dar con <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>. Aquí algunos ejemplos:</p>
@@ -764,7 +778,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_33_0.png" src="../../_images/introduction-matplotlib_33_0.png" />
+<img alt="../../_images/introduction-matplotlib_34_0.png" src="../../_images/introduction-matplotlib_34_0.png" />
 </div>
 </div>
 <p>Los códigos cortos sirven para de manera compacta indicar todas estas catacterísticas. Por ejemplo, conjuntamente el color y el estilo de línea:</p>
@@ -780,7 +794,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_35_0.png" src="../../_images/introduction-matplotlib_35_0.png" />
+<img alt="../../_images/introduction-matplotlib_36_0.png" src="../../_images/introduction-matplotlib_36_0.png" />
 </div>
 </div>
 <p>Aunque plot deduce bastante bien los límites de la gráfica, es posible especificar estos límites con <code class="docutils literal notranslate"><span class="pre">xlim</span></code> y <code class="docutils literal notranslate"><span class="pre">ylim</span></code>, com en el ejemplo:</p>
@@ -796,7 +810,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_37_0.png" src="../../_images/introduction-matplotlib_37_0.png" />
+<img alt="../../_images/introduction-matplotlib_38_0.png" src="../../_images/introduction-matplotlib_38_0.png" />
 </div>
 </div>
 <p>Con el método <code class="docutils literal notranslate"><span class="pre">axis</span></code> podemos dar todos los límites en una sola instrucción. Lo siguiente sería equivalente:</p>
@@ -810,7 +824,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_39_0.png" src="../../_images/introduction-matplotlib_39_0.png" />
+<img alt="../../_images/introduction-matplotlib_40_0.png" src="../../_images/introduction-matplotlib_40_0.png" />
 </div>
 </div>
 <p>Podemos decirle incluso que ajuste al máximo los límites:</p>
@@ -824,7 +838,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_41_0.png" src="../../_images/introduction-matplotlib_41_0.png" />
+<img alt="../../_images/introduction-matplotlib_42_0.png" src="../../_images/introduction-matplotlib_42_0.png" />
 </div>
 </div>
 <p>O incluse que nos asegure una ratio de aspecto de igual proporcionalidad en ambos ejes:</p>
@@ -838,7 +852,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_43_0.png" src="../../_images/introduction-matplotlib_43_0.png" />
+<img alt="../../_images/introduction-matplotlib_44_0.png" src="../../_images/introduction-matplotlib_44_0.png" />
 </div>
 </div>
 <p>Otro punto importante es cómo ponemos etiquetas (podemos incluir fórmulas matemáticas) a distintas partes de las gráficas. Por ejemplo:</p>
@@ -853,7 +867,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_45_0.png" src="../../_images/introduction-matplotlib_45_0.png" />
+<img alt="../../_images/introduction-matplotlib_46_0.png" src="../../_images/introduction-matplotlib_46_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -869,7 +883,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_46_0.png" src="../../_images/introduction-matplotlib_46_0.png" />
+<img alt="../../_images/introduction-matplotlib_47_0.png" src="../../_images/introduction-matplotlib_47_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -900,7 +914,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_47_0.png" src="../../_images/introduction-matplotlib_47_0.png" />
+<img alt="../../_images/introduction-matplotlib_48_0.png" src="../../_images/introduction-matplotlib_48_0.png" />
 </div>
 </div>
 <p>Cuando se muestran múltiples líneas en una sola caja, puede ser útil mostrar una <strong>leyenda</strong> para cada línea. Esto se consigue mediente <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code>. Nótese también que especificamos la etiqueta de cada línea con el keyword correspondiente en plot.</p>
@@ -917,7 +931,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_49_0.png" src="../../_images/introduction-matplotlib_49_0.png" />
+<img alt="../../_images/introduction-matplotlib_50_0.png" src="../../_images/introduction-matplotlib_50_0.png" />
 </div>
 </div>
 <div class="exercise admonition" id="matplotlib-cumsum">
@@ -950,7 +964,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_53_0.png" src="../../_images/introduction-matplotlib_53_0.png" />
+<img alt="../../_images/introduction-matplotlib_54_0.png" src="../../_images/introduction-matplotlib_54_0.png" />
 </div>
 </div>
 <p>El parámetro clave <code class="docutils literal notranslate"><span class="pre">marker</span></code> indica la forma del punto (en este caso, un círculo). Aefectos ilustrativos, la siguiente figura muestra distintos códigos para esa marca y el aspacto que tienen:</p>
@@ -964,7 +978,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_55_0.png" src="../../_images/introduction-matplotlib_55_0.png" />
+<img alt="../../_images/introduction-matplotlib_56_0.png" src="../../_images/introduction-matplotlib_56_0.png" />
 </div>
 </div>
 </section>
@@ -996,7 +1010,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_60_0.png" src="../../_images/introduction-matplotlib_60_0.png" />
+<img alt="../../_images/introduction-matplotlib_61_0.png" src="../../_images/introduction-matplotlib_61_0.png" />
 </div>
 </div>
 <p>Podemos volver a la configuración por defecto</p>
@@ -1021,7 +1035,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_64_0.png" src="../../_images/introduction-matplotlib_64_0.png" />
+<img alt="../../_images/introduction-matplotlib_65_0.png" src="../../_images/introduction-matplotlib_65_0.png" />
 </div>
 </div>
 <p>Existen una <a class="reference external" href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html">gran cantidad de estilos predefinidos en matplotlib</a>. Podemos seleccionar uno de ellos con <code class="docutils literal notranslate"><span class="pre">plt.style.use(&lt;style-name&gt;)</span></code></p>
@@ -1034,7 +1048,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_66_0.png" src="../../_images/introduction-matplotlib_66_0.png" />
+<img alt="../../_images/introduction-matplotlib_67_0.png" src="../../_images/introduction-matplotlib_67_0.png" />
 </div>
 </div>
 <p>Vemos como cambian la fuente y tamaño de las etiquetas de los ejes, el grosos de línea, el grid, color de fondo …</p>
@@ -1073,7 +1087,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/introduction-matplotlib_68_0.png" src="../../_images/introduction-matplotlib_68_0.png" />
+<img alt="../../_images/introduction-matplotlib_69_0.png" src="../../_images/introduction-matplotlib_69_0.png" />
 </div>
 </div>
 <p>Finalmente, podemos guardar imágenes en distintos formatos (incluido svg) utilizando <code class="docutils literal notranslate"><span class="pre">plt.savefig</span></code>.</p>
@@ -1114,10 +1128,10 @@ title="Print to PDF"
             <p class="prev-next-title">Construyendo una red neuronal desde cero con Numpy</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../bibliography.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="../pandas/introduction-pandas.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Bibliografía</p>
+        <p class="prev-next-title">Pandas</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
