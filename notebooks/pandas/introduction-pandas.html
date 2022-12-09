@@ -7826,6 +7826,39 @@ dtype: object
 </div>
 </div>
 </div>
+<div class="exercise admonition" id="pandas-housing">
+
+<p class="admonition-title"><span class="caption-number">Exercise 63 </span></p>
+<section id="exercise-content">
+<p>Descarga el dataframe <code class="docutils literal notranslate"><span class="pre">housing</span></code> utilizando el siguiente código</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">DOWNLOAD_ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/ageron/handson-ml2/master/&quot;</span>
+<span class="n">HOUSING_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;housing&quot;</span><span class="p">)</span>
+<span class="n">HOUSING_URL</span> <span class="o">=</span> <span class="n">DOWNLOAD_ROOT</span> <span class="o">+</span> <span class="s2">&quot;datasets/housing/housing.tgz&quot;</span>
+
+<span class="k">def</span> <span class="nf">fetch_housing_data</span><span class="p">(</span><span class="n">housing_url</span><span class="o">=</span><span class="n">HOUSING_URL</span><span class="p">,</span> <span class="n">housing_path</span><span class="o">=</span><span class="n">HOUSING_PATH</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">housing_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tgz_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">housing_path</span><span class="p">,</span> <span class="s2">&quot;housing.tgz&quot;</span><span class="p">)</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">housing_url</span><span class="p">,</span> <span class="n">tgz_path</span><span class="p">)</span>
+    <span class="n">housing_tgz</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tgz_path</span><span class="p">)</span>
+    <span class="n">housing_tgz</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">housing_path</span><span class="p">)</span>
+    <span class="n">housing_tgz</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">load_housing_data</span><span class="p">(</span><span class="n">housing_path</span><span class="o">=</span><span class="n">HOUSING_PATH</span><span class="p">):</span>
+    <span class="n">csv_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">housing_path</span><span class="p">,</span> <span class="s2">&quot;housing.csv&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
+
+<span class="n">fetch_housing_data</span><span class="p">()</span>
+<span class="n">housing</span> <span class="o">=</span> <span class="n">load_housing_data</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Realiza un análisis rápido de las variables númericas y categóricas. Rellena los valores faltantes con <code class="docutils literal notranslate"><span class="pre">fillna</span></code> y realiza las visualizaciones que veas adecuadas.</p>
+</section>
+</div>
 </section>
 </section>
 
