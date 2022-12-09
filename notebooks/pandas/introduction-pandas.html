@@ -476,6 +476,69 @@ title="Print to PDF"
    Series
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframes">
+   DataFrames
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resumen-de-algunas-maneras-de-crear-un-dataframe">
+     Resumen de algunas maneras de crear un
+     <em>
+      DataFrame
+     </em>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcionalidades-basicas">
+   Funcionalidades básicas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reindexado">
+     Reindexado
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eliminando-entradas-de-un-eje">
+     Eliminando entradas de un eje
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexado-seleccion-y-filtrado">
+     Indexado, selección y filtrado
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-con-loc-e-iloc">
+     Selección con loc e iloc
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-valores-de-relleno">
+     Operaciones aritméticas con valores de relleno
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aplicacion-de-funciones-a-las-vectorizadas">
+     Aplicación de funciones a las «vectorizadas»
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordenacion">
+   Ordenación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-estadisticas-descriptivas">
+   Funciones estadísticas descriptivas
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -498,6 +561,69 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#series">
    Series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataframes">
+   DataFrames
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resumen-de-algunas-maneras-de-crear-un-dataframe">
+     Resumen de algunas maneras de crear un
+     <em>
+      DataFrame
+     </em>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcionalidades-basicas">
+   Funcionalidades básicas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reindexado">
+     Reindexado
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eliminando-entradas-de-un-eje">
+     Eliminando entradas de un eje
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexado-seleccion-y-filtrado">
+     Indexado, selección y filtrado
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#seleccion-con-loc-e-iloc">
+     Selección con loc e iloc
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#operaciones-aritmeticas-con-valores-de-relleno">
+     Operaciones aritméticas con valores de relleno
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aplicacion-de-funciones-a-las-vectorizadas">
+     Aplicación de funciones a las «vectorizadas»
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordenacion">
+   Ordenación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-estadisticas-descriptivas">
+   Funciones estadísticas descriptivas
   </a>
  </li>
 </ul>
@@ -827,6 +953,3601 @@ Categories (5, object): [&#39;l&#39;, &#39;m&#39;, &#39;s&#39;, &#39;xl&#39;, &#
 <li><p>Realiza un histograma y un gráfico de barras.</p></li>
 </ul>
 </section>
+</div>
+</section>
+<section id="dataframes">
+<h2>DataFrames<a class="headerlink" href="#dataframes" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Un <em>DataFrame</em> de pandas es una tabla bidimensional, con las columnas y las filas en un determinado orden. Cada columna puede ser de un tipo diferente. En términos de índices: tanto las filas como las columnas están indexadas. Puede ser visto como un diccionario en el que las claves son las etiquetas de las columnas, y todos los valores son <em>Series</em> de pandas que comparten el mismo índice.</p>
+<p>Aunque hay muchas maneras de crear un <em>DataFrame</em>, una de las más frecuentes es mediante un diccionario cuyos valores asociados a las claves son listas de la misma longitud. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2001</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2001</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2003</span><span class="p">],</span>
+        <span class="s1">&#39;pop&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">]}</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nótese la forma en que se muestra un <em>DataFrame</em> en Jupyter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ohio</td>
+      <td>2000</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ohio</td>
+      <td>2001</td>
+      <td>1.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ohio</td>
+      <td>2002</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Nevada</td>
+      <td>2001</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nevada</td>
+      <td>2002</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Nevada</td>
+      <td>2003</td>
+      <td>3.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Cuando los <em>DataFrames</em> son grandes, puede ser útil el método <code class="docutils literal notranslate"><span class="pre">heads</span></code>, que muestar solo las primeras cinco filas de la tabla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>year</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ohio</td>
+      <td>2000</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ohio</td>
+      <td>2001</td>
+      <td>1.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ohio</td>
+      <td>2002</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Nevada</td>
+      <td>2001</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nevada</td>
+      <td>2002</td>
+      <td>2.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como en el caso de las Series, podemos proporcionar las columnas en un orden determinado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>state</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>Ohio</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2001</td>
+      <td>Ohio</td>
+      <td>1.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2002</td>
+      <td>Ohio</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2001</td>
+      <td>Nevada</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2002</td>
+      <td>Nevada</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2003</td>
+      <td>Nevada</td>
+      <td>3.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Y también podemos indicar expresamente el índice de las filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;five&#39;</span><span class="p">,</span> <span class="s1">&#39;six&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pop</th>
+      <th>year</th>
+      <th>state</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>1.5</td>
+      <td>2000</td>
+      <td>Ohio</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>1.7</td>
+      <td>2001</td>
+      <td>Ohio</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>3.6</td>
+      <td>2002</td>
+      <td>Ohio</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>2.4</td>
+      <td>2001</td>
+      <td>Nevada</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>2.9</td>
+      <td>2002</td>
+      <td>Nevada</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>3.2</td>
+      <td>2003</td>
+      <td>Nevada</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Si al proporcionar los nombres de las columnas damos una de ellas que no aparece en el diccionario con los datos, entonces se crea la columnos con valores no determinados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;debt&#39;</span><span class="p">],</span>
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;five&#39;</span><span class="p">,</span> <span class="s1">&#39;six&#39;</span><span class="p">])</span>
+<span class="n">frame2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>state</th>
+      <th>pop</th>
+      <th>debt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>2000</td>
+      <td>Ohio</td>
+      <td>1.5</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>2001</td>
+      <td>Ohio</td>
+      <td>1.7</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>2002</td>
+      <td>Ohio</td>
+      <td>3.6</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>2001</td>
+      <td>Nevada</td>
+      <td>2.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>2002</td>
+      <td>Nevada</td>
+      <td>2.9</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>2003</td>
+      <td>Nevada</td>
+      <td>3.2</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Los atributos <code class="docutils literal notranslate"><span class="pre">index</span></code> y <code class="docutils literal notranslate"><span class="pre">columns</span></code> nos devuelven los correspondientes índices de las filas y de las columnas (ambos son objetos <code class="docutils literal notranslate"><span class="pre">Index</span></code> de pandas):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;, &#39;six&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;year&#39;, &#39;state&#39;, &#39;pop&#39;, &#39;debt&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para acceder a una columna en concreto del <em>DataFrame</em>, podemos hacerlo usando la notación de diccionario, o también como atributo. En ambos casos se devuelve la correspondiente columna como un objeto <em>Series</em> de pandas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>one        Ohio
+two        Ohio
+three      Ohio
+four     Nevada
+five     Nevada
+six      Nevada
+Name: state, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>one      2000
+two      2001
+three    2002
+four     2001
+five     2002
+six      2003
+Name: year, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>De igual manera, podemos acceder a una fila del <em>DataFrame</em> mediante el atributo <code class="docutils literal notranslate"><span class="pre">loc</span></code>. La fila también se devuelve como un objeto <em>Series</em>, cuyo índice está formado por los nombres de las columnas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year     2002
+state    Ohio
+pop       3.6
+debt      NaN
+Name: three, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos ahora ejemplos sobre cómo podemos modificar columnas mediante asignaciones. En general, muchas de los procedimientos de numpy aquí también son válidos, pero teniendo en cuenta que indexamos mediante el nombre de la columna:</p>
+<p>Por ejemplo, asignar el mismo valor a toda una columna:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="p">[</span><span class="s1">&#39;debt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">16.5</span>
+<span class="n">frame2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>state</th>
+      <th>pop</th>
+      <th>debt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>2000</td>
+      <td>Ohio</td>
+      <td>1.5</td>
+      <td>16.5</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>2001</td>
+      <td>Ohio</td>
+      <td>1.7</td>
+      <td>16.5</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>2002</td>
+      <td>Ohio</td>
+      <td>3.6</td>
+      <td>16.5</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>2001</td>
+      <td>Nevada</td>
+      <td>2.4</td>
+      <td>16.5</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>2002</td>
+      <td>Nevada</td>
+      <td>2.9</td>
+      <td>16.5</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>2003</td>
+      <td>Nevada</td>
+      <td>3.2</td>
+      <td>16.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>O asignar mediante una secuencia:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="p">[</span><span class="s1">&#39;debt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">6.</span><span class="p">)</span>
+<span class="n">frame2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>state</th>
+      <th>pop</th>
+      <th>debt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>2000</td>
+      <td>Ohio</td>
+      <td>1.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>2001</td>
+      <td>Ohio</td>
+      <td>1.7</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>2002</td>
+      <td>Ohio</td>
+      <td>3.6</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>2001</td>
+      <td>Nevada</td>
+      <td>2.4</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>2002</td>
+      <td>Nevada</td>
+      <td>2.9</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>2003</td>
+      <td>Nevada</td>
+      <td>3.2</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Cuando a una columna le asignamos una lista o un array, como en el ejemplo anterior, la longitud de la secuencia debe de coincidir con el número de filas del <em>DataFrame</em>. Sin embargo, podemos asignar con un objeto <em>Series</em> y los valores se asignarán alineando por el valor del índice, incluso parcialmente (al resto se el asignará <em>NaN</em>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.7</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="s1">&#39;five&#39;</span><span class="p">])</span>
+<span class="n">frame2</span><span class="p">[</span><span class="s1">&#39;debt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+<span class="n">frame2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>state</th>
+      <th>pop</th>
+      <th>debt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>2000</td>
+      <td>Ohio</td>
+      <td>1.5</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>2001</td>
+      <td>Ohio</td>
+      <td>1.7</td>
+      <td>-1.2</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>2002</td>
+      <td>Ohio</td>
+      <td>3.6</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>2001</td>
+      <td>Nevada</td>
+      <td>2.4</td>
+      <td>-1.5</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>2002</td>
+      <td>Nevada</td>
+      <td>2.9</td>
+      <td>-1.7</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>2003</td>
+      <td>Nevada</td>
+      <td>3.2</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Si asignamos una columna que no existe, ésta se creará. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="p">[</span><span class="s1">&#39;eastern&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame2</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;Ohio&#39;</span>
+<span class="n">frame2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>state</th>
+      <th>pop</th>
+      <th>debt</th>
+      <th>eastern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>2000</td>
+      <td>Ohio</td>
+      <td>1.5</td>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>2001</td>
+      <td>Ohio</td>
+      <td>1.7</td>
+      <td>-1.2</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>2002</td>
+      <td>Ohio</td>
+      <td>3.6</td>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>2001</td>
+      <td>Nevada</td>
+      <td>2.4</td>
+      <td>-1.5</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>2002</td>
+      <td>Nevada</td>
+      <td>2.9</td>
+      <td>-1.7</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>2003</td>
+      <td>Nevada</td>
+      <td>3.2</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Con <code class="docutils literal notranslate"><span class="pre">del</span></code> borranos una columna completa:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">frame2</span><span class="p">[</span><span class="s1">&#39;eastern&#39;</span><span class="p">]</span>
+<span class="n">frame2</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;year&#39;, &#39;state&#39;, &#39;pop&#39;, &#39;debt&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>state</th>
+      <th>pop</th>
+      <th>debt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>2000</td>
+      <td>Ohio</td>
+      <td>1.5</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>2001</td>
+      <td>Ohio</td>
+      <td>1.7</td>
+      <td>-1.2</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>2002</td>
+      <td>Ohio</td>
+      <td>3.6</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>2001</td>
+      <td>Nevada</td>
+      <td>2.4</td>
+      <td>-1.5</td>
+    </tr>
+    <tr>
+      <th>five</th>
+      <td>2002</td>
+      <td>Nevada</td>
+      <td>2.9</td>
+      <td>-1.7</td>
+    </tr>
+    <tr>
+      <th>six</th>
+      <td>2003</td>
+      <td>Nevada</td>
+      <td>3.2</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Otra forma de crear un <em>DataFrame</em> es a partir de un diccionario de diccionarios, en el que las claves externas constituyen las etiquetas de las columnas, y las internas como las de las filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Nevada&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">2001</span><span class="p">:</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mi">2002</span><span class="p">:</span> <span class="mf">2.9</span><span class="p">},</span>
+       <span class="s1">&#39;Ohio&#39;</span><span class="p">:</span> <span class="p">{</span><span class="mi">2000</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2001</span><span class="p">:</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mi">2002</span><span class="p">:</span> <span class="mf">3.6</span><span class="p">}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pop</span><span class="p">)</span>
+<span class="n">frame3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nevada</th>
+      <th>Ohio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2001</th>
+      <td>2.4</td>
+      <td>1.7</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>2.9</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>NaN</td>
+      <td>1.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como en numpy, podemos también obtener la traspuesta de un <em>DataFrame</em>, quedando las filas como columns y viceversa:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame3</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2001</th>
+      <th>2002</th>
+      <th>2000</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Nevada</th>
+      <td>2.4</td>
+      <td>2.9</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>1.7</td>
+      <td>3.6</td>
+      <td>1.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Si usamos un diccionario anidado, y le damos explícitamente el índice como una secuencia, entonces las filas se tienen en cuenta y se ordenan como se indica en la secuencia. Lo mismo ocurre si se le especifican explícitamente las columnas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">2001</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2003</span><span class="p">],</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Ohio&quot;</span><span class="p">,</span><span class="s2">&quot;California&quot;</span><span class="p">,</span><span class="s2">&quot;Nevada&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ohio</th>
+      <th>California</th>
+      <th>Nevada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2001</th>
+      <td>1.7</td>
+      <td>NaN</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>3.6</td>
+      <td>NaN</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>También se puede dar un <em>DataFrame</em> como un diccionario en el que cada clave (columna) tiene asociada una serie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Ohio&#39;</span><span class="p">:</span> <span class="n">frame3</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+         <span class="s1">&#39;Nevada&#39;</span><span class="p">:</span> <span class="n">frame3</span><span class="p">[</span><span class="s1">&#39;Nevada&#39;</span><span class="p">][:</span><span class="mi">2</span><span class="p">]}</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ohio</th>
+      <th>Nevada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2001</th>
+      <td>1.7</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>3.6</td>
+      <td>2.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Con el atributo <code class="docutils literal notranslate"><span class="pre">name</span></code> (tanto de <code class="docutils literal notranslate"><span class="pre">index</span></code>como de <code class="docutils literal notranslate"><span class="pre">columns</span></code>) podemos acceder y/o modificar el nombre de las filas y las columnas, que se mostrarán al mostrarse la tabla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame3</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;year&#39;</span><span class="p">;</span> <span class="n">frame3</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;state&#39;</span>
+<span class="n">frame3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>state</th>
+      <th>Nevada</th>
+      <th>Ohio</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2001</th>
+      <td>2.4</td>
+      <td>1.7</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>2.9</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>NaN</td>
+      <td>1.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por último, mediante <code class="docutils literal notranslate"><span class="pre">values</span></code>, accedemos a un array bidimensional con los valores de cada entrada de la tabla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame3</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.4, 1.7],
+       [2.9, 3.6],
+       [nan, 1.5]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span><span class="o">.</span><span class="n">values</span> <span class="c1"># el dtype se acomoda a lo más general. </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2000, &#39;Ohio&#39;, 1.5, nan],
+       [2001, &#39;Ohio&#39;, 1.7, -1.2],
+       [2002, &#39;Ohio&#39;, 3.6, nan],
+       [2001, &#39;Nevada&#39;, 2.4, -1.5],
+       [2002, &#39;Nevada&#39;, 2.9, -1.7],
+       [2003, &#39;Nevada&#39;, 3.2, nan]], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="resumen-de-algunas-maneras-de-crear-un-dataframe">
+<h3>Resumen de algunas maneras de crear un <em>DataFrame</em>:<a class="headerlink" href="#resumen-de-algunas-maneras-de-crear-un-dataframe" title="Enlazar permanentemente con este título">#</a></h3>
+<ul class="simple">
+<li><p>Array bidimensional, opcionalmente con <code class="docutils literal notranslate"><span class="pre">index</span></code>y/o <code class="docutils literal notranslate"><span class="pre">column</span></code></p></li>
+<li><p>Diccionario de arrays, listas o tuplas de la misma longitud; cada clave se refiere a una columna</p></li>
+<li><p>Diccionario de <em>Series</em>; cada clave es una columna y las filas se alinean según los índices de las series, o bien se le pasa explícitamente el índice.</p></li>
+<li><p>Diccionario de diccionarios: las claves externas son las columnas, las internas las filas.</p></li>
+<li><p>Lista de listas o tuplas: como en el caso de array bidimensional.</p></li>
+</ul>
+</section>
+</section>
+<section id="funcionalidades-basicas">
+<h2>Funcionalidades básicas<a class="headerlink" href="#funcionalidades-basicas" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="reindexado">
+<h3>Reindexado<a class="headerlink" href="#reindexado" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Mediante reindexado, creamos un nuevo objeto adaptándolo a un nuevo índice. Veámos lo con un ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d    4.5
+b    7.2
+a   -5.3
+c    3.6
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reindexamos con <code class="docutils literal notranslate"><span class="pre">reindex</span></code>. Nótese cómo la nueva etiqueta <code class="docutils literal notranslate"><span class="pre">'e'</span></code> se incluye en la nueva serie, con valor no especificado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj2</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<span class="n">obj2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -5.3
+b    7.2
+c    3.6
+d    4.5
+e    NaN
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se puede reindexar un <em>DataFrame</em>, ajustando tanto las filas como las columnas. Veámoslo con un ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+                     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span>
+                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">])</span>
+<span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ohio</th>
+      <th>Texas</th>
+      <th>California</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Si a <code class="docutils literal notranslate"><span class="pre">reindex</span></code>se le pasa solamente una secuencia, entonces se entiende que se quieren reajustar las filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame2</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="n">frame2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ohio</th>
+      <th>Texas</th>
+      <th>California</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Para reindexar las columnas, hay que pasar el argumento clave <code class="docutils literal notranslate"><span class="pre">columns</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">]</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">states</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Texas</th>
+      <th>Utah</th>
+      <th>California</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1</td>
+      <td>NaN</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>4</td>
+      <td>NaN</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>7</td>
+      <td>NaN</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="eliminando-entradas-de-un-eje">
+<h3>Eliminando entradas de un eje<a class="headerlink" href="#eliminando-entradas-de-un-eje" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Ya vimos antes que <code class="docutils literal notranslate"><span class="pre">del</span></code> borra una columna completa de un <em>DataFrame</em>. Mediante <code class="docutils literal notranslate"><span class="pre">drop</span></code>, podemos <em>crear nuevos objetos</em> resultantes de eliminar filas o columnas completas. Veamos algunos ejemplos. En primer lugar, con las <em>Series</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">5.</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.0
+b    1.0
+c    2.0
+d    3.0
+e    4.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">new_obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.0
+b    1.0
+d    3.0
+e    4.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.0
+b    1.0
+e    4.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora veamos el uso de <code class="docutils literal notranslate"><span class="pre">drop</span></code> con <em>DataFrames</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">],</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">])</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por defecto, se eliminan del eje 0 (las filas):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos eliminar columnas, indicándo que se quiere hacer en <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> o <code class="docutils literal notranslate"><span class="pre">axis='columns'</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>three</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como hemos dicho, por defecto, <code class="docutils literal notranslate"><span class="pre">drop</span></code> devuelve un nuevo objeto. Pero como otras funciones, podrían actuar de manera destructiva, modificando el objeto original. Para ello, hay que indicarlo con el argumento clave <code class="docutils literal notranslate"><span class="pre">inplace</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.0
+b    1.0
+d    3.0
+e    4.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexado-seleccion-y-filtrado">
+<h3>Indexado, selección y filtrado<a class="headerlink" href="#indexado-seleccion-y-filtrado" title="Enlazar permanentemente con este título">#</a></h3>
+<p>El acceso a los elementos de un objeto <em>Series</em> se hace de manera similar a los arrays de numpy, excepto que también podemos usar el correspondiente valor del índice, a demás de la posición numérica. Veámoslo con un ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">4.</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.0
+b    1.0
+c    2.0
+d    3.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos acceder al segundo elemento de la serie anterir, bien mediante el valor <code class="docutils literal notranslate"><span class="pre">'b'</span></code>, o por la posición 1, ambos accesos son equivalentes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span><span class="n">obj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.0, 1.0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Más ejemplos de indexado en objetos de tipo <em>Series</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c    2.0
+d    3.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b    1.0
+a    0.0
+d    3.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b    1.0
+d    3.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="n">obj</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.0
+b    1.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos hacer también <em>slicing</em> con las etiquetas de un índice. Existe una diferencia importante, y es que el límite superior se considera incluido:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b    1.0
+c    2.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos incluso establecer valores usando <em>slicing</em>, como en los arrays de numpy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.0
+b    5.0
+c    5.0
+d    3.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para <em>DataFrames</em>, el acceso mediante una etiqueta, extrae por defecto la correspondiente columna en forma de Series, como ya habíamos visto anteriormente. En el siguiente ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">],</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">])</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">]</span> <span class="c1">### </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ohio         1
+Colorado     5
+Utah         9
+New York    13
+Name: two, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>También se admite indexado mediante una lista de etiquetas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>three</th>
+      <th>one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>6</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>10</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>14</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Hay un par de casos particulares, que no funciona seleccionando columnas: si hacemos slicing con enteros, nos estamos refiriendo a las filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>También el indexado booleano filtar por filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="seleccion-con-loc-e-iloc">
+<h3>Selección con loc e iloc<a class="headerlink" href="#seleccion-con-loc-e-iloc" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Con <code class="docutils literal notranslate"><span class="pre">loc</span></code> tenemos una manera de acceder a los datos de un <em>DataFrame</em> de una manera similar a los array de numpy, usando las etiquetas de las filas y columnas. Con <code class="docutils literal notranslate"><span class="pre">iloc</span></code> podemos usar índices enteros, como con numpy. Veamos algunos ejemplos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ohio</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Para acceder a la fila etiquetada como <code class="docutils literal notranslate"><span class="pre">Colorado</span></code> y sólo a las columnas <code class="docutils literal notranslate"><span class="pre">two</span></code> y <code class="docutils literal notranslate"><span class="pre">three</span></code>, en ese orden (nótese que se devuelve una serie):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Colorado&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>two      5
+three    6
+Name: Colorado, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Un ejemplo, similar, pero ahora con índices numéricos. La fila de índice 2, sólo con las columnas 3, 0 y 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>four    11
+one      8
+two      9
+Name: Utah, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>La fila de índice 2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>one       8
+two       9
+three    10
+four     11
+Name: Utah, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos especificar una subtabla por sus filas y columnas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>four</th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Colorado</th>
+      <td>7</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>11</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos usar slicing con las etiquetas (recordar que el límite superior es inclusive):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ohio        1
+Colorado    5
+Utah        9
+Name: two, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Un ejemplo algo más complicado. Seleccionamos primero las tres primeras columnas mediante slicing con enteros, y luego seleccionamos las filas que en la columna etiquetada con <code class="docutils literal notranslate"><span class="pre">'three'</span></code> tienen un valor mayor que 5:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">][</span><span class="n">data</span><span class="o">.</span><span class="n">three</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Colorado</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="operaciones-aritmeticas-con-valores-de-relleno">
+<h3>Operaciones aritméticas con valores de relleno<a class="headerlink" href="#operaciones-aritmeticas-con-valores-de-relleno" title="Enlazar permanentemente con este título">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">12.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                   <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">))</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">20.</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span>
+                   <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcde&#39;</span><span class="p">))</span>
+
+<span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+      <td>11.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10.0</td>
+      <td>11.0</td>
+      <td>12.0</td>
+      <td>13.0</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15.0</td>
+      <td>16.0</td>
+      <td>17.0</td>
+      <td>18.0</td>
+      <td>19.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Al sumar ambos <em>DataFrames</em>,téngase en cuanta que la fila 3 no existe en una de ellas, al igual que la columna <code class="docutils literal notranslate"><span class="pre">'e'</span></code>. POr tanto, en el resultado, se crearán en esas fila y columna con valores no determinados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">+</span> <span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9.0</td>
+      <td>NaN</td>
+      <td>13.0</td>
+      <td>15.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>24.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Sin embargo, podemos usar el método <code class="docutils literal notranslate"><span class="pre">add</span></code> con «valor de relleno» 0, y en ese caso, cuando uno de los operandos no esté definido, se tome ese valor por defecto (cero en este caso). Nótese que si ninguno de los operandos está definido (como en <code class="docutils literal notranslate"><span class="pre">(1,'b')</span></code>), entonces no se aplica el relleno.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9.0</td>
+      <td>NaN</td>
+      <td>13.0</td>
+      <td>15.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>24.0</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15.0</td>
+      <td>16.0</td>
+      <td>17.0</td>
+      <td>18.0</td>
+      <td>19.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como <code class="docutils literal notranslate"><span class="pre">add</span></code>, existe otras operaciones aritméticas que permiten <code class="docutils literal notranslate"><span class="pre">fill_value</span></code>: <code class="docutils literal notranslate"><span class="pre">sub</span></code>, <code class="docutils literal notranslate"><span class="pre">mul</span></code>, <code class="docutils literal notranslate"><span class="pre">div</span></code>, <code class="docutils literal notranslate"><span class="pre">pow</span></code>, …</p>
+<p>Relacionado con esto, también es interesante destacar que cuando se reindexa un objeto, podemos especificar el valor de relleno, cuando el valor no esté especificado en el objeto original:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">df2</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8.0</td>
+      <td>9.0</td>
+      <td>10.0</td>
+      <td>11.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="aplicacion-de-funciones-a-las-vectorizadas">
+<h3>Aplicación de funciones a las «vectorizadas»<a class="headerlink" href="#aplicacion-de-funciones-a-las-vectorizadas" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Como en numpy, podemos aplicar funciones de forma vectorizada a todos los valores de un <em>Series</em> o un <em>DataFrame</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bde&#39;</span><span class="p">),</span>
+                     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Utah&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">])</span>
+<span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>b</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Utah</th>
+      <td>0.274992</td>
+      <td>0.228913</td>
+      <td>1.352917</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>0.886429</td>
+      <td>-2.001637</td>
+      <td>-0.371843</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>1.669025</td>
+      <td>-0.438570</td>
+      <td>-0.539741</td>
+    </tr>
+    <tr>
+      <th>Oregon</th>
+      <td>0.476985</td>
+      <td>3.248944</td>
+      <td>-1.021228</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por ejemplo, aplicamos valor absoluto a cada elemento de la tabla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>b</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Utah</th>
+      <td>0.274992</td>
+      <td>0.228913</td>
+      <td>1.352917</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>0.886429</td>
+      <td>2.001637</td>
+      <td>0.371843</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>1.669025</td>
+      <td>0.438570</td>
+      <td>0.539741</td>
+    </tr>
+    <tr>
+      <th>Oregon</th>
+      <td>0.476985</td>
+      <td>3.248944</td>
+      <td>1.021228</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Otra operación muy frecuente consiste en aplicar una función definida sobre arrays unidimensionales, a lo largo de uno de los ejes (filas o columnas). Esto se hace con el método <code class="docutils literal notranslate"><span class="pre">apply</span></code> de los <em>DataFrames</em>.</p>
+<p>Supongamos que queremos calcular la diferencia entre el máximo y el mínimo de cada columna de una tabla. Lo podemos hacer así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b    1.394034
+d    5.250581
+e    2.374144
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>El eje por defecto para hacer un <code class="docutils literal notranslate"><span class="pre">apply</span></code> es el 0, es decir el de las filas (y por tanto aplica la opración sobre cada columna). Podemos usar el argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code> para especificar que queremos aplicar en el sentido de las columnas (y por tanto, hacer el cálculo sobre las filas):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Utah      1.124004
+Ohio      2.888067
+Texas     2.208767
+Oregon    4.270171
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>En realidad, hay muchos funciones estadísticas (como <code class="docutils literal notranslate"><span class="pre">sum</span></code> o <code class="docutils literal notranslate"><span class="pre">mean</span></code>) que de por sí ya están adaptadas a <em>DataFrames</em> y no necesitan usar apply, como veremos más adelante.</p>
+</section>
+</section>
+<section id="ordenacion">
+<h2>Ordenación<a class="headerlink" href="#ordenacion" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En pandas tenemos posibilidad de ordenar bien teniendo en cuenta las etiquetas de las filas o columnas, o bien con los valores propiamente dichos:</p>
+<p>Comenzamos con un ejemplo con <em>Series</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d    0
+a    1
+b    2
+c    3
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> ordenamos la serie por las etiquetas del índice:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    1
+b    2
+c    3
+d    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con <em>DataFrame</em>, podemos ordenar por las etiquetas de las filas, o también por las columnas, usando el argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+                     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span>
+                     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>d</th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>three</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>one</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>d</th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>three</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>one</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># se puede especificar si es ascendente o descendente</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>d</th>
+      <th>c</th>
+      <th>b</th>
+      <th>a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>three</th>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>one</th>
+      <td>4</td>
+      <td>7</td>
+      <td>6</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Con <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>, ordenamos por los valores de las entradas. Por ejemplo, en una serie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2   -3
+3    2
+0    4
+1    7
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si ordenamos por valores, los <em>NaN</em> se sitúan al final:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4   -3.0
+5    2.0
+0    4.0
+2    7.0
+1    NaN
+3    NaN
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> aplicado a <em>DataFrames</em>, podemos ordenar por el valor de alguna columna, o incluso por el valor de una fila, usando el argumento clave <code class="docutils literal notranslate"><span class="pre">'by'</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="s1">&#39;l&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span>
+<span class="n">frame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>b</th>
+      <th>a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>j</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>-3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ordenación de la tabla según la columna <code class="docutils literal notranslate"><span class="pre">'b'</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>b</th>
+      <th>a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>l</th>
+      <td>-3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>j</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por el valor de dos columnas (lexicográficamente):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>b</th>
+      <th>a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>l</th>
+      <td>-3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>j</th>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por el valor de una fila:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>j</th>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td>1</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>0</td>
+      <td>-3</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="funciones-estadisticas-descriptivas">
+<h2>Funciones estadísticas descriptivas<a class="headerlink" href="#funciones-estadisticas-descriptivas" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Los objetos de pandas incorporan una serie de métodos estadísticos que calculan un valor a partir de los valores de una serie o de filas o columnas de un <em>DataFrame</em>. Una particularidad interesante es que manejan adecuadamente los valores no especificados. Veamos algunos ejemplos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">],</span>
+                   <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">]],</span>
+                  <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.40</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>7.10</td>
+      <td>-4.5</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>0.75</td>
+      <td>-1.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por defecto, el método <code class="docutils literal notranslate"><span class="pre">sum</span></code> calcula la suma de cada columna de un <em>DataFrame</em>. Los valores NaN se tratan como 0 (a no ser que toda la serie sea de valores NaN):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>one    9.25
+two   -5.80
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como es habitual, con el parámetro <code class="docutils literal notranslate"><span class="pre">axis</span></code> podemos hacerlo por el eje de las columnas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    1.40
+b    2.60
+c    0.00
+d   -0.55
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con <code class="docutils literal notranslate"><span class="pre">mean</span></code> calculamos la media de filas o columnas según el eje elegido con <em>axis</em>. El parámetro <code class="docutils literal notranslate"><span class="pre">skipna</span></code> nos permite indicar si se excluyen o no los valores NaN:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a      NaN
+b    1.300
+c      NaN
+d   -0.275
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">idxmax</span></code> nos da la etiqueta donde se alcanza el mínimo de cada columna (o cada fila)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>one    b
+two    d
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">cumsum</span></code> nos da los acumulados por fila o por columna:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>1.40</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>8.50</td>
+      <td>-4.5</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>9.25</td>
+      <td>-5.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Por último el método <code class="docutils literal notranslate"><span class="pre">describe</span></code> produce un resumen con las estadísticas más importantes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.083333</td>
+      <td>-2.900000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3.493685</td>
+      <td>2.262742</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.750000</td>
+      <td>-4.500000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.075000</td>
+      <td>-3.700000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.400000</td>
+      <td>-2.900000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.250000</td>
+      <td>-2.100000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.100000</td>
+      <td>-1.300000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     16
+unique     3
+top        a
+freq       8
+dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
