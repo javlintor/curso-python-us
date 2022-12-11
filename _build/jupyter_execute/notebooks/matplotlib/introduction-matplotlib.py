@@ -15,7 +15,7 @@ import matplotlib
 
 
 # <div style="display: flex; align-items: center; justify-content: center;">
-#     <img src="../../../../images/matplotlib.png"/>
+#     <img src="https://drive.google.com/uc?id=1JhKfuc1tmEqyij2zAPPyJxwHoi-LwL1H"/>
 # </div>
 
 # In[95]:

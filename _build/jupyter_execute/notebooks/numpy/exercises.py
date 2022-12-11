@@ -3,7 +3,7 @@
 
 # # Ejercicios 
 
-# In[1]:
+# In[ ]:
 
 
 import numpy as np
@@ -79,7 +79,7 @@ import numpy as np
 # ## Procesando imágenes con numpy
 
 # :::{exercise}
-# :label: chapther2-images
+# :label: chapter2-images
 # 
 # Una de las posibles técnicas que existen para comprimir una imagen es utilizar [la descomposición SVD (Singular Value Decomposition)](https://en.wikipedia.org/wiki/Singular_value_decomposition) que nos permite expresar una matrix $A$ de dimensiones $n\times m$ como un producto
 # 
@@ -97,6 +97,58 @@ import numpy as np
 # 3. Otras funciones que pueden ser útiles para el ejercicio: `np.transpose`, `np.zeros`, `np.fill_diagonal`, `np.clip`.
 # 
 # :::
+
+# :::{solution} chapter2-images
+# :class: dropdown
+# 
+# Para visualizar la imagen
+# 
+# ```
+# from scipy.misc import face
+# import matplotlib.pyplot as plt
+# import numpy as np
+# 
+# im = face()
+# plt.imshow(im)
+# ```
+# 
+# Solución: 
+# 
+# ```
+# def aproxima_img(im: np.ndarray, k: int):
+#         # transponemos la imagen para obtener
+#         # las dimensiones esperadas por np.linalg.svd
+#         im_t = np.transpose(im, (2, 1, 0))
+#         # descomposición SVD
+#         U, s, V = np.linalg.svd(im_t)
+#         # Convertimos s en una matriz compatible 
+#         w = im.shape[1]
+#         S = np.zeros((3, w, w))
+#         for canal in range(3):
+#             np.fill_diagonal(S[canal], s[canal])
+#         # calculamos la imagen aproximada 
+#         im_c = U @ S[:, :, :k] @ V[:, :k, :]
+#         # vuelta a las dimensiones originales y normalizamos 
+#         im_c = np.transpose(im_c, (2, 1, 0))
+#         im_c = (im_c - im_c.min()) / (im_c.max() - im_c.min())
+#         return im_c
+# ```
+# 
+# La función comienza transponiendo la imagen, lo que cambia el orden de las dimensiones de la imagen. Esto se hace porque la función `np.linalg.svd` espera que las matrices que se le proporcionen tengan las filas como vectores en lugar de las columnas, lo que es el caso de una imagen en formato numpy ndarray.
+# 
+# Luego, la función aplica la descomposición SVD a la imagen transpuesta y almacena los valores singulares en la matriz $S$. La descomposición SVD de una matriz m x n es una factorización de la forma $A = USV$
+# 
+# donde $A$ es la matriz original, $U$ y $V$ son matrices ortogonales y $S$ es una matriz diagonal con valores singulares en la diagonal. Los valores singulares son los valores positivos raíces cuadradas de los valores propios de la matriz $AA^t$ (si $A$ es real) o la matriz $AA^*$ (si $A$ es compleja), donde $A^t$ es la transpuesta de $A$ y $A^*$ es la conjugada transpuesta de $A$.
+# 
+# La matriz `S` se construye de manera que tenga 3 filas y la misma cantidad de columnas que la imagen original. Cada una de las filas de `S` corresponde a un canal de color de la imagen (rojo, verde, azul) y se rellena con los valores singulares correspondientes a ese canal.
+# 
+# Luego, la función realiza una multiplicación matricial para proyectar la imagen original en un espacio de menor dimensión. Esto se hace multiplicando la matriz `U` por `S` (truncada a su primeras `k` columnas) y por `V` (truncada a sus primeras `k` filas). Esto se puede escribir como `U * S[:, :, :k] * V[:, :k, :]`. Este producto matricial proyecta la imagen original en un espacio de dimensión `k` en lugar de en el espacio de dimensión original de la imagen.
+# 
+# Finalmente, la función transpone la imagen resultante, la normaliza entre 0 y 1 y la devuelve. La normalización consiste en restar el valor mínimo de la imagen a cada pixel de la imagen y luego dividir el resultado por la diferencia entre el valor máximo y el valor mínimo de la imagen. Esto garantiza que todos los valores de la imagen queden entre 0 y 1.
+# 
+# 
+# :::
+# 
 
 # :::{exercise}
 # :label: chapter2-images-convolution
@@ -138,6 +190,33 @@ import numpy as np
 # Puedes visualizar las imágenes con `matplotlib.pyplot.imshow`.
 # 
 # :::
+
+# :::{solution} chapter2-images-convolution
+# :class: dropdown
+# 
+# ```
+# import cv2
+# from scipy import signal
+# 
+# # Importamos la imagen utilizando imread
+# img = cv2.imread("path/to/image.png")
+# 
+# # Creamos el kernel
+# kernel = np.ones((3, 3))
+# 
+# # Realizamos la convolución de la imagen con el kernel
+# # Si la imagen tiene varios canales, aplicamos el mismo kernel a cada canal
+# if len(img.shape) == 3:
+#     img_convolved = np.zeros_like(img)
+#     for i in range(3):
+#         img_convolved[:, :, i] = signal.convolve2d(img[:, :, i], kernel, mode="same")
+# else:
+#     img_convolved = signal.convolve2d(img, kernel, mode="same")
+# ```
+# 
+# 
+# :::
+# 
 
 # ---
 # ## Regresión Lineal
@@ -221,3 +300,31 @@ import numpy as np
 # Funciones que puede ser de ayuda: `np.linalg.inv`, `np.linalg.pinv`, `np.vstack`, `np.hstack`.
 # 
 # :::
+
+# :::{solution} chapter2-linear-regression
+# :class: dropdown
+# 
+# ```
+# class RegresionLineal:
+# 
+#     def entrena(self, X, y):
+#         # Agregamos una columna de unos a X para tener un término independiente
+#         X = np.hstack([np.ones((X.shape[0], 1)), X])
+# 
+#         # Calculamos los coeficientes de la regresión lineal utilizando la fórmula normal
+#         self._theta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
+# 
+#     def transforma(self, X):
+#         # Agregamos una columna de unos a X para tener un término independiente
+#         X = np.hstack([np.ones((X.shape[0], 1)), X])
+# 
+#         # Utilizamos los coeficientes entrenados para hacer una predicción
+#         y_hat = X.dot(self._theta)
+# 
+#         return y_hat
+# ```
+# 
+# :::
+# 
+
+# 

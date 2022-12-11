@@ -30,6 +30,9 @@ parts:
 - caption: Pandas
   chapters: 
   - file: notebooks/pandas/introduction-pandas.ipynb
+- caption: Exploratorios
+  chapters: 
+  - file: notebooks/exploratorios/eda.ipynb
 - caption: Bilbiografía
   chapters:
   - file: bibliography.md

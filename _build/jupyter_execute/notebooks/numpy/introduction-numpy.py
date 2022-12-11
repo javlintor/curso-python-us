@@ -7,7 +7,7 @@
 # Numpy es quizás el paquete de **computación numérica** más importante de Python. Se desarrolló como un paquete completo de álgebra lineal de código abierto para Python que podía rivalizar con MATLAB y similares. Tiene una larga historia y mucha funcionalidad, ya sea directamente en ella o construida a su alrededor (ver [SciPy](https://scipy.org/) y diferentes scikits). Es la base de otros paquetes del ecosistema de ciencia de datos de diferentes índole
 
 # <div style="display: flex; align-items: center; justify-content: center;">
-#     <img src="../../../../images/numpy.png"/>
+#     <img src="https://drive.google.com/uc?id=1PZCiCnmA9rr7p36Vo5MMJkxIrZpGvYOv"/>
 # </div>
 
 # 
