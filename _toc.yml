@@ -29,7 +29,7 @@ parts:
 - caption: Pandas
   chapters: 
   - file: notebooks/pandas/introduction-pandas.ipynb
-- caption: Exploratorios
+- caption: Casos prácticos
   chapters: 
   - file: notebooks/practicas/gradient-descent.ipynb
   - file: notebooks/practicas/eda.ipynb
