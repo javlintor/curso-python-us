@@ -547,11 +547,12 @@ title="Print to PDF"
 <p>donde <span class="math notranslate nohighlight">\(\nabla\)</span> es el operador gradiente y <span class="math notranslate nohighlight">\(\eta\)</span> es la tasa de aprendizaje o <em>learning rate</em>.</p>
 <section id="regresion-lineal">
 <h2>Regresión Lineal<a class="headerlink" href="#regresion-lineal" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Consideremos ahora el problema de la regresión lineal, donde queremos inferir una relación lineal entre una variable objetivo <span class="math notranslate nohighlight">\(y\)</span> y un conjunto de variables regresoras <span class="math notranslate nohighlight">\(x = (x_1, \dots, x_n)\)</span> a partir de un conjunto de <span class="math notranslate nohighlight">\(m\)</span> observaciones <span class="math notranslate nohighlight">\((x^1, y^1), \dots, (x^m, y^m)\)</span>
-$<span class="math notranslate nohighlight">\(
+<p>Consideremos ahora el problema de la regresión lineal, donde queremos inferir una relación lineal entre una variable objetivo <span class="math notranslate nohighlight">\(y\)</span> y un conjunto de variables regresoras <span class="math notranslate nohighlight">\(x = (x_1, \dots, x_n)\)</span> a partir de un conjunto de <span class="math notranslate nohighlight">\(m\)</span> observaciones <span class="math notranslate nohighlight">\((x^1, y^1), \dots, (x^m, y^m)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
 h_\theta(x) = \theta_0 + \theta_1x_1 + \dots \theta_nx_n
-\)</span>$
-y nuestra función de coste es el error cuadrático medio,</p>
+\]</div>
+<p>y nuestra función de coste es el error cuadrático medio,</p>
 <div class="math notranslate nohighlight">
 \[
 C(\hat{y}, y) = \frac{1}{m}\sum_{i=1}^m (\hat{y}^i - y^i)^2
