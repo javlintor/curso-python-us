@@ -306,20 +306,29 @@ import numpy as np
 # 
 # ```
 # class RegresionLineal:
+#     """
+#     Args:
+#         X: array_like
+#             de dimensión (N, n), donde N es el número de observaciones 
+#         y: array_like
+#             de dimensión (N,)
+#     """
 # 
 #     def entrena(self, X, y):
+#         self.N = X.shape[0]
+#         self.n = X.shape[1]
 #         # Agregamos una columna de unos a X para tener un término independiente
-#         X = np.hstack([np.ones((X.shape[0], 1)), X])
+#         X = np.concatenate([np.ones((N, 1)), X], axis=1)
 # 
 #         # Calculamos los coeficientes de la regresión lineal utilizando la fórmula normal
-#         self._theta = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
+#         self.theta = np.linalg.inv(X.T @ X) @ X.T @ y
 # 
 #     def transforma(self, X):
 #         # Agregamos una columna de unos a X para tener un término independiente
-#         X = np.hstack([np.ones((X.shape[0], 1)), X])
+#         X = np.concatenate([np.ones((N, 1)), X], axis=1)
 # 
 #         # Utilizamos los coeficientes entrenados para hacer una predicción
-#         y_hat = X.dot(self._theta)
+#         y_hat = X @ self.theta
 # 
 #         return y_hat
 # ```
@@ -327,4 +336,80 @@ import numpy as np
 # :::
 # 
 
-# 
+# Testeando la clase `RegresionLineal`
+
+# In[69]:
+
+
+class RegresionLineal:
+    """
+    Args:
+        X: array_like
+            de dimensión (N, n), donde N es el número de observaciones 
+        y: array_like
+            de dimensión (N,)
+    """
+
+    def entrena(self, X, y):
+        self.N = X.shape[0]
+        self.n = X.shape[1]
+        # Agregamos una columna de unos a X para tener un término independiente
+        X = np.concatenate([np.ones((N, 1)), X], axis=1)
+
+        # Calculamos los coeficientes de la regresión lineal utilizando la fórmula normal
+        self.theta = np.linalg.inv(X.T @ X) @ X.T @ y
+
+    def transforma(self, X):
+        # Agregamos una columna de unos a X para tener un término independiente
+        X = np.concatenate([np.ones((N, 1)), X], axis=1)
+
+        # Utilizamos los coeficientes entrenados para hacer una predicción
+        y_hat = X @ self.theta
+
+        return y_hat
+
+
+# In[70]:
+
+
+rl = RegresionLineal()
+
+rng = np.random.default_rng()
+n = 1
+N = 100
+X = rng.random((N, n))
+theta = rng.integers(10, size=n)
+y = 2 + 0.1*rng.standard_normal(N) + X @ theta
+
+rl.entrena(X, y)
+y_hat = rl.transforma(X)
+
+
+# Comparemos el valor de `theta` inicial con el calculado según en el método `entrena` 
+
+# In[72]:
+
+
+theta
+
+
+# In[73]:
+
+
+rl.theta
+
+
+# In[71]:
+
+
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+ax.plot(X, y_hat, label="predicción")
+ax.scatter(X, y, color="r", label="data")
+ax.grid()
+ax.legend()
+
+fig.show()
+

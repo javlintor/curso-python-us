@@ -23,7 +23,6 @@ parts:
   - file: notebooks/numpy/index-slicing.ipynb
   - file: notebooks/numpy/basic-operations.ipynb
   - file: notebooks/numpy/exercises.ipynb
-  - file: notebooks/numpy/nn-with-numpy.ipynb
 - caption: Matplotlib
   chapters: 
   - file: notebooks/matplotlib/introduction-matplotlib.ipynb
@@ -32,7 +31,9 @@ parts:
   - file: notebooks/pandas/introduction-pandas.ipynb
 - caption: Exploratorios
   chapters: 
-  - file: notebooks/exploratorios/eda.ipynb
+  - file: notebooks/practicas/gradient-descent.ipynb
+  - file: notebooks/practicas/eda.ipynb
+  - file: notebooks/practicas/nn-with-numpy.ipynb
 - caption: Bilbiografía
   chapters:
   - file: bibliography.md
