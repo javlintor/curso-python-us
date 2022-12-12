@@ -636,7 +636,7 @@ y^n
 
     <span class="k">def</span> <span class="nf">entrena</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-        <span class="n">X_ones</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_ones</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">X_ones</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">añade_unos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">costes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">f_coste</span><span class="p">(</span><span class="n">X_ones</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span>
         <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">):</span>
@@ -644,7 +644,7 @@ y^n
             <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">costes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f_coste</span><span class="p">(</span><span class="n">X_ones</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
-    <span class="k">def</span> <span class="nf">add_ones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">añade_unos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">X_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">X_ones</span>
@@ -680,6 +680,7 @@ y^n
         <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;iteración&quot;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;coste&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Convergencia función de coste&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ax</span>
 
@@ -704,7 +705,6 @@ y^n
         <span class="bp">self</span><span class="o">.</span><span class="n">pinta_coste</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pinta_thetas</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_title</span><span class="p">())</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">fig</span>
 
     <span class="k">def</span> <span class="nf">get_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -720,7 +720,7 @@ y^n
 <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span>
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">rng_test</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
 <span class="n">test_theta</span> <span class="o">=</span> <span class="n">rng_test</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">rng_test</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)))</span><span class="o">*</span><span class="n">X_test</span> <span class="o">@</span> <span class="n">test_theta</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="n">rng_test</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="n">X_test</span><span class="p">)</span> <span class="o">@</span> <span class="n">test_theta</span>
 </pre></div>
 </div>
 </div>
@@ -728,18 +728,92 @@ y^n
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regresion_lineal_dg</span><span class="o">.</span><span class="n">entrena</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">regresion_lineal_dg</span><span class="o">.</span><span class="n">pinta</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/gradient-descent_11_0.png" src="../../_images/gradient-descent_11_0.png" />
+</div>
+</div>
+<div class="exercise admonition" id="gradient-descent-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 65 </span></p>
+<section id="exercise-content">
+<p>Implementa una clase que herede de la anterior en la que la tasa de aprendizaje <code class="docutils literal notranslate"><span class="pre">eta</span></code> sea una función decreciente de modo que vaya disminuyendo en el método entrena en cada iteración.</p>
+</section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegresionLinealDG2</span><span class="p">(</span><span class="n">RegresionLinealDG</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">n_iter</span><span class="o">=</span><span class="n">n_iter</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
+
+    <span class="k">def</span> <span class="nf">entrena</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">X_ones</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">añade_unos</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">costes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">f_coste</span><span class="p">(</span><span class="n">X_ones</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span>
+        <span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">):</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">eta</span><span class="p">(</span><span class="nb">iter</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">calcula_grad</span><span class="p">(</span><span class="n">X_ones</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">costes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f_coste</span><span class="p">(</span><span class="n">X_ones</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">get_title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;n_iter = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">regresion_lineal_dg</span><span class="o">.</span><span class="n">pinta</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.001</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">regresion_lineal_dg2</span> <span class="o">=</span> <span class="n">RegresionLinealDG2</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+<span class="n">regresion_lineal_dg2</span><span class="o">.</span><span class="n">entrena</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">regresion_lineal_dg2</span><span class="o">.</span><span class="n">pinta</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/gradient-descent_12_0.png" src="../../_images/gradient-descent_12_0.png" />
+<img alt="../../_images/gradient-descent_14_0.png" src="../../_images/gradient-descent_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegresionLinealDG3</span><span class="p">(</span><span class="n">RegresionLinealDG2</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">entrena</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">val_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">val_set_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">val_ratio</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">index_train</span><span class="p">,</span> <span class="n">index_val</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">val_set_size</span><span class="p">:],</span> <span class="n">index</span><span class="p">[:</span><span class="n">val_set_size</span><span class="p">]</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">index_train</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">index_val</span><span class="p">]</span>
+        <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">index_train</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">index_val</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">entrena</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">X_val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">añade_unos</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">costes_val</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">f_coste</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">thetas</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">pinta_coste</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">pinta_coste</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">costes_val</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;validación&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regresion_lineal_dg3</span> <span class="o">=</span> <span class="n">RegresionLinealDG3</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+<span class="n">regresion_lineal_dg3</span><span class="o">.</span><span class="n">entrena</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">regresion_lineal_dg3</span><span class="o">.</span><span class="n">pinta</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/gradient-descent_17_0.png" src="../../_images/gradient-descent_17_0.png" />
 </div>
 </div>
 </section>
