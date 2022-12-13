@@ -29,6 +29,7 @@ parts:
 - caption: Pandas
   chapters: 
   - file: notebooks/pandas/introduction-pandas.ipynb
+  - file: notebooks/pandas/groupby-merge.ipynb
 - caption: Casos prácticos
   chapters: 
   - file: notebooks/practicas/gradient-descent.ipynb
