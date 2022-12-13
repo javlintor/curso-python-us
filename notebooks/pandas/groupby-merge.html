@@ -471,12 +471,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mergeo">
+   Mergeo
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -488,6 +512,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mergeo">
+   Mergeo
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -497,6 +534,2267 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="agregacion-y-mergeo-de-dataframes">
 <h1>Agregación y mergeo de dataframes<a class="headerlink" href="#agregacion-y-mergeo-de-dataframes" title="Enlazar permanentemente con este título">#</a></h1>
+<p>En esta sección vamos a introducir dis tipo de operaciones muy comunes cuando trabajamos con dataframes, inspiradas en el lenguaje sql: agregaciones con <code class="docutils literal notranslate"><span class="pre">groupby</span></code> y mergeos con <code class="docutils literal notranslate"><span class="pre">merge</span></code>. La primera nos permitirá aplicar funciones de agregación a subconjuntos de nuestro dataframe y la segunda hacer que varios dataframes interactúen cuando tienen una o varias claves en común</p>
+<p>## Agregaciones</p>
+<p>Cargamos un dataset sobre una encuesta realizada a programadores de python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/mattharrison/datasets/raw/master/data/2020-jetbrains-python-survey.csv&quot;</span>
+<span class="n">jb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.8/dist-packages/IPython/core/interactiveshell.py:3326: DtypeWarning: Columns (152) have mixed types.Specify dtype option on import or set low_memory=False.
+  exec(code_obj, self.user_global_ns, self.user_ns)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Seleccionamos algunas de las columnas y realizamos un pipeline de transformaciones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;age&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;are.you.datascientist&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;company.size&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;country.live&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;employment.status&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;first.learn.about.main.ide&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;how.often.use.main.ide&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ide.main&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;is.python.main&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;job.team&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;main.purposes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;missing.features.main.ide&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nps.main.ide&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;python.years&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;python2.version.most&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;python3.version.most&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;several.projects&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;team.size&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;use.python.most&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;years.of.coding&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jb2</span> <span class="o">=</span> <span class="p">(</span><span class="n">jb</span>
+    <span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">age</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;Int64&#39;</span><span class="p">),</span>
+        <span class="n">are_you_datascientist</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">are_you_datascientist</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;Yes&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span> <span class="kc">False</span><span class="p">}),</span> 
+        <span class="n">company_size</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">company_size</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+            <span class="s1">&#39;Just me&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+            <span class="s1">&#39;Not sure&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+            <span class="s1">&#39;More than 5,000&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+            <span class="s1">&#39;2–10&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+            <span class="s1">&#39;11–50&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span>
+            <span class="s1">&#39;51–500&#39;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span> 
+            <span class="s1">&#39;501–1,000&#39;</span><span class="p">:</span><span class="mi">501</span><span class="p">,</span>
+            <span class="s1">&#39;1,001–5,000&#39;</span><span class="p">:</span><span class="mi">1001</span>
+        <span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;Int64&#39;</span><span class="p">),</span> 
+        <span class="n">country_live</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">country_live</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">),</span> 
+        <span class="n">employment_status</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">employment_status</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Other&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">),</span> 
+        <span class="n">is_python_main</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">is_python_main</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">),</span>
+        <span class="n">team_size</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">team_size</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;More than 40 people&#39;</span><span class="p">,</span> <span class="mi">41</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_</span><span class="o">.</span><span class="n">company_size</span><span class="o">!=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">years_of_coding</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">years_of_coding</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Less than 1 year&#39;</span><span class="p">,</span> <span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">python_years</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">python_years</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Less than 1 year&#39;</span><span class="p">,</span> <span class="mf">.5</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">python3_ver</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">python3_version_most</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d\.\d)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span>
+        <span class="n">use_python_most</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df_</span><span class="p">:</span> <span class="n">df_</span><span class="o">.</span><span class="n">use_python_most</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;python2_version_most&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jb2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-0595e81b-6c77-4043-89f7-13aba18e0361">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>are_you_datascientist</th>
+      <th>company_size</th>
+      <th>country_live</th>
+      <th>employment_status</th>
+      <th>first_learn_about_main_ide</th>
+      <th>how_often_use_main_ide</th>
+      <th>ide_main</th>
+      <th>is_python_main</th>
+      <th>job_team</th>
+      <th>main_purposes</th>
+      <th>missing_features_main_ide</th>
+      <th>nps_main_ide</th>
+      <th>python_years</th>
+      <th>python3_version_most</th>
+      <th>several_projects</th>
+      <th>team_size</th>
+      <th>use_python_most</th>
+      <th>years_of_coding</th>
+      <th>python3_ver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30</td>
+      <td>False</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>Partially employed by a company / organization</td>
+      <td>Conference / User Group</td>
+      <td>Weekly</td>
+      <td>PyCharm Community Edition</td>
+      <td>Yes</td>
+      <td>Work as an external consultant or trainer</td>
+      <td>For work</td>
+      <td>No, it has all the features I need</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>Python 3_7</td>
+      <td>Yes, I work on many different projects</td>
+      <td>1.0</td>
+      <td>Unknown</td>
+      <td>1.0</td>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21</td>
+      <td>True</td>
+      <td>5000</td>
+      <td>India</td>
+      <td>Fully employed by a company / organization</td>
+      <td>School / University</td>
+      <td>Daily</td>
+      <td>VS Code</td>
+      <td>Yes</td>
+      <td>Work in a team</td>
+      <td>Both for work and personal</td>
+      <td>No, it has all the features I need</td>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>Python 3_6</td>
+      <td>Yes, I work on one main and several side projects</td>
+      <td>2.0</td>
+      <td>Software prototyping</td>
+      <td>3.0</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>30</td>
+      <td>False</td>
+      <td>5000</td>
+      <td>United States</td>
+      <td>Fully employed by a company / organization</td>
+      <td>Friend / Colleague</td>
+      <td>Daily</td>
+      <td>Vim</td>
+      <td>Yes</td>
+      <td>Work on your own project(s) independently</td>
+      <td>Both for work and personal</td>
+      <td>No, it has all the features I need</td>
+      <td>10.0</td>
+      <td>3.0</td>
+      <td>Python 3_6</td>
+      <td>Yes, I work on one main and several side projects</td>
+      <td>NaN</td>
+      <td>DevOps / System administration / Writing autom...</td>
+      <td>3.0</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>&lt;NA&gt;</td>
+      <td>False</td>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+      <td>Other</td>
+      <td>Friend / Colleague</td>
+      <td>Daily</td>
+      <td>PyCharm Professional Edition</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Both for work and personal</td>
+      <td>Yes – Please list:</td>
+      <td>10.0</td>
+      <td>11.0</td>
+      <td>Python 3_8</td>
+      <td>Yes, I work on many different projects</td>
+      <td>1.0</td>
+      <td>Web development</td>
+      <td>11.0</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21</td>
+      <td>False</td>
+      <td>&lt;NA&gt;</td>
+      <td>Italy</td>
+      <td>Student</td>
+      <td>Search engines</td>
+      <td>Daily</td>
+      <td>VS Code</td>
+      <td>Yes</td>
+      <td>Work on your own project(s) independently</td>
+      <td>For personal, educational  or side projects</td>
+      <td>No, it has all the features I need</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>Python 3_8</td>
+      <td>Yes, I work on one main and several side projects</td>
+      <td>1.0</td>
+      <td>Web development</td>
+      <td>NaN</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>54457</th>
+      <td>21</td>
+      <td>False</td>
+      <td>2</td>
+      <td>Russian Federation</td>
+      <td>Fully employed by a company / organization</td>
+      <td>School / University</td>
+      <td>Daily</td>
+      <td>Vim</td>
+      <td>Yes</td>
+      <td>Work on your own project(s) independently</td>
+      <td>Both for work and personal</td>
+      <td>No, it has all the features I need</td>
+      <td>10.0</td>
+      <td>6.0</td>
+      <td>Python 3_6</td>
+      <td>Yes, I work on many different projects</td>
+      <td>NaN</td>
+      <td>Data analysis</td>
+      <td>1.0</td>
+      <td>3.6</td>
+    </tr>
+    <tr>
+      <th>54458</th>
+      <td>&lt;NA&gt;</td>
+      <td>False</td>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+      <td>Other</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Both for work and personal</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>Python 3_7</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>Web development</td>
+      <td>1.0</td>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>54459</th>
+      <td>21</td>
+      <td>False</td>
+      <td>1</td>
+      <td>Russian Federation</td>
+      <td>Self-employed (a person earning income directl...</td>
+      <td>Friend / Colleague</td>
+      <td>Daily</td>
+      <td>PyCharm Professional Edition</td>
+      <td>Yes</td>
+      <td>Work in a team</td>
+      <td>Both for work and personal</td>
+      <td>No, it has all the features I need</td>
+      <td>10.0</td>
+      <td>3.0</td>
+      <td>Python 3_7</td>
+      <td>Yes, I work on many different projects</td>
+      <td>1.0</td>
+      <td>Web development</td>
+      <td>6.0</td>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>54460</th>
+      <td>30</td>
+      <td>True</td>
+      <td>51</td>
+      <td>Spain</td>
+      <td>Fully employed by a company / organization</td>
+      <td>Search engines</td>
+      <td>Daily</td>
+      <td>Other</td>
+      <td>Yes</td>
+      <td>Work on your own project(s) independently</td>
+      <td>Both for work and personal</td>
+      <td>Yes – Please list:</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>Python 3_7</td>
+      <td>Yes, I work on many different projects</td>
+      <td>NaN</td>
+      <td>Data analysis</td>
+      <td>3.0</td>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <th>54461</th>
+      <td>21</td>
+      <td>False</td>
+      <td>11</td>
+      <td>Algeria</td>
+      <td>Fully employed by a company / organization</td>
+      <td>Online learning platform / Online course</td>
+      <td>Daily</td>
+      <td>VS Code</td>
+      <td>Yes</td>
+      <td>Work in a team</td>
+      <td>Both for work and personal</td>
+      <td>No, it has all the features I need</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>Python 3_8</td>
+      <td>Yes, I work on many different projects</td>
+      <td>2.0</td>
+      <td>Unknown</td>
+      <td>1.0</td>
+      <td>3.8</td>
+    </tr>
+  </tbody>
+</table>
+<p>54462 rows × 20 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0595e81b-6c77-4043-89f7-13aba18e0361')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-0595e81b-6c77-4043-89f7-13aba18e0361 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-0595e81b-6c77-4043-89f7-13aba18e0361');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Una de las formas que existen para realizar agregaciones en pandas es mediante el objeto <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>, seguido siempre de una selección de columna(s) y una o varias funciones de agregación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span> <span class="o">=</span> <span class="n">jb2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;country_live&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">gb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.groupby.generic.DataFrameGroupBy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.SeriesGroupBy object at 0x7fab4deee2b0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos aplicar los métodos de agregación que hemos visto para numpy y pandas a los objetos de tipo <code class="docutils literal notranslate"><span class="pre">_GroupBy</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_live
+Algeria          27.528736
+Argentina         29.65641
+Armenia          25.967742
+Australia        32.527578
+Austria          29.914894
+                   ...    
+United States    32.023162
+Uruguay           29.30303
+Uzbekistan       23.290323
+Venezuela        27.909091
+Viet Nam         24.421053
+Name: age, Length: 76, dtype: Float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos agregar usando varias columnas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">jb2</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;country_live&quot;</span><span class="p">,</span> <span class="s2">&quot;employment_status&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">age</span>
+    <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_live  employment_status                                                                             
+Algeria       Freelancer (a person pursuing a profession without a long-term commitment to any one employer)    33.285714
+              Fully employed by a company / organization                                                        28.344828
+              Other                                                                                             43.333333
+              Partially employed by a company / organization                                                    25.181818
+              Retired                                                                                                60.0
+                                                                                                                  ...    
+Viet Nam      Partially employed by a company / organization                                                         23.4
+              Retired                                                                                                &lt;NA&gt;
+              Self-employed (a person earning income directly from one&#39;s own business, trade, or profession)         35.5
+              Student                                                                                           19.384615
+              Working student                                                                                   24.571429
+Name: age, Length: 608, dtype: Float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para convertir el último nivel del índice en una columnas usamos el método <code class="docutils literal notranslate"><span class="pre">unstack</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-113405ad-ac97-48f9-b1ab-6a48cb25e275">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>employment_status</th>
+      <th>Freelancer (a person pursuing a profession without a long-term commitment to any one employer)</th>
+      <th>Fully employed by a company / organization</th>
+      <th>Other</th>
+      <th>Partially employed by a company / organization</th>
+      <th>Retired</th>
+      <th>Self-employed (a person earning income directly from one's own business, trade, or profession)</th>
+      <th>Student</th>
+      <th>Working student</th>
+    </tr>
+    <tr>
+      <th>country_live</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Algeria</th>
+      <td>33.285714</td>
+      <td>28.344828</td>
+      <td>43.333333</td>
+      <td>25.181818</td>
+      <td>60.0</td>
+      <td>28.411765</td>
+      <td>20.4375</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>34.954545</td>
+      <td>30.209524</td>
+      <td>40.0</td>
+      <td>30.25</td>
+      <td>55.0</td>
+      <td>29.571429</td>
+      <td>22.913043</td>
+      <td>23.2</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>30.0</td>
+      <td>23.842105</td>
+      <td>60.0</td>
+      <td>24.0</td>
+      <td>40.0</td>
+      <td>24.0</td>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>30.818182</td>
+      <td>33.074468</td>
+      <td>33.1</td>
+      <td>32.0</td>
+      <td>48.285714</td>
+      <td>39.21875</td>
+      <td>24.828571</td>
+      <td>22.470588</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>35.857143</td>
+      <td>31.318182</td>
+      <td>30.0</td>
+      <td>29.0</td>
+      <td>60.0</td>
+      <td>34.615385</td>
+      <td>20.842105</td>
+      <td>23.8125</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>34.318471</td>
+      <td>32.343223</td>
+      <td>35.534884</td>
+      <td>25.894737</td>
+      <td>54.920635</td>
+      <td>38.446512</td>
+      <td>21.947791</td>
+      <td>22.89375</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>30.0</td>
+      <td>28.909091</td>
+      <td>&lt;NA&gt;</td>
+      <td>36.2</td>
+      <td>&lt;NA&gt;</td>
+      <td>30.0</td>
+      <td>20.0</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>Uzbekistan</th>
+      <td>36.0</td>
+      <td>22.125</td>
+      <td>29.0</td>
+      <td>21.0</td>
+      <td>&lt;NA&gt;</td>
+      <td>30.5</td>
+      <td>19.0</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>Venezuela</th>
+      <td>29.888889</td>
+      <td>27.826087</td>
+      <td>30.5</td>
+      <td>26.8</td>
+      <td>55.0</td>
+      <td>28.75</td>
+      <td>20.454545</td>
+      <td>28.833333</td>
+    </tr>
+    <tr>
+      <th>Viet Nam</th>
+      <td>28.8</td>
+      <td>23.025641</td>
+      <td>60.0</td>
+      <td>23.4</td>
+      <td>&lt;NA&gt;</td>
+      <td>35.5</td>
+      <td>19.384615</td>
+      <td>24.571429</td>
+    </tr>
+  </tbody>
+</table>
+<p>76 rows × 8 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-113405ad-ac97-48f9-b1ab-6a48cb25e275')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-113405ad-ac97-48f9-b1ab-6a48cb25e275 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-113405ad-ac97-48f9-b1ab-6a48cb25e275');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>También podemos usar una función de agregación definida por nosotros usando el método <code class="docutils literal notranslate"><span class="pre">agg</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">per_emacs</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Emacs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">jb2</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country_live&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">ide_main</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">per_emacs</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_live
+Algeria          0.000000
+Argentina        4.102564
+Armenia          0.000000
+Australia        2.877698
+Austria          1.595745
+                   ...   
+United States    4.025157
+Uruguay          0.000000
+Uzbekistan       0.000000
+Venezuela        0.000000
+Viet Nam         0.000000
+Name: ide_main, Length: 76, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos realizar agregaciones múltiples</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">jb2</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country_live&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">age</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-1720a8bd-5777-4909-8f67-784e9aa59c89">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>country_live</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Algeria</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Uzbekistan</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Venezuela</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Viet Nam</th>
+      <td>18</td>
+      <td>60</td>
+    </tr>
+  </tbody>
+</table>
+<p>76 rows × 2 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-1720a8bd-5777-4909-8f67-784e9aa59c89')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-1720a8bd-5777-4909-8f67-784e9aa59c89 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-1720a8bd-5777-4909-8f67-784e9aa59c89');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Finalmente, también se puede hacer múltiples agregaciones para cada columna</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">jb2</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;country_live&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+        <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">],</span> 
+        <span class="s2">&quot;team_size&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span>
+    <span class="p">})</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-0f595d5d-1718-4e20-8cf2-2ccde21ab8dc">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">age</th>
+      <th>team_size</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>country_live</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Algeria</th>
+      <td>18</td>
+      <td>60</td>
+      <td>2.428571</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>18</td>
+      <td>60</td>
+      <td>3.192053</td>
+    </tr>
+    <tr>
+      <th>Armenia</th>
+      <td>18</td>
+      <td>60</td>
+      <td>6.076923</td>
+    </tr>
+    <tr>
+      <th>Australia</th>
+      <td>18</td>
+      <td>60</td>
+      <td>2.710884</td>
+    </tr>
+    <tr>
+      <th>Austria</th>
+      <td>18</td>
+      <td>60</td>
+      <td>2.448000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>United States</th>
+      <td>18</td>
+      <td>60</td>
+      <td>3.391337</td>
+    </tr>
+    <tr>
+      <th>Uruguay</th>
+      <td>18</td>
+      <td>60</td>
+      <td>4.692308</td>
+    </tr>
+    <tr>
+      <th>Uzbekistan</th>
+      <td>18</td>
+      <td>60</td>
+      <td>1.160000</td>
+    </tr>
+    <tr>
+      <th>Venezuela</th>
+      <td>18</td>
+      <td>60</td>
+      <td>1.812500</td>
+    </tr>
+    <tr>
+      <th>Viet Nam</th>
+      <td>18</td>
+      <td>60</td>
+      <td>3.285714</td>
+    </tr>
+  </tbody>
+</table>
+<p>76 rows × 3 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0f595d5d-1718-4e20-8cf2-2ccde21ab8dc')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-0f595d5d-1718-4e20-8cf2-2ccde21ab8dc button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-0f595d5d-1718-4e20-8cf2-2ccde21ab8dc');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>combo final:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">jb2</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;country_live&quot;</span><span class="p">,</span> <span class="s2">&quot;employment_status&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+        <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">],</span> 
+        <span class="s2">&quot;team_size&quot;</span><span class="p">:</span> <span class="s2">&quot;mean&quot;</span>
+    <span class="p">})</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-67d7e5d4-42e9-4727-8647-2d9025463fae">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="2" halign="left">age</th>
+      <th>team_size</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>country_live</th>
+      <th>employment_status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Algeria</th>
+      <th>Freelancer (a person pursuing a profession without a long-term commitment to any one employer)</th>
+      <td>21</td>
+      <td>60</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Fully employed by a company / organization</th>
+      <td>18</td>
+      <td>60</td>
+      <td>2.750000</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>30</td>
+      <td>50</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Partially employed by a company / organization</th>
+      <td>18</td>
+      <td>40</td>
+      <td>5.833333</td>
+    </tr>
+    <tr>
+      <th>Retired</th>
+      <td>60</td>
+      <td>60</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">Viet Nam</th>
+      <th>Partially employed by a company / organization</th>
+      <td>18</td>
+      <td>30</td>
+      <td>5.666667</td>
+    </tr>
+    <tr>
+      <th>Retired</th>
+      <td>&lt;NA&gt;</td>
+      <td>&lt;NA&gt;</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Self-employed (a person earning income directly from one's own business, trade, or profession)</th>
+      <td>21</td>
+      <td>60</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Student</th>
+      <td>18</td>
+      <td>21</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>Working student</th>
+      <td>18</td>
+      <td>40</td>
+      <td>1.333333</td>
+    </tr>
+  </tbody>
+</table>
+<p>608 rows × 3 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-67d7e5d4-42e9-4727-8647-2d9025463fae')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-67d7e5d4-42e9-4727-8647-2d9025463fae button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-67d7e5d4-42e9-4727-8647-2d9025463fae');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<section id="mergeo">
+<h2>Mergeo<a class="headerlink" href="#mergeo" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Hasta ahora hemos tratado los dataframes de forma independiente, pero vamos a ver a continuación como juntas varios dataframes de diferentes modos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;George&#39;</span><span class="p">,</span> <span class="s1">&#39;Ringo&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;Purple&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span> 
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Paul&#39;</span><span class="p">,</span> <span class="s1">&#39;George&#39;</span><span class="p">,</span> <span class="s1">&#39;Ringo&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;carcolor&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span>
+    <span class="p">},</span> 
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-7782bc18-b008-41e1-920a-184935b19fee">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>John</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>George</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ringo</td>
+      <td>Purple</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7782bc18-b008-41e1-920a-184935b19fee')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-7782bc18-b008-41e1-920a-184935b19fee button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-7782bc18-b008-41e1-920a-184935b19fee');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-9d49ea67-9537-4f4f-9d4e-663a6c39eb4c">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>carcolor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Paul</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>George</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ringo</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9d49ea67-9537-4f4f-9d4e-663a6c39eb4c')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-9d49ea67-9537-4f4f-9d4e-663a6c39eb4c button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-9d49ea67-9537-4f4f-9d4e-663a6c39eb4c');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">merge</span></code> realiza un <em>inner join</em> por defecto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-db4d0823-446c-4556-b0dc-a7abc6626b17">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>color</th>
+      <th>carcolor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>George</td>
+      <td>Blue</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ringo</td>
+      <td>Purple</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-db4d0823-446c-4556-b0dc-a7abc6626b17')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-db4d0823-446c-4556-b0dc-a7abc6626b17 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-db4d0823-446c-4556-b0dc-a7abc6626b17');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Pero existen otros tipos de merge utilizados usualmente al gestionar en bases de datos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-3a99a639-5acc-48dc-ab0f-b577bb9a36a7">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>color</th>
+      <th>carcolor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>John</td>
+      <td>Blue</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>George</td>
+      <td>Blue</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ringo</td>
+      <td>Purple</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Paul</td>
+      <td>NaN</td>
+      <td>Red</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-3a99a639-5acc-48dc-ab0f-b577bb9a36a7')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-3a99a639-5acc-48dc-ab0f-b577bb9a36a7 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-3a99a639-5acc-48dc-ab0f-b577bb9a36a7');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-050fff85-d649-4d97-9df9-298dfea4cd1d">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>color</th>
+      <th>carcolor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>John</td>
+      <td>Blue</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>George</td>
+      <td>Blue</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ringo</td>
+      <td>Purple</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-050fff85-d649-4d97-9df9-298dfea4cd1d')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-050fff85-d649-4d97-9df9-298dfea4cd1d button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-050fff85-d649-4d97-9df9-298dfea4cd1d');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Por defecto, pandas cruza por aquellas columans que tengan el mismo nombre. Sin embargo a veces tenemos que pasarle el nombre de las columas, para ello tenemos los atributos <code class="docutils literal notranslate"><span class="pre">on</span></code>, <code class="docutils literal notranslate"><span class="pre">left_on</span></code> y <code class="docutils literal notranslate"><span class="pre">right_on</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;carcolor&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-7401f83c-85e7-449b-800b-8a4f508ab3a3">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name_x</th>
+      <th>color</th>
+      <th>name_y</th>
+      <th>carcolor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Paul</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>John</td>
+      <td>Blue</td>
+      <td>George</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>George</td>
+      <td>Blue</td>
+      <td>George</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Ringo</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7401f83c-85e7-449b-800b-8a4f508ab3a3')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-7401f83c-85e7-449b-800b-8a4f508ab3a3 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-7401f83c-85e7-449b-800b-8a4f508ab3a3');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Pandas incorpora también el método <code class="docutils literal notranslate"><span class="pre">join</span></code>, que es similar a <code class="docutils literal notranslate"><span class="pre">merge</span></code> pero opera con los ínidices de los dataframes, no las columnas.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
