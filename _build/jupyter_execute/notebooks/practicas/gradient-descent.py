@@ -89,13 +89,13 @@
 # 
 # :::
 
-# In[1]:
+# In[ ]:
 
 
 get_ipython().run_line_magic('config', "InlineBackend.figure_format='retina'")
 
 
-# In[3]:
+# In[ ]:
 
 
 import numpy as np
@@ -217,7 +217,7 @@ class RegresionLinealDG:
         return f"$\eta = ${self.eta}, n_iter = {self.n_iter}"
 
 
-# In[4]:
+# In[ ]:
 
 
 regresion_lineal_dg = RegresionLinealDG(eta=0.05)
@@ -229,7 +229,7 @@ y_test = 2 + X_test @ test_theta + 0.1*rng_test.standard_normal(m)
 print(test_theta)
 
 
-# In[5]:
+# In[ ]:
 
 
 regresion_lineal_dg.entrena(X_test, y_test)
@@ -243,7 +243,7 @@ fig = regresion_lineal_dg.pinta(X_test, y_test)
 # 
 # :::
 
-# In[6]:
+# In[ ]:
 
 
 class RegresionLinealDG2(RegresionLinealDG):
@@ -266,7 +266,7 @@ class RegresionLinealDG2(RegresionLinealDG):
         return f"n_iter = {self.n_iter}"
 
 
-# In[7]:
+# In[ ]:
 
 
 eta = lambda x: 0.1*np.exp(-0.001*x)
@@ -286,7 +286,7 @@ fig = regresion_lineal_dg2.pinta(X_test, y_test)
 # 
 # :::
 
-# In[8]:
+# In[ ]:
 
 
 class RegresionLinealDG3(RegresionLinealDG2):
@@ -317,7 +317,7 @@ class RegresionLinealDG3(RegresionLinealDG2):
         return ax
 
 
-# In[9]:
+# In[ ]:
 
 
 regresion_lineal_dg3 = RegresionLinealDG3(eta=lambda x: 0.1*np.exp(-0.0001*x))
@@ -338,7 +338,7 @@ fig = regresion_lineal_dg3.pinta(X_test, y_test)
 # 
 # :::
 
-# In[10]:
+# In[ ]:
 
 
 class RegresionLinealDGE(RegresionLinealDG3):
@@ -368,7 +368,7 @@ class RegresionLinealDGE(RegresionLinealDG3):
                 self.costes.append(self.f_coste(X, y, self.thetas[-1]))
 
 
-# In[11]:
+# In[ ]:
 
 
 regresion_lineal_dge = RegresionLinealDGE(eta=lambda x: 0.1*np.exp(-0.001*x))
@@ -379,7 +379,7 @@ fig = regresion_lineal_dge.pinta(X_test, y_test)
 # :::{exercise}
 # :label: gradient-descent-5
 # 
-# En realidad lo que se suele emplear es una solución intermedia entre el descenso del gradiente estocástico y el estándar, denominada descenso del gradiente a tramos o *mini-batchgradient descent*. La idea es similar al descenso del gradiente estocástico, salvo que en lugar de tomar una observación en cada iteración, tomamos un conjunto o *batch* de estas, pero no el dataset entero. 
+# En realidad lo que se suele emplear es una solución intermedia entre el descenso del gradiente estocástico y el estándar, denominada **descenso del gradiente a tramos** o *mini-batch gradient descent*. La idea es similar al descenso del gradiente estocástico, salvo que en lugar de tomar una observación en cada iteración, tomamos un conjunto o *batch* de estas, pero no el dataset entero. 
 # 
 # Crea una clase `RegresionLinealDGMB` que implemento el descenso del gradiente a tramos.
 # 

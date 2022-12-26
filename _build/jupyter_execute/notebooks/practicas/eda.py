@@ -11,8 +11,7 @@
 #     [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing)
 # 
 # Resumen:
-#     Los datos provinen de llamadas telefónicas de campañas de marketing de un banco portugués. El objetivo es clasificar si el cliente se subscribirá a un depósito a largo plazo (clasificación binaria)
-# 
+#     Los datos provinen de llamadas telefónicas de campañas de marketing de un banco portugués. 
 
 # ---
 # ## Carga de datos

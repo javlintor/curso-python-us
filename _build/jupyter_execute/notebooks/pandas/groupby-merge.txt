@@ -1,0 +1,136 @@
+import pandas as pd
+import numpy as np
+
+url = "https://github.com/mattharrison/datasets/raw/master/data/2020-jetbrains-python-survey.csv"
+jb = pd.read_csv(url)
+
+cols = [
+    'age',
+    'are.you.datascientist',
+    'company.size',
+    'country.live',
+    'employment.status',
+    'first.learn.about.main.ide',
+    'how.often.use.main.ide',
+    'ide.main',
+    'is.python.main',
+    'job.team',
+    'main.purposes',
+    'missing.features.main.ide',
+    'nps.main.ide',
+    'python.years',
+    'python2.version.most',
+    'python3.version.most',
+    'several.projects',
+    'team.size',
+    'use.python.most',
+    'years.of.coding'
+]
+
+jb2 = (jb
+    [cols]
+    .rename(columns=lambda c: c.replace('.', '_'))
+    .assign(
+        age=lambda df_: df_.age.str.slice(0,2).astype(float).astype('Int64'),
+        are_you_datascientist=lambda df_: df_.are_you_datascientist.replace({'Yes': True, 'No': False, np.nan: False}), 
+        company_size=lambda df_: df_.company_size.replace({
+            'Just me': 1, 
+            'Not sure': np.nan,
+            'More than 5,000': 5000,
+            '2–10': 2, 
+            '11–50':11,
+            '51–500': 51, 
+            '501–1,000':501,
+            '1,001–5,000':1001
+        }).astype('Int64'), 
+        country_live=lambda df_: df_.country_live.astype('category'), 
+        employment_status=lambda df_: df_.employment_status.fillna('Other').astype('category'), 
+        is_python_main=lambda df_: df_.is_python_main.astype('category'),
+        team_size=lambda df_: df_.team_size.str.split(r'-', n=1, expand=True).iloc[:,0].replace('More than 40 people', 41).where(df_.company_size!=1, 1).astype(float),
+        years_of_coding=lambda df_: df_.years_of_coding.replace('Less than 1 year', .5).str.extract(r'(\d+)').astype(float),
+        python_years=lambda df_: df_.python_years.replace('Less than 1 year', .5).str.extract(r'(\d+)').astype(float),
+        python3_ver=lambda df_: df_.python3_version_most.str.replace('_', '.').str.extract(r'(\d\.\d)').astype(float),
+        use_python_most=lambda df_: df_.use_python_most.fillna('Unknown')
+    ).drop(columns=['python2_version_most'])
+)
+
+jb2
+
+gb = jb2.groupby(["country_live"])
+
+type(gb)
+
+gb["age"]
+
+gb["age"].mean()
+
+s = (
+    jb2
+    .groupby(["country_live", "employment_status"])
+    .age
+    .mean()
+)
+s
+
+s.unstack()
+
+def per_emacs(s):
+    return s.str.contains("Emacs").sum() / len(s) * 100
+
+(
+    jb2
+    .groupby("country_live")
+    .ide_main
+    .agg(per_emacs)
+)
+
+(
+    jb2
+    .groupby("country_live")
+    .age
+    .agg([min, max])
+)
+
+(
+    jb2
+    .groupby("country_live")
+    .agg({
+        "age": ["min", "max"], 
+        "team_size": "mean"
+    })
+)
+
+(
+    jb2
+    .groupby(["country_live", "employment_status"])
+    .agg({
+        "age": ["min", "max"], 
+        "team_size": "mean"
+    })
+)
+
+df1 = pd.DataFrame(
+    {
+        'name': ['John', 'George', 'Ringo'],
+        'color': ['Blue', 'Blue', 'Purple']
+    }
+) 
+df2 = pd.DataFrame(
+    {
+        'name': ['Paul', 'George', 'Ringo'],
+        'carcolor': ['Red', 'Blue', np.nan]
+    }, 
+    index=[3, 1, 2]
+)
+
+df1
+
+df2
+
+df1.merge(df2)
+
+df1.merge(df2, how="outer")
+
+df1.merge(df2, how="left")
+
+df1.merge(df2, how="right", left_on="color", right_on="carcolor")
