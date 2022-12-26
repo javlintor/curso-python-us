@@ -494,6 +494,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregaciones">
+   Agregaciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mergeo">
    Mergeo
   </a>
@@ -518,6 +523,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregaciones">
+   Agregaciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mergeo">
    Mergeo
   </a>
@@ -535,7 +545,8 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="agregacion-y-mergeo-de-dataframes">
 <h1>Agregación y mergeo de dataframes<a class="headerlink" href="#agregacion-y-mergeo-de-dataframes" title="Enlazar permanentemente con este título">#</a></h1>
 <p>En esta sección vamos a introducir dis tipo de operaciones muy comunes cuando trabajamos con dataframes, inspiradas en el lenguaje sql: agregaciones con <code class="docutils literal notranslate"><span class="pre">groupby</span></code> y mergeos con <code class="docutils literal notranslate"><span class="pre">merge</span></code>. La primera nos permitirá aplicar funciones de agregación a subconjuntos de nuestro dataframe y la segunda hacer que varios dataframes interactúen cuando tienen una o varias claves en común</p>
-<p>## Agregaciones</p>
+<section id="agregaciones">
+<h2>Agregaciones<a class="headerlink" href="#agregaciones" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Cargamos un dataset sobre una encuesta realizada a programadores de python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1974,6 +1985,7 @@ Name: ide_main, Length: 76, dtype: float64
   </div>
 </div></div>
 </div>
+</section>
 <section id="mergeo">
 <h2>Mergeo<a class="headerlink" href="#mergeo" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Hasta ahora hemos tratado los dataframes de forma independiente, pero vamos a ver a continuación como juntas varios dataframes de diferentes modos</p>
