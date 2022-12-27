@@ -35,6 +35,8 @@ parts:
   - file: notebooks/practicas/gradient-descent.ipynb
   - file: notebooks/practicas/eda.ipynb
   - file: notebooks/practicas/models.ipynb
+  - file: notebooks/practicas/linear-programming.ipynb
+  - file: notebooks/practicas/maximum-likelihood-estimation.ipynb
   - file: notebooks/practicas/nn-with-numpy.ipynb
 - caption: Bilbiografía
   chapters:
