@@ -49,7 +49,7 @@ import math
 type(math.pi)
 
 
-# En esta última celdilla hemos importado el **módulo** estándar `math`, que incorpora un conjunto de funciones de funciones matemáticas como la exponencial, logaritmos o funciones trigonométricas. Antes de acceder a las funciones definidas en un módulo es necesario importarlo.
+# En esta última celdilla hemos importado el **módulo** estándar `math`, que incorpora un conjunto de funciones matemáticas como la exponencial, logaritmos o funciones trigonométricas. Antes de acceder a las funciones definidas en un módulo es necesario importarlo.
 
 # Es posible escribir definiciones en las que explícitamente indiquemos el tipo con un fin meramente informativo
 

@@ -21,7 +21,7 @@
 
 # ## Descargar Python
 # 
-# Podemos descargar Python desde [su sitio oficial](https://www.python.org/). Actualmente, la última versión disponible es la 3.10.8, aunque en este curso utilizaremos la versión 
+# Podemos descargar Python desde [su sitio oficial](https://www.python.org/). En noviembre de 2022, la última versión estable es la 3.11, aunque en este curso utilizaremos la versión 
 
 # In[ ]:
 

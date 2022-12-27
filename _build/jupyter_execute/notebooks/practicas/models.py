@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Construyendo un modelo de clasificación binaria 
+# # Probando modelos de clasificación binaria 
 
 # En esta práctica vamos a construir modelos de clasificación para el dataset ya analizado en la práctica {ref}`exploratory`
 # 
@@ -33,19 +33,23 @@
 # - **Variable objetivo**
 #     - `y`: ¿Ha contratado el cliente un depósito a largo plazo? 
 
-# In[39]:
+# In[16]:
 
 
-import os 
+import os
+import urllib
+import zipfile
+from typing import List
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 import seaborn as sns
-import yaml
+import scipy.stats as ss
 
 
-# In[40]:
+# In[17]:
 
 
 working_dir = "."
@@ -56,7 +60,7 @@ zip_path = "bank-additional/bank-additional-full.csv"
 raw_data_path = os.path.join(working_dir, raw_data_rel_path)
 
 
-# In[ ]:
+# In[18]:
 
 
 def fetch_data(
@@ -80,7 +84,7 @@ def load_data(bank_path: str, zip_path: str) -> pd.DataFrame:
     return df
 
 
-# In[4]:
+# In[19]:
 
 
 # funciones auxiliares
@@ -93,7 +97,7 @@ def filter_cols(df: pd.DataFrame, rem_cols: List[str]):
 
 # Cargamos los datos y guardamos la variable objetivo en una serie separada
 
-# In[5]:
+# In[20]:
 
 
 fetch_data(download_url, raw_data_path, bank_path, zip_path)
@@ -106,7 +110,7 @@ bank.drop(columns="y", inplace=True)
 
 # Dividimos nuestro conjunto de datos en dos conjuntos, train y test, usando una división *estratificada* para asegurarnos que la variable objetivo está igualmente representada en ambos conjuntos (recordemos que el conjunto de datos está desbalanceado)
 
-# In[6]:
+# In[21]:
 
 
 from sklearn.model_selection import StratifiedShuffleSplit
@@ -128,7 +132,7 @@ for train_idx, test_idx in sss.split(bank, y):
 # 
 # Sería interesante realizar una **reducción de la dimensionalidad** una vez estas variables hayan sido codificadas, pero por simplificar vamos a quedarnos con las que a priori puedan funcionar mejor. 
 
-# In[7]:
+# In[22]:
 
 
 def preprocess(df: pd.DataFrame):
@@ -139,7 +143,7 @@ def preprocess(df: pd.DataFrame):
     return df
 
 
-# In[8]:
+# In[23]:
 
 
 bank_train_preprocessed = preprocess(bank_train)
@@ -147,21 +151,21 @@ bank_train_preprocessed = preprocess(bank_train)
 
 # Separamos variables numéricas y categóricas ya que tendrán procesados diferentes
 
-# In[9]:
+# In[24]:
 
 
 num_cols = bank_train_preprocessed.select_dtypes("number").columns.to_list()
 cat_cols = [col for col in bank_train_preprocessed.columns if col not in num_cols]
 
 
-# In[10]:
+# In[25]:
 
 
 for col in cat_cols:
     print(f"Columna {col} tiene {bank_train_preprocessed[col].nunique()} valores únicos")
 
 
-# In[11]:
+# In[26]:
 
 
 from sklearn.compose import ColumnTransformer
@@ -174,7 +178,7 @@ col_transformer = ColumnTransformer([
 col_transformer.fit(bank_train_preprocessed)
 
 
-# In[12]:
+# In[27]:
 
 
 def process(df: pd.DataFrame):
@@ -184,13 +188,13 @@ def process(df: pd.DataFrame):
     return df_processed
 
 
-# In[13]:
+# In[28]:
 
 
 bank_train_processed = process(bank_train_preprocessed)
 
 
-# In[14]:
+# In[29]:
 
 
 bank_train_processed
@@ -200,13 +204,13 @@ bank_train_processed
 
 # Vamos a probar diferentes tipologías de modelos y estudiar si debemos realizar selección de variables
 
-# In[15]:
+# In[30]:
 
 
 X_train = bank_train_processed
 
 
-# In[16]:
+# In[31]:
 
 
 from sklearn.metrics import make_scorer, precision_score, recall_score, balanced_accuracy_score
@@ -222,13 +226,13 @@ scorers = {
 # 
 # Vamos a entrenar un Random Forest como primera aproximación y para valorar algunas métricas
 
-# In[17]:
+# In[43]:
 
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_validate
 
-rf_clf = RandomForestClassifier(criterion="log_loss")
+rf_clf = RandomForestClassifier(criterion="entropy")
 rf_clf.fit(bank_train_processed, y_train)
 rf_clf_scores = cross_validate(rf_clf, bank_train_processed, y_train, cv=3, scoring=scorers)
 rf_clf_scores
@@ -238,7 +242,7 @@ rf_clf_scores
 # 
 # Vamos a seleccionar algunas variables utilizando el atributo `feature_importances_` de estimador Random Forest
 
-# In[18]:
+# In[47]:
 
 
 from sklearn.feature_selection import SelectFromModel
@@ -260,17 +264,18 @@ def feature_selection_from_model(estimator, X_df, y, ax=None):
     print('Número de características seleccionadas :', len(model_selection_features),'\n')
     print('Características seleccionadas :', model_selection_features,'\n')
     
-    if ax:
+    if ax is not None:
         #Realizamos un grafico de barras con la importancia de las características
-        ax.barh(range(n_features), importances,align='center') 
-        ax.set_yticks(np.arange(n_features), X_df.columns.values) 
+        ax.barh(range(n_features), importances, align='center') 
+        ax.set_yticks(np.arange(n_features)) 
+        ax.set_yticklabels(X_df.columns.values)
         ax.set_xlabel('Feature importance')
         ax.set_ylabel('Feature')
     
     return set(model_selection_features)
 
 
-# In[19]:
+# In[48]:
 
 
 fig, ax = plt.subplots(figsize=(8, 8))
@@ -283,7 +288,7 @@ rf_selected_features = feature_selection_from_model(
 )
 
 
-# In[20]:
+# In[49]:
 
 
 X_train_selected = X_train[list(rf_selected_features)]
@@ -293,7 +298,7 @@ X_train_selected = X_train[list(rf_selected_features)]
 # 
 # Definamos varias tipologías de modelos de clasificación y evaluemos diferentes métricas utilizando *validación cruzada* y estudiando si la selección de variables mejora o entorpece a los modelos
 
-# In[21]:
+# In[50]:
 
 
 from sklearn import model_selection
@@ -350,7 +355,7 @@ models.append(('RF', RandomForestClassifier()))
 seed = 42
 
 
-# In[22]:
+# In[51]:
 
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 8), sharey=True)
@@ -376,7 +381,7 @@ ax[1].set_title("Con selección de variables")
 fig.suptitle("Comparación de modelos: precisión")
 
 
-# In[23]:
+# In[52]:
 
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 8), sharey=True)
@@ -402,7 +407,7 @@ ax[1].set_title("Con selección de variables")
 fig.suptitle("Comparación de modelos: sensibilidad")
 
 
-# In[24]:
+# In[53]:
 
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 8), sharey=True)
@@ -438,7 +443,7 @@ fig.suptitle("Comparación de modelos: exactitud balanceada")
 
 # ## Tuneo de hiperparámetros
 
-# In[25]:
+# In[54]:
 
 
 from sklearn.model_selection import GridSearchCV
@@ -461,7 +466,7 @@ rnd_grid_search = GridSearchCV(
 rnd_grid_search.fit(X_train, y_train)
 
 
-# In[26]:
+# In[55]:
 
 
 cvres = rnd_grid_search.cv_results_
@@ -469,7 +474,7 @@ for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
     print(mean_score, params)
 
 
-# In[27]:
+# In[56]:
 
 
 from sklearn.model_selection import GridSearchCV
@@ -494,7 +499,7 @@ rnd_grid_search = GridSearchCV(
 rnd_grid_search.fit(X_train_selected, y_train)
 
 
-# In[28]:
+# In[57]:
 
 
 cvres = rnd_grid_search.cv_results_
@@ -502,7 +507,7 @@ for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
     print(mean_score, params)
 
 
-# In[29]:
+# In[58]:
 
 
 # Elegimos nuestro clasificador
@@ -511,7 +516,7 @@ clf = rnd_grid_search.best_estimator_
 
 # ## Curva de precisión - sensibilidad
 
-# In[30]:
+# In[59]:
 
 
 from sklearn.metrics import precision_recall_curve
@@ -546,7 +551,7 @@ def plot_precision_recall_threshold(clf, X, y, threshold=.5, ax=None):
         ax.grid()
 
 
-# In[31]:
+# In[60]:
 
 
 fig, ax = plt.subplots(figsize=(13, 7))
@@ -558,7 +563,7 @@ plot_precision_recall_threshold(clf, X_train_selected, y_train, ax=ax)
 
 # ## Testeamos modelo
 
-# In[32]:
+# In[61]:
 
 
 def pipeline(df: pd.DataFrame) -> pd.DataFrame:
@@ -568,32 +573,32 @@ def pipeline(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# In[33]:
+# In[62]:
 
 
 X_test = pipeline(bank_test)
 
 
-# In[34]:
+# In[63]:
 
 
 y_test_pred = clf.predict(X_test)
 
 
-# In[35]:
+# In[64]:
 
 
 from sklearn.metrics import confusion_matrix
 confusion_matrix(y_test, y_test_pred)
 
 
-# In[36]:
+# In[65]:
 
 
 precision_score(y_test, y_test_pred)
 
 
-# In[37]:
+# In[66]:
 
 
 recall_score(y_test, y_test_pred)
@@ -603,13 +608,13 @@ recall_score(y_test, y_test_pred)
 
 # ## Guardado de modelos y transformadores
 
-# In[45]:
+# In[70]:
 
 
 from joblib import dump
 
-model_path = os.path.join(config["models"], "model.joblib")
-transformer_path = os.path.join(config["transformers"], "transformer.joblib")
+model_path = "model.joblib"
+transformer_path = "transformer.joblib"
 
 open(model_path, "w")
 dump(clf, model_path)
@@ -617,7 +622,7 @@ open(transformer_path, "w")
 dump(col_transformer, transformer_path)
 
 
-# In[46]:
+# In[71]:
 
 
 clf.feature_names_in_
