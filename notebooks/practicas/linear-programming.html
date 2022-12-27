@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
@@ -512,6 +514,43 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="programacion-lineal">
 <span id="linear-programing"></span><h1>Programación Lineal<a class="headerlink" href="#programacion-lineal" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Supongamos que tenemos una fábrica que es capaz de generar dos productos, el producto A y el producto B. Para producir tales bienes, la fábrica necesita invertir cierto dinero en materiales y otro tanto en mano de obra, con el fin de vender los productos y obtener el beneficio. Pongamos que los costes y beneficios por unidad producida son los siguientes</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-align:center head"><p>Producto A</p></th>
+<th class="text-align:center head"><p>Producto B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Material</p></td>
+<td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mano de obra</p></td>
+<td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Beneficio</p></td>
+<td class="text-align:center"><p>3</p></td>
+<td class="text-align:center"><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>Partiendo de, digamos, 30 unidades monetarias destinadas a material y 20 para mano de obra, ¿cuál es el plan de producción óptimo para esta fabrica, es decir, cuántos productos de A y de B debe producir con los recursos disponibles?</p>
+<p>Este problema es lo que se conoce como un problema de <strong>programación lineal</strong>, que en general consisten en maximizar o minimizar una <em>función objetivo</em> lineal bajo una serie de igualdades o desigualdades que restringen el conjunto de posibles soluciones. En el ejemplo anterior podemos enunciar el problema del siguiente modo</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{max. } \quad &amp;  3x_1 + 4x_2\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 \leq 30 \\
+4x_1 + 2x_2 \leq 20 \\
+x_1, x_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
 </section>
 
     <script type="text/x-thebe-config">
