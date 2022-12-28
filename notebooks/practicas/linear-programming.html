@@ -515,6 +515,17 @@ title="Print to PDF"
    La forma estándar
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilizando-scipy-para-resolver-problemas-lineales">
+   Utilizando
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+   para resolver problemas lineales.
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -537,6 +548,17 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#la-forma-estandar">
    La forma estándar
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilizando-scipy-para-resolver-problemas-lineales">
+   Utilizando
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+   para resolver problemas lineales.
   </a>
  </li>
 </ul>
@@ -707,6 +729,97 @@ s_j \geq 0
 \end{array}
 \)</span>$</p></li>
 </ul>
+<p>Transformemos el problema inicial a su formato estándar. Recordemos que el problema era el siguiente
+$<span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{max. } \quad &amp;  3x_1 + 4x_2\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 \leq 30 \\
+4x_1 + 2x_2 \leq 20 \\
+x_1, x_2 \geq 0 
+\end{array}
+\end{aligned}   
+\)</span>$</p>
+<p>Realizando las tranformaciones necesarias obtenemos
+$<span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{min. } \quad &amp;  -(3x_1 + 4x_2)\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 + s_1 = 30 \\
+4x_1 + 2x_2 + s_2 = 20 \\
+x_1, x_2, s_1, s_2 \geq 0 
+\end{array}
+\end{aligned}   
+\)</span>$</p>
+</section>
+<section id="utilizando-scipy-para-resolver-problemas-lineales">
+<h2>Utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code> para resolver problemas lineales.<a class="headerlink" href="#utilizando-scipy-para-resolver-problemas-lineales" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Vamos a utilizar el paquete <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> para resolver el problema planteado anteriormente. En concreto la función <code class="docutils literal notranslate"><span class="pre">linprog</span></code> acepta problemas lineales planteados de la siguiente forma</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  c^\intercal x\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+A_{\text{ub}}x \leq b_{\text{ub}}\\
+A_{\text{eq}}x = b_{\text{eq}}\\
+l \leq x \leq u
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>es decir, más generales que la forma estándar. Por defecto tenemos que <span class="math notranslate nohighlight">\(l=0\)</span> y que <code class="docutils literal notranslate"><span class="pre">u=None</span></code>. Para resolver el problema</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{max. } \quad &amp;  3x_1 + 4x_2\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 \leq 30 \\
+4x_1 + 2x_2 \leq 20 \\
+x_1, x_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>utilizamores el siguiente código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linprog</span>
+
+<span class="c1"># parametros de la función de coste</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="c1"># Matriz de desigualdades</span>
+<span class="n">A_ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">b_ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+
+<span class="c1"># Resolvemos el proble</span>
+<span class="c1"># Podemos un signo negativo a c porque linprog busca el mínimo por defecto</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">linprog</span><span class="p">(</span><span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="n">A_ub</span><span class="o">=</span><span class="n">A_ub</span><span class="p">,</span> <span class="n">b_ub</span><span class="o">=</span><span class="n">b_ub</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;revised simplex&#39;</span><span class="p">)</span>
+
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     con: array([], dtype=float64)
+     fun: -27.5
+ message: &#39;Optimization terminated successfully.&#39;
+     nit: 2
+   slack: array([0., 0.])
+  status: 0
+ success: True
+       x: array([2.5, 5. ])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
