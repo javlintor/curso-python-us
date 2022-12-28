@@ -718,19 +718,24 @@ x \geq 0
 <ul class="simple">
 <li><p><strong>Función objetivo</strong>: si tenemos una función que maximizar, lo que hacemos es minimizar su inverso aditivo.</p></li>
 <li><p><strong>Variables de decisión con desigualdad</strong>: dada una variable <span class="math notranslate nohighlight">\(x_j\)</span> sujeta a <span class="math notranslate nohighlight">\(x_j \leq 0\)</span>, consideremos <span class="math notranslate nohighlight">\(x_j^{'} = -x_j\)</span> y la sustituimos en el problema original.</p></li>
-<li><p><strong>Variables de decisión sin restricciones</strong>: aquí lo que hacemos es realizar la descomposición
-$<span class="math notranslate nohighlight">\( x_j = x_j^+ + x_j^- \)</span><span class="math notranslate nohighlight">\(
-donde \)</span>x_j^+ = \max{x_j, 0}<span class="math notranslate nohighlight">\(, \)</span>x_j^- = \max{-x_j, 0}$.</p></li>
-<li><p><strong>Restricciones con desigualdad</strong>: Dada una restricción del tipo <span class="math notranslate nohighlight">\(\sum_{i=1}^n a_ix_i \leq b\)</span>, introducimos una nueva variable <span class="math notranslate nohighlight">\(s_j\)</span> y cambiamos la restricción por
-$<span class="math notranslate nohighlight">\(
+<li><p><strong>Variables de decisión sin restricciones</strong>: aquí lo que hacemos es realizar la descomposición</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ x_j = x_j^+ + x_j^- \]</div>
+<p>donde <span class="math notranslate nohighlight">\(x_j^+ = \max\{x_j, 0\}\)</span>, <span class="math notranslate nohighlight">\(x_j^- = \max\{-x_j, 0\}\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Restricciones con desigualdad</strong>: Dada una restricción del tipo <span class="math notranslate nohighlight">\(\sum_{i=1}^n a_ix_i \leq b\)</span>, introducimos una nueva variable <span class="math notranslate nohighlight">\(s_j\)</span> y cambiamos la restricción por</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{array}{c}
 \sum_{i=1}^n a_ix_i + s_j = b\\
 s_j \geq 0
 \end{array}
-\)</span>$</p></li>
-</ul>
-<p>Transformemos el problema inicial a su formato estándar. Recordemos que el problema era el siguiente
-$<span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>Transformemos el problema inicial a su formato estándar. Recordemos que el problema era el siguiente</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 \text{max. } \quad &amp;  3x_1 + 4x_2\\
 \text{s.t. }\quad &amp;
@@ -740,9 +745,10 @@ $<span class="math notranslate nohighlight">\(
 x_1, x_2 \geq 0 
 \end{array}
 \end{aligned}   
-\)</span>$</p>
-<p>Realizando las tranformaciones necesarias obtenemos
-$<span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>Realizando las tranformaciones necesarias obtenemos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 \text{min. } \quad &amp;  -(3x_1 + 4x_2)\\
 \text{s.t. }\quad &amp;
@@ -752,7 +758,7 @@ $<span class="math notranslate nohighlight">\(
 x_1, x_2, s_1, s_2 \geq 0 
 \end{array}
 \end{aligned}   
-\)</span>$</p>
+\end{split}\]</div>
 </section>
 <section id="utilizando-scipy-para-resolver-problemas-lineales">
 <h2>Utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code> para resolver problemas lineales.<a class="headerlink" href="#utilizando-scipy-para-resolver-problemas-lineales" title="Enlazar permanentemente con este título">#</a></h2>
