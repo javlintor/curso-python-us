@@ -488,12 +488,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-forma-estandar">
+   La forma estándar
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -505,6 +529,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-forma-estandar">
+   La forma estándar
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -559,6 +596,31 @@ x_1, x_2 \geq 0
 </div>
 </div>
 </div>
+<p>Más generalmente, lo que queremos es minimizar una función de coste lineal <span class="math notranslate nohighlight">\(c^\intercal x = \sum_{i=1}^n c_ix_i\)</span> sobre un conjunto de valores factibles de <span class="math notranslate nohighlight">\(x=(x_1, x_2, \dots, x_n)\)</span> sujeto a las restricciones dadas por desigualdades o igualdades. Es decir,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  c^\intercal x\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+a_i^\intercal x \geq b_i \quad &amp; i \in M_1\\
+a_i^\intercal x \leq b_i \quad &amp; i \in M_2\\
+a_i^\intercal x = b_i \quad &amp; i \in M_3\\
+x_j \geq 0 \quad &amp; j \in N_1\\
+x_j \leq 0 \quad &amp; j \in N_2\\
+x_j \text{ sin restricción} \quad &amp; j \in N_3
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(N_k\)</span>, <span class="math notranslate nohighlight">\(M_k\)</span> son conjuntos de índices por decidir, <span class="math notranslate nohighlight">\(a_i\)</span> vectores de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> y <span class="math notranslate nohighlight">\(b_i \in \mathbb{R}\)</span>. Algunas definiciones importantes</p>
+<ul class="simple">
+<li><p>Un vector <span class="math notranslate nohighlight">\(x\)</span> que satisface las condicines es llamada una <strong>solución factible</strong>.</p></li>
+<li><p>La colección de soluciones factibles se denomina la <strong>región factible</strong>.</p></li>
+<li><p>Una solución factible que minimiza la función de coste se denomina <strong>solución óptima</strong>.</p></li>
+<li><p>El valor de la función de coste en la solución el óptima es el <strong>valor óptimo</strong>.</p></li>
+<li><p>Si el conjunto factible es vacío, decimos que el problema es <strong>infactible</strong>.</p></li>
+</ul>
+<p>Volviendo al problema anterior, vamos a usar <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> para representar el conjunto factible y algunas rectas en las que la función objetivo vale igual. El gradiente nos da la dirección de máximo cambio y es fácil intuir en qué punto se encuentra la solución óptima.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -590,7 +652,8 @@ x_1, x_2 \geq 0
             <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
         <span class="p">]</span>
     <span class="p">),</span> 
-    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Región factible&quot;</span>
 <span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">feasible_set</span><span class="p">)</span>
 
@@ -604,28 +667,47 @@ x_1, x_2 \geq 0
 <span class="c1"># Dibujamos la solución óptima </span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="s2">&quot;Solución óptima&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/linear-programming_5_0.png" src="../../_images/linear-programming_5_0.png" />
+<img alt="../../_images/linear-programming_7_0.png" src="../../_images/linear-programming_7_0.png" />
 </div>
 </div>
-<p>Más generalmente, podemos plantear el problema como el minimizar una función de coste lineal <span class="math notranslate nohighlight">\(c^\text{t}x = \sum_{i=1}^n c_ix_i\)</span> sobre un conjunto de valores factibles de <span class="math notranslate nohighlight">\(x=(x_1, x_2, \dots, x_n)\)</span> sujeto a las restricciones dadas por desigualdades o igualdades. Es decir,</p>
+<section id="la-forma-estandar">
+<h2>La forma estándar<a class="headerlink" href="#la-forma-estandar" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Con el fin de identificar problemas similares y unificar una metodología de resolución (por ejemplo para utilizar en software de terceros) podemos convertir cualquier problema de programación lineal en un formato estándar. Para ello, vamos a reducir todo problema a uno del tipo</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
-\text{min. } \quad &amp;  c^\text{t}x\\
+\text{min. } \quad &amp;  c^\intercal x\\
 \text{s.t. }\quad &amp;
 \begin{array}{c}
-a_i^\text{t}x \geq b_i \quad &amp; i \in M_1\\
-a_i^\text{t}x \geq b_i \quad &amp; i \in M_2\\
-a_i^\text{t}x \leq b_i \\
+Ax = b\\
+x \geq 0
 \end{array}
 \end{aligned}   
 \end{split}\]</div>
+<p>donde como antes, <span class="math notranslate nohighlight">\(x, c \in \mathbb{R}^n\)</span>, <span class="math notranslate nohighlight">\(b \in \mathbb{R}^m\)</span> y <span class="math notranslate nohighlight">\(A\)</span> una matrix real de dimensión <span class="math notranslate nohighlight">\(m\times n\)</span>.</p>
+<p>Para conseguir la forma estándar de un problema de programación linearl, es conveniente realizar las siguientes transformaciones:</p>
+<ul class="simple">
+<li><p><strong>Función objetivo</strong>: si tenemos una función que maximizar, lo que hacemos es minimizar su inverso aditivo.</p></li>
+<li><p><strong>Variables de decisión con desigualdad</strong>: dada una variable <span class="math notranslate nohighlight">\(x_j\)</span> sujeta a <span class="math notranslate nohighlight">\(x_j \leq 0\)</span>, consideremos <span class="math notranslate nohighlight">\(x_j^{'} = -x_j\)</span> y la sustituimos en el problema original.</p></li>
+<li><p><strong>Variables de decisión sin restricciones</strong>: aquí lo que hacemos es realizar la descomposición
+$<span class="math notranslate nohighlight">\( x_j = x_j^+ + x_j^- \)</span><span class="math notranslate nohighlight">\(
+donde \)</span>x_j^+ = \max{x_j, 0}<span class="math notranslate nohighlight">\(, \)</span>x_j^- = \max{-x_j, 0}$.</p></li>
+<li><p><strong>Restricciones con desigualdad</strong>: Dada una restricción del tipo <span class="math notranslate nohighlight">\(\sum_{i=1}^n a_ix_i \leq b\)</span>, introducimos una nueva variable <span class="math notranslate nohighlight">\(s_j\)</span> y cambiamos la restricción por
+$<span class="math notranslate nohighlight">\(
+\begin{array}{c}
+\sum_{i=1}^n a_ix_i + s_j = b\\
+s_j \geq 0
+\end{array}
+\)</span>$</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
