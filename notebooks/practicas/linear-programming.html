@@ -714,7 +714,7 @@ x \geq 0
 \end{aligned}   
 \end{split}\]</div>
 <p>donde como antes, <span class="math notranslate nohighlight">\(x, c \in \mathbb{R}^n\)</span>, <span class="math notranslate nohighlight">\(b \in \mathbb{R}^m\)</span> y <span class="math notranslate nohighlight">\(A\)</span> una matrix real de dimensión <span class="math notranslate nohighlight">\(m\times n\)</span>.</p>
-<p>Para conseguir la forma estándar de un problema de programación linearl, es conveniente realizar las siguientes transformaciones:</p>
+<p>Para conseguir la forma estándar partiendo de un problema de programación lineal general, podemos realizar las siguientes transformaciones:</p>
 <ul class="simple">
 <li><p><strong>Función objetivo</strong>: si tenemos una función que maximizar, lo que hacemos es minimizar su inverso aditivo.</p></li>
 <li><p><strong>Variables de decisión con desigualdad</strong>: dada una variable <span class="math notranslate nohighlight">\(x_j\)</span> sujeta a <span class="math notranslate nohighlight">\(x_j \leq 0\)</span>, consideremos <span class="math notranslate nohighlight">\(x_j^{'} = -x_j\)</span> y la sustituimos en el problema original.</p></li>
@@ -724,7 +724,7 @@ x \geq 0
 \[ x_j = x_j^+ + x_j^- \]</div>
 <p>donde <span class="math notranslate nohighlight">\(x_j^+ = \max\{x_j, 0\}\)</span>, <span class="math notranslate nohighlight">\(x_j^- = \max\{-x_j, 0\}\)</span>.</p>
 <ul class="simple">
-<li><p><strong>Restricciones con desigualdad</strong>: Dada una restricción del tipo <span class="math notranslate nohighlight">\(\sum_{i=1}^n a_ix_i \leq b\)</span>, introducimos una nueva variable <span class="math notranslate nohighlight">\(s_j\)</span> y cambiamos la restricción por</p></li>
+<li><p><strong>Restricciones con desigualdad</strong>: Dada una restricción del tipo <span class="math notranslate nohighlight">\(\sum_{i=1}^n a_ix_i \leq b\)</span>, introducimos una nueva variable, denominada <strong>variable de holgura</strong>, <span class="math notranslate nohighlight">\(s_j\)</span> y cambiamos la restricción por</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -803,7 +803,7 @@ x_1, x_2 \geq 0
         <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
     <span class="p">]</span>
 <span class="p">)</span>
-<span class="n">b_ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">b_ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 
 <span class="c1"># Resolvemos el proble</span>
 <span class="c1"># Podemos un signo negativo a c porque linprog busca el mínimo por defecto</span>
@@ -825,6 +825,52 @@ x_1, x_2 \geq 0
 </pre></div>
 </div>
 </div>
+</div>
+<p>Notemos el signo negativo que hemos añadido al primer argumento de <code class="docutils literal notranslate"><span class="pre">linprog</span></code> para encontrar un máximo y no un mínimo de la función. Estamos usando la función <code class="docutils literal notranslate"><span class="pre">linprog</span></code> como una caja negra, pero en realidad lo que se hace por debajo es transformar el problema en su forma estándar y resolverlo usando el método simplex. Aún con ello, muchas veces tendremos que transformar nuestro problema para que tome la estructura aceptada por <code class="docutils literal notranslate"><span class="pre">linprog</span></code>.</p>
+<div class="exercise admonition" id="linear-programming-1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 69 </span></p>
+<section id="exercise-content">
+<p>Transforma manualmente el problema anterior a la forma estándar y resuélvelo usando <code class="docutils literal notranslate"><span class="pre">linprog</span></code> y comprueba que las soluciones óptimas coinciden.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="notebooks/practicas/linear-programming-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#linear-programming-1"> Exercise 69</a></p>
+<section id="solution-content">
+<p>Ya hemos visto anteriormente la forma que toma el problema si lo pasamos a la forma estándar,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  -(3x_1 + 4x_2)\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 + s_1 = 30 \\
+4x_1 + 2x_2 + s_2 = 20 \\
+x_1, x_2, s_1, s_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>Simplemente tenemos que añadir dos variables de holgura y crear los argumentos <code class="docutils literal notranslate"><span class="pre">A_eq</span></code>, <code class="docutils literal notranslate"><span class="pre">b_eq</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Añadimos un cero al vector de parámetros</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Ahora tenemos una matriz para las igualdades</span>
+<span class="n">A_eq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">b_eq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+
+<span class="c1"># dejamos l y u por defecto</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">linprog</span><span class="p">(</span><span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="n">A_eq</span><span class="o">=</span><span class="n">A_eq</span><span class="p">,</span> <span class="n">b_eq</span><span class="o">=</span><span class="n">b_eq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;revised simplex&quot;</span><span class="p">)</span>
+
+<span class="n">s</span>
+</pre></div>
+</div>
+</section>
 </div>
 </section>
 </section>
