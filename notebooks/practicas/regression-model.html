@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introducción a Python &#8212; Curso de Python US</title>
+    <title>Construyendo un modelo de regresión lineal &#8212; Curso de Python US</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,13 +54,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Principios básicos de Python" href="python-basics.html" />
-    <link rel="prev" title="Curso de Python US" href="../../README.html" />
+    <link rel="next" title="Ejemplo de análisis exploratorio" href="eda.html" />
+    <link rel="prev" title="Optimización de portfolio" href="portfolio-optimization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -125,59 +123,59 @@ const thebe_selector_output = ".output, .cell_output"
   Introducción a Python
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/introduction-python.html">
    Introducción a Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="python-basics.html">
+  <a class="reference internal" href="../introduction-python/python-basics.html">
    Principios básicos de Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="numeric-types.html">
+  <a class="reference internal" href="../introduction-python/numeric-types.html">
    Tipos numéricos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="strings.html">
+  <a class="reference internal" href="../introduction-python/strings.html">
    Strings
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="booleans.html">
+  <a class="reference internal" href="../introduction-python/booleans.html">
    Booleanos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="lists.html">
+  <a class="reference internal" href="../introduction-python/lists.html">
    Listas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="other-data-structures.html">
+  <a class="reference internal" href="../introduction-python/other-data-structures.html">
    Otras estructuras de datos
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="control-flow.html">
+  <a class="reference internal" href="../introduction-python/control-flow.html">
    Estructuras de control
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
+  <a class="reference internal" href="../introduction-python/functions.html">
    Funciones
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="classes.html">
+  <a class="reference internal" href="../introduction-python/classes.html">
    Clases
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="exercises.html">
+  <a class="reference internal" href="../introduction-python/exercises.html">
    Ejercicios de Introducción a Python
   </a>
  </li>
@@ -243,34 +241,34 @@ const thebe_selector_output = ".output, .cell_output"
   Casos prácticos
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/gradient-descent.html">
+  <a class="reference internal" href="gradient-descent.html">
    Descenso del gradiente:  Regresión Lineal
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/linear-programming.html">
+  <a class="reference internal" href="linear-programming.html">
    Programación Lineal
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/portfolio-optimization.html">
+  <a class="reference internal" href="portfolio-optimization.html">
    Optimización de portfolio
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/regression-model.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Construyendo un modelo de regresión lineal
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/eda.html">
+  <a class="reference internal" href="eda.html">
    Ejemplo de análisis exploratorio
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/classification-models.html">
+  <a class="reference internal" href="classification-models.html">
    Probando modelos de clasificación binaria
   </a>
  </li>
@@ -345,7 +343,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/introduction-python.ipynb"
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/practicas/regression-model.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -363,7 +361,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb"
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/practicas/regression-model.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -423,7 +421,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/introduction-python.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/practicas/regression-model.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -451,7 +449,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/introduction-python/introduction-python.ipynb"
+        <a href="../../_sources/notebooks/practicas/regression-model.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -511,23 +509,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#descargar-python">
-   Descargar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#donde-ejecutar-python">
-   Dónde ejecutar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">
-   Notebooks de Jupyter/Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-sobre-python">
-   Más sobre Python
+  <a class="reference internal nav-link" href="#load-data">
+   Load data
   </a>
  </li>
 </ul>
@@ -539,7 +522,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introducción a Python</h1>
+                <h1>Construyendo un modelo de regresión lineal</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -550,23 +533,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#descargar-python">
-   Descargar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#donde-ejecutar-python">
-   Dónde ejecutar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">
-   Notebooks de Jupyter/Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-sobre-python">
-   Más sobre Python
+  <a class="reference internal nav-link" href="#load-data">
+   Load data
   </a>
  </li>
 </ul>
@@ -579,102 +547,361 @@ title="Print to PDF"
                 
               <div>
                 
-  <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-python">
-<span id="introduction-python"></span><h1>Introducción a Python<a class="headerlink" href="#introduccion-a-python" title="Enlazar permanentemente con este título">#</a></h1>
-<p><a class="reference external" href="https://www.python.org/">Python</a> es un <strong>lenguaje de programación</strong> altamente popular y con una sintaxis sencilla, lo que lo hace fácilmente accesible para programadores no experimentados. No obstante, es una herramienta muy potente que puede ayudarnos a resolver problemas de muy diferente índole.</p>
-<p><img alt="picture" src="https://drive.google.com/uc?id=1ugvfeCFADgTHKgK49asYtnAQjjfN_PCZ" /></p>
-<p>Entre sus características principales destacan:</p>
-<ul class="simple">
-<li><p>Es un lenguaje <strong>interpretado</strong>.</p></li>
-<li><p>Es de <strong>tipado fuerte y dinámico</strong>.</p></li>
-<li><p>Es <strong>multiplataforma</strong>.</p></li>
-<li><p>Python es un lenguaje de <strong>propósito general</strong>, lo que significa que puede usarse para crear una variedad de programas diferentes y no está especializado para ningún problema específico.</p></li>
-<li><p>Tiene una amplia <strong>librería estándar</strong> además de una extensa comunidad que da soporte a una variedad de paquetes de terceros. El repositorio de referencia para paquetes de Python es el <a class="reference external" href="https://pypi.org/">Python Package Index</a></p></li>
-</ul>
-<p>Podemos visitar <a class="reference external" href="https://survey.stackoverflow.co/2022/#technology-most-popular-technologies">la encuesta anual de Stackoverflow</a> sobre uso y opinión de diferentes tecnologías para hacernos una idea de la presencia del entorno Python en el mundo del desarrollo, sobre todo en campos cercanos a la Ciencia de Datos.</p>
-<section id="descargar-python">
-<h2>Descargar Python<a class="headerlink" href="#descargar-python" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Podemos descargar Python desde <a class="reference external" href="https://www.python.org/">su sitio oficial</a>. En noviembre de 2022, la última versión estable es la 3.11, aunque en este curso utilizaremos la versión</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="construyendo-un-modelo-de-regresion-lineal">
+<h1>Construyendo un modelo de regresión lineal<a class="headerlink" href="#construyendo-un-modelo-de-regresion-lineal" title="Enlazar permanentemente con este título">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7.14 (default, Sep  8 2022, 00:06:44) 
-[GCC 7.5.0]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Python incluye un gestor de paquetes llamado <a class="reference external" href="https://pypi.org/project/pip/">pip</a>, que nos permite instalar/desinstalar/actualizar paquetes alojados en el Python Project Index u otros repositorios. Además existen distribuciones como <a class="reference external" href="https://www.anaconda.com/">anaconda</a> que nos facilitan el manejo de paquetes.</p>
-<p>En este curso no nos tendremos que preocupar de manejar paquetes y sus dependencias ya que trabajaremos con <strong>Google Colab</strong>, que nos proporciona directamente el acceso a un gran número de paquetes y funcionalidades del ecosistema Python.</p>
-</section>
-<section id="donde-ejecutar-python">
-<h2>Dónde ejecutar Python<a class="headerlink" href="#donde-ejecutar-python" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Hay muchos entornos en los que un intérprete de Python puede correr como un IDE (Integrated Development Environment -como <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, <a class="reference external" href="https://www.jetbrains.com/es-es/pycharm/">Pycharm</a> o <a class="reference external" href="https://atom.io/">Atom</a>-), un navegador o una terminal.</p>
-<p>Para ejecutar Python 3 desde la terminal, escribimos <code class="docutils literal notranslate"><span class="pre">python3</span></code> en el prompt y se lanzará una aplicación</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.9.1</span> <span class="p">(</span><span class="n">v3</span><span class="mf">.9.1</span><span class="p">:</span><span class="mf">1e5</span><span class="n">d33e9b9</span><span class="p">,</span> <span class="n">Dec</span>  <span class="mi">7</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">52</span><span class="p">)</span>
-<span class="p">[</span><span class="n">Clang</span> <span class="mf">6.0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">600.0.57</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
-<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span>
-</pre></div>
-</div>
-<p>Una herramienta muy utilizada es el entorno de trabajo <a class="reference external" href="https://jupyter.org/"><strong>Jupyter</strong></a>, que puede ser instalado vía <code class="docutils literal notranslate"><span class="pre">pip</span></code> mediante</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">notebook</span>
-</pre></div>
-</div>
-<p>Jupyter Notebook lanza una aplicación que por defecto corre en el puerto 8888 de nuestro <code class="docutils literal notranslate"><span class="pre">localhost</span></code> en la que mediante un kernel de Python podemos ir ejecutando código en celdillas. Esto nos permite tener feedback casi inmedianto de nuestras implementaciones y es una herramienta adecuada cuando queramos experimentar o familiarizarnos con algún paquete.</p>
-<p>Google Colab nos permite trabajar con notebooks en nuestro navegador sin necesidad de instalar Python ni jupyter en nuestra máquina. En este caso perdemos capacidad para configurar nuestro entorno, pero estaremos alineados a la hora de seguir el curso.</p>
-</section>
-<section id="notebooks-de-jupyter-colab">
-<h2>Notebooks de Jupyter/Colab<a class="headerlink" href="#notebooks-de-jupyter-colab" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Ya sea en Jupyter o en Google Colab, trabajaremos con cuadernos (o notebooks) de Python, que son archivos de texto con la extensión <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> (a diferencia de los archivos <code class="docutils literal notranslate"><span class="pre">.py</span></code>, correspondientes a los ejecutables y módulos de Python).</p>
-<p>Cada cuaderno está compuesto por una secuencia de celdillas, que pueden ser de tipo <em>ejecutable</em> o <em>markdown</em>. En las cendillas de tipo ejecutable escribiremos nuestro código Python, mientras que en las celdas de tipo markdown podremos crear cabeceras, listas, resaltar texto con <strong>negrita</strong> o <em>cursiva</em> e incluso incorporar fórmulas matemáticas con <em>Latex</em></p>
-<div class="math notranslate nohighlight">
-\[
-f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
-\]</div>
-<p>Todo ello para explicar y realizar anotaciones sobre nuestro código.</p>
-</section>
-<section id="mas-sobre-python">
-<h2>Más sobre Python<a class="headerlink" href="#mas-sobre-python" title="Enlazar permanentemente con este título">#</a></h2>
-<p>Python fue creado en 1991 por Rossum y su nombre se debe a un famoso grupo de comedia británico llamado <em>Monty Python</em>, de ahí que en muchos ejemplos encontremos variables dummy llamadas como <code class="docutils literal notranslate"><span class="pre">spam</span></code> y <code class="docutils literal notranslate"><span class="pre">eggs</span></code> en lugar de los típicos <code class="docutils literal notranslate"><span class="pre">foo</span></code>, <code class="docutils literal notranslate"><span class="pre">bar</span></code>.</p>
-<p>Su popularidad se debe principalmente a que es fácil de aprender y es utilizado para construir aplicaciones en el lado del servidor a través del framework <code class="docutils literal notranslate"><span class="pre">django</span></code>, así como el tratamiento y análisis de datos en ecosistemas <strong>big data</strong> y el desarrollo de soluciones basadas en el <strong>machine learning</strong>.</p>
-<p>Python es un lenguaje que hace especial énfasis en su <strong>legibilidad</strong>, evitando el uso de corchetes y semicolons en favor de la indentación. La filosofía de un buen <em>pythonista</em> puede leerse en <em>The Zen of Python</em></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren&#39;t special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you&#39;re Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it&#39;s a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!
+<span class="n">DOWNLOAD_ROOT</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/ageron/handson-ml2/master/&quot;</span>
+<span class="n">HOUSING_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;housing&quot;</span><span class="p">)</span>
+<span class="n">HOUSING_URL</span> <span class="o">=</span> <span class="n">DOWNLOAD_ROOT</span> <span class="o">+</span> <span class="s2">&quot;datasets/housing/housing.tgz&quot;</span>
+
+<span class="k">def</span> <span class="nf">fetch_housing_data</span><span class="p">(</span><span class="n">housing_url</span><span class="o">=</span><span class="n">HOUSING_URL</span><span class="p">,</span> <span class="n">housing_path</span><span class="o">=</span><span class="n">HOUSING_PATH</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">housing_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tgz_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">housing_path</span><span class="p">,</span> <span class="s2">&quot;housing.tgz&quot;</span><span class="p">)</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">housing_url</span><span class="p">,</span> <span class="n">tgz_path</span><span class="p">)</span>
+    <span class="n">housing_tgz</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tgz_path</span><span class="p">)</span>
+    <span class="n">housing_tgz</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">housing_path</span><span class="p">)</span>
+    <span class="n">housing_tgz</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fetch_housing_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-data">
+<h2>Load data<a class="headerlink" href="#load-data" title="Enlazar permanentemente con este título">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">load_housing_data</span><span class="p">(</span><span class="n">housing_path</span><span class="o">=</span><span class="n">HOUSING_PATH</span><span class="p">):</span>
+    <span class="n">csv_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">housing_path</span><span class="p">,</span> <span class="s2">&quot;housing.csv&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span> <span class="o">=</span> <span class="n">load_housing_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>housing_median_age</th>
+      <th>total_rooms</th>
+      <th>total_bedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>ocean_proximity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-122.23</td>
+      <td>37.88</td>
+      <td>41.0</td>
+      <td>880.0</td>
+      <td>129.0</td>
+      <td>322.0</td>
+      <td>126.0</td>
+      <td>8.3252</td>
+      <td>452600.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-122.22</td>
+      <td>37.86</td>
+      <td>21.0</td>
+      <td>7099.0</td>
+      <td>1106.0</td>
+      <td>2401.0</td>
+      <td>1138.0</td>
+      <td>8.3014</td>
+      <td>358500.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-122.24</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1467.0</td>
+      <td>190.0</td>
+      <td>496.0</td>
+      <td>177.0</td>
+      <td>7.2574</td>
+      <td>352100.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1274.0</td>
+      <td>235.0</td>
+      <td>558.0</td>
+      <td>219.0</td>
+      <td>5.6431</td>
+      <td>341300.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1627.0</td>
+      <td>280.0</td>
+      <td>565.0</td>
+      <td>259.0</td>
+      <td>3.8462</td>
+      <td>342200.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 20640 entries, 0 to 20639
+Data columns (total 10 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   longitude           20640 non-null  float64
+ 1   latitude            20640 non-null  float64
+ 2   housing_median_age  20640 non-null  float64
+ 3   total_rooms         20640 non-null  float64
+ 4   total_bedrooms      20433 non-null  float64
+ 5   population          20640 non-null  float64
+ 6   households          20640 non-null  float64
+ 7   median_income       20640 non-null  float64
+ 8   median_house_value  20640 non-null  float64
+ 9   ocean_proximity     20640 non-null  object 
+dtypes: float64(9), object(1)
+memory usage: 1.6+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>longitude             float64
+latitude              float64
+housing_median_age    float64
+total_rooms           float64
+total_bedrooms        float64
+population            float64
+households            float64
+median_income         float64
+median_house_value    float64
+ocean_proximity        object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>housing_median_age</th>
+      <th>total_rooms</th>
+      <th>total_bedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20433.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+      <td>20640.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-119.569704</td>
+      <td>35.631861</td>
+      <td>28.639486</td>
+      <td>2635.763081</td>
+      <td>537.870553</td>
+      <td>1425.476744</td>
+      <td>499.539680</td>
+      <td>3.870671</td>
+      <td>206855.816909</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.003532</td>
+      <td>2.135952</td>
+      <td>12.585558</td>
+      <td>2181.615252</td>
+      <td>421.385070</td>
+      <td>1132.462122</td>
+      <td>382.329753</td>
+      <td>1.899822</td>
+      <td>115395.615874</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-124.350000</td>
+      <td>32.540000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>0.499900</td>
+      <td>14999.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-121.800000</td>
+      <td>33.930000</td>
+      <td>18.000000</td>
+      <td>1447.750000</td>
+      <td>296.000000</td>
+      <td>787.000000</td>
+      <td>280.000000</td>
+      <td>2.563400</td>
+      <td>119600.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>-118.490000</td>
+      <td>34.260000</td>
+      <td>29.000000</td>
+      <td>2127.000000</td>
+      <td>435.000000</td>
+      <td>1166.000000</td>
+      <td>409.000000</td>
+      <td>3.534800</td>
+      <td>179700.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>-118.010000</td>
+      <td>37.710000</td>
+      <td>37.000000</td>
+      <td>3148.000000</td>
+      <td>647.000000</td>
+      <td>1725.000000</td>
+      <td>605.000000</td>
+      <td>4.743250</td>
+      <td>264725.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>-114.310000</td>
+      <td>41.950000</td>
+      <td>52.000000</td>
+      <td>39320.000000</td>
+      <td>6445.000000</td>
+      <td>35682.000000</td>
+      <td>6082.000000</td>
+      <td>15.000100</td>
+      <td>500001.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">housing</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regression-model_10_0.png" src="../../_images/regression-model_10_0.png" />
 </div>
 </div>
 </section>
@@ -693,7 +920,7 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./notebooks/introduction-python"
+            path: "./notebooks/practicas"
         },
         predefinedOutput: true
     }
@@ -707,17 +934,17 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../README.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="portfolio-optimization.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Curso de Python US</p>
+            <p class="prev-next-title">Optimización de portfolio</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python-basics.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="eda.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Principios básicos de Python</p>
+        <p class="prev-next-title">Ejemplo de análisis exploratorio</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

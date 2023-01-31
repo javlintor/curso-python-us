@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Programación Lineal" href="linear-programming.html" />
+    <link rel="next" title="Bibliografía" href="../../bibliography.html" />
     <link rel="prev" title="Ejemplo de análisis exploratorio" href="eda.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -248,6 +248,21 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="linear-programming.html">
+   Programación Lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="portfolio-optimization.html">
+   Optimización de portfolio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regression-model.html">
+   Construyendo un modelo de regresión lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="eda.html">
    Ejemplo de análisis exploratorio
   </a>
@@ -255,21 +270,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Probando modelos de clasificación binaria
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linear-programming.html">
-   Programación Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="maximum-likelihood-estimation.html">
-   Estimador de máxima verosimilitud
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nn-with-numpy.html">
-   Construyendo una red neuronal desde cero con Numpy
   </a>
  </li>
 </ul>
@@ -343,7 +343,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/practicas/models.ipynb"
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/practicas/classification-models.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -361,7 +361,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/practicas/models.ipynb"
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/practicas/classification-models.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -421,7 +421,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/practicas/models.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/practicas/classification-models.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -449,7 +449,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/practicas/models.ipynb"
+        <a href="../../_sources/notebooks/practicas/classification-models.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1389,7 +1389,7 @@ Características seleccionadas : [&#39;age&#39; &#39;cons.price.idx&#39; &#39;co
  &#39;day_of_week_thu&#39; &#39;day_of_week_tue&#39; &#39;day_of_week_wed&#39; &#39;poutcome_success&#39;] 
 </pre></div>
 </div>
-<img alt="../../_images/models_30_1.png" src="../../_images/models_30_1.png" />
+<img alt="../../_images/classification-models_30_1.png" src="../../_images/classification-models_30_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1507,7 +1507,7 @@ Estadísticas para la métrica precision con CV de 5 folds:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Comparación de modelos: precisión&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/models_34_2.png" src="../../_images/models_34_2.png" />
+<img alt="../../_images/classification-models_34_2.png" src="../../_images/classification-models_34_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1556,7 +1556,7 @@ Estadísticas para la métrica recall con CV de 5 folds:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Comparación de modelos: sensibilidad&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/models_35_2.png" src="../../_images/models_35_2.png" />
+<img alt="../../_images/classification-models_35_2.png" src="../../_images/classification-models_35_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1605,7 +1605,7 @@ Estadísticas para la métrica balanced_accuracy con CV de 5 folds:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Comparación de modelos: exactitud balanceada&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/models_36_2.png" src="../../_images/models_36_2.png" />
+<img alt="../../_images/classification-models_36_2.png" src="../../_images/classification-models_36_2.png" />
 </div>
 </div>
 <p>Llegados a este punto, tenemos que preguntarnos <strong>qué métrica queremos maximizar</strong> de cara a que nuestro modelo aporte valor. Como en todo problema de clasificación, siempre hay un tira y afloja entre precisión y sensibilidad, luego no podemos tener un modelo que lo haga bien para ambas métricas.</p>
@@ -1783,7 +1783,7 @@ Estadísticas para la métrica balanced_accuracy con CV de 5 folds:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_recall_curve</span>
 
-<span class="k">def</span> <span class="nf">plot_precision_recall_threshold</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_precision_recall_threshold</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">clf_probs</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">precisions</span><span class="p">,</span> <span class="n">recalls</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">clf_probs</span><span class="p">)</span>
     <span class="c1"># Buscamos el umbral más cercano al dado disponible en thresholds </span>
@@ -1828,7 +1828,7 @@ Estadísticas para la métrica balanced_accuracy con CV de 5 folds:
 Sensibilidad en el umbral 0.5 = 0.175
 </pre></div>
 </div>
-<img alt="../../_images/models_46_1.png" src="../../_images/models_46_1.png" />
+<img alt="../../_images/classification-models_46_1.png" src="../../_images/classification-models_46_1.png" />
 </div>
 </div>
 <p>Con el umbral por defecto, tenemos una sensibilidad del 0.17%.</p>
@@ -1975,10 +1975,10 @@ Sensibilidad en el umbral 0.5 = 0.175
             <p class="prev-next-title">Ejemplo de análisis exploratorio</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="linear-programming.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="../../bibliography.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Programación Lineal</p>
+        <p class="prev-next-title">Bibliografía</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
