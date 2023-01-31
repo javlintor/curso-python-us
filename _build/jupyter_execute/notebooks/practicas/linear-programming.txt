@@ -1,0 +1,69 @@
+%config InlineBackend.figure_format='retina'
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.grid()
+
+# Dibujamos las líneas de restricción
+range1 = np.linspace(-1, 17.5, 100)
+range2 = np.linspace(-1, 5.5, 100)
+ax.hlines(0, -1, 17.5)
+ax.vlines(0, -1, 12)
+ax.plot(range1, 6-0.4*range1, color="c")
+ax.plot(range2, 10-2*range2, color="c")
+ax.text(1.5, 8, "$2x_1 + 5x_2 \leq 30$", size=12)
+ax.text(10, 2.5, "$4x_1 + 2x_2 \leq 20$", size=12)
+ax.text(-2, 2, "$x_2 \geq 0$", size=12)
+ax.text(2.5, -0.7, "$x_1 \geq 0$", size=12)
+
+# Dibujamos la región factible
+feasible_set = Polygon(
+    np.array(
+        [
+            [0, 0], 
+            [0, 6], 
+            [2.5, 5], 
+            [5, 0]
+        ]
+    ), 
+    color="cyan", 
+    label="Región factible"
+)
+ax.add_patch(feasible_set)
+
+# Dibujamos la función objetivo
+ax.plot(range2, 3.875-0.75*range2, color="orange")
+ax.plot(range2, 5.375-0.75*range2, color="orange")
+ax.plot(range2, 6.875-0.75*range2, color="orange")
+ax.arrow(-1.6, 5, 0, 2, width = 0.05, head_width=0.2, head_length=0.5, color="orange")
+ax.text(5.7, 1, "$z = 3x_1 + 4x_2$", size=12)
+
+# Dibujamos la solución óptima 
+ax.plot(2.5, 5, "*", color="black")
+ax.text(2.7, 5.2, "Solución óptima", size=12)
+ax.legend()
+
+plt.show()
+
+from scipy.optimize import linprog
+
+# parametros de la función de coste
+c = np.array([3, 4])
+
+# Matriz de desigualdades
+A_ub = np.array(
+    [
+        [2, 5],
+        [4, 2]
+    ]
+)
+b_ub = np.array([30, 20])
+
+# Resolvemos el proble
+# Podemos un signo negativo a c porque linprog busca el mínimo por defecto
+s = linprog(-c, A_ub=A_ub, b_ub=b_ub, method='revised simplex')
+
+s

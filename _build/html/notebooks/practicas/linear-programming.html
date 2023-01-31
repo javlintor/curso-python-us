@@ -54,11 +54,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Estimador de máxima verosimilitud" href="maximum-likelihood-estimation.html" />
-    <link rel="prev" title="Probando modelos de clasificación binaria" href="models.html" />
+    <link rel="next" title="Ejemplo de análisis exploratorio" href="eda.html" />
+    <link rel="prev" title="Descenso del gradiente: Regresión Lineal" href="gradient-descent.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -247,29 +249,14 @@ const thebe_selector_output = ".output, .cell_output"
    Descenso del gradiente:  Regresión Lineal
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="eda.html">
-   Ejemplo de análisis exploratorio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="models.html">
-   Probando modelos de clasificación binaria
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Programación Lineal
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="maximum-likelihood-estimation.html">
-   Estimador de máxima verosimilitud
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="nn-with-numpy.html">
-   Construyendo una red neuronal desde cero con Numpy
+  <a class="reference internal" href="eda.html">
+   Ejemplo de análisis exploratorio
   </a>
  </li>
 </ul>
@@ -486,12 +473,47 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-forma-estandar">
+   La forma estándar
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilizando-scipy-para-resolver-problemas-lineales">
+   Utilizando
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+   para resolver problemas lineales.
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -503,6 +525,30 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-forma-estandar">
+   La forma estándar
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilizando-scipy-para-resolver-problemas-lineales">
+   Utilizando
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+   para resolver problemas lineales.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -512,6 +558,319 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="programacion-lineal">
 <span id="linear-programing"></span><h1>Programación Lineal<a class="headerlink" href="#programacion-lineal" title="Enlazar permanentemente con este título">#</a></h1>
+<p>Supongamos que tenemos una fábrica que es capaz de generar dos productos, el producto A y el producto B. Para producir tales bienes, la fábrica necesita invertir cierto dinero en materiales y otro tanto en mano de obra, con el fin de vender los productos y obtener el beneficio. Pongamos que los costes y beneficios por unidad producida son los siguientes</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-align:center head"><p>Producto A</p></th>
+<th class="text-align:center head"><p>Producto B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Material</p></td>
+<td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mano de obra</p></td>
+<td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Beneficio</p></td>
+<td class="text-align:center"><p>3</p></td>
+<td class="text-align:center"><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>Partiendo de, digamos, 30 unidades monetarias destinadas a material y 20 para mano de obra, ¿cuál es el plan de producción óptimo para esta fabrica, es decir, cuántos productos de A y de B debe producir con los recursos disponibles?</p>
+<p>Este problema es lo que se conoce como un problema de <strong>programación lineal</strong>, que en general consiste en maximizar o minimizar una <em>función objetivo</em> lineal bajo una serie de igualdades o desigualdades que restringen el conjunto de posibles soluciones. En el ejemplo anterior podemos enunciar el problema del siguiente modo</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{max. } \quad &amp;  3x_1 + 4x_2\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 \leq 30 \\
+4x_1 + 2x_2 \leq 20 \\
+x_1, x_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>En el siguiente gráfico podemos visualizar el conjunto de posibles soluciones del problema</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span><span class="o">=</span><span class="s1">&#39;retina&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Más generalmente, lo que queremos es minimizar una función de coste lineal <span class="math notranslate nohighlight">\(c^\intercal x = \sum_{i=1}^n c_ix_i\)</span> sobre un conjunto de valores factibles de <span class="math notranslate nohighlight">\(x=(x_1, x_2, \dots, x_n)\)</span> sujeto a las restricciones dadas por desigualdades o igualdades. Es decir,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  c^\intercal x\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+a_i^\intercal x \geq b_i \quad &amp; i \in M_1\\
+a_i^\intercal x \leq b_i \quad &amp; i \in M_2\\
+a_i^\intercal x = b_i \quad &amp; i \in M_3\\
+x_j \geq 0 \quad &amp; j \in N_1\\
+x_j \leq 0 \quad &amp; j \in N_2\\
+x_j \text{ sin restricción} \quad &amp; j \in N_3
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(N_k\)</span>, <span class="math notranslate nohighlight">\(M_k\)</span> son conjuntos de índices por decidir, <span class="math notranslate nohighlight">\(a_i\)</span> vectores de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> y <span class="math notranslate nohighlight">\(b_i \in \mathbb{R}\)</span>. Algunas definiciones importantes</p>
+<ul class="simple">
+<li><p>Un vector <span class="math notranslate nohighlight">\(x\)</span> que satisface las condicines es llamada una <strong>solución factible</strong>.</p></li>
+<li><p>La colección de soluciones factibles se denomina la <strong>región factible</strong>.</p></li>
+<li><p>Una solución factible que minimiza la función de coste se denomina <strong>solución óptima</strong>.</p></li>
+<li><p>El valor de la función de coste en la solución el óptima es el <strong>valor óptimo</strong>.</p></li>
+<li><p>Si el conjunto factible es vacío, decimos que el problema es <strong>infactible</strong>.</p></li>
+</ul>
+<p>Volviendo al problema anterior, vamos a usar <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> para representar el conjunto factible y algunas rectas en las que la función objetivo vale igual. El gradiente nos da la dirección de máximo cambio y es fácil intuir en qué punto se encuentra la solución óptima.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Dibujamos las líneas de restricción</span>
+<span class="n">range1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">17.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">range2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">17.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">range1</span><span class="p">,</span> <span class="mi">6</span><span class="o">-</span><span class="mf">0.4</span><span class="o">*</span><span class="n">range1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">range2</span><span class="p">,</span> <span class="mi">10</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">range2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;$2x_1 + 5x_2 \leq 30$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;$4x_1 + 2x_2 \leq 20$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;$x_2 \geq 0$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="s2">&quot;$x_1 \geq 0$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Dibujamos la región factible</span>
+<span class="n">feasible_set</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">),</span> 
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Región factible&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">feasible_set</span><span class="p">)</span>
+
+<span class="c1"># Dibujamos la función objetivo</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">range2</span><span class="p">,</span> <span class="mf">3.875</span><span class="o">-</span><span class="mf">0.75</span><span class="o">*</span><span class="n">range2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">range2</span><span class="p">,</span> <span class="mf">5.375</span><span class="o">-</span><span class="mf">0.75</span><span class="o">*</span><span class="n">range2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">range2</span><span class="p">,</span> <span class="mf">6.875</span><span class="o">-</span><span class="mf">0.75</span><span class="o">*</span><span class="n">range2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="mf">1.6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">5.7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;$z = 3x_1 + 4x_2$&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Dibujamos la solución óptima </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.7</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="s2">&quot;Solución óptima&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/linear-programming_7_0.png" src="../../_images/linear-programming_7_0.png" />
+</div>
+</div>
+<section id="la-forma-estandar">
+<h2>La forma estándar<a class="headerlink" href="#la-forma-estandar" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Con el fin de identificar problemas similares y unificar una metodología de resolución (por ejemplo para utilizar en software de terceros) podemos convertir cualquier problema de programación lineal en un formato estándar. Para ello, vamos a reducir todo problema a uno del tipo</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  c^\intercal x\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+Ax = b\\
+x \geq 0
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>donde como antes, <span class="math notranslate nohighlight">\(x, c \in \mathbb{R}^n\)</span>, <span class="math notranslate nohighlight">\(b \in \mathbb{R}^m\)</span> y <span class="math notranslate nohighlight">\(A\)</span> una matrix real de dimensión <span class="math notranslate nohighlight">\(m\times n\)</span>.</p>
+<p>Para conseguir la forma estándar partiendo de un problema de programación lineal general, podemos realizar las siguientes transformaciones:</p>
+<ul class="simple">
+<li><p><strong>Función objetivo</strong>: si tenemos una función que maximizar, lo que hacemos es minimizar su inverso aditivo.</p></li>
+<li><p><strong>Variables de decisión con desigualdad</strong>: dada una variable <span class="math notranslate nohighlight">\(x_j\)</span> sujeta a <span class="math notranslate nohighlight">\(x_j \leq 0\)</span>, consideremos <span class="math notranslate nohighlight">\(x_j^{'} = -x_j\)</span> y la sustituimos en el problema original.</p></li>
+<li><p><strong>Variables de decisión sin restricciones</strong>: aquí lo que hacemos es realizar la descomposición</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ x_j = x_j^+ + x_j^- \]</div>
+<p>donde <span class="math notranslate nohighlight">\(x_j^+ = \max\{x_j, 0\}\)</span>, <span class="math notranslate nohighlight">\(x_j^- = \max\{-x_j, 0\}\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Restricciones con desigualdad</strong>: Dada una restricción del tipo <span class="math notranslate nohighlight">\(\sum_{i=1}^n a_ix_i \leq b\)</span>, introducimos una nueva variable, denominada <strong>variable de holgura</strong>, <span class="math notranslate nohighlight">\(s_j\)</span> y cambiamos la restricción por</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c}
+\sum_{i=1}^n a_ix_i + s_j = b\\
+s_j \geq 0
+\end{array}
+\end{split}\]</div>
+<p>Transformemos el problema inicial a su formato estándar. Recordemos que el problema era el siguiente</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{max. } \quad &amp;  3x_1 + 4x_2\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 \leq 30 \\
+4x_1 + 2x_2 \leq 20 \\
+x_1, x_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>Realizando las tranformaciones necesarias obtenemos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  -(3x_1 + 4x_2)\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 + s_1 = 30 \\
+4x_1 + 2x_2 + s_2 = 20 \\
+x_1, x_2, s_1, s_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+</section>
+<section id="utilizando-scipy-para-resolver-problemas-lineales">
+<h2>Utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code> para resolver problemas lineales.<a class="headerlink" href="#utilizando-scipy-para-resolver-problemas-lineales" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Vamos a utilizar el paquete <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> para resolver el problema planteado anteriormente. En concreto la función <code class="docutils literal notranslate"><span class="pre">linprog</span></code> acepta problemas lineales planteados de la siguiente forma</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  c^\intercal x\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+A_{\text{ub}}x \leq b_{\text{ub}}\\
+A_{\text{eq}}x = b_{\text{eq}}\\
+l \leq x \leq u
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>es decir, más generales que la forma estándar. Por defecto tenemos que <span class="math notranslate nohighlight">\(l=0\)</span> y que <code class="docutils literal notranslate"><span class="pre">u=None</span></code>. Para resolver el problema</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{max. } \quad &amp;  3x_1 + 4x_2\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 \leq 30 \\
+4x_1 + 2x_2 \leq 20 \\
+x_1, x_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>utilizamores el siguiente código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linprog</span>
+
+<span class="c1"># parametros de la función de coste</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="c1"># Matriz de desigualdades</span>
+<span class="n">A_ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">b_ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+
+<span class="c1"># Resolvemos el proble</span>
+<span class="c1"># Podemos un signo negativo a c porque linprog busca el mínimo por defecto</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">linprog</span><span class="p">(</span><span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="n">A_ub</span><span class="o">=</span><span class="n">A_ub</span><span class="p">,</span> <span class="n">b_ub</span><span class="o">=</span><span class="n">b_ub</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;revised simplex&#39;</span><span class="p">)</span>
+
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     con: array([], dtype=float64)
+     fun: -27.5
+ message: &#39;Optimization terminated successfully.&#39;
+     nit: 2
+   slack: array([0., 0.])
+  status: 0
+ success: True
+       x: array([2.5, 5. ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notemos el signo negativo que hemos añadido al primer argumento de <code class="docutils literal notranslate"><span class="pre">linprog</span></code> para encontrar un máximo y no un mínimo de la función. Estamos usando la función <code class="docutils literal notranslate"><span class="pre">linprog</span></code> como una caja negra, pero en realidad lo que se hace por debajo es transformar el problema en su forma estándar y resolverlo usando el método simplex. Aún con ello, muchas veces tendremos que transformar nuestro problema para que tome la estructura aceptada por <code class="docutils literal notranslate"><span class="pre">linprog</span></code>.</p>
+<div class="exercise admonition" id="linear-programming-1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 69 </span></p>
+<section id="exercise-content">
+<p>Transforma manualmente el problema anterior a la forma estándar y resuélvelo usando <code class="docutils literal notranslate"><span class="pre">linprog</span></code> y comprueba que las soluciones óptimas coinciden.</p>
+</section>
+</div>
+<div class="solution dropdown admonition" id="notebooks/practicas/linear-programming-solution-1">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#linear-programming-1"> Exercise 69</a></p>
+<section id="solution-content">
+<p>Ya hemos visto anteriormente la forma que toma el problema si lo pasamos a la forma estándar,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\text{min. } \quad &amp;  -(3x_1 + 4x_2)\\
+\text{s.t. }\quad &amp;
+\begin{array}{c}
+2x_1 + 5x_2 + s_1 = 30 \\
+4x_1 + 2x_2 + s_2 = 20 \\
+x_1, x_2, s_1, s_2 \geq 0 
+\end{array}
+\end{aligned}   
+\end{split}\]</div>
+<p>Simplemente tenemos que añadir dos variables de holgura y crear los argumentos <code class="docutils literal notranslate"><span class="pre">A_eq</span></code>, <code class="docutils literal notranslate"><span class="pre">b_eq</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Añadimos un cero al vector de parámetros</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Ahora tenemos una matriz para las igualdades</span>
+<span class="n">A_eq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">b_eq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+
+<span class="c1"># dejamos l y u por defecto</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">linprog</span><span class="p">(</span><span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="n">A_eq</span><span class="o">=</span><span class="n">A_eq</span><span class="p">,</span> <span class="n">b_eq</span><span class="o">=</span><span class="n">b_eq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;revised simplex&quot;</span><span class="p">)</span>
+
+<span class="n">s</span>
+</pre></div>
+</div>
+</section>
+</div>
+<div class="exercise admonition" id="linear-programming-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 70 </span></p>
+<section id="exercise-content">
+<p>Resuelve el siguiente problema de inversión utilizando programación lineal:</p>
+<p>Un fondo de inversión cuenta con 100.000$ para ser invertidos a lo largo de 3 años. Dicho fondo tiene a su disposición tres tipo de inversiones:</p>
+<ol class="simple">
+<li><p><strong>Renta fija</strong>: En este caso el fondo va a pagar al principio de cada año la misma cantidad, recibiendo al final del tercer año el 130% del capital total invertido. El fondo debe decidir al principio del primer año la cantidad a depositar en dicha inversión.</p></li>
+<li><p><strong>Cuenta bancaria</strong>: El fondo deposita al principio de cada año una cantidad a su elección y recibe el capital más el 6% de interés al final de cada año. Además, a principio de cada año el fondo puede pedir prestados hasta 20.000$ asumiendo la deuda más un 6% de interés al final de dicho año. El fondo puede decidir cuánto deposita o pide prestado al principio de cada año.</p></li>
+<li><p><strong>Bonos corporativos</strong>: Al principio del segundo año, el fondo tiene la opción de participar en unos bonos corporativos con un capital de hasta 50.000$, de modo que a finales del tercer año recibirá un pago por valor del 130% de la cantidad invertida en el bono.</p></li>
+</ol>
+</section>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -541,17 +900,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="models.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="gradient-descent.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Probando modelos de clasificación binaria</p>
+            <p class="prev-next-title">Descenso del gradiente:  Regresión Lineal</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="maximum-likelihood-estimation.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="eda.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Estimador de máxima verosimilitud</p>
+        <p class="prev-next-title">Ejemplo de análisis exploratorio</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
