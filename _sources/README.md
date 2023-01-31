@@ -65,3 +65,13 @@ El material en el que se han basado los capítulos es el siguiente:
 2. [Numpy](numpy):
     - {cite}`mckinney2012python`
     - {cite}`harrison2021effective`
+
+4. [Matplotlib](matplotlib):
+    - {cite}`mckinney2012python`
+
+3. [Pandas](pandas):
+    - {cite}`harrison2021effective`
+
+4. [Casos prácticos](practicas):
+    - {cite}`géron2019hands`
+    - {cite}`sargent2015quantitative`
