@@ -520,6 +520,11 @@ title="Print to PDF"
    Visualizaciones
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encapsulando-todo-en-una-sola-clase">
+   Encapsulando todo en una sola clase
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -549,6 +554,11 @@ title="Print to PDF"
    Visualizaciones
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encapsulando-todo-en-una-sola-clase">
+   Encapsulando todo en una sola clase
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -570,55 +580,28 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting yfinance
-  Downloading yfinance-0.2.4-py2.py3-none-any.whl (51 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">51.4/51.4 KB</span> <span class=" -Color -Color-Red">1.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hCollecting beautifulsoup4&gt;=4.11.1
-  Downloading beautifulsoup4-4.11.1-py3-none-any.whl (128 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">128.2/128.2 KB</span> <span class=" -Color -Color-Red">6.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hCollecting frozendict&gt;=2.3.4
-  Downloading frozendict-2.3.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (110 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">111.0/111.0 KB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hCollecting html5lib&gt;=1.1
-  Downloading html5lib-1.1-py2.py3-none-any.whl (112 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">112.2/112.2 KB</span> <span class=" -Color -Color-Red">5.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: pandas&gt;=1.3.0 in /usr/local/lib/python3.8/dist-packages (from yfinance) (1.3.5)
-Requirement already satisfied: appdirs&gt;=1.4.4 in /usr/local/lib/python3.8/dist-packages (from yfinance) (1.4.4)
-Collecting requests&gt;=2.26
-  Downloading requests-2.28.2-py3-none-any.whl (62 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">62.8/62.8 KB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hCollecting cryptography&gt;=3.3.2
-  Downloading cryptography-39.0.0-cp36-abi3-manylinux_2_28_x86_64.whl (4.2 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.2/4.2 MB</span> <span class=" -Color -Color-Red">41.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: numpy&gt;=1.16.5 in /usr/local/lib/python3.8/dist-packages (from yfinance) (1.21.6)
+Requirement already satisfied: yfinance in /usr/local/lib/python3.8/dist-packages (0.2.9)
+Requirement already satisfied: pandas&gt;=1.3.0 in /usr/local/lib/python3.8/dist-packages (from yfinance) (1.3.5)
 Requirement already satisfied: lxml&gt;=4.9.1 in /usr/local/lib/python3.8/dist-packages (from yfinance) (4.9.2)
+Requirement already satisfied: frozendict&gt;=2.3.4 in /usr/local/lib/python3.8/dist-packages (from yfinance) (2.3.4)
 Requirement already satisfied: multitasking&gt;=0.0.7 in /usr/local/lib/python3.8/dist-packages (from yfinance) (0.0.11)
+Requirement already satisfied: beautifulsoup4&gt;=4.11.1 in /usr/local/lib/python3.8/dist-packages (from yfinance) (4.11.2)
+Requirement already satisfied: appdirs&gt;=1.4.4 in /usr/local/lib/python3.8/dist-packages (from yfinance) (1.4.4)
+Requirement already satisfied: requests&gt;=2.26 in /usr/local/lib/python3.8/dist-packages (from yfinance) (2.28.2)
+Requirement already satisfied: cryptography&gt;=3.3.2 in /usr/local/lib/python3.8/dist-packages (from yfinance) (39.0.0)
+Requirement already satisfied: numpy&gt;=1.16.5 in /usr/local/lib/python3.8/dist-packages (from yfinance) (1.21.6)
+Requirement already satisfied: html5lib&gt;=1.1 in /usr/local/lib/python3.8/dist-packages (from yfinance) (1.1)
 Requirement already satisfied: pytz&gt;=2022.5 in /usr/local/lib/python3.8/dist-packages (from yfinance) (2022.7)
-Collecting soupsieve&gt;1.2
-  Downloading soupsieve-2.3.2.post1-py3-none-any.whl (37 kB)
+Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.8/dist-packages (from beautifulsoup4&gt;=4.11.1-&gt;yfinance) (2.3.2.post1)
 Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.8/dist-packages (from cryptography&gt;=3.3.2-&gt;yfinance) (1.15.1)
-Requirement already satisfied: six&gt;=1.9 in /usr/local/lib/python3.8/dist-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.15.0)
 Requirement already satisfied: webencodings in /usr/local/lib/python3.8/dist-packages (from html5lib&gt;=1.1-&gt;yfinance) (0.5.1)
+Requirement already satisfied: six&gt;=1.9 in /usr/local/lib/python3.8/dist-packages (from html5lib&gt;=1.1-&gt;yfinance) (1.15.0)
 Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.8/dist-packages (from pandas&gt;=1.3.0-&gt;yfinance) (2.8.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests&gt;=2.26-&gt;yfinance) (2.10)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests&gt;=2.26-&gt;yfinance) (2022.12.7)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests&gt;=2.26-&gt;yfinance) (1.24.3)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.8/dist-packages (from requests&gt;=2.26-&gt;yfinance) (2.1.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests&gt;=2.26-&gt;yfinance) (2022.12.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests&gt;=2.26-&gt;yfinance) (2.10)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests&gt;=2.26-&gt;yfinance) (1.24.3)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.8/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=3.3.2-&gt;yfinance) (2.21)
-Installing collected packages: soupsieve, requests, html5lib, frozendict, cryptography, beautifulsoup4, yfinance
-  Attempting uninstall: requests
-    Found existing installation: requests 2.25.1
-    Uninstalling requests-2.25.1:
-      Successfully uninstalled requests-2.25.1
-  Attempting uninstall: html5lib
-    Found existing installation: html5lib 1.0.1
-    Uninstalling html5lib-1.0.1:
-      Successfully uninstalled html5lib-1.0.1
-  Attempting uninstall: beautifulsoup4
-    Found existing installation: beautifulsoup4 4.6.3
-    Uninstalling beautifulsoup4-4.6.3:
-      Successfully uninstalled beautifulsoup4-4.6.3
-Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.4 html5lib-1.1 requests-2.28.2 soupsieve-2.3.2.post1 yfinance-0.2.4
 </pre></div>
 </div>
 </div>
@@ -636,7 +619,7 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 
 <span class="c1"># configure matplotlib</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline  
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
 <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;seaborn-whitegrid&quot;</span><span class="p">)</span>
 
@@ -674,7 +657,7 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
     <span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">stocks</span> <span class="o">/</span> <span class="n">stocks</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">returns</span>
 
-<span class="k">def</span> <span class="nf">generate_weights</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">equal</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">generate_weights</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">equal</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">equal</span><span class="p">:</span> 
         <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
         <span class="k">return</span> <span class="n">w</span>
@@ -697,7 +680,7 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 <li><p><code class="docutils literal notranslate"><span class="pre">get_returns</span></code>: esta función toma un DataFrame de acciones y calcula los retornos diarios utilizando la fórmula logarítmica de retorno. Utiliza el método <code class="docutils literal notranslate"><span class="pre">np.log()</span></code> para calcular los retornos y el método <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> para eliminar las filas con valores faltantes. La función devuelve el DataFrame de retornos.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">generate_weight</span></code>: esta función genera pesos aleatorios para cada acción, recibe como argumento el número de acciones a considerar. Utiliza la función <code class="docutils literal notranslate"><span class="pre">np.random.rand()</span></code> para generar los pesos aleatorios y luego normaliza los pesos dividiéndolos entre la suma total de los pesos. La función devuelve el DataFrame de pesos normalizados. Si <code class="docutils literal notranslate"><span class="pre">equal</span></code> es <code class="docutils literal notranslate"><span class="pre">True</span></code>, entonces todos los pesos son el mismo.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">get_portfolio_return</span></code>: esta función toma un array de pesos y un DataFrame de retornos y calcula el retorno diario esperado. Utiliza el método <code class="docutils literal notranslate"><span class="pre">mean()</span></code> de Pandas para calcular los retornos medios de cada acción y luego los multiplica por los pesos correspondientes. La función devuelve el retorno diario esperado.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">get_risk</span></code>: esta función toma un array de pesos y un DataFrame de retornos y calcula el riesgo asociado a esos pesos. Utiliza el método <code class="docutils literal notranslate"><span class="pre">cov()</span></code> de Pandas para calcular la matriz de covarianza de los retornos y luego multiplica la matriz de covarianza por los pesos. La función devuelve el riesgo calculado. Si <span class="math notranslate nohighlight">\(w\)</span> es el vector de pesos y <span class="math notranslate nohighlight">\(\Omega = (\sigma)_{ij}\)</span> la <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">matrix de covarianza</a> de retornos, el riesgo se calcula como</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_risk</span></code>: esta función toma un array de pesos y un DataFrame de retornos y calcula el riesgo asociado a esos pesos. Utiliza el método <code class="docutils literal notranslate"><span class="pre">cov()</span></code> de Pandas para calcular la matriz de covarianza de los retornos y luego multiplica la matriz de covarianza por los pesos. La función devuelve el riesgo calculado. Si <span class="math notranslate nohighlight">\(w\)</span> es el vector de pesos y <span class="math notranslate nohighlight">\(\Omega = (\sigma)_{ij}\)</span> la <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">matriz de covarianza</a> de retornos, el riesgo se calcula como</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
@@ -711,6 +694,7 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 </div>
 </div>
 </div>
+<p>Podemos utilizar <code class="docutils literal notranslate"><span class="pre">pandas</span></code> directamente para representar las series, llamando al método <code class="docutils literal notranslate"><span class="pre">plot</span></code> de la clase <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stocks</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -718,12 +702,13 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f327be61550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f519580f070&gt;
 </pre></div>
 </div>
-<img alt="../../_images/portfolio-optimization_8_1.png" src="../../_images/portfolio-optimization_8_1.png" />
+<img alt="../../_images/portfolio-optimization_9_1.png" src="../../_images/portfolio-optimization_9_1.png" />
 </div>
 </div>
+<p>Representamos ahora la serie de retornos y los correspondientes histogramas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -731,10 +716,29 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f327bd75ac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f51952b7610&gt;
 </pre></div>
 </div>
-<img alt="../../_images/portfolio-optimization_9_1.png" src="../../_images/portfolio-optimization_9_1.png" />
+<img alt="../../_images/portfolio-optimization_11_1.png" src="../../_images/portfolio-optimization_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">returns</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f519523d760&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f51951f3910&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f519521fd30&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f51951d9160&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f5195185580&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x7f5195132a00&gt;]],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../../_images/portfolio-optimization_12_1.png" src="../../_images/portfolio-optimization_12_1.png" />
 </div>
 </div>
 <section id="buscamos-un-vector-de-pesos-optimo-que-minimice-el-riesgo">
@@ -785,7 +789,7 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 <h2>Visualizaciones<a class="headerlink" href="#visualizaciones" title="Enlazar permanentemente con este título">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">returns</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">returns</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">w_opt</span><span class="p">):</span>
 
     <span class="c1"># individual stocks</span>
     <span class="n">individual_returns</span> <span class="o">=</span> <span class="n">returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -805,7 +809,6 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
     <span class="n">eq_portfolio_risk</span> <span class="o">=</span> <span class="n">get_risk</span><span class="p">(</span><span class="n">w_eq</span><span class="p">,</span> <span class="n">returns</span><span class="p">)</span>
 
     <span class="c1"># optimal portfolio</span>
-    <span class="n">w_opt</span> <span class="o">=</span> <span class="n">get_optimal_portfolio_weights</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
     <span class="n">opt_portfolio_returns</span> <span class="o">=</span> <span class="n">get_portfolio_return</span><span class="p">(</span><span class="n">w_opt</span><span class="p">,</span> <span class="n">returns</span><span class="p">)</span>
     <span class="n">opt_portfolio_risk</span> <span class="o">=</span> <span class="n">get_risk</span><span class="p">(</span><span class="n">w_opt</span><span class="p">,</span> <span class="n">returns</span><span class="p">)</span>
 
@@ -829,25 +832,182 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">generate_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">returns</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">w_opt</span> <span class="o">=</span> <span class="n">get_optimal_portfolio_weights</span><span class="p">(</span><span class="n">returns</span><span class="p">)</span>
+<span class="n">generate_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">returns</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">w_opt</span><span class="o">=</span><span class="n">w_opt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vector de pesos óptimo
-FIGS    2.754061e-17
-IDXX    2.103672e-01
-MTN     4.780323e-01
+FIGS    2.327376e-18
+IDXX    2.109383e-01
+MTN     4.760101e-01
 TSLA    0.000000e+00
-TSM     3.116005e-01
+TSM     3.130515e-01
 dtype: float64
 1.0
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3278a47430&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f51951930d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/portfolio-optimization_14_2.png" src="../../_images/portfolio-optimization_14_2.png" />
+<img alt="../../_images/portfolio-optimization_17_2.png" src="../../_images/portfolio-optimization_17_2.png" />
+</div>
+</div>
+</section>
+<section id="encapsulando-todo-en-una-sola-clase">
+<h2>Encapsulando todo en una sola clase<a class="headerlink" href="#encapsulando-todo-en-una-sola-clase" title="Enlazar permanentemente con este título">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib.axes</span> <span class="kn">import</span> <span class="n">Axes</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">class</span> <span class="nc">OptimalPortfolio</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">symbols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> 
+        <span class="n">start_date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+        <span class="n">end_date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stocks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_stocks</span><span class="p">(</span><span class="n">symbols</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">returns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_returns</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stocks</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">w_opt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_optimal_portfolio_weights</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">generate_stocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">start_date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">):</span> 
+        <span class="n">stocks</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
+            <span class="n">symbols</span><span class="p">,</span> 
+            <span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> 
+            <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span> 
+            <span class="n">progress</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">stocks</span>
+
+    <span class="k">def</span> <span class="nf">get_returns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stocks</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">stocks</span> <span class="o">/</span> <span class="n">stocks</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">returns</span>
+
+    <span class="k">def</span> <span class="nf">generate_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">equal</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">equal</span><span class="p">:</span> 
+            <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+            <span class="k">return</span> <span class="n">w</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">w_norm</span> <span class="o">=</span> <span class="n">w</span> <span class="o">/</span> <span class="n">w</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">w_norm</span>
+
+    <span class="k">def</span> <span class="nf">get_portfolio_return</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">returns</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_risk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">returns</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="nd">@returns</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span><span class="nd">@w</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_optimal_portfolio_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># The constraints</span>
+        <span class="n">cons</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;eq&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;fun&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="p">},</span> 
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ineq&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;fun&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="n">w</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">)</span> 
+
+        <span class="c1"># Every stock can get any weight from 0 to 1</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> 
+
+        <span class="c1"># Initialize the weights with an even split</span>
+        <span class="c1"># In out case each stock will have 10% at the beginning</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+        <span class="n">objective</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_risk</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="p">)</span> 
+
+        <span class="n">optimized_results</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">guess</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;SLSQP&quot;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">cons</span><span class="p">)</span>
+
+        <span class="n">w_opt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">optimized_results</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">w_opt</span>
+
+    <span class="k">def</span> <span class="nf">generate_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">Axes</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+
+        <span class="c1"># individual stocks</span>
+        <span class="n">individual_returns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">individual_risks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+        
+        <span class="c1"># random portfolios</span>
+        <span class="n">portfolio_returns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">portfolio_risks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">portfolio_returns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_portfolio_return</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="p">))</span>
+            <span class="n">portfolio_risks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_risk</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="p">))</span>
+
+        <span class="c1"># equally distributed portfolio</span>
+        <span class="n">w_eq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">equal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">eq_portfolio_returns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_portfolio_return</span><span class="p">(</span><span class="n">w_eq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="p">)</span>
+        <span class="n">eq_portfolio_risk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_risk</span><span class="p">(</span><span class="n">w_eq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="p">)</span>
+
+        <span class="c1"># optimal portfolio</span>
+        <span class="n">opt_portfolio_returns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_portfolio_return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w_opt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="p">)</span>
+        <span class="n">opt_portfolio_risk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_risk</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w_opt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">individual_returns</span><span class="p">,</span> <span class="n">individual_risks</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;individual stocks&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">returns</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="p">(</span><span class="n">individual_returns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">individual_risks</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">portfolio_returns</span><span class="p">,</span> <span class="n">portfolio_risks</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;random portfolio&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">eq_portfolio_returns</span><span class="p">,</span> <span class="n">eq_portfolio_risk</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;eq. dist. portfolio&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">opt_portfolio_returns</span><span class="p">,</span> <span class="n">opt_portfolio_risk</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;optimal portfolio&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Expected daily return&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;risk&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Return vs risk&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">optimal_portfolio</span> <span class="o">=</span> <span class="n">OptimalPortfolio</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;TSLA&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;NVDA&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;AMZN&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;JNJ&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;V&quot;</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;seaborn-whitegrid&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">optimal_portfolio</span><span class="o">.</span><span class="n">generate_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fae5b77a2b0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/portfolio-optimization_21_1.png" src="../../_images/portfolio-optimization_21_1.png" />
 </div>
 </div>
 </section>
