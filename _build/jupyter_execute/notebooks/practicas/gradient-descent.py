@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# (practicas)=
 # # Descenso del gradiente:  Regresión Lineal 
 
 # En esta sección vamos implementar varias versiones del [algoritmo del descenso del gradiente](https://en.wikipedia.org/wiki/Gradient_descent) para resolver el problema de la regresión lineal planteado en [este ejercicio](chapter2-linear-regression) sin necesidad de usar una fórmula cerrada que nos da el valor óptimo de los parámetros del modelo. 
