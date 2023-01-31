@@ -561,7 +561,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="optimizacion-de-portfolio">
 <h1>Optimización de portfolio<a class="headerlink" href="#optimizacion-de-portfolio" title="Enlazar permanentemente con este título">#</a></h1>
-<p>Primero instalamos vía pip la librería <code class="docutils literal notranslate"><span class="pre">yfinance</span></code>, que no está disponible en Google Colab, a diferencia de otras librerías de ciencia de datos populares como <code class="docutils literal notranslate"><span class="pre">pandas</span></code> o <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<p>Primero instalamos vía pip la librería <code class="docutils literal notranslate"><span class="pre">yfinance</span></code>, que no está disponible en Google Colab, y es una herramienta que permite descargar y manipular datos financieros de Yahoo Finance. Con esta librería se pueden obtener precios históricos de acciones, índices, criptomonedas, bonos, etc. y realizar análisis técnicos, como gráficos, media móvil, volatilidad, entre otros. Además, también se pueden descargar información sobre dividendos y splits de acciones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>yfinance
@@ -653,17 +653,11 @@ Successfully installed beautifulsoup4-4.11.1 cryptography-39.0.0 frozendict-2.3.
 </div>
 </div>
 </div>
-<p>Este fragmento de código está importando varias bibliotecas necesarias para el resto del código.</p>
+<p>Aquí hemos definido algunos imports, configuraciones y variables que utilizaremos en el resto del notebook.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> se utiliza para trabajar con fechas y horas.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">typing.List</span></code> se utiliza para indicar que la variable symbols es una lista.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> es una biblioteca de análisis de datos popular que proporciona estructuras de datos y herramientas para manipular y analizar datos.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> es una biblioteca de cómputo científico que proporciona funciones y herramientas para trabajar con matrices y vectores.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">yfinance</span></code> es una biblioteca para descargar datos financieros de Yahoo Finance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code> es una función de la biblioteca Scipy para minimizar una función dada.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> es una biblioteca de trazado para crear gráficos y visualizaciones.</p></li>
 </ul>
-<p>La línea <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> es un comando específico de Jupyter Notebook que permite mostrar gráficos dentro del notebook.</p>
 <p>La variable <code class="docutils literal notranslate"><span class="pre">symbols</span></code> contiene una lista de códigos de acciones (símbolos) para varias compañías tecnológicas populares. Finalmente, <code class="docutils literal notranslate"><span class="pre">start_date</span></code> es un objeto de tipo <code class="docutils literal notranslate"><span class="pre">datetime.date</span></code> que representa la primera fecha a partir de la cual vamos a traer datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
