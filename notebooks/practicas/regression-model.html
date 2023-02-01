@@ -523,6 +523,23 @@ title="Print to PDF"
    Visualizando los datos
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#profundizando-en-los-datos">
+   Profundizando en los datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlaciones">
+     Correlaciones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generacion-de-nuevas-variables">
+   Generación de nuevas variables
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -555,6 +572,23 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualizando-los-datos">
    Visualizando los datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#profundizando-en-los-datos">
+   Profundizando en los datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlaciones">
+     Correlaciones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generacion-de-nuevas-variables">
+   Generación de nuevas variables
   </a>
  </li>
 </ul>
@@ -597,6 +631,7 @@ title="Print to PDF"
 
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
 <span class="c1"># Where to save the figures</span>
 <span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
@@ -667,7 +702,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a24456bc-214b-436e-a212-973674d00b9c">
+  <div id="df-a94aa724-b54f-4fd1-89b9-9fbcca9679b3">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -768,7 +803,7 @@ title="Print to PDF"
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-a24456bc-214b-436e-a212-973674d00b9c')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a94aa724-b54f-4fd1-89b9-9fbcca9679b3')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -819,12 +854,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-a24456bc-214b-436e-a212-973674d00b9c button.colab-df-convert');
+          document.querySelector('#df-a94aa724-b54f-4fd1-89b9-9fbcca9679b3 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-a24456bc-214b-436e-a212-973674d00b9c');
+          const element = document.querySelector('#df-a94aa724-b54f-4fd1-89b9-9fbcca9679b3');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -885,7 +920,7 @@ memory usage: 1.6+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93">
+  <div id="df-30c9ceda-8a29-4791-8285-6e0abc206f71">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1016,7 +1051,7 @@ memory usage: 1.6+ MB
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-30c9ceda-8a29-4791-8285-6e0abc206f71')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1067,12 +1102,12 @@ memory usage: 1.6+ MB
 
       <script>
         const buttonEl =
-          document.querySelector('#df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93 button.colab-df-convert');
+          document.querySelector('#df-30c9ceda-8a29-4791-8285-6e0abc206f71 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93');
+          const element = document.querySelector('#df-30c9ceda-8a29-4791-8285-6e0abc206f71');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1243,7 +1278,7 @@ memory usage: 1.6+ MB
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;./images/end_to_end_project/california.png&#39;,
- &lt;http.client.HTTPMessage at 0x7f460a345b80&gt;)
+ &lt;http.client.HTTPMessage at 0x7f79825043d0&gt;)
 </pre></div>
 </div>
 </div>
@@ -1257,7 +1292,6 @@ memory usage: 1.6+ MB
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> 
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> 
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> 
-    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span>
     <span class="n">s</span><span class="o">=</span><span class="n">housing</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> 
     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span><span class="p">,</span>       
     <span class="n">c</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> 
@@ -1290,6 +1324,201 @@ memory usage: 1.6+ MB
 <img alt="../../_images/regression-model_40_0.png" src="../../_images/regression-model_40_0.png" />
 </div>
 </div>
+<div class="exercise admonition" id="regression-model-4">
+
+<p class="admonition-title"><span class="caption-number">Exercise 74 </span></p>
+<section id="exercise-content">
+<p>Saca conclusiones del anterior gráfico.</p>
+</section>
+</div>
+</section>
+<section id="profundizando-en-los-datos">
+<h2>Profundizando en los datos<a class="headerlink" href="#profundizando-en-los-datos" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="correlaciones">
+<h3>Correlaciones<a class="headerlink" href="#correlaciones" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Vamos a calcular la matriz de correlaciones de las variables numéricas del dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">housing</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos cómo de correlacionan las variables regresoras con la objetivo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_matrix</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>median_house_value    1.000000
+median_income         0.689550
+total_rooms           0.139098
+housing_median_age    0.096332
+households            0.068899
+total_bedrooms        0.054104
+population           -0.022032
+longitude            -0.041585
+latitude             -0.147904
+Name: median_house_value, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>La función <code class="docutils literal notranslate"><span class="pre">heatmap</span></code> de la librería <strong>seaborn</strong> (basada en matplotlib) nos puede servir para visualizar la matriz de correlaciones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="k">def</span> <span class="nf">create_corr_mat_plot</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Axes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>    
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Matrix de correlación variables numéricas&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">create_corr_mat_plot</span><span class="p">(</span><span class="n">corr_matrix</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regression-model_48_0.png" src="../../_images/regression-model_48_0.png" />
+</div>
+</div>
+<p>También podemos usar la función <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas.plotting</span></code> para hacer un scatter plot de los atributos más correlacionados con la variable objetivo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
+
+<span class="n">attributes</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">corr_matrix</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
+<span class="n">scatter_matrix</span><span class="p">(</span><span class="n">housing</span><span class="p">[</span><span class="n">attributes</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regression-model_50_0.png" src="../../_images/regression-model_50_0.png" />
+</div>
+</div>
+<p>Hagamos zoom en el plot de la variable más correlacionada con <code class="docutils literal notranslate"><span class="pre">median_house_value</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> 
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;median_income&quot;</span><span class="p">,</span> 
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">550000</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regression-model_52_0.png" src="../../_images/regression-model_52_0.png" />
+</div>
+</div>
+<p>Vemos como efectivamente hay una correlación positiva entre ambas variables y el corte en el valor mediano de las viviendas en 500.000 que habíamos notado en el histograma. Pero también hay un par de líneas horizontales cerca de los 350.000 y 450.000 que no habíamos notado antes, ni tampoco se visualizan en el resto de gráficas de tipo scatter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 16512 entries, 15048 to 16947
+Data columns (total 10 columns):
+ #   Column              Non-Null Count  Dtype  
+---  ------              --------------  -----  
+ 0   longitude           16512 non-null  float64
+ 1   latitude            16512 non-null  float64
+ 2   housing_median_age  16512 non-null  float64
+ 3   total_rooms         16512 non-null  float64
+ 4   total_bedrooms      16356 non-null  float64
+ 5   population          16512 non-null  float64
+ 6   households          16512 non-null  float64
+ 7   median_income       16512 non-null  float64
+ 8   median_house_value  16512 non-null  float64
+ 9   ocean_proximity     16512 non-null  object 
+dtypes: float64(9), object(1)
+memory usage: 1.4+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="generacion-de-nuevas-variables">
+<h2>Generación de nuevas variables<a class="headerlink" href="#generacion-de-nuevas-variables" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Un paso muy importante en el procesamiento de datos que alimentan a un modelo es la combinación de atributos para generar nuevas variables que puedan mejorar el rendimiento del mismo.</p>
+<p>En este caso por ejemplo tenemos el número total de habitaciones en un distrito (variable <code class="docutils literal notranslate"><span class="pre">total_rooms</span></code>) y también el número total de cuartos <code class="docutils literal notranslate"><span class="pre">total_bedrooms</span></code>, pero parece razonable que otros atributos, como el número de habitaciones por casa o el ratio de cuartos por habitación podrían tener más sentido. Vamos a definirlos</p>
+<div class="exercise admonition" id="regression-model-5">
+
+<p class="admonition-title"><span class="caption-number">Exercise 75 </span></p>
+<section id="exercise-content">
+<p>Define las siguientes columnas de <code class="docutils literal notranslate"><span class="pre">housing</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rooms_per_household</span></code>: número de habitaciones por vivienda</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bedrooms_per_room</span></code>: número de cuartos por habitación</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">population_per_household</span></code>: habitantes por vivienda</p></li>
+</ul>
+</section>
+</div>
+<div class="solution dropdown admonition" id="notebooks/practicas/regression-model-solution-5">
+
+<p class="admonition-title">Solution to<a class="reference internal" href="#regression-model-5"> Exercise 75</a></p>
+<section id="solution-content">
+<p>housing[«rooms_per_household»] = housing[«total_rooms»]/housing[«households»]
+housing[«bedrooms_per_room»] = housing[«total_bedrooms»]/housing[«total_rooms»]
+housing[«population_per_household»]=housing[«population»]/housing[«households»]</p>
+</section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;households&quot;</span><span class="p">]</span>
+<span class="n">housing</span><span class="p">[</span><span class="s2">&quot;bedrooms_per_room&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_bedrooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span>
+<span class="n">housing</span><span class="p">[</span><span class="s2">&quot;population_per_household&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;households&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">housing</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">corr_matrix</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>median_house_value          1.000000
+median_income               0.689550
+rooms_per_household         0.156987
+total_rooms                 0.139098
+housing_median_age          0.096332
+households                  0.068899
+total_bedrooms              0.054104
+population_per_household   -0.019747
+population                 -0.022032
+longitude                  -0.041585
+latitude                   -0.147904
+bedrooms_per_room          -0.252534
+Name: median_house_value, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parece que las variables <code class="docutils literal notranslate"><span class="pre">rooms_per_household</span></code> y <code class="docutils literal notranslate"><span class="pre">bedrooms_per_room</span></code> tienen grados de correlación superiores a los de las variables originales.</p>
 </section>
 </section>
 
