@@ -996,7 +996,23 @@ memory usage: 1.6+ MB
 </div>
 </div>
 <p>Tenemos 9 columnas numéricas, una columna categórica y un total de 20640 filas. <strong>Nuestro objetivo será predecir la variable <code class="docutils literal notranslate"><span class="pre">median_house_value</span></code></strong> cuando dispongamos del resto de columnas para un barrio nuevo. Veamos qué posibles valores tiene la columna tipo <code class="docutils literal notranslate"><span class="pre">object</span></code> llamada <code class="docutils literal notranslate"><span class="pre">ocean_proximity</span></code></p>
-<p>housing[«ocean_proximity»].value_counts()</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1H OCEAN     7345
+INLAND        5241
+NEAR OCEAN    2118
+NEAR BAY      1806
+ISLAND           2
+Name: ocean_proximity, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 <p>Vamos con el resto de columnas numéricas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
