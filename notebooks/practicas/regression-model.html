@@ -574,6 +574,13 @@ title="Print to PDF"
 <p>En primer lugar, vamos a importar algunos módulos, configurar cómo se renderizan las figuras de matplotlib para que se vean bien en la página y hacer algunas comprobaciones sobre el versionado de las librerías utilizadas. Definimos una función para guardar imágenes en caso de que queramos persisitir alguna de ellas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python ≥3.5 is required</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -590,10 +597,6 @@ title="Print to PDF"
 
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
-<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="c1"># Where to save the figures</span>
 <span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
@@ -664,7 +667,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-51801596-fa76-4388-9d25-8a42771dbd19">
+  <div id="df-a24456bc-214b-436e-a212-973674d00b9c">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -765,7 +768,7 @@ title="Print to PDF"
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-51801596-fa76-4388-9d25-8a42771dbd19')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a24456bc-214b-436e-a212-973674d00b9c')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -816,12 +819,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-51801596-fa76-4388-9d25-8a42771dbd19 button.colab-df-convert');
+          document.querySelector('#df-a24456bc-214b-436e-a212-973674d00b9c button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-51801596-fa76-4388-9d25-8a42771dbd19');
+          const element = document.querySelector('#df-a24456bc-214b-436e-a212-973674d00b9c');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -882,7 +885,7 @@ memory usage: 1.6+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-46c3071c-8835-40b0-a454-3d658e4d843c">
+  <div id="df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1013,7 +1016,7 @@ memory usage: 1.6+ MB
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-46c3071c-8835-40b0-a454-3d658e4d843c')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1064,12 +1067,12 @@ memory usage: 1.6+ MB
 
       <script>
         const buttonEl =
-          document.querySelector('#df-46c3071c-8835-40b0-a454-3d658e4d843c button.colab-df-convert');
+          document.querySelector('#df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-46c3071c-8835-40b0-a454-3d658e4d843c');
+          const element = document.querySelector('#df-7af1f863-bf6b-4144-b54f-4f41e0ed7b93');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1107,7 +1110,7 @@ memory usage: 1.6+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/regression-model_20_0.png" src="../../_images/regression-model_20_0.png" />
+<img alt="../../_images/regression-model_21_0.png" src="../../_images/regression-model_21_0.png" />
 </div>
 </div>
 <div class="exercise admonition" id="regression-model-2">
@@ -1182,7 +1185,7 @@ memory usage: 1.6+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/regression-model_32_0.png" src="../../_images/regression-model_32_0.png" />
+<img alt="../../_images/regression-model_33_0.png" src="../../_images/regression-model_33_0.png" />
 </div>
 </div>
 <p>Vamos a incluir un poco de transparencia en los puntos para poder apreciar las zonas con mayor densidad</p>
@@ -1194,7 +1197,31 @@ memory usage: 1.6+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/regression-model_34_0.png" src="../../_images/regression-model_34_0.png" />
+<img alt="../../_images/regression-model_35_0.png" src="../../_images/regression-model_35_0.png" />
+</div>
+</div>
+<p>Ahora añadimos opciones para que el tamaño de cada punto venga en función de la población del distrito y añadimos una barra de color para el precio mediano (variable objetivo)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> 
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> 
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> 
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;population&quot;</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> 
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;jet&quot;</span><span class="p">),</span> 
+    <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regression-model_37_0.png" src="../../_images/regression-model_37_0.png" />
 </div>
 </div>
 </section>
