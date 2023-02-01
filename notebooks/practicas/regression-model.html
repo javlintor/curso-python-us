@@ -570,8 +570,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eleccion-de-modelo-y-entrenamiento">
-   Elección de modelo y entrenamiento
+  <a class="reference internal nav-link" href="#entrenamiento-y-evaluacion">
+   Entrenamiento y evaluación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#buscando-el-mejor-modelo-tuneando-los-hiperparametros">
+   Buscando el mejor modelo tuneando los hiperparámetros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluar-el-conjunto-de-test">
+   Evaluar el conjunto de test
   </a>
  </li>
 </ul>
@@ -653,8 +663,18 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eleccion-de-modelo-y-entrenamiento">
-   Elección de modelo y entrenamiento
+  <a class="reference internal nav-link" href="#entrenamiento-y-evaluacion">
+   Entrenamiento y evaluación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#buscando-el-mejor-modelo-tuneando-los-hiperparametros">
+   Buscando el mejor modelo tuneando los hiperparámetros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluar-el-conjunto-de-test">
+   Evaluar el conjunto de test
   </a>
  </li>
 </ul>
@@ -1957,8 +1977,8 @@ Z = a + \frac{X - \text{max}(X)}{\text{max}(X) - \text{min}(X)}(b-a)
 </div>
 </div>
 </section>
-<section id="eleccion-de-modelo-y-entrenamiento">
-<h2>Elección de modelo y entrenamiento<a class="headerlink" href="#eleccion-de-modelo-y-entrenamiento" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="entrenamiento-y-evaluacion">
+<h2>Entrenamiento y evaluación<a class="headerlink" href="#entrenamiento-y-evaluacion" title="Enlazar permanentemente con este título">#</a></h2>
 <p>Vamos a utilizar un regresor lineal como el que construimos manualmente en otra práctica, pero en este caso importamos directamente desde <code class="docutils literal notranslate"><span class="pre">sklearn.linear_model</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2032,6 +2052,238 @@ Z = a + \frac{X - \text{max}(X)}{\text{max}(X) - \text{min}(X)}(b-a)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>206489.00569282947
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es mejor opción realizar un <strong>cross-validation</strong> para hacernos una idea del error de nuestro modelo en test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="k">def</span> <span class="nf">display_scores</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scores:&quot;</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean:&quot;</span><span class="p">,</span> <span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Standard deviation:&quot;</span><span class="p">,</span> <span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+
+<span class="n">lin_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
+    <span class="n">lin_reg</span><span class="p">,</span>
+    <span class="n">housing_prepared</span><span class="p">,</span> 
+    <span class="n">housing_labels</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">,</span> 
+    <span class="n">cv</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="n">lin_rmse_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">lin_scores</span><span class="p">)</span>
+<span class="n">display_scores</span><span class="p">(</span><span class="n">lin_rmse_scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [70985.81228196 71310.48962891 69496.58205441 70550.86214639
+ 67014.31535795 69780.0679086  66411.42050625 66642.15439509
+ 69372.52774294 67046.03355837]
+Mean: 68861.0265580875
+Standard deviation: 1803.0206490443086
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a comparar la performance con un random forest</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+
+<span class="n">forest_reg</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">forest_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing_prepared</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
+
+<span class="n">forest_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
+    <span class="n">forest_reg</span><span class="p">,</span>
+    <span class="n">housing_prepared</span><span class="p">,</span> 
+    <span class="n">housing_labels</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">,</span> 
+    <span class="n">cv</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+<span class="n">forest_rmse_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">forest_scores</span><span class="p">)</span>
+<span class="n">display_scores</span><span class="p">(</span><span class="n">forest_rmse_scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [51474.38478632 48193.08020118 50812.42064106 49274.45101704
+ 53064.12563367 49376.78995722 46606.48415971 47636.20326317
+ 51744.70747484 49904.77308603]
+Mean: 49808.74202202553
+Standard deviation: 1902.4519943053801
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="buscando-el-mejor-modelo-tuneando-los-hiperparametros">
+<h2>Buscando el mejor modelo tuneando los hiperparámetros<a class="headerlink" href="#buscando-el-mejor-modelo-tuneando-los-hiperparametros" title="Enlazar permanentemente con este título">#</a></h2>
+<p>La idea es ahora ir modificando los hiperparámetros de <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code>, por ejemplo</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>: número de árboles en el bosque</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_features</span></code>: máximo número de variables usadas para construir las particiones en los árboles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boostrap</span></code>: si las filas seleccionadas para construir un árbol se descartan.</p></li>
+</ul>
+<p>Hay varias estrategias para construir un espacio de hiperparámetros. Una de ellas es crear una rejilla de hiperparámetros probando todas las posibles combinaciones, para ello podemos usar la clase <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> de <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code></p>
+<p>Vamos a especificar un argumento <code class="docutils literal notranslate"><span class="pre">scoring=&quot;neg_mean_squared_error&quot;</span></code>, ya que la clase nos dará el mejor estimador en función a esta métrica (siempre intenando maximizarla)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Intentamos 12 (3×4) combinaciones de hiperparámetros en primer lugar</span>
+    <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]},</span>
+    <span class="c1"># Otras 6 combinaciones después</span>
+    <span class="p">{</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">],</span> <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]},</span>
+  <span class="p">]</span>
+
+<span class="n">forest_reg</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># cross validation con 5 folds</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+    <span class="n">forest_reg</span><span class="p">,</span> 
+    <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+    <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing_prepared</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=5, estimator=RandomForestRegressor(random_state=42),
+             param_grid=[{&#39;max_features&#39;: [2, 4, 6, 8],
+                          &#39;n_estimators&#39;: [3, 10, 100]},
+                         {&#39;bootstrap&#39;: [False], &#39;max_features&#39;: [2, 3, 4],
+                          &#39;n_estimators&#39;: [3, 100]}],
+             return_train_score=True, scoring=&#39;neg_mean_squared_error&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cvres</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">cv_results_</span>
+<span class="k">for</span> <span class="n">mean_score</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cvres</span><span class="p">[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">],</span> <span class="n">cvres</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">mean_score</span><span class="p">),</span> <span class="n">params</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best predictor: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">),</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63209.57169007521 {&#39;max_features&#39;: 2, &#39;n_estimators&#39;: 3}
+54629.41611107519 {&#39;max_features&#39;: 2, &#39;n_estimators&#39;: 10}
+50761.76398069109 {&#39;max_features&#39;: 2, &#39;n_estimators&#39;: 100}
+58426.43946436258 {&#39;max_features&#39;: 4, &#39;n_estimators&#39;: 3}
+51625.15513929953 {&#39;max_features&#39;: 4, &#39;n_estimators&#39;: 10}
+48725.76684682313 {&#39;max_features&#39;: 4, &#39;n_estimators&#39;: 100}
+58251.40366599946 {&#39;max_features&#39;: 6, &#39;n_estimators&#39;: 3}
+51116.34123484911 {&#39;max_features&#39;: 6, &#39;n_estimators&#39;: 10}
+48378.04810100928 {&#39;max_features&#39;: 6, &#39;n_estimators&#39;: 100}
+56861.04930211982 {&#39;max_features&#39;: 8, &#39;n_estimators&#39;: 3}
+51418.50567419344 {&#39;max_features&#39;: 8, &#39;n_estimators&#39;: 10}
+48666.54721730705 {&#39;max_features&#39;: 8, &#39;n_estimators&#39;: 100}
+62599.75865660849 {&#39;bootstrap&#39;: False, &#39;max_features&#39;: 2, &#39;n_estimators&#39;: 3}
+49925.75022638753 {&#39;bootstrap&#39;: False, &#39;max_features&#39;: 2, &#39;n_estimators&#39;: 100}
+59686.79865147426 {&#39;bootstrap&#39;: False, &#39;max_features&#39;: 3, &#39;n_estimators&#39;: 3}
+48282.39391442684 {&#39;bootstrap&#39;: False, &#39;max_features&#39;: 3, &#39;n_estimators&#39;: 100}
+56823.71764893351 {&#39;bootstrap&#39;: False, &#39;max_features&#39;: 4, &#39;n_estimators&#39;: 3}
+47852.58880126845 {&#39;bootstrap&#39;: False, &#39;max_features&#39;: 4, &#39;n_estimators&#39;: 100}
+
+
+Best predictor: 
+47852.58880126845 {&#39;bootstrap&#39;: False, &#39;max_features&#39;: 4, &#39;n_estimators&#39;: 100}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluar-el-conjunto-de-test">
+<h2>Evaluar el conjunto de test<a class="headerlink" href="#evaluar-el-conjunto-de-test" title="Enlazar permanentemente con este título">#</a></h2>
+<p>El último paso que nos queda es evaluar el conjunto de test que reservamos al principio del análisis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_set</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">X_test_prepared</span> <span class="o">=</span> <span class="n">full_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">final_predictions</span> <span class="o">=</span> <span class="n">final_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_prepared</span><span class="p">)</span>
+
+<span class="n">final_mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">final_predictions</span><span class="p">)</span>
+<span class="n">final_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">final_mse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_rmse</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48246.96474133582
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parece razonable descartar que nuestro modelo esté sobreentrenado. Podemos guardar todo el procesmiento y el modelo en un único objeto de nuevo usando <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_pipeline_with_predictor</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s2">&quot;preparation&quot;</span><span class="p">,</span> <span class="n">full_pipeline</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;final_model&quot;</span><span class="p">,</span> <span class="n">final_model</span><span class="p">)</span>
+    <span class="p">])</span>
+
+<span class="n">full_pipeline_with_predictor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
+<span class="n">full_pipeline_with_predictor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">some_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([303400., 333700., 125000., 100000.,  76200.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, tendremos que guardar nuestro transformador en disco para ser consumido posteriormente, para ello usamos la librería estándar <code class="docutils literal notranslate"><span class="pre">joblib</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">joblib</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">full_pipeline_with_predictor</span><span class="p">,</span> <span class="s2">&quot;full_pipeline_with_predictor.pkl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;full_pipeline_with_predictor.pkl&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_pipeline_with_predictor_copy</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;full_pipeline_with_predictor.pkl&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">full_pipeline_with_predictor_copy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sklearn.pipeline.Pipeline
 </pre></div>
 </div>
 </div>
