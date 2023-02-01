@@ -513,6 +513,16 @@ title="Print to PDF"
    Descargando los datos
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creando-un-conjunto-de-test">
+   Creando un conjunto de test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizando-los-datos">
+   Visualizando los datos
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -535,6 +545,16 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descargando-los-datos">
    Descargando los datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creando-un-conjunto-de-test">
+   Creando un conjunto de test
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizando-los-datos">
+   Visualizando los datos
   </a>
  </li>
 </ul>
@@ -851,24 +871,8 @@ memory usage: 1.6+ MB
 </div>
 </div>
 </div>
-<p>Tenemos 9 columnas numéricas y una columna categórica. Veamos qué posibles valores tiene la columna tipo <code class="docutils literal notranslate"><span class="pre">object</span></code> llamada <code class="docutils literal notranslate"><span class="pre">ocean_proximity</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1H OCEAN     9136
-INLAND        6551
-NEAR OCEAN    2658
-NEAR BAY      2290
-ISLAND           5
-Name: ocean_proximity, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
+<p>Tenemos 9 columnas numéricas, una columna categórica y un total de 20640 filas. <strong>Nuestro objetivo será predecir la variable <code class="docutils literal notranslate"><span class="pre">median_house_value</span></code></strong> cuando dispongamos del resto de columnas para un barrio nuevo. Veamos qué posibles valores tiene la columna tipo <code class="docutils literal notranslate"><span class="pre">object</span></code> llamada <code class="docutils literal notranslate"><span class="pre">ocean_proximity</span></code></p>
+<p>housing[«ocean_proximity»].value_counts()</p>
 <p>Vamos con el resto de columnas numéricas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1112,6 +1116,74 @@ Name: ocean_proximity, dtype: int64
 <section id="exercise-content">
 <p>¿Qué conclusiones puedes sacar de estos datos? ¿Cómo podemos proceder?</p>
 </section>
+</div>
+</section>
+<section id="creando-un-conjunto-de-test">
+<h2>Creando un conjunto de test<a class="headerlink" href="#creando-un-conjunto-de-test" title="Enlazar permanentemente con este título">#</a></h2>
+<p>La siguiente función hace una partición entre conjunto de entrenamiento y test de forma similar a <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> de <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_train_test</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">test_ratio</span><span class="p">):</span>
+    <span class="n">shuffled_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">test_set_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="n">test_ratio</span><span class="p">)</span>
+    <span class="n">test_indices</span> <span class="o">=</span> <span class="n">shuffled_indices</span><span class="p">[:</span><span class="n">test_set_size</span><span class="p">]</span>
+    <span class="n">train_indices</span> <span class="o">=</span> <span class="n">shuffled_indices</span><span class="p">[</span><span class="n">test_set_size</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_indices</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_indices</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_set</span><span class="p">,</span> <span class="n">test_set</span> <span class="o">=</span> <span class="n">split_train_test</span><span class="p">(</span><span class="n">housing</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_set</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_set</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16512
+4128
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="regression-model-3">
+
+<p class="admonition-title"><span class="caption-number">Exercise 73 </span></p>
+<section id="exercise-content">
+<p>¿Qué problemas puede tener una partición de este tipo? ¿Cómo podemos solventarlo? Véase <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedShuffleSplit.html"><code class="docutils literal notranslate"><span class="pre">StratifiedShuffleSplit</span></code></a></p>
+</section>
+</div>
+<p>Debemos dejar el conjunto de test apartado antes de hacer cualquier transformación y una vez hayamos concluido la tarea de desarrollar modelos de predicción, podremos usarlo para evaluar dichos modelos. Antes de seguir, vamos a visualizar los datos de los que disponemos para obtener más información de cara a diseñar procesamiento y entrenamiento de modelos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizando-los-datos">
+<h2>Visualizando los datos<a class="headerlink" href="#visualizando-los-datos" title="Enlazar permanentemente con este título">#</a></h2>
+<p>Realicemos un gráfico de tipo scatter para representar la información geográfica (longitud y latitud) del dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/regression-model_32_0.png" src="../../_images/regression-model_32_0.png" />
+</div>
 </div>
 </section>
 </section>
