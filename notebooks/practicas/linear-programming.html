@@ -610,14 +610,6 @@ x_1, x_2 \geq 0
 \end{array}
 \end{aligned}   
 \end{split}\]</div>
-<p>En el siguiente gráfico podemos visualizar el conjunto de posibles soluciones del problema</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span><span class="o">=</span><span class="s1">&#39;retina&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Más generalmente, lo que queremos es minimizar una función de coste lineal <span class="math notranslate nohighlight">\(c^\intercal x = \sum_{i=1}^n c_ix_i\)</span> sobre un conjunto de valores factibles de <span class="math notranslate nohighlight">\(x=(x_1, x_2, \dots, x_n)\)</span> sujeto a las restricciones dadas por desigualdades o igualdades. Es decir,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -643,6 +635,13 @@ x_j \text{ sin restricción} \quad &amp; j \in N_3
 <li><p>Si el conjunto factible es vacío, decimos que el problema es <strong>infactible</strong>.</p></li>
 </ul>
 <p>Volviendo al problema anterior, vamos a usar <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> para representar el conjunto factible y algunas rectas en las que la función objetivo vale igual. El gradiente nos da la dirección de máximo cambio y es fácil intuir en qué punto se encuentra la solución óptima.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span><span class="o">=</span><span class="s1">&#39;retina&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -696,7 +695,7 @@ x_j \text{ sin restricción} \quad &amp; j \in N_3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/linear-programming_7_0.png" src="../../_images/linear-programming_7_0.png" />
+<img alt="../../_images/linear-programming_6_0.png" src="../../_images/linear-programming_6_0.png" />
 </div>
 </div>
 <section id="la-forma-estandar">
