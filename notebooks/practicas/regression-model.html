@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
@@ -539,6 +541,28 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#generacion-de-nuevas-variables">
    Generación de nuevas variables
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limpieza-de-datos">
+     Limpieza de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformando-datos-categoricos">
+     Transformando datos categóricos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ingenieria-de-variables">
+     Ingeniería de variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#escalado-de-variables">
+     Escalado de variables
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -590,6 +614,28 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#generacion-de-nuevas-variables">
    Generación de nuevas variables
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limpieza-de-datos">
+     Limpieza de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformando-datos-categoricos">
+     Transformando datos categóricos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ingenieria-de-variables">
+     Ingeniería de variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#escalado-de-variables">
+     Escalado de variables
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -1479,9 +1525,11 @@ memory usage: 1.4+ MB
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#regression-model-5"> Exercise 75</a></p>
 <section id="solution-content">
-<p>housing[«rooms_per_household»] = housing[«total_rooms»]/housing[«households»]
-housing[«bedrooms_per_room»] = housing[«total_bedrooms»]/housing[«total_rooms»]
-housing[«population_per_household»]=housing[«population»]/housing[«households»]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;households&quot;</span><span class="p">]</span>
+<span class="n">housing</span><span class="p">[</span><span class="s2">&quot;bedrooms_per_room&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_bedrooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span>
+<span class="n">housing</span><span class="p">[</span><span class="s2">&quot;population_per_household&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;households&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 </div>
 <div class="cell docutils container">
@@ -1519,6 +1567,324 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <p>Parece que las variables <code class="docutils literal notranslate"><span class="pre">rooms_per_household</span></code> y <code class="docutils literal notranslate"><span class="pre">bedrooms_per_room</span></code> tienen grados de correlación superiores a los de las variables originales.</p>
+<p>## Preparando los datos para un modelo de ML</p>
+<p>Una vez realizado el análisis de los datos, el procesado de los mismos para alimentar nuestro modelo de ML podría constar de las siguientes partes</p>
+<ul class="simple">
+<li><p>Limpieza de datos</p></li>
+<li><p>Codificación de variables de texto y categóricas</p></li>
+<li><p>Ingeniería de variables
+- Escalado de variables</p></li>
+</ul>
+<p>Esta secuencia de procesos puede cambiar en función de las particularidades de nuestros datos y el objetivo del modelo. Vamos a ir tratando una a una, pero antes es importante dejar nuestra variable objetivo desacoplada del procesamiento</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span> <span class="o">=</span> <span class="n">train_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">housing_labels</span> <span class="o">=</span> <span class="n">train_set</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación vamos a separar las variables numéricas de las categóricas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_cols</span> <span class="o">=</span> <span class="n">housing</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s2">&quot;number&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">cat_cols</span> <span class="o">=</span> <span class="n">housing</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;number&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="limpieza-de-datos">
+<h3>Limpieza de datos<a class="headerlink" href="#limpieza-de-datos" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Básicamente se trata de lidiar con los datos faltantes o defectuosos. En nuestro caso vamos a <strong>imputar</strong> los valores faltantes de la única columna que parece tenerlos, <code class="docutils literal notranslate"><span class="pre">total_bedrooms</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">median</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_bedrooms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span> 
+<span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_bedrooms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="regression-model-6">
+
+<p class="admonition-title"><span class="caption-number">Exercise 76 </span></p>
+<section id="exercise-content">
+<p>Utiliza la clase <code class="docutils literal notranslate"><span class="pre">SimpleImputer</span></code> de <code class="docutils literal notranslate"><span class="pre">sklearn.impute</span></code> para relizar esta tarea.</p>
+</section>
+</div>
+</section>
+<section id="transformando-datos-categoricos">
+<h3>Transformando datos categóricos<a class="headerlink" href="#transformando-datos-categoricos" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Vamos a realizar un <a class="reference external" href="https://es.wikipedia.org/wiki/One-hot"><em>one-hot-encoding</em></a> para convertir en numúrica la única variable categórica que tenemos en nuesta dataset, <code class="docutils literal notranslate"><span class="pre">ocean_proximity</span></code>. Para ello vamos a usar la clase <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> de <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+
+<span class="n">cat_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+<span class="n">housing_cat_1hot</span> <span class="o">=</span> <span class="n">cat_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">housing</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span>
+<span class="n">housing_cat_1hot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;16512x5 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+	with 16512 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por defecto, <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> devuelve una array disperso o <em>sparse</em>, pero podemos convertirlo en un array convencional llamando al método <code class="docutils literal notranslate"><span class="pre">toarray</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing_cat_1hot</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0., 0.],
+       [0., 0., 0., 1., 0.],
+       [0., 0., 0., 0., 1.],
+       ...,
+       [0., 0., 0., 1., 0.],
+       [1., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ingenieria-de-variables">
+<h3>Ingeniería de variables<a class="headerlink" href="#ingenieria-de-variables" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Usando las clases <code class="docutils literal notranslate"><span class="pre">BaseEstimator</span></code> y <code class="docutils literal notranslate"><span class="pre">TransformerMixin</span></code> de <code class="docutils literal notranslate"><span class="pre">sklearn.base</span></code>, podemos crear una clase que transforma nuestro dataset para añadir los atributos que durante el análisis hemos visto que podrían ser útiles</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+
+<span class="n">col_names</span> <span class="o">=</span> <span class="s2">&quot;total_rooms&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bedrooms&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="s2">&quot;households&quot;</span>
+<span class="n">rooms_ix</span><span class="p">,</span> <span class="n">bedrooms_ix</span><span class="p">,</span> <span class="n">population_ix</span><span class="p">,</span> <span class="n">households_ix</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">housing</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">col_names</span><span class="p">]</span> 
+
+<span class="k">class</span> <span class="nc">CombinedAttributesAdder</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>  <span class="c1"># es obligatorio definir este método</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">rooms_per_household</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">rooms_ix</span><span class="p">]</span> <span class="o">/</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">households_ix</span><span class="p">]</span>
+        <span class="n">population_per_household</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">population_ix</span><span class="p">]</span> <span class="o">/</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">households_ix</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">rooms_per_household</span><span class="p">,</span> <span class="n">population_per_household</span><span class="p">]</span>
+
+<span class="n">attr_adder</span> <span class="o">=</span> <span class="n">CombinedAttributesAdder</span><span class="p">()</span>
+<span class="n">housing_extra_attribs</span> <span class="o">=</span> <span class="n">attr_adder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">attr_adder.transform</span></code> devuelve un array (más adelante veremos que esto es lo óptimo), pero podemos recuperar el dataframe fácilmente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing_extra_attribs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">housing_extra_attribs</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;population_per_household&quot;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">housing_extra_attribs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-b005ce7a-7ab0-4515-91d2-141938f2b100">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>housing_median_age</th>
+      <th>total_rooms</th>
+      <th>total_bedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>median_income</th>
+      <th>ocean_proximity</th>
+      <th>rooms_per_household</th>
+      <th>population_per_household</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15048</th>
+      <td>-116.95</td>
+      <td>32.77</td>
+      <td>25.0</td>
+      <td>3308.0</td>
+      <td>421.0</td>
+      <td>1201.0</td>
+      <td>414.0</td>
+      <td>6.3191</td>
+      <td>&lt;1H OCEAN</td>
+      <td>7.990338</td>
+      <td>2.900966</td>
+    </tr>
+    <tr>
+      <th>1845</th>
+      <td>-122.28</td>
+      <td>37.9</td>
+      <td>49.0</td>
+      <td>3191.0</td>
+      <td>516.0</td>
+      <td>1148.0</td>
+      <td>507.0</td>
+      <td>6.3538</td>
+      <td>NEAR BAY</td>
+      <td>6.293886</td>
+      <td>2.2643</td>
+    </tr>
+    <tr>
+      <th>14215</th>
+      <td>-117.06</td>
+      <td>32.67</td>
+      <td>29.0</td>
+      <td>4047.0</td>
+      <td>754.0</td>
+      <td>2353.0</td>
+      <td>730.0</td>
+      <td>4.0505</td>
+      <td>NEAR OCEAN</td>
+      <td>5.543836</td>
+      <td>3.223288</td>
+    </tr>
+    <tr>
+      <th>12142</th>
+      <td>-117.23</td>
+      <td>33.83</td>
+      <td>2.0</td>
+      <td>1424.0</td>
+      <td>251.0</td>
+      <td>681.0</td>
+      <td>192.0</td>
+      <td>4.0833</td>
+      <td>INLAND</td>
+      <td>7.416667</td>
+      <td>3.546875</td>
+    </tr>
+    <tr>
+      <th>2740</th>
+      <td>-115.56</td>
+      <td>32.78</td>
+      <td>29.0</td>
+      <td>1568.0</td>
+      <td>283.0</td>
+      <td>848.0</td>
+      <td>245.0</td>
+      <td>3.1597</td>
+      <td>INLAND</td>
+      <td>6.4</td>
+      <td>3.461224</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b005ce7a-7ab0-4515-91d2-141938f2b100')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-b005ce7a-7ab0-4515-91d2-141938f2b100 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-b005ce7a-7ab0-4515-91d2-141938f2b100');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="escalado-de-variables">
+<h3>Escalado de variables<a class="headerlink" href="#escalado-de-variables" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Podemos usar varias estrategias para escalar nuestras variables, por ejemplo la clase <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> normaliza nuestra variable como</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \frac{X - \mu}{\sigma} 
+\]</div>
+<p>o <code class="docutils literal notranslate"><span class="pre">MinMaxScaler</span></code> escala la variable para que encaje con un intervalo dado.</p>
+</section>
 </section>
 </section>
 
