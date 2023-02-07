@@ -38,6 +38,9 @@ parts:
   - file: notebooks/practicas/regression-model.ipynb
   - file: notebooks/practicas/eda.ipynb
   - file: notebooks/practicas/classification-models.ipynb
+- caption: Gestión de proyectos en Python
+  chapters:
+  - file: notebooks/proyecto-ejemplo/project-management.ipynb
 - caption: Bilbiografía
   chapters:
   - file: bibliography.md

@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Gestión de proyectos en Python &#8212; Curso de Python US</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo-us.png"/>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Bibliografía" href="../../bibliography.html" />
+    <link rel="prev" title="Probando modelos de clasificación binaria" href="../practicas/classification-models.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo-us.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Curso de Python US</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Curso de Python US
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción a Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/introduction-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/python-basics.html">
+   Principios básicos de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/numeric-types.html">
+   Tipos numéricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/strings.html">
+   Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/booleans.html">
+   Booleanos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/lists.html">
+   Listas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/other-data-structures.html">
+   Otras estructuras de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/control-flow.html">
+   Estructuras de control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/functions.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/classes.html">
+   Clases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/exercises.html">
+   Ejercicios de Introducción a Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/introduction-numpy.html">
+   Introducción a Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/index-slicing.html">
+   Indexado, Slicing y operaciones básicas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/basic-operations.html">
+   Operaciones Básicas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/exercises.html">
+   Ejercicios
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
+   Introducción a matplotlib
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/introduction-pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/groupby-merge.html">
+   Agregación y mergeo de dataframes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Casos prácticos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/gradient-descent.html">
+   Descenso del gradiente:  Regresión Lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/linear-programming.html">
+   Programación Lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/portfolio-optimization.html">
+   Optimización de portfolio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/regression-model.html">
+   Construyendo un modelo de regresión lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/eda.html">
+   Ejemplo de análisis exploratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/classification-models.html">
+   Probando modelos de clasificación binaria
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Gestión de proyectos en Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Gestión de proyectos en Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bilbiografía
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bibliography.html">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/proyecto-ejemplo/project-management.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/proyecto-ejemplo/project-management.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/javlintor/curso-python-us"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/proyecto-ejemplo/project-management.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/proyecto-ejemplo/project-management.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gestion-de-paquetes-poetry">
+   Gestión de paquetes - Poetry
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalacion">
+     Instalación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creando-un-nuevo-proyecto">
+     Creando un nuevo proyecto
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limpia-tu-codigo-flake8-black">
+   Limpia tu código - flake8 + black
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#black">
+     Black
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Gestión de proyectos en Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gestion-de-paquetes-poetry">
+   Gestión de paquetes - Poetry
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalacion">
+     Instalación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creando-un-nuevo-proyecto">
+     Creando un nuevo proyecto
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limpia-tu-codigo-flake8-black">
+   Limpia tu código - flake8 + black
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#black">
+     Black
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="gestion-de-proyectos-en-python">
+<h1>Gestión de proyectos en Python<a class="headerlink" href="#gestion-de-proyectos-en-python" title="Enlazar permanentemente con este título">#</a></h1>
+<section id="gestion-de-paquetes-poetry">
+<h2>Gestión de paquetes - Poetry<a class="headerlink" href="#gestion-de-paquetes-poetry" title="Enlazar permanentemente con este título">#</a></h2>
+<p><a class="reference external" href="https://python-poetry.org/">Poetry</a> es un sistema de gestión de proyectos en Python que va más allá de manejar las dependencias de un proyecto como podemos hacer con <a class="reference external" href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">pipenv</a><br />
+Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integrados que nos permiten manejar detalles sobre nuestro proyecto</p>
+<ul class="simple">
+<li><p>configuración e instalaciones</p></li>
+<li><p>manejo de dependencias</p></li>
+<li><p>compilación y ejecuciones</p></li>
+</ul>
+<p>Python no tiene una utilidad nativa pero sistemas desarrollados por terceros nos pueden ayudar a realizar estas tareas de forma precisa, como es el caso de poetry.</p>
+<section id="instalacion">
+<h3>Instalación<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">#</a></h3>
+<p>No se instala como un paquete de Python, si no como una aplicación independiente. Por ejemplo, podemos ejecutar el siguiente comando</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">install</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">python</span><span class="o">-</span><span class="n">poetry</span><span class="o">.</span><span class="n">org</span> <span class="o">|</span> <span class="n">python3</span> <span class="o">-</span>
+</pre></div>
+</div>
+<p>aunque los detalles de instalación pueden cambiar en función de cómo tengamos configurado nuestro sistema. Para verificar que hemos instalado correctamente poetry podemos ejecutar</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="o">--</span><span class="n">version</span> 
+</pre></div>
+</div>
+<p>y obtener un output como el siguiente <code class="docutils literal notranslate"><span class="pre">Poetry</span> <span class="pre">(version</span> <span class="pre">1.3.1)</span></code>.</p>
+</section>
+<section id="creando-un-nuevo-proyecto">
+<h3>Creando un nuevo proyecto<a class="headerlink" href="#creando-un-nuevo-proyecto" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Para crear un proyecto con poetry (podemos pensar que vamos a desarrollar un paquete de python) utilizamos el siguiente comando</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">new</span> <span class="n">py4d</span>
+</pre></div>
+</div>
+<p>Esto debería de crear una carpeta py4d con la siguiente estructura</p>
+<ul class="simple">
+<li><p>Un archivo <a class="reference external" href="http://README.md">README.md</a> como descripción del paquete</p></li>
+<li><p>Otro archivo pyproject.toml de configuración, que no debemos tocar directamente</p></li>
+<li><p>Una carpeta de tests para incluir nuestros tests unitarios</p></li>
+<li><p>Otra carpeta py4d donde estarán los ficheros con las funciones y clases de nuestro paquete.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>py4d
+├── pyproject.toml
+├── README.md
+├── py4d
+│   └── __init__.py
+└── tests
+    └── __init__.py
+
+</pre></div>
+</div>
+<p>Por defecto, un nuevo proyecto no tiene un entorno virtual asociado por defecto, si no que Poetry utiliza en entorno virtual que crea en</p>
+<ul class="simple">
+<li><p>macOS: <code class="docutils literal notranslate"><span class="pre">~/Library/Caches/pypoetry</span></code></p></li>
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\AppData\Local\pypoetry\Cache</span></code></p></li>
+<li><p>Unix: <code class="docutils literal notranslate"><span class="pre">~/.cache/pypoetry</span></code></p></li>
+</ul>
+<p>Así que en principio no tenemos que crear nada más para empezar a añadir dependencias. Sólo tenemos que modificar el <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, en concreto la sección <code class="docutils literal notranslate"><span class="pre">tool.petry.dependencies</span></code> o más fácil, añadirlas con la CLI de poetry</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">add</span> <span class="n">pandas</span>
+</pre></div>
+</div>
+<p>Poetry tiene <a class="reference external" href="https://python-poetry.org/docs/dependency-specification/">una sintaxis de expecificación de dependencias</a> muy rica, como por ejemplo si queremos replicar justo la versión que hay en google colab de pandas,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">add</span> <span class="n">pandas</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Podemos lanzar un script con poetry simplemente escribiendo <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">python</span> <span class="pre">your_script.py</span></code>. Del mismo modo si utilizas herramientas desde línea de comandos puedes lanzarlas con poetry, como <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">black</span> <span class="pre">.</span></code></p>
+</section>
+</section>
+<section id="limpia-tu-codigo-flake8-black">
+<h2>Limpia tu código - flake8 + black<a class="headerlink" href="#limpia-tu-codigo-flake8-black" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="black">
+<h3>Black<a class="headerlink" href="#black" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Es una herramienta de <strong>formateo</strong> de código, es decir, al aplicar black a nuestro código, va a modificar nuestro código según para que siga ciertas guías de estilo, normalmente basadas en <a class="reference external" href="https://peps.python.org/pep-0008/">PEP8</a>, que son configurables por nosotros mismos, de modo que se cambiará el estilo del código pero nunca se modificará el output del intérprete de Python.</p>
+<p><a class="reference external" href="https://black.readthedocs.io/en/stable/">Black</a> tiene un principio básico y es que todo el código que formatea debe ser similar, haciendo que estilo pueda cambiar bastante del de partida, pero minimizando los cambios respecto a las diferentes versiones del proyecto u otros proyectos igualmente formateados.</p>
+<p>Podemos instalar black utilizando <code class="docutils literal notranslate"><span class="pre">pip</span></code>, siempre que tengamos Python 3.7 o superior.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span>
+</pre></div>
+</div>
+<p>Si queremos formatear nuestros notebooks de jupyter, debemos instalarlo con</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span><span class="p">[</span><span class="n">jupyter</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Se emplea de forma muy sencilla, simplemente llamando al comando <code class="docutils literal notranslate"><span class="pre">black</span></code> en una terminal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="p">{</span><span class="n">fichero_que_queremos_formatear</span><span class="o">.</span><span class="n">py</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/proyecto-ejemplo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../practicas/classification-models.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Probando modelos de clasificación binaria</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../bibliography.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Bibliografía</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Javier Linares Torres<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

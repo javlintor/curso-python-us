@@ -78,3 +78,89 @@ circulo = Circulo()
 circulo.radio
 
 circulo.distancia_al_origen()
+
+class Account:
+    num_accounts = 0 # Esto es un atributo de clase
+
+    def __init__(self, owner, balance): 
+        self.owner = owner
+        self.balance = balance
+        Account.num_accounts += 1
+
+    def __repr__(self): 
+        return f'{type(self).__name__}({self.owner!r}, {self.balance!r})'
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount): 
+        self.deposit(-amount)
+
+account_pepito = Account("Pepito", 1000)
+Account.num_accounts
+
+account_pepito.num_accounts
+
+account_alicia = Account("Alicia", 2000)
+
+account_pepito.num_accounts
+
+from inspect import classify_class_attrs
+class Account:
+    def __init__(self, owner, balance):
+        self.owner = owner 
+        self.balance = balance
+
+    @classmethod
+    def from_xml(cls, data):
+        from xml.etree.ElementTree import XML
+        doc = XML(data)
+        return cls(doc.findtext("owner"), float(doc.findtext("amount")))
+
+data = """
+<account>
+    <owner>Javi</owner> 
+    <amount>1000</amount>
+</account>
+"""
+
+javi_account = Account.from_xml(data)
+
+import time
+
+class Date:
+    datefmt = '{year}-{month:02d}-{day:02d}'
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+
+    def __str__(self):
+        return self.datefmt.format(
+            year=self.year,
+            month=self.month,
+            day=self.day
+        )
+
+    @classmethod
+    def from_timestamp(cls, ts):
+        tm = time.localtime(ts)
+        return cls(tm.tm_year, tm.tm_mon, tm.tm_mday)
+
+    @classmethod
+    def today(cls):
+        return cls.from_timestamp(time.time())
+
+class MDYDate(Date): 
+    datefmt = "{month}/{day}/{year}"
+
+class YMDDate(Date): 
+    datefmt = "{year}/{month}/{day}"
+
+a = Date.today()
+b = MDYDate(2023, 2, 7)
+c = YMDDate(2023, 2, 7)
+
+print(a)
+print(b)
+print(c)
