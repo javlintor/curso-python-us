@@ -518,6 +518,11 @@ title="Print to PDF"
    Subclases y herencia
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-y-metodos-de-clase">
+   Variables y métodos de clase
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -545,6 +550,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#subclases-y-herencia">
    Subclases y herencia
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-y-metodos-de-clase">
+   Variables y métodos de clase
   </a>
  </li>
 </ul>
@@ -912,6 +922,177 @@ title="Print to PDF"
 </section>
 </div>
 </section>
+<section id="variables-y-metodos-de-clase">
+<h2>Variables y métodos de clase<a class="headerlink" href="#variables-y-metodos-de-clase" title="Enlazar permanentemente con este título">#</a></h2>
+<p>En una definición de clase, estamos asumiendo que los métodos definidos van a operar un instancias de dicha clase, por ello incluyen siempre el parámetro <code class="docutils literal notranslate"><span class="pre">self</span></code>. Sin embargo, una clase es un objeto más y por lo tanto tiene un estado que puede ser manipulado. Por ejemplo, podríamos llevar un contandor de cuántas instancias de la clase se han creado. Mira el siguiente ejemplo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Account</span><span class="p">:</span>
+    <span class="n">num_accounts</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Esto es un atributo de clase</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
+        <span class="n">Account</span><span class="o">.</span><span class="n">num_accounts</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">!r}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balance</span><span class="si">!r}</span><span class="s1">)&#39;</span>
+
+    <span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
+
+    <span class="k">def</span> <span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="o">-</span><span class="n">amount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El atributo <code class="docutils literal notranslate"><span class="pre">num_accounts</span></code> es un ejemplo de lo que se denomina un <strong>atributo de clase</strong>, que son definidos fuera del método <code class="docutils literal notranslate"><span class="pre">__init__</span></code>. Para modificarlo o acceder a ellos se aplican directamente a la clase</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">account_pepito</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s2">&quot;Pepito&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">Account</span><span class="o">.</span><span class="n">num_accounts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aunque tambíen se puede acceder a ellos a través de la instancias de la clase</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">account_pepito</span><span class="o">.</span><span class="n">num_accounts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">account_alicia</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s2">&quot;Alicia&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">account_pepito</span><span class="o">.</span><span class="n">num_accounts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al intentar acceder a un atributo de uns instancia, Python busca primero en los atributos de instancias y si no encuentra nada accede a los atributos de clase.</p>
+<p>También se pueden definir <strong>métodos de clase</strong>, que es un método que se aplica a la clase misma, no a las instancias. Un uso común de los mismos es para definir constructores de la clase alternativos. Por ejemplo, supongamos que queremos añadir un método para crear instancias de la clase <code class="docutils literal notranslate"><span class="pre">Account</span></code> a partir de la información de un archivo <code class="docutils literal notranslate"><span class="pre">xml</span></code> con la siguiente escrutura</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&lt;account&gt;</span>
+<span class="sd">    &lt;owner&gt;Javi&lt;/owner&gt; </span>
+<span class="sd">    &lt;amount&gt;1000&lt;/amount&gt;</span>
+<span class="sd">&lt;/account&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Podríamos utilizar el decorador &#64;classmethod para escribir un método de clase. El primer argumento de un método de clase es la clase misma, y es bastante común nombrarlo como <code class="docutils literal notranslate"><span class="pre">cls</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">classify_class_attrs</span>
+<span class="k">class</span> <span class="nc">Account</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_xml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">import</span> <span class="n">XML</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="n">XML</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">findtext</span><span class="p">(</span><span class="s2">&quot;owner&quot;</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">findtext</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;account&gt;</span>
+<span class="s2">    &lt;owner&gt;Javi&lt;/owner&gt; </span>
+<span class="s2">    &lt;amount&gt;1000&lt;/amount&gt;</span>
+<span class="s2">&lt;/account&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">javi_account</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="n">from_xml</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, podríamos usar los atributos y métodos de clase para formar una clase <code class="docutils literal notranslate"><span class="pre">Date</span></code> con varios constructores y la que manejemos el formateo de la fecha con un atributo de clase (favoreciendo la herencia de clases para crear clases en función del formato)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">class</span> <span class="nc">Date</span><span class="p">:</span>
+    <span class="n">datefmt</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{year}</span><span class="s1">-</span><span class="si">{month:02d}</span><span class="s1">-</span><span class="si">{day:02d}</span><span class="s1">&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="n">month</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="n">day</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">datefmt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">year</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
+            <span class="n">month</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">month</span><span class="p">,</span>
+            <span class="n">day</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">day</span>
+        <span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_timestamp</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">ts</span><span class="p">):</span>
+        <span class="n">tm</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">tm</span><span class="o">.</span><span class="n">tm_year</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">,</span> <span class="n">tm</span><span class="o">.</span><span class="n">tm_mday</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">today</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_timestamp</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+<span class="k">class</span> <span class="nc">MDYDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span> 
+    <span class="n">datefmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{month}</span><span class="s2">/</span><span class="si">{day}</span><span class="s2">/</span><span class="si">{year}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span> <span class="nc">YMDDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span> 
+    <span class="n">datefmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{year}</span><span class="s2">/</span><span class="si">{month}</span><span class="s2">/</span><span class="si">{day}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">MDYDate</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">YMDDate</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-07
+2/7/2023
+2023/2/7
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -926,7 +1107,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/introduction-python"
         },
         predefinedOutput: true
