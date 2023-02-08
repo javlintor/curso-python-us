@@ -543,6 +543,11 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flake8">
+     flake8
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#black">
      Black
     </a>
@@ -591,6 +596,11 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flake8">
+     flake8
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#black">
      Black
     </a>
@@ -611,6 +621,9 @@ title="Print to PDF"
 <h1>Gestión de proyectos en Python<a class="headerlink" href="#gestion-de-proyectos-en-python" title="Enlazar permanentemente con este título">#</a></h1>
 <section id="gestion-de-paquetes-poetry">
 <h2>Gestión de paquetes - Poetry<a class="headerlink" href="#gestion-de-paquetes-poetry" title="Enlazar permanentemente con este título">#</a></h2>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://drive.google.com/uc?id=1ABuxOzaBc6WkuUb-9XLtTAHnQcvGPaSc"/>
+</div>
 <p><a class="reference external" href="https://python-poetry.org/">Poetry</a> es un sistema de gestión de proyectos en Python que va más allá de manejar las dependencias de un proyecto como podemos hacer con <a class="reference external" href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">pipenv</a><br />
 Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integrados que nos permiten manejar detalles sobre nuestro proyecto</p>
 <ul class="simple">
@@ -673,9 +686,16 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 </section>
 <section id="limpia-tu-codigo-flake8-black">
 <h2>Limpia tu código - flake8 + black<a class="headerlink" href="#limpia-tu-codigo-flake8-black" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="flake8">
+<h3>flake8<a class="headerlink" href="#flake8" title="Enlazar permanentemente con este título">#</a></h3>
+<p><a class="reference external" href="https://github.com/pycqa/flake8">flake8</a> es un linter, es decir, una herramienta que nos dará información sobre qué partes de nuestro código no siguen determinadas guías de estilo o tienen alguna lógica herrónea, como asignar variables que no se utilizan o hacer los imports en el orden inadecuado.</p>
+</section>
 <section id="black">
 <h3>Black<a class="headerlink" href="#black" title="Enlazar permanentemente con este título">#</a></h3>
-<p>Es una herramienta de <strong>formateo</strong> de código, es decir, al aplicar black a nuestro código, va a modificar nuestro código según para que siga ciertas guías de estilo, normalmente basadas en <a class="reference external" href="https://peps.python.org/pep-0008/">PEP8</a>, que son configurables por nosotros mismos, de modo que se cambiará el estilo del código pero nunca se modificará el output del intérprete de Python.</p>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://drive.google.com/uc?id=1xe6unReOz8Av38lNMllJKytQQidKdPJq"/>
+</div>
+<p><a class="reference external" href="https://github.com/psf/black">Black</a> es una herramienta de <strong>formateo</strong> de código, es decir, al aplicar black a nuestro código, va a modificar nuestro código según para que siga ciertas guías de estilo, normalmente basadas en <a class="reference external" href="https://peps.python.org/pep-0008/">PEP8</a>, que son configurables por nosotros mismos, de modo que se cambiará el estilo del código pero nunca se modificará el output del intérprete de Python.</p>
 <p><a class="reference external" href="https://black.readthedocs.io/en/stable/">Black</a> tiene un principio básico y es que todo el código que formatea debe ser similar, haciendo que estilo pueda cambiar bastante del de partida, pero minimizando los cambios respecto a las diferentes versiones del proyecto u otros proyectos igualmente formateados.</p>
 <p>Podemos instalar black utilizando <code class="docutils literal notranslate"><span class="pre">pip</span></code>, siempre que tengamos Python 3.7 o superior.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span>
