@@ -791,7 +791,7 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 </section>
 <section id="logs">
 <h2>Logs<a class="headerlink" href="#logs" title="Enlazar permanentemente con este título">#</a></h2>
-<p>El <strong>logging</strong> en Python es un mecanismo para registrar información sobre la ejecución de un programa, lo que puede ser muy útil para depurar errores, auditar el uso del sistema, y tomar decisiones basadas en los datos de registro. El mecanismo de logging más básico es simplemente hacer <code class="docutils literal notranslate"><span class="pre">print</span></code> por stdout, pero hay herramientas más sofisticadas que nos permiten ir más allá. Existen varios módulos de logging en Python, pero el más comúnmente utilizado es el <a class="reference external" href="https://docs.python.org/3/library/logging.html">logging</a> que viene con la biblioteca estándar. Con este módulo, puedes especificar el nivel de detalle que deseas registrar, elegir dónde escribir tus registros (por ejemplo, en un archivo o en la consola), y ajustar el formato de tus mensajes de registro.</p>
+<p>El <strong>logging</strong> es un mecanismo para registrar información sobre la ejecución de un programa, lo que puede ser muy útil para depurar errores, auditar el uso del sistema, y tomar decisiones basadas en los datos de registro. El mecanismo de logging más básico es simplemente hacer <code class="docutils literal notranslate"><span class="pre">print</span></code> por stdout, pero hay herramientas más sofisticadas que nos permiten ir más allá. Existen varios módulos de logging en Python, pero el más comúnmente utilizado es el <a class="reference external" href="https://docs.python.org/3/library/logging.html">logging</a> que viene con la biblioteca estándar. Con este módulo, puedes especificar el nivel de detalle que deseas registrar, elegir dónde escribir tus registros (por ejemplo, en un archivo o en la consola), y ajustar el formato de tus mensajes de registro.</p>
 <p>Aquí hay algunos ejemplos básicos de código para usar la biblioteca de logging en Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -863,7 +863,60 @@ CRITICAL:__main__:Critical message
 </div>
 </div>
 </div>
+<p>Si queremos sacar el log por un fichero en lugar de por consolta, deberemos añadir un handler del siguiente tipo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s1">&#39;example.log&#39;</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Debug message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Info message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Warning message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Critical message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-08 13:20:38,629 - __main__ - WARNING - Warning message
+WARNING:__main__:Warning message
+2023-02-08 13:20:38,635 - __main__ - ERROR - Error message
+ERROR:__main__:Error message
+2023-02-08 13:20:38,638 - __main__ - CRITICAL - Critical message
+CRITICAL:__main__:Critical message
+</pre></div>
+</div>
+</div>
+</div>
 <p>## Tests</p>
+<p>Los <strong>test unitarios</strong> son pruebas automatizadas que se realizan para asegurarse de que una pequeña porción de código, conocida como una «unidad», funciona correctamente. Estos tests son importantes porque permiten detectar errores en el código de manera temprana, lo que facilita la depuración y aumenta la confianza en el código.</p>
+<p>En Python, existen varias bibliotecas que se utilizan para crear test unitarios, pero una de las más comúnmente utilizadas es <a class="reference external" href="https://docs.python.org/3/library/unittest.html">unittest</a>, que viene incluida en la biblioteca estándar.</p>
+<p>Un test unitario se compone de una o más pruebas que se realizan sobre el código, y pueden comprobar si el código devuelve el resultado esperado para diferentes entradas. Por ejemplo, si tienes una función que calcula el área de un círculo, podrías escribir un test unitario que verifique que la función devuelve el resultado correcto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">area_circle</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">class</span> <span class="nc">TestAreaCircle</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
