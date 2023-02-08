@@ -571,6 +571,11 @@ title="Print to PDF"
      </li>
     </ul>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logs">
+     Logs
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -642,6 +647,11 @@ title="Print to PDF"
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logs">
+     Logs
+    </a>
    </li>
   </ul>
  </li>
@@ -755,6 +765,7 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <section id="flake8">
 <h3>flake8<a class="headerlink" href="#flake8" title="Enlazar permanentemente con este título">#</a></h3>
 <p><a class="reference external" href="https://github.com/pycqa/flake8">flake8</a> es un linter, es decir, una herramienta que nos dará información sobre qué partes de nuestro código no siguen determinadas guías de estilo o tienen alguna lógica herrónea, como asignar variables que no se utilizan o hacer los imports en el orden inadecuado.</p>
+<p>flake8 nos informará a través de una serie de códigos basado en <code class="docutils literal notranslate"><span class="pre">pycodestyle</span></code> sobre qué debemos mejorar de nuestro código. En lugar de hacer los cambios a mano, puede ser interesante utilizar un formateador como black, que lo hará de forma automática y precisa por nosotros.</p>
 </section>
 <section id="black">
 <h3>Black<a class="headerlink" href="#black" title="Enlazar permanentemente con este título">#</a></h3>
@@ -775,7 +786,84 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="p">{</span><span class="n">fichero_que_queremos_formatear</span><span class="o">.</span><span class="n">py</span><span class="p">}</span>
 </pre></div>
 </div>
+<p>Tanto flake8 como black son ejemplos de linters y formatter pero hay muchos más, cada uno con sus ventajas e inconvenientes. Son altamente configurables (por ejemplo, para alterar algunas de las normas de estilo) y suelen ser muy útiles combinadas con git, la herramienta de control de versiones de la que ya hemos hablado en el curso. En particular, podemos usar herramientas como <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> para que estas herramientas se ejecuten cada vez que realizamos un commit o similar.</p>
 </section>
+</section>
+<section id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Enlazar permanentemente con este título">#</a></h2>
+<p>El <strong>logging</strong> en Python es un mecanismo para registrar información sobre la ejecución de un programa, lo que puede ser muy útil para depurar errores, auditar el uso del sistema, y tomar decisiones basadas en los datos de registro. El mecanismo de logging más básico es simplemente hacer <code class="docutils literal notranslate"><span class="pre">print</span></code> por stdout, pero hay herramientas más sofisticadas que nos permiten ir más allá. Existen varios módulos de logging en Python, pero el más comúnmente utilizado es el <a class="reference external" href="https://docs.python.org/3/library/logging.html">logging</a> que viene con la biblioteca estándar. Con este módulo, puedes especificar el nivel de detalle que deseas registrar, elegir dónde escribir tus registros (por ejemplo, en un archivo o en la consola), y ajustar el formato de tus mensajes de registro.</p>
+<p>Aquí hay algunos ejemplos básicos de código para usar la biblioteca de logging en Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># Configuramos un registrador</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># Configuramos un manejador para escribir en consola</span>
+<span class="n">console_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># Configuramos un formato para los mensajes de registro</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="c1"># Agregamos el manejador al registrador</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console_handler</span><span class="p">)</span>
+
+<span class="c1"># Usamos el registrador en nuestro código</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Debug message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Info message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Warning message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Critical message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-08 13:13:30,191 - __main__ - INFO - Info message
+INFO:__main__:Info message
+2023-02-08 13:13:30,197 - __main__ - WARNING - Warning message
+WARNING:__main__:Warning message
+2023-02-08 13:13:30,203 - __main__ - ERROR - Error message
+ERROR:__main__:Error message
+2023-02-08 13:13:30,207 - __main__ - CRITICAL - Critical message
+CRITICAL:__main__:Critical message
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si cambios el nivel de logging, sólo los mensajes con un nivel más alto permanecerán</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Debug message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Info message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Warning message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Critical message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-08 13:15:17,028 - __main__ - WARNING - Warning message
+WARNING:__main__:Warning message
+2023-02-08 13:15:17,034 - __main__ - ERROR - Error message
+ERROR:__main__:Error message
+2023-02-08 13:15:17,040 - __main__ - CRITICAL - Critical message
+CRITICAL:__main__:Critical message
+</pre></div>
+</div>
+</div>
+</div>
+<p>## Tests</p>
 </section>
 </section>
 
