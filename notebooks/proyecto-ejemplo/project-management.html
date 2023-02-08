@@ -740,13 +740,16 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <span class="n">optional</span> <span class="o">=</span> <span class="n">true</span>
 </pre></div>
 </div>
-<p>Podemos instalar las dependencias por defecto o de un grupo concreto utilizando <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">install</span></code> (con las opciones <code class="docutils literal notranslate"><span class="pre">--with</span></code> o <code class="docutils literal notranslate"><span class="pre">--without</span></code>, véase la documentación). Nótese que con el comando <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">add</span></code> las dependencias se instalan automáticamente. Finalmente, existen funcionalidades más allá como la de construir paquetes distribuible y publicar que se basan en los comandos, <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">build</span></code> y <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">publish</span></code>, pero eso lo dejamos para otro día.</p>
+<p>Podemos instalar las dependencias por defecto o de un grupo concreto utilizando <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">install</span></code> (con las opciones <code class="docutils literal notranslate"><span class="pre">--with</span></code> o <code class="docutils literal notranslate"><span class="pre">--without</span></code>, véase la documentación). Por ejemplo si quremos actualizar solo las dependencias de un grupo, podemos hacer</p>
+<p><code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">update</span> <span class="pre">--with</span> <span class="pre">test</span></code></p>
+<p>Nótese que con el comando <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">add</span></code> las dependencias se instalan automáticamente.</p>
 </section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="usando-poetry">
 <h1>Usando poetry<a class="headerlink" href="#usando-poetry" title="Enlazar permanentemente con este título">#</a></h1>
 <p>Podemos lanzar un script con poetry simplemente escribiendo <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">python</span> <span class="pre">your_script.py</span></code>. Del mismo modo si utilizas herramientas desde línea de comandos puedes lanzarlas con poetry, como <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">black</span> <span class="pre">.</span></code></p>
+<p>Finalmente, existen funcionalidades más allá como la de construir paquetes distribuible y publicar que se basan en los comandos, <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">build</span></code> y <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">publish</span></code>, pero eso lo dejamos para otro día.</p>
 <section id="limpia-tu-codigo-flake8-black">
 <h2>Limpia tu código - flake8 + black<a class="headerlink" href="#limpia-tu-codigo-flake8-black" title="Enlazar permanentemente con este título">#</a></h2>
 <section id="flake8">
