@@ -931,6 +931,9 @@ CRITICAL:__main__:Critical message
 <section id="dash">
 <h2>Dash<a class="headerlink" href="#dash" title="Enlazar permanentemente con este título">#</a></h2>
 <p><a class="reference external" href="https://dash.plotly.com/">Dash</a> es un framework para hacer aplicaciones web interactivas para Python. Es una biblioteca construida en top de Flask, Plotly.js y React.js que permite crear aplicaciones web con gráficos interactivos y dashboards en tiempo real. Dash hace fácil crear interfaces de usuario complejas con una gran cantidad de elementos interactivos, incluyendo gráficos, tablas, deslizadores, botones, entre otros.</p>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://drive.google.com/uc?id=1kEdTYfWSWHhWP6WsmxlQpPAeI2lhmHXr"/>
+</div>
 <p>El siguiente código crea una aplicación y la expone en el puerto 8050 de nuestro localhost</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -942,21 +945,21 @@ CRITICAL:__main__:Critical message
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting dash
   Downloading dash-2.8.1-py3-none-any.whl (9.9 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.9/9.9 MB</span> <span class=" -Color -Color-Red">48.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hCollecting dash-core-components==2.0.0
-  Downloading dash_core_components-2.0.0-py3-none-any.whl (3.8 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.9/9.9 MB</span> <span class=" -Color -Color-Red">58.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting dash-table==5.0.0
+  Downloading dash_table-5.0.0-py3-none-any.whl (3.9 kB)
+Requirement already satisfied: Flask&gt;=1.0.4 in /usr/local/lib/python3.8/dist-packages (from dash) (1.1.4)
 Collecting dash-html-components==2.0.0
   Downloading dash_html_components-2.0.0-py3-none-any.whl (4.1 kB)
+Collecting dash-core-components==2.0.0
+  Downloading dash_core_components-2.0.0-py3-none-any.whl (3.8 kB)
 Requirement already satisfied: plotly&gt;=5.0.0 in /usr/local/lib/python3.8/dist-packages (from dash) (5.5.0)
-Requirement already satisfied: Flask&gt;=1.0.4 in /usr/local/lib/python3.8/dist-packages (from dash) (1.1.4)
-Collecting dash-table==5.0.0
-  Downloading dash_table-5.0.0-py3-none-any.whl (3.9 kB)
-Requirement already satisfied: Jinja2&lt;3.0,&gt;=2.10.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (2.11.3)
-Requirement already satisfied: click&lt;8.0,&gt;=5.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (7.1.2)
 Requirement already satisfied: itsdangerous&lt;2.0,&gt;=0.24 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (1.1.0)
 Requirement already satisfied: Werkzeug&lt;2.0,&gt;=0.15 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (1.0.1)
-Requirement already satisfied: tenacity&gt;=6.2.0 in /usr/local/lib/python3.8/dist-packages (from plotly&gt;=5.0.0-&gt;dash) (8.1.0)
+Requirement already satisfied: Jinja2&lt;3.0,&gt;=2.10.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (2.11.3)
+Requirement already satisfied: click&lt;8.0,&gt;=5.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (7.1.2)
 Requirement already satisfied: six in /usr/local/lib/python3.8/dist-packages (from plotly&gt;=5.0.0-&gt;dash) (1.15.0)
+Requirement already satisfied: tenacity&gt;=6.2.0 in /usr/local/lib/python3.8/dist-packages (from plotly&gt;=5.0.0-&gt;dash) (8.1.0)
 Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.8/dist-packages (from Jinja2&lt;3.0,&gt;=2.10.1-&gt;Flask&gt;=1.0.4-&gt;dash) (2.0.1)
 Installing collected packages: dash-table, dash-html-components, dash-core-components, dash
 Successfully installed dash-2.8.1 dash-core-components-2.0.0 dash-html-components-2.0.0 dash-table-5.0.0
@@ -967,8 +970,7 @@ Successfully installed dash-2.8.1 dash-core-components-2.0.0 dash-html-component
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dash</span>
-<span class="kn">import</span> <span class="nn">dash_core_components</span> <span class="k">as</span> <span class="nn">dcc</span>
-<span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+<span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">html</span><span class="p">,</span> <span class="n">dcc</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 
@@ -995,17 +997,6 @@ Successfully installed dash-2.8.1 dash-core-components-2.0.0 dash-html-component
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-4-6fea80c17462&gt;:2: UserWarning: 
-The dash_core_components package is deprecated. Please replace
-`import dash_core_components as dcc` with `from dash import dcc`
-  import dash_core_components as dcc
-&lt;ipython-input-4-6fea80c17462&gt;:3: UserWarning: 
-The dash_html_components package is deprecated. Please replace
-`import dash_html_components as html` with `from dash import html`
-  import dash_html_components as html
-2023-02-08 15:27:28,973 - __main__ - INFO - Dash is running on http://127.0.0.1:8050/
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dash is running on http://127.0.0.1:8050/
 </pre></div>
 </div>
@@ -1017,6 +1008,39 @@ The dash_html_components package is deprecated. Please replace
 <span class=" -Color -Color-Red">   WARNING: This is a development server. Do not use it in a production deployment.</span>
 <span class=" -Color -Color-Faint">   Use a production WSGI server instead.</span>
  * Debug mode: on
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lo interesante de dash es que podemos modificar las propiedades del layout con las funciones <strong>callback</strong>, de modo que podemos incluir interactividad en nuestro dashboard. Por ejemplo, en esa aplicación el usuario escribe un número y Python lo multiplica por dos, mostrando el resultado también en la aplicación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">Dash</span><span class="p">,</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H6</span><span class="p">(</span><span class="s2">&quot;Change the value in the text box to see callbacks in action!&quot;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+        <span class="s2">&quot;Input: &quot;</span><span class="p">,</span>
+        <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;my-input&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Br</span><span class="p">(),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;my-output&#39;</span><span class="p">),</span>
+
+<span class="p">])</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;my-output&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;my-input&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">update_output_div</span><span class="p">(</span><span class="n">input_value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Output: </span><span class="si">{</span><span class="n">input_value</span><span class="o">*</span><span class="mi">2</span><span class="si">}</span><span class="s1">&#39;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
