@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Bibliografía" href="../../bibliography.html" />
+    <link rel="next" title="Dash" href="dash.html" />
     <link rel="prev" title="Probando modelos de clasificación binaria" href="../practicas/classification-models.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -282,6 +282,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Gestión de proyectos en Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dash.html">
+   Dash
   </a>
  </li>
 </ul>
@@ -535,6 +540,16 @@ title="Print to PDF"
      Creando un nuevo proyecto
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manejando-dependencias">
+     Manejando dependencias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-poetry">
+     Usando poetry
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -543,11 +558,26 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flake8">
+     flake8
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#black">
      Black
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logs">
+   Logs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dash">
+   Dash
+  </a>
  </li>
 </ul>
 
@@ -583,6 +613,16 @@ title="Print to PDF"
      Creando un nuevo proyecto
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manejando-dependencias">
+     Manejando dependencias
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-poetry">
+     Usando poetry
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -591,11 +631,26 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flake8">
+     flake8
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#black">
      Black
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logs">
+   Logs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dash">
+   Dash
+  </a>
  </li>
 </ul>
 
@@ -609,8 +664,12 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="gestion-de-proyectos-en-python">
 <h1>Gestión de proyectos en Python<a class="headerlink" href="#gestion-de-proyectos-en-python" title="Enlazar permanentemente con este título">#</a></h1>
+<p>En esta sección vamos a hacer un recopilatorio de herramientas que nos pueden ayudar a la hora de desarrollar, estandarizar y compartir un proyecto de Python. Existen una amplica gama de herramientas de este tipo, pero aquí expongo las que encuentro más útiles en mi día a día</p>
 <section id="gestion-de-paquetes-poetry">
 <h2>Gestión de paquetes - Poetry<a class="headerlink" href="#gestion-de-paquetes-poetry" title="Enlazar permanentemente con este título">#</a></h2>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://drive.google.com/uc?id=1ABuxOzaBc6WkuUb-9XLtTAHnQcvGPaSc"/>
+</div>
 <p><a class="reference external" href="https://python-poetry.org/">Poetry</a> es un sistema de gestión de proyectos en Python que va más allá de manejar las dependencias de un proyecto como podemos hacer con <a class="reference external" href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">pipenv</a><br />
 Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integrados que nos permiten manejar detalles sobre nuestro proyecto</p>
 <ul class="simple">
@@ -660,7 +719,11 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <li><p>Windows: <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\AppData\Local\pypoetry\Cache</span></code></p></li>
 <li><p>Unix: <code class="docutils literal notranslate"><span class="pre">~/.cache/pypoetry</span></code></p></li>
 </ul>
-<p>Así que en principio no tenemos que crear nada más para empezar a añadir dependencias. Sólo tenemos que modificar el <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, en concreto la sección <code class="docutils literal notranslate"><span class="pre">tool.petry.dependencies</span></code> o más fácil, añadirlas con la CLI de poetry</p>
+<p>Podemos configurar poetry para que los entornos virtuales se creen directamente en el directorio del proyecto, para ello es necesario ejecutar el siguiente comando</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">config</span> <span class="n">virtualenvs</span><span class="o">.</span><span class="ow">in</span><span class="o">-</span><span class="n">project</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>Así que en principio no tenemos que crear nada más para empezar a añadir dependencias. Sólo tenemos que modificar el <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, en concreto la sección <code class="docutils literal notranslate"><span class="pre">tool.poetry.dependencies</span></code> o más fácil, añadirlas con la CLI de poetry</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">add</span> <span class="n">pandas</span>
 </pre></div>
 </div>
@@ -668,14 +731,46 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">add</span> <span class="n">pandas</span><span class="o">==</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">5</span>
 </pre></div>
 </div>
+<p>O por ejemplo con <code class="docutils literal notranslate"><span class="pre">pandas=^1.3.5</span></code> estamos indicando que queremos una versión superior o igual a la <code class="docutils literal notranslate"><span class="pre">1.3.5</span></code> pero siempre menor que la <code class="docutils literal notranslate"><span class="pre">2.0.0</span></code>.</p>
+</section>
+<section id="manejando-dependencias">
+<h3>Manejando dependencias<a class="headerlink" href="#manejando-dependencias" title="Enlazar permanentemente con este título">#</a></h3>
+<p>Otra cosa muy interesante que nos proporciona poetry es la de crear <a class="reference external" href="https://python-poetry.org/docs/managing-dependencies/"><em>grupos</em> para las dependencias</a>. Por ejemplo en un proyecto puede ser deseable tener un entorno de desarrollo en el que tengamos herramientas de formateo, testing, paquetes adicionales etc y otro más minimalista para producción. Los grupos se pueden crear en el archivo de configuración <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, por ejemplo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="p">]</span> 
+
+<span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">dependencies</span><span class="p">]</span>
+<span class="n">pytest</span> <span class="o">=</span> <span class="s2">&quot;^6.0.0&quot;</span>
+<span class="n">pytest</span><span class="o">-</span><span class="n">mock</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
+</pre></div>
+</div>
+<p>Si queremos que las dependencias de un grupo no se instalen por defecto, tenemos que añadir el parámetro <code class="docutils literal notranslate"><span class="pre">optional</span></code> en la configuración</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="p">]</span> 
+<span class="n">optional</span> <span class="o">=</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>Podemos instalar las dependencias por defecto o de un grupo concreto utilizando <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">install</span></code> (con las opciones <code class="docutils literal notranslate"><span class="pre">--with</span></code> o <code class="docutils literal notranslate"><span class="pre">--without</span></code>, véase la documentación). Por ejemplo si quremos actualizar solo las dependencias de un grupo, podemos hacer</p>
+<p><code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">update</span> <span class="pre">--with</span> <span class="pre">test</span></code></p>
+<p>Nótese que con el comando <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">add</span></code> las dependencias se instalan automáticamente.</p>
+</section>
+<section id="usando-poetry">
+<h3>Usando poetry<a class="headerlink" href="#usando-poetry" title="Enlazar permanentemente con este título">#</a></h3>
 <p>Podemos lanzar un script con poetry simplemente escribiendo <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">python</span> <span class="pre">your_script.py</span></code>. Del mismo modo si utilizas herramientas desde línea de comandos puedes lanzarlas con poetry, como <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">run</span> <span class="pre">black</span> <span class="pre">.</span></code></p>
+<p>Finalmente, existen funcionalidades más allá como la de construir paquetes distribuible y publicar que se basan en los comandos, <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">build</span></code> y <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">publish</span></code>, pero eso lo dejamos para otro día.</p>
 </section>
 </section>
 <section id="limpia-tu-codigo-flake8-black">
 <h2>Limpia tu código - flake8 + black<a class="headerlink" href="#limpia-tu-codigo-flake8-black" title="Enlazar permanentemente con este título">#</a></h2>
+<section id="flake8">
+<h3>flake8<a class="headerlink" href="#flake8" title="Enlazar permanentemente con este título">#</a></h3>
+<p><a class="reference external" href="https://github.com/pycqa/flake8">flake8</a> es un linter, es decir, una herramienta que nos dará información sobre qué partes de nuestro código no siguen determinadas guías de estilo o tienen alguna lógica herrónea, como asignar variables que no se utilizan o hacer los imports en el orden inadecuado.</p>
+<p>flake8 nos informará a través de una serie de códigos basado en <code class="docutils literal notranslate"><span class="pre">pycodestyle</span></code> sobre qué debemos mejorar de nuestro código. En lugar de hacer los cambios a mano, puede ser interesante utilizar un formateador como black, que lo hará de forma automática y precisa por nosotros.</p>
+</section>
 <section id="black">
 <h3>Black<a class="headerlink" href="#black" title="Enlazar permanentemente con este título">#</a></h3>
-<p>Es una herramienta de <strong>formateo</strong> de código, es decir, al aplicar black a nuestro código, va a modificar nuestro código según para que siga ciertas guías de estilo, normalmente basadas en <a class="reference external" href="https://peps.python.org/pep-0008/">PEP8</a>, que son configurables por nosotros mismos, de modo que se cambiará el estilo del código pero nunca se modificará el output del intérprete de Python.</p>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://drive.google.com/uc?id=1xe6unReOz8Av38lNMllJKytQQidKdPJq"/>
+</div>
+<p><a class="reference external" href="https://github.com/psf/black">Black</a> es una herramienta de <strong>formateo</strong> de código, es decir, al aplicar black a nuestro código, va a modificar nuestro código según para que siga ciertas guías de estilo, normalmente basadas en <a class="reference external" href="https://peps.python.org/pep-0008/">PEP8</a>, que son configurables por nosotros mismos, de modo que se cambiará el estilo del código pero nunca se modificará el output del intérprete de Python.</p>
 <p><a class="reference external" href="https://black.readthedocs.io/en/stable/">Black</a> tiene un principio básico y es que todo el código que formatea debe ser similar, haciendo que estilo pueda cambiar bastante del de partida, pero minimizando los cambios respecto a las diferentes versiones del proyecto u otros proyectos igualmente formateados.</p>
 <p>Podemos instalar black utilizando <code class="docutils literal notranslate"><span class="pre">pip</span></code>, siempre que tengamos Python 3.7 o superior.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">black</span>
@@ -689,7 +784,272 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">black</span> <span class="p">{</span><span class="n">fichero_que_queremos_formatear</span><span class="o">.</span><span class="n">py</span><span class="p">}</span>
 </pre></div>
 </div>
+<p>Tanto flake8 como black son ejemplos de linters y formatter pero hay muchos más, cada uno con sus ventajas e inconvenientes. Son altamente configurables (por ejemplo, para alterar algunas de las normas de estilo) y suelen ser muy útiles combinadas con git, la herramienta de control de versiones de la que ya hemos hablado en el curso. En particular, podemos usar herramientas como <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> para que estas herramientas se ejecuten cada vez que realizamos un commit o similar.</p>
 </section>
+</section>
+<section id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Enlazar permanentemente con este título">#</a></h2>
+<p>El <strong>logging</strong> es un mecanismo para registrar información sobre la ejecución de un programa, lo que puede ser muy útil para depurar errores, auditar el uso del sistema, y tomar decisiones basadas en los datos de registro. El mecanismo de logging más básico es simplemente hacer <code class="docutils literal notranslate"><span class="pre">print</span></code> por stdout, pero hay herramientas más sofisticadas que nos permiten ir más allá. Existen varios módulos de logging en Python, pero el más comúnmente utilizado es el <a class="reference external" href="https://docs.python.org/3/library/logging.html">logging</a> que viene con la biblioteca estándar. Con este módulo, puedes especificar el nivel de detalle que deseas registrar, elegir dónde escribir tus registros (por ejemplo, en un archivo o en la consola), y ajustar el formato de tus mensajes de registro.</p>
+<p>Aquí hay algunos ejemplos básicos de código para usar la biblioteca de logging en Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># Configuramos un registrador</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># Configuramos un manejador para escribir en consola</span>
+<span class="n">console_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># Configuramos un formato para los mensajes de registro</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="c1"># Agregamos el manejador al registrador</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console_handler</span><span class="p">)</span>
+
+<span class="c1"># Usamos el registrador en nuestro código</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Debug message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Info message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Warning message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Critical message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-08 15:20:56,712 - __main__ - INFO - Info message
+INFO:__main__:Info message
+2023-02-08 15:20:56,720 - __main__ - WARNING - Warning message
+WARNING:__main__:Warning message
+2023-02-08 15:20:56,723 - __main__ - ERROR - Error message
+ERROR:__main__:Error message
+2023-02-08 15:20:56,726 - __main__ - CRITICAL - Critical message
+CRITICAL:__main__:Critical message
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si cambios el nivel de logging, sólo los mensajes con un nivel más alto permanecerán</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Debug message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Info message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Warning message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Critical message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-08 13:15:17,028 - __main__ - WARNING - Warning message
+WARNING:__main__:Warning message
+2023-02-08 13:15:17,034 - __main__ - ERROR - Error message
+ERROR:__main__:Error message
+2023-02-08 13:15:17,040 - __main__ - CRITICAL - Critical message
+CRITICAL:__main__:Critical message
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si queremos sacar el log por un fichero en lugar de por consolta, deberemos añadir un handler del siguiente tipo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s1">&#39;example.log&#39;</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Debug message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Info message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Warning message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error message&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Critical message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-08 13:20:38,629 - __main__ - WARNING - Warning message
+WARNING:__main__:Warning message
+2023-02-08 13:20:38,635 - __main__ - ERROR - Error message
+ERROR:__main__:Error message
+2023-02-08 13:20:38,638 - __main__ - CRITICAL - Critical message
+CRITICAL:__main__:Critical message
+</pre></div>
+</div>
+</div>
+</div>
+<p>## Tests</p>
+<p>Los <strong>test unitarios</strong> son pruebas automatizadas que se realizan para asegurarse de que una pequeña porción de código, conocida como una «unidad», funciona correctamente. Estos tests son importantes porque permiten detectar errores en el código de manera temprana, lo que facilita la depuración y aumenta la confianza en el código.</p>
+<p>En Python, existen varias bibliotecas que se utilizan para crear test unitarios, pero una de las más comúnmente utilizadas es <a class="reference external" href="https://docs.python.org/3/library/unittest.html">unittest</a>, que viene incluida en la biblioteca estándar.</p>
+<p>Un test unitario se compone de una o más pruebas que se realizan sobre el código, y pueden comprobar si el código devuelve el resultado esperado para diferentes entradas. Por ejemplo, si tienes una función que calcula el área de un círculo, podrías escribir un test unitario que verifique que la función devuelve el resultado correcto</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">area_circle</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">class</span> <span class="nc">TestAreaCircle</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hay una <a class="reference external" href="https://docs.python.org/3/library/unittest.html#assert-methods">amplia lista de métodos</a> que pueden ser ejecutados a la hora de testear una función. Hay un método <code class="docutils literal notranslate"><span class="pre">setUp</span></code> especial que se ejecuta antes de llamar al resto de métodos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestAreaCircle</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">SetUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">area_one</span> <span class="o">=</span> <span class="n">area_circle</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">area_one</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">area_one</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dash">
+<h2>Dash<a class="headerlink" href="#dash" title="Enlazar permanentemente con este título">#</a></h2>
+<p><a class="reference external" href="https://dash.plotly.com/">Dash</a> es un framework para hacer aplicaciones web interactivas para Python. Es una biblioteca construida en top de Flask, Plotly.js y React.js que permite crear aplicaciones web con gráficos interactivos y dashboards en tiempo real. Dash hace fácil crear interfaces de usuario complejas con una gran cantidad de elementos interactivos, incluyendo gráficos, tablas, deslizadores, botones, entre otros.</p>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://drive.google.com/uc?id=1kEdTYfWSWHhWP6WsmxlQpPAeI2lhmHXr"/>
+</div>
+<p>El siguiente código crea una aplicación y la expone en el puerto 8050 de nuestro localhost</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install dash
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting dash
+  Downloading dash-2.8.1-py3-none-any.whl (9.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.9/9.9 MB</span> <span class=" -Color -Color-Red">58.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting dash-table==5.0.0
+  Downloading dash_table-5.0.0-py3-none-any.whl (3.9 kB)
+Requirement already satisfied: Flask&gt;=1.0.4 in /usr/local/lib/python3.8/dist-packages (from dash) (1.1.4)
+Collecting dash-html-components==2.0.0
+  Downloading dash_html_components-2.0.0-py3-none-any.whl (4.1 kB)
+Collecting dash-core-components==2.0.0
+  Downloading dash_core_components-2.0.0-py3-none-any.whl (3.8 kB)
+Requirement already satisfied: plotly&gt;=5.0.0 in /usr/local/lib/python3.8/dist-packages (from dash) (5.5.0)
+Requirement already satisfied: itsdangerous&lt;2.0,&gt;=0.24 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (1.1.0)
+Requirement already satisfied: Werkzeug&lt;2.0,&gt;=0.15 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (1.0.1)
+Requirement already satisfied: Jinja2&lt;3.0,&gt;=2.10.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (2.11.3)
+Requirement already satisfied: click&lt;8.0,&gt;=5.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (7.1.2)
+Requirement already satisfied: six in /usr/local/lib/python3.8/dist-packages (from plotly&gt;=5.0.0-&gt;dash) (1.15.0)
+Requirement already satisfied: tenacity&gt;=6.2.0 in /usr/local/lib/python3.8/dist-packages (from plotly&gt;=5.0.0-&gt;dash) (8.1.0)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.8/dist-packages (from Jinja2&lt;3.0,&gt;=2.10.1-&gt;Flask&gt;=1.0.4-&gt;dash) (2.0.1)
+Installing collected packages: dash-table, dash-html-components, dash-core-components, dash
+Successfully installed dash-2.8.1 dash-core-components-2.0.0 dash-html-components-2.0.0 dash-table-5.0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dash</span>
+<span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">html</span><span class="p">,</span> <span class="n">dcc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Fruit&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Apples&quot;</span><span class="p">,</span> <span class="s2">&quot;Bananas&quot;</span><span class="p">,</span> <span class="s2">&quot;Cherries&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Amount&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">&quot;My Simple Dashboard&quot;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;example-graph&quot;</span><span class="p">,</span>
+        <span class="n">figure</span><span class="o">=</span><span class="n">fig</span>
+    <span class="p">)</span>
+<span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dash is running on http://127.0.0.1:8050/
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:__main__:Dash is running on http://127.0.0.1:8050/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * Serving Flask app &quot;__main__&quot; (lazy loading)
+ * Environment: production
+<span class=" -Color -Color-Red">   WARNING: This is a development server. Do not use it in a production deployment.</span>
+<span class=" -Color -Color-Faint">   Use a production WSGI server instead.</span>
+ * Debug mode: on
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lo interesante de dash es que podemos modificar las propiedades del layout con las funciones <strong>callback</strong>, de modo que podemos incluir interactividad en nuestro dashboard. Por ejemplo, en esa aplicación el usuario escribe un número y Python lo multiplica por dos, mostrando el resultado también en la aplicación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">Dash</span><span class="p">,</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H6</span><span class="p">(</span><span class="s2">&quot;Change the value in the text box to see callbacks in action!&quot;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+        <span class="s2">&quot;Input: &quot;</span><span class="p">,</span>
+        <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;my-input&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Br</span><span class="p">(),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;my-output&#39;</span><span class="p">),</span>
+
+<span class="p">])</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;my-output&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;my-input&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">update_output_div</span><span class="p">(</span><span class="n">input_value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Output: </span><span class="si">{</span><span class="n">input_value</span><span class="o">*</span><span class="mi">2</span><span class="si">}</span><span class="s1">&#39;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -727,10 +1087,10 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
             <p class="prev-next-title">Probando modelos de clasificación binaria</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../bibliography.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="dash.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Bibliografía</p>
+        <p class="prev-next-title">Dash</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

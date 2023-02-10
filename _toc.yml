@@ -41,6 +41,7 @@ parts:
 - caption: Gestión de proyectos en Python
   chapters:
   - file: notebooks/proyecto-ejemplo/project-management.ipynb
+  - file: notebooks/proyecto-ejemplo/dash.ipynb
 - caption: Bilbiografía
   chapters:
   - file: bibliography.md

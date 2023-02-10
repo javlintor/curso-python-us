@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Dash &#8212; Curso de Python US</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/logo-us.png"/>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Bibliografía" href="../../bibliography.html" />
+    <link rel="prev" title="Gestión de proyectos en Python" href="project-management.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo-us.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Curso de Python US</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    Curso de Python US
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción a Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/introduction-python.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/python-basics.html">
+   Principios básicos de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/numeric-types.html">
+   Tipos numéricos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/strings.html">
+   Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/booleans.html">
+   Booleanos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/lists.html">
+   Listas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/other-data-structures.html">
+   Otras estructuras de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/control-flow.html">
+   Estructuras de control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/functions.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/classes.html">
+   Clases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction-python/exercises.html">
+   Ejercicios de Introducción a Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/introduction-numpy.html">
+   Introducción a Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/index-slicing.html">
+   Indexado, Slicing y operaciones básicas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/basic-operations.html">
+   Operaciones Básicas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/exercises.html">
+   Ejercicios
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
+   Introducción a matplotlib
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/introduction-pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/groupby-merge.html">
+   Agregación y mergeo de dataframes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Casos prácticos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/gradient-descent.html">
+   Descenso del gradiente:  Regresión Lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/linear-programming.html">
+   Programación Lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/portfolio-optimization.html">
+   Optimización de portfolio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/regression-model.html">
+   Construyendo un modelo de regresión lineal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/eda.html">
+   Ejemplo de análisis exploratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../practicas/classification-models.html">
+   Probando modelos de clasificación binaria
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Gestión de proyectos en Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="project-management.html">
+   Gestión de proyectos en Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dash
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bilbiografía
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bibliography.html">
+   Bibliografía
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/proyecto-ejemplo/dash.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/proyecto-ejemplo/dash.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/javlintor/curso-python-us"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/proyecto-ejemplo/dash.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/proyecto-ejemplo/dash.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Dash</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="dash">
+<h1>Dash<a class="headerlink" href="#dash" title="Enlazar permanentemente con este título">#</a></h1>
+<p><a class="reference external" href="https://dash.plotly.com/">Dash</a> es un framework para hacer aplicaciones web interactivas para Python. Es una biblioteca construida en top de Flask, Plotly.js y React.js que permite crear aplicaciones web con gráficos interactivos y dashboards en tiempo real. Dash hace fácil crear interfaces de usuario complejas con una gran cantidad de elementos interactivos, incluyendo gráficos, tablas, deslizadores, botones, entre otros.</p>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <img src="https://drive.google.com/uc?id=1kEdTYfWSWHhWP6WsmxlQpPAeI2lhmHXr"/>
+</div>
+<p>El siguiente código crea una aplicación y la expone en el puerto 8050 de nuestro localhost</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install dash
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting dash
+  Downloading dash-2.8.1-py3-none-any.whl (9.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">9.9/9.9 MB</span> <span class=" -Color -Color-Red">58.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting dash-table==5.0.0
+  Downloading dash_table-5.0.0-py3-none-any.whl (3.9 kB)
+Requirement already satisfied: Flask&gt;=1.0.4 in /usr/local/lib/python3.8/dist-packages (from dash) (1.1.4)
+Collecting dash-html-components==2.0.0
+  Downloading dash_html_components-2.0.0-py3-none-any.whl (4.1 kB)
+Collecting dash-core-components==2.0.0
+  Downloading dash_core_components-2.0.0-py3-none-any.whl (3.8 kB)
+Requirement already satisfied: plotly&gt;=5.0.0 in /usr/local/lib/python3.8/dist-packages (from dash) (5.5.0)
+Requirement already satisfied: itsdangerous&lt;2.0,&gt;=0.24 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (1.1.0)
+Requirement already satisfied: Werkzeug&lt;2.0,&gt;=0.15 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (1.0.1)
+Requirement already satisfied: Jinja2&lt;3.0,&gt;=2.10.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (2.11.3)
+Requirement already satisfied: click&lt;8.0,&gt;=5.1 in /usr/local/lib/python3.8/dist-packages (from Flask&gt;=1.0.4-&gt;dash) (7.1.2)
+Requirement already satisfied: six in /usr/local/lib/python3.8/dist-packages (from plotly&gt;=5.0.0-&gt;dash) (1.15.0)
+Requirement already satisfied: tenacity&gt;=6.2.0 in /usr/local/lib/python3.8/dist-packages (from plotly&gt;=5.0.0-&gt;dash) (8.1.0)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.8/dist-packages (from Jinja2&lt;3.0,&gt;=2.10.1-&gt;Flask&gt;=1.0.4-&gt;dash) (2.0.1)
+Installing collected packages: dash-table, dash-html-components, dash-core-components, dash
+Successfully installed dash-2.8.1 dash-core-components-2.0.0 dash-html-components-2.0.0 dash-table-5.0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dash</span>
+<span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">html</span><span class="p">,</span> <span class="n">dcc</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">()</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Fruit&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Apples&quot;</span><span class="p">,</span> <span class="s2">&quot;Bananas&quot;</span><span class="p">,</span> <span class="s2">&quot;Cherries&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Amount&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Fruit&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">&quot;My Simple Dashboard&quot;</span><span class="p">),</span>
+    <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span>
+        <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;example-graph&quot;</span><span class="p">,</span>
+        <span class="n">figure</span><span class="o">=</span><span class="n">fig</span>
+    <span class="p">)</span>
+<span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dash is running on http://127.0.0.1:8050/
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:__main__:Dash is running on http://127.0.0.1:8050/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * Serving Flask app &quot;__main__&quot; (lazy loading)
+ * Environment: production
+<span class=" -Color -Color-Red">   WARNING: This is a development server. Do not use it in a production deployment.</span>
+<span class=" -Color -Color-Faint">   Use a production WSGI server instead.</span>
+ * Debug mode: on
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lo interesante de dash es que podemos modificar las propiedades del layout con las funciones <strong>callback</strong>, de modo que podemos incluir interactividad en nuestro dashboard. Por ejemplo, en esa aplicación el usuario escribe un número y Python lo multiplica por dos, mostrando el resultado también en la aplicación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dash</span> <span class="kn">import</span> <span class="n">Dash</span><span class="p">,</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Output</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Dash</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">H6</span><span class="p">(</span><span class="s2">&quot;Change the value in the text box to see callbacks in action!&quot;</span><span class="p">),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+        <span class="s2">&quot;Input: &quot;</span><span class="p">,</span>
+        <span class="n">dcc</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;my-input&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span>
+    <span class="p">]),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Br</span><span class="p">(),</span>
+    <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;my-output&#39;</span><span class="p">),</span>
+
+<span class="p">])</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span>
+    <span class="n">Output</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;my-output&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">),</span>
+    <span class="n">Input</span><span class="p">(</span><span class="n">component_id</span><span class="o">=</span><span class="s1">&#39;my-input&#39;</span><span class="p">,</span> <span class="n">component_property</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">update_output_div</span><span class="p">(</span><span class="n">input_value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Output: </span><span class="si">{</span><span class="n">input_value</span><span class="o">*</span><span class="mi">2</span><span class="si">}</span><span class="s1">&#39;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/proyecto-ejemplo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="project-management.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title">Gestión de proyectos en Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../bibliography.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Bibliografía</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Javier Linares Torres<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
