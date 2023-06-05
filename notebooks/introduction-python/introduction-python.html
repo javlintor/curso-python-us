@@ -1,52 +1,63 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Introducción a Python &#8212; Curso de Python US</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -56,62 +67,94 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/introduction-python/introduction-python';</script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Principios básicos de Python" href="python-basics.html" />
     <link rel="prev" title="Curso de Python US" href="../../README.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo-us.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Curso de Python US</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo-us.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo-us.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -120,485 +163,295 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introducción a Python
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Introducción a Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python-basics.html">
-   Principios básicos de Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="numeric-types.html">
-   Tipos numéricos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="strings.html">
-   Strings
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="booleans.html">
-   Booleanos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lists.html">
-   Listas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="other-data-structures.html">
-   Otras estructuras de datos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="control-flow.html">
-   Estructuras de control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Funciones
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="classes.html">
-   Clases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exercises.html">
-   Ejercicios de Introducción a Python
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basics.html">Principios básicos de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numeric-types.html">Tipos numéricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="booleans.html">Booleanos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Listas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-data-structures.html">Otras estructuras de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-flow.html">Estructuras de control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Clases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">Ejercicios de Introducción a Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Numpy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numpy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/introduction-numpy.html">
-   Introducción a Numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/index-slicing.html">
-   Indexado, Slicing y operaciones básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/basic-operations.html">
-   Operaciones Básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/exercises.html">
-   Ejercicios
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/introduction-numpy.html">Introducción a Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/index-slicing.html">Indexado, Slicing y operaciones básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/basic-operations.html">Operaciones Básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/exercises.html">Ejercicios</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Matplotlib
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Matplotlib</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
-   Introducción a matplotlib
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/introduction-matplotlib.html">Introducción a matplotlib</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Pandas
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/introduction-pandas.html">
-   Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/groupby-merge.html">
-   Agregación y mergeo de dataframes
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/introduction-pandas.html">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/groupby-merge.html">Agregación y mergeo de dataframes</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Casos prácticos
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Casos prácticos</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/gradient-descent.html">
-   Descenso del gradiente:  Regresión Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/linear-programming.html">
-   Programación Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/portfolio-optimization.html">
-   Optimización de portfolio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/regression-model.html">
-   Construyendo un modelo de regresión lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/eda.html">
-   Ejemplo de análisis exploratorio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/classification-models.html">
-   Probando modelos de clasificación binaria
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/gradient-descent.html">Descenso del gradiente:  Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/linear-programming.html">Programación Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/portfolio-optimization.html">Optimización de portfolio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/regression-model.html">Construyendo un modelo de regresión lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/eda.html">Ejemplo de análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/classification-models.html">Probando modelos de clasificación binaria</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Gestión de proyectos en Python
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Gestión de proyectos en Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/project-management.html">
-   Gestión de proyectos en Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/dash.html">
-   Dash
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/project-management.html">Gestión de proyectos en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/dash.html">Dash</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Bilbiografía
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bilbiografía</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../bibliography.html">
-   Bibliografía
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliografía</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/introduction-python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/introduction-python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/introduction-python/introduction-python.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/introduction-python.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/introduction-python/introduction-python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#descargar-python">
-   Descargar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#donde-ejecutar-python">
-   Dónde ejecutar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">
-   Notebooks de Jupyter/Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-sobre-python">
-   Más sobre Python
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introducción a Python</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#descargar-python">
-   Descargar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#donde-ejecutar-python">
-   Dónde ejecutar Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">
-   Notebooks de Jupyter/Colab
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mas-sobre-python">
-   Más sobre Python
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción a Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-python">Descargar Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#donde-ejecutar-python">Dónde ejecutar Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">Notebooks de Jupyter/Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-sobre-python">Más sobre Python</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <p><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/introduction-python.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-python">
-<span id="introduction-python"></span><h1>Introducción a Python<a class="headerlink" href="#introduccion-a-python" title="Enlazar permanentemente con este título">#</a></h1>
+<span id="introduction-python"></span><h1>Introducción a Python<a class="headerlink" href="#introduccion-a-python" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://www.python.org/">Python</a> es un <strong>lenguaje de programación</strong> altamente popular y con una sintaxis sencilla, lo que lo hace fácilmente accesible para programadores no experimentados. No obstante, es una herramienta muy potente que puede ayudarnos a resolver problemas de muy diferente índole.</p>
 <p><img alt="picture" src="https://drive.google.com/uc?id=1ugvfeCFADgTHKgK49asYtnAQjjfN_PCZ" /></p>
 <p>Entre sus características principales destacan:</p>
@@ -611,7 +464,7 @@ title="Print to PDF"
 </ul>
 <p>Podemos visitar <a class="reference external" href="https://survey.stackoverflow.co/2022/#technology-most-popular-technologies">la encuesta anual de Stackoverflow</a> sobre uso y opinión de diferentes tecnologías para hacernos una idea de la presencia del entorno Python en el mundo del desarrollo, sobre todo en campos cercanos a la Ciencia de Datos.</p>
 <section id="descargar-python">
-<h2>Descargar Python<a class="headerlink" href="#descargar-python" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Descargar Python<a class="headerlink" href="#descargar-python" title="Permalink to this heading">#</a></h2>
 <p>Podemos descargar Python desde <a class="reference external" href="https://www.python.org/">su sitio oficial</a>. En noviembre de 2022, la última versión estable es la 3.11, aunque en este curso utilizaremos la versión</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,7 +484,7 @@ title="Print to PDF"
 <p>En este curso no nos tendremos que preocupar de manejar paquetes y sus dependencias ya que trabajaremos con <strong>Google Colab</strong>, que nos proporciona directamente el acceso a un gran número de paquetes y funcionalidades del ecosistema Python.</p>
 </section>
 <section id="donde-ejecutar-python">
-<h2>Dónde ejecutar Python<a class="headerlink" href="#donde-ejecutar-python" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Dónde ejecutar Python<a class="headerlink" href="#donde-ejecutar-python" title="Permalink to this heading">#</a></h2>
 <p>Hay muchos entornos en los que un intérprete de Python puede correr como un IDE (Integrated Development Environment -como <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, <a class="reference external" href="https://www.jetbrains.com/es-es/pycharm/">Pycharm</a> o <a class="reference external" href="https://atom.io/">Atom</a>-), un navegador o una terminal.</p>
 <p>Para ejecutar Python 3 desde la terminal, escribimos <code class="docutils literal notranslate"><span class="pre">python3</span></code> en el prompt y se lanzará una aplicación</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.9.1</span> <span class="p">(</span><span class="n">v3</span><span class="mf">.9.1</span><span class="p">:</span><span class="mf">1e5</span><span class="n">d33e9b9</span><span class="p">,</span> <span class="n">Dec</span>  <span class="mi">7</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">52</span><span class="p">)</span>
@@ -648,7 +501,7 @@ title="Print to PDF"
 <p>Google Colab nos permite trabajar con notebooks en nuestro navegador sin necesidad de instalar Python ni jupyter en nuestra máquina. En este caso perdemos capacidad para configurar nuestro entorno, pero estaremos alineados a la hora de seguir el curso.</p>
 </section>
 <section id="notebooks-de-jupyter-colab">
-<h2>Notebooks de Jupyter/Colab<a class="headerlink" href="#notebooks-de-jupyter-colab" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Notebooks de Jupyter/Colab<a class="headerlink" href="#notebooks-de-jupyter-colab" title="Permalink to this heading">#</a></h2>
 <p>Ya sea en Jupyter o en Google Colab, trabajaremos con cuadernos (o notebooks) de Python, que son archivos de texto con la extensión <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> (a diferencia de los archivos <code class="docutils literal notranslate"><span class="pre">.py</span></code>, correspondientes a los ejecutables y módulos de Python).</p>
 <p>Cada cuaderno está compuesto por una secuencia de celdillas, que pueden ser de tipo <em>ejecutable</em> o <em>markdown</em>. En las cendillas de tipo ejecutable escribiremos nuestro código Python, mientras que en las celdas de tipo markdown podremos crear cabeceras, listas, resaltar texto con <strong>negrita</strong> o <em>cursiva</em> e incluso incorporar fórmulas matemáticas con <em>Latex</em></p>
 <div class="math notranslate nohighlight">
@@ -658,7 +511,7 @@ f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}
 <p>Todo ello para explicar y realizar anotaciones sobre nuestro código.</p>
 </section>
 <section id="mas-sobre-python">
-<h2>Más sobre Python<a class="headerlink" href="#mas-sobre-python" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Más sobre Python<a class="headerlink" href="#mas-sobre-python" title="Permalink to this heading">#</a></h2>
 <p>Python fue creado en 1991 por Rossum y su nombre se debe a un famoso grupo de comedia británico llamado <em>Monty Python</em>, de ahí que en muchos ejemplos encontremos variables dummy llamadas como <code class="docutils literal notranslate"><span class="pre">spam</span></code> y <code class="docutils literal notranslate"><span class="pre">eggs</span></code> en lugar de los típicos <code class="docutils literal notranslate"><span class="pre">foo</span></code>, <code class="docutils literal notranslate"><span class="pre">bar</span></code>.</p>
 <p>Su popularidad se debe principalmente a que es fácil de aprender y es utilizado para construir aplicaciones en el lado del servidor a través del framework <code class="docutils literal notranslate"><span class="pre">django</span></code>, así como el tratamiento y análisis de datos en ecosistemas <strong>big data</strong> y el desarrollo de soluciones basadas en el <strong>machine learning</strong>.</p>
 <p>Python es un lenguaje que hace especial énfasis en su <strong>legibilidad</strong>, evitando el uso de corchetes y semicolons en favor de la indentación. La filosofía de un buen <em>pythonista</em> puede leerse en <em>The Zen of Python</em></p>
@@ -717,50 +570,108 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../README.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Curso de Python US</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../README.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Curso de Python US</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="python-basics.html" title="siguiente página">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="python-basics.html"
+       title="siguiente página">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Principios básicos de Python</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Javier Linares Torres<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-python">Descargar Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#donde-ejecutar-python">Dónde ejecutar Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-de-jupyter-colab">Notebooks de Jupyter/Colab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mas-sobre-python">Más sobre Python</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Javier Linares Torres
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

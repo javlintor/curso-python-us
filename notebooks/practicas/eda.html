@@ -1,52 +1,63 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Ejemplo de análisis exploratorio &#8212; Curso de Python US</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -54,62 +65,94 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/practicas/eda';</script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Probando modelos de clasificación binaria" href="classification-models.html" />
     <link rel="prev" title="Construyendo un modelo de regresión lineal" href="regression-model.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo-us.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Curso de Python US</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo-us.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo-us.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -118,874 +161,310 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introducción a Python
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/introduction-python.html">
-   Introducción a Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/python-basics.html">
-   Principios básicos de Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/numeric-types.html">
-   Tipos numéricos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/strings.html">
-   Strings
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/booleans.html">
-   Booleanos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/lists.html">
-   Listas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/other-data-structures.html">
-   Otras estructuras de datos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/control-flow.html">
-   Estructuras de control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/functions.html">
-   Funciones
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/classes.html">
-   Clases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction-python/exercises.html">
-   Ejercicios de Introducción a Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/introduction-python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/python-basics.html">Principios básicos de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/numeric-types.html">Tipos numéricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/booleans.html">Booleanos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/lists.html">Listas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/other-data-structures.html">Otras estructuras de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/control-flow.html">Estructuras de control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/functions.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/classes.html">Clases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction-python/exercises.html">Ejercicios de Introducción a Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Numpy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numpy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/introduction-numpy.html">
-   Introducción a Numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/index-slicing.html">
-   Indexado, Slicing y operaciones básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/basic-operations.html">
-   Operaciones Básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/exercises.html">
-   Ejercicios
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/introduction-numpy.html">Introducción a Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/index-slicing.html">Indexado, Slicing y operaciones básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/basic-operations.html">Operaciones Básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/exercises.html">Ejercicios</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Matplotlib
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Matplotlib</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
-   Introducción a matplotlib
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/introduction-matplotlib.html">Introducción a matplotlib</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Pandas
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/introduction-pandas.html">
-   Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/groupby-merge.html">
-   Agregación y mergeo de dataframes
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/introduction-pandas.html">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/groupby-merge.html">Agregación y mergeo de dataframes</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Casos prácticos
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Casos prácticos</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="gradient-descent.html">
-   Descenso del gradiente:  Regresión Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linear-programming.html">
-   Programación Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="portfolio-optimization.html">
-   Optimización de portfolio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="regression-model.html">
-   Construyendo un modelo de regresión lineal
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Ejemplo de análisis exploratorio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="classification-models.html">
-   Probando modelos de clasificación binaria
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="gradient-descent.html">Descenso del gradiente:  Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-programming.html">Programación Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portfolio-optimization.html">Optimización de portfolio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression-model.html">Construyendo un modelo de regresión lineal</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ejemplo de análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classification-models.html">Probando modelos de clasificación binaria</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Gestión de proyectos en Python
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Gestión de proyectos en Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/project-management.html">
-   Gestión de proyectos en Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/dash.html">
-   Dash
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/project-management.html">Gestión de proyectos en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/dash.html">Dash</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Bilbiografía
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bilbiografía</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../bibliography.html">
-   Bibliografía
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliografía</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/practicas/eda.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/practicas/eda.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/practicas/eda.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/practicas/eda.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/practicas/eda.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/practicas/eda.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/practicas/eda.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#carga-de-datos">
-   Carga de datos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">
-   Análisis exploratorio de datos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-objetivo-y">
-     Variable objetivo:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       y
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-del-cliente-age-job-marital-education-default-housing-loan">
-     Variables del cliente:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       age
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       job
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       marital
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       education
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       default
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       housing
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       loan
-      </span>
-     </code>
-     .
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-relacionadas-con-el-contacto-con-el-cliente-contact-month-day-of-week-duration">
-     Variables relacionadas con el contacto con el cliente:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       contact
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       month
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       day_of_week
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       duration
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-del-historial-de-contactos-campaign-pdays-previous-poutcome">
-     Variables del historial de contactos:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       campaign
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdays
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       previous
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       poutcome
-      </span>
-     </code>
-     .
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#poutcome">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         poutcome
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pdays">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         pdays
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#previous">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         previous
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#campaign">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         campaign
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-socioeconomicas-emp-var-rate-cons-price-idx-cons-conf-idx-euribor3m-nr-employed">
-     Variables socioeconómicas:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       emp.var.rate
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       cons.price.idx
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       cons.conf.idx
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       euribor3m
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       nr.employed
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#correlaciones">
-   Correlaciones
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entre-variables-numericas">
-     Entre variables numéricas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-categoricas">
-     Variables categóricas
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Ejemplo de análisis exploratorio</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#carga-de-datos">
-   Carga de datos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">
-   Análisis exploratorio de datos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variable-objetivo-y">
-     Variable objetivo:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       y
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-del-cliente-age-job-marital-education-default-housing-loan">
-     Variables del cliente:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       age
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       job
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       marital
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       education
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       default
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       housing
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       loan
-      </span>
-     </code>
-     .
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-relacionadas-con-el-contacto-con-el-cliente-contact-month-day-of-week-duration">
-     Variables relacionadas con el contacto con el cliente:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       contact
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       month
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       day_of_week
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       duration
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-del-historial-de-contactos-campaign-pdays-previous-poutcome">
-     Variables del historial de contactos:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       campaign
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pdays
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       previous
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       poutcome
-      </span>
-     </code>
-     .
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#poutcome">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         poutcome
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pdays">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         pdays
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#previous">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         previous
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#campaign">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         campaign
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-socioeconomicas-emp-var-rate-cons-price-idx-cons-conf-idx-euribor3m-nr-employed">
-     Variables socioeconómicas:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       emp.var.rate
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       cons.price.idx
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       cons.conf.idx
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       euribor3m
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       nr.employed
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#correlaciones">
-   Correlaciones
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#entre-variables-numericas">
-     Entre variables numéricas
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#variables-categoricas">
-     Variables categóricas
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ejemplo de análisis exploratorio</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos">Carga de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">Análisis exploratorio de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-objetivo-y">Variable objetivo: <code class="docutils literal notranslate"><span class="pre">y</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-del-cliente-age-job-marital-education-default-housing-loan">Variables del cliente: <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">job</span></code>, <code class="docutils literal notranslate"><span class="pre">marital</span></code>, <code class="docutils literal notranslate"><span class="pre">education</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">housing</span></code>, <code class="docutils literal notranslate"><span class="pre">loan</span></code>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-relacionadas-con-el-contacto-con-el-cliente-contact-month-day-of-week-duration">Variables relacionadas con el contacto con el cliente: <code class="docutils literal notranslate"><span class="pre">contact</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code>, <code class="docutils literal notranslate"><span class="pre">duration</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-del-historial-de-contactos-campaign-pdays-previous-poutcome">Variables del historial de contactos: <code class="docutils literal notranslate"><span class="pre">campaign</span></code>, <code class="docutils literal notranslate"><span class="pre">pdays</span></code>, <code class="docutils literal notranslate"><span class="pre">previous</span></code>, <code class="docutils literal notranslate"><span class="pre">poutcome</span></code>.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#poutcome"><code class="docutils literal notranslate"><span class="pre">poutcome</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pdays"><code class="docutils literal notranslate"><span class="pre">pdays</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#previous"><code class="docutils literal notranslate"><span class="pre">previous</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#campaign"><code class="docutils literal notranslate"><span class="pre">campaign</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-socioeconomicas-emp-var-rate-cons-price-idx-cons-conf-idx-euribor3m-nr-employed">Variables socioeconómicas: <code class="docutils literal notranslate"><span class="pre">emp.var.rate</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.price.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.conf.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">euribor3m</span></code>, <code class="docutils literal notranslate"><span class="pre">nr.employed</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlaciones">Correlaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entre-variables-numericas">Entre variables numéricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas">Variables categóricas</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="ejemplo-de-analisis-exploratorio">
-<span id="exploratory"></span><h1>Ejemplo de análisis exploratorio<a class="headerlink" href="#ejemplo-de-analisis-exploratorio" title="Enlazar permanentemente con este título">#</a></h1>
+<span id="exploratory"></span><h1>Ejemplo de análisis exploratorio<a class="headerlink" href="#ejemplo-de-analisis-exploratorio" title="Permalink to this heading">#</a></h1>
 <p>Fuente:
 [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014</p>
 <p>Descarga:
@@ -994,7 +473,7 @@ title="Print to PDF"
 Los datos provinen de llamadas telefónicas de campañas de marketing de un banco portugués.</p>
 <hr class="docutils" />
 <section id="carga-de-datos">
-<h2>Carga de datos<a class="headerlink" href="#carga-de-datos" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Carga de datos<a class="headerlink" href="#carga-de-datos" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -1449,7 +928,7 @@ Los datos provinen de llamadas telefónicas de campañas de marketing de un banc
 </section>
 <hr class="docutils" />
 <section id="analisis-exploratorio-de-datos">
-<h2>Análisis exploratorio de datos<a class="headerlink" href="#analisis-exploratorio-de-datos" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Análisis exploratorio de datos<a class="headerlink" href="#analisis-exploratorio-de-datos" title="Permalink to this heading">#</a></h2>
 <p>Partimos de la siguientes descripciones de lo que represeta cada columna:</p>
 <ul class="simple">
 <li><p><strong>Datos del cliente</strong></p>
@@ -1549,7 +1028,7 @@ memory usage: 6.6+ MB
 <p>Realizamos en primer lugar un análisis cuantitativo de las variables de las que disponemos en el dataset. Una vez tengamos claro cómo se estructuran los datos y su calidad, podremos entender mejor el dataset en su conjunto, y consecuentemente diseñar una herramienta de clasificación adecuada.</p>
 <p>Vamos a estudiar posibles valores nulos, conteos, distribuciones y posibles correlaciones con la variable objetivo.</p>
 <section id="variable-objetivo-y">
-<h3>Variable objetivo: <code class="docutils literal notranslate"><span class="pre">y</span></code><a class="headerlink" href="#variable-objetivo-y" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Variable objetivo: <code class="docutils literal notranslate"><span class="pre">y</span></code><a class="headerlink" href="#variable-objetivo-y" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">bank</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span>
@@ -1586,7 +1065,7 @@ Name: y, dtype: int64
 <p>La variable <code class="docutils literal notranslate"><span class="pre">y</span></code> toma dos valores: <code class="docutils literal notranslate"><span class="pre">&quot;yes&quot;</span></code> el <strong>11,26%</strong> de las veces y <code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code> el resto. Trabajamos por lo tanto con <strong>un dataset desbalanceado</strong>.</p>
 </section>
 <section id="variables-del-cliente-age-job-marital-education-default-housing-loan">
-<h3>Variables del cliente: <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">job</span></code>, <code class="docutils literal notranslate"><span class="pre">marital</span></code>, <code class="docutils literal notranslate"><span class="pre">education</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">housing</span></code>, <code class="docutils literal notranslate"><span class="pre">loan</span></code>.<a class="headerlink" href="#variables-del-cliente-age-job-marital-education-default-housing-loan" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Variables del cliente: <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">job</span></code>, <code class="docutils literal notranslate"><span class="pre">marital</span></code>, <code class="docutils literal notranslate"><span class="pre">education</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">housing</span></code>, <code class="docutils literal notranslate"><span class="pre">loan</span></code>.<a class="headerlink" href="#variables-del-cliente-age-job-marital-education-default-housing-loan" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;marital&quot;</span><span class="p">,</span> <span class="s2">&quot;education&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;housing&quot;</span><span class="p">,</span> <span class="s2">&quot;loan&quot;</span><span class="p">]</span>
@@ -1642,7 +1121,7 @@ memory usage: 2.2+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_26_0.png" src="../../_images/eda_26_0.png" />
+<img alt="../../_images/88d658c28da1cf868c5314b1811ee0fba79451202562021f3689901401ba9c50.png" src="../../_images/88d658c28da1cf868c5314b1811ee0fba79451202562021f3689901401ba9c50.png" />
 </div>
 </div>
 <p>Podemos observar que en efecto dichas variables representan categorías de a lo sumo 12 valores únicos. En todas ellas aparece la categoría minoritaria <strong>unknown</strong>, que tiene un peso importante en la variable <code class="docutils literal notranslate"><span class="pre">default</span></code>. Es notorio cómo cambia el porcentaje de instancias con <code class="docutils literal notranslate"><span class="pre">y=yes</span></code> cuando las variables <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">job</span></code> y <code class="docutils literal notranslate"><span class="pre">education</span></code> toman el valor de <code class="docutils literal notranslate"><span class="pre">unknown</span></code>.</p>
@@ -1675,7 +1154,7 @@ memory usage: 2.2+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_31_0.png" src="../../_images/eda_31_0.png" />
+<img alt="../../_images/465eebe0277866a901031fc7c2e443bafc5cc11b6bbdfa36ffdbdd5c7e0b44d1.png" src="../../_images/465eebe0277866a901031fc7c2e443bafc5cc11b6bbdfa36ffdbdd5c7e0b44d1.png" />
 </div>
 </div>
 <p>Vemos valores de edad desde los 17 años hasta más de los 90, con un salto importante en la edad de jubilicación (en torno a los 60). Estudiemos media y algunos percentiles de la edad segmentando por positivos y negativos de la variable objetivo <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
@@ -1755,7 +1234,7 @@ memory usage: 2.2+ MB
 <p>Tanto media como percentiles son parecidos, las observaciones positivas tienen un poco más de varianza.</p>
 </section>
 <section id="variables-relacionadas-con-el-contacto-con-el-cliente-contact-month-day-of-week-duration">
-<h3>Variables relacionadas con el contacto con el cliente: <code class="docutils literal notranslate"><span class="pre">contact</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code>, <code class="docutils literal notranslate"><span class="pre">duration</span></code><a class="headerlink" href="#variables-relacionadas-con-el-contacto-con-el-cliente-contact-month-day-of-week-duration" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Variables relacionadas con el contacto con el cliente: <code class="docutils literal notranslate"><span class="pre">contact</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code>, <code class="docutils literal notranslate"><span class="pre">duration</span></code><a class="headerlink" href="#variables-relacionadas-con-el-contacto-con-el-cliente-contact-month-day-of-week-duration" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contact_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;contact&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;day_of_week&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">]</span>
@@ -1806,7 +1285,7 @@ memory usage: 1.3+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_39_0.png" src="../../_images/eda_39_0.png" />
+<img alt="../../_images/3bf9a5ba6d0a023a8adbcf698c337a02511bc7933763e841bd5d8bff36b13333.png" src="../../_images/3bf9a5ba6d0a023a8adbcf698c337a02511bc7933763e841bd5d8bff36b13333.png" />
 </div>
 </div>
 <p>Notamos que</p>
@@ -1827,7 +1306,7 @@ memory usage: 1.3+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_42_0.png" src="../../_images/eda_42_0.png" />
+<img alt="../../_images/3501dc2c613875f4b646160682505c2a9ef5175c0d77f65ed566b85a49a780ef.png" src="../../_images/3501dc2c613875f4b646160682505c2a9ef5175c0d77f65ed566b85a49a780ef.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1907,7 +1386,7 @@ memory usage: 1.3+ MB
 <p>A pesar de ser una variable con un potencial prometedor para nuestra tarea, no podemos olvidar que si nuestro objetivo es utilizar el modelo para filtrar potenciales clientes y crear un listado que se le pase a un <em>call center</em>, <strong>nunca vamos a disponer de <code class="docutils literal notranslate"><span class="pre">duration</span></code></strong>, ya que se informa su valor a futuro, una vez el listado está hecho. El resto de variables sobre el contacto (y resto de agrupaciones) sí estarían potencialmente disponibles a la hora de crear un listado.</p>
 </section>
 <section id="variables-del-historial-de-contactos-campaign-pdays-previous-poutcome">
-<h3>Variables del historial de contactos: <code class="docutils literal notranslate"><span class="pre">campaign</span></code>, <code class="docutils literal notranslate"><span class="pre">pdays</span></code>, <code class="docutils literal notranslate"><span class="pre">previous</span></code>, <code class="docutils literal notranslate"><span class="pre">poutcome</span></code>.<a class="headerlink" href="#variables-del-historial-de-contactos-campaign-pdays-previous-poutcome" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Variables del historial de contactos: <code class="docutils literal notranslate"><span class="pre">campaign</span></code>, <code class="docutils literal notranslate"><span class="pre">pdays</span></code>, <code class="docutils literal notranslate"><span class="pre">previous</span></code>, <code class="docutils literal notranslate"><span class="pre">poutcome</span></code>.<a class="headerlink" href="#variables-del-historial-de-contactos-campaign-pdays-previous-poutcome" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;campaign&quot;</span><span class="p">,</span> <span class="s2">&quot;pdays&quot;</span><span class="p">,</span> <span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="s2">&quot;poutcome&quot;</span><span class="p">]</span>
@@ -1938,7 +1417,7 @@ memory usage: 1.3+ MB
 </div>
 </div>
 <section id="poutcome">
-<h4><code class="docutils literal notranslate"><span class="pre">poutcome</span></code><a class="headerlink" href="#poutcome" title="Enlazar permanentemente con este título">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">poutcome</span></code><a class="headerlink" href="#poutcome" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -1949,7 +1428,7 @@ memory usage: 1.3+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_49_0.png" src="../../_images/eda_49_0.png" />
+<img alt="../../_images/dacf6d93e5a9716e67636aa3eefdef99258ab08f637c3ead7c9e56858b9ff5b2.png" src="../../_images/dacf6d93e5a9716e67636aa3eefdef99258ab08f637c3ead7c9e56858b9ff5b2.png" />
 </div>
 </div>
 <p>Observamos que la tasa de positivos es mucho mayor en clientes que ya han contratado un depósito a largo plazo. Veamos cuántos han repetido</p>
@@ -1970,7 +1449,7 @@ Name: y, dtype: int64
 <p>Vamos con las variables numéricas</p>
 </section>
 <section id="pdays">
-<h4><code class="docutils literal notranslate"><span class="pre">pdays</span></code><a class="headerlink" href="#pdays" title="Enlazar permanentemente con este título">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">pdays</span></code><a class="headerlink" href="#pdays" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">describe_num_col</span><span class="p">(</span><span class="s2">&quot;pdays&quot;</span><span class="p">)</span>
@@ -2068,7 +1547,7 @@ Name: pdays, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_57_0.png" src="../../_images/eda_57_0.png" />
+<img alt="../../_images/af2366d8ce9f63ac867c2ceaca83c1308aca78b45be5b5279d48e4d7ec81820a.png" src="../../_images/af2366d8ce9f63ac867c2ceaca83c1308aca78b45be5b5279d48e4d7ec81820a.png" />
 </div>
 </div>
 <p>Se puede apreciar que el cliente es contactado de nuevo tras 3 o 6 días en la misma campaña. Aquellos a los que se contacta varias veces parecen tener una tasa de positivos alta</p>
@@ -2089,7 +1568,7 @@ Name: y, dtype: int64
 <p>Parece una buena idea crear una variable binaria a partir de <code class="docutils literal notranslate"><span class="pre">pdays</span></code> que indique si el cliente ha sido contactado con anterioridad en otra campaña (<code class="docutils literal notranslate"><span class="pre">pdays</span> <span class="pre">&lt;</span> <span class="pre">999</span></code>).</p>
 </section>
 <section id="previous">
-<h4><code class="docutils literal notranslate"><span class="pre">previous</span></code><a class="headerlink" href="#previous" title="Enlazar permanentemente con este título">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">previous</span></code><a class="headerlink" href="#previous" title="Permalink to this heading">#</a></h4>
 <p>Exploremos <code class="docutils literal notranslate"><span class="pre">previous</span></code>, que se define como <code class="docutils literal notranslate"><span class="pre">campaign</span></code> pero cuenta contactos realizados <em>antes</em> de la campaña actual</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2173,7 +1652,7 @@ Name: y, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_64_0.png" src="../../_images/eda_64_0.png" />
+<img alt="../../_images/5c0beacce608c2687d2c6dde9819585f3fa2cb488eddc83ced97d4839676af9c.png" src="../../_images/5c0beacce608c2687d2c6dde9819585f3fa2cb488eddc83ced97d4839676af9c.png" />
 </div>
 </div>
 <p>Destaca que el valor medio de <code class="docutils literal notranslate"><span class="pre">previous</span></code> en los positivos es más del doble que en los negativos.</p>
@@ -2256,7 +1735,7 @@ Length: 120, dtype: float64
 <p>Tendría sentido por lo tanto quedarnos con <code class="docutils literal notranslate"><span class="pre">poutcome</span></code> o con <code class="docutils literal notranslate"><span class="pre">pdays</span></code>.</p>
 </section>
 <section id="campaign">
-<h4><code class="docutils literal notranslate"><span class="pre">campaign</span></code><a class="headerlink" href="#campaign" title="Enlazar permanentemente con este título">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">campaign</span></code><a class="headerlink" href="#campaign" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">describe_num_col</span><span class="p">(</span><span class="s2">&quot;campaign&quot;</span><span class="p">)</span>
@@ -2340,7 +1819,7 @@ Length: 120, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_74_0.png" src="../../_images/eda_74_0.png" />
+<img alt="../../_images/94e93cf3066370d9839f1636a5741e224ce63e9cf77f27b1dd689621fafec8dd.png" src="../../_images/94e93cf3066370d9839f1636a5741e224ce63e9cf77f27b1dd689621fafec8dd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2358,7 +1837,7 @@ Length: 120, dtype: float64
 </section>
 </section>
 <section id="variables-socioeconomicas-emp-var-rate-cons-price-idx-cons-conf-idx-euribor3m-nr-employed">
-<h3>Variables socioeconómicas: <code class="docutils literal notranslate"><span class="pre">emp.var.rate</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.price.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.conf.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">euribor3m</span></code>, <code class="docutils literal notranslate"><span class="pre">nr.employed</span></code><a class="headerlink" href="#variables-socioeconomicas-emp-var-rate-cons-price-idx-cons-conf-idx-euribor3m-nr-employed" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Variables socioeconómicas: <code class="docutils literal notranslate"><span class="pre">emp.var.rate</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.price.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.conf.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">euribor3m</span></code>, <code class="docutils literal notranslate"><span class="pre">nr.employed</span></code><a class="headerlink" href="#variables-socioeconomicas-emp-var-rate-cons-price-idx-cons-conf-idx-euribor3m-nr-employed" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">economic_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;emp.var.rate&quot;</span><span class="p">,</span> <span class="s2">&quot;cons.price.idx&quot;</span><span class="p">,</span> <span class="s2">&quot;cons.conf.idx&quot;</span><span class="p">,</span> <span class="s2">&quot;euribor3m&quot;</span><span class="p">,</span> <span class="s2">&quot;nr.employed&quot;</span><span class="p">]</span>
@@ -2416,9 +1895,9 @@ Número de valores únicos en nr.employed: 11
 </section>
 </section>
 <section id="correlaciones">
-<h2>Correlaciones<a class="headerlink" href="#correlaciones" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Correlaciones<a class="headerlink" href="#correlaciones" title="Permalink to this heading">#</a></h2>
 <section id="entre-variables-numericas">
-<h3>Entre variables numéricas<a class="headerlink" href="#entre-variables-numericas" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Entre variables numéricas<a class="headerlink" href="#entre-variables-numericas" title="Permalink to this heading">#</a></h3>
 <p>Calculamos el <a class="reference external" href="https://es.wikipedia.org/wiki/Coeficiente_de_correlaci%C3%B3n_de_Pearson">coeficiente de correlación de Pearson</a> entre cada par de atributos numéricos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2628,7 +2107,7 @@ Número de valores únicos en nr.employed: 11
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eda_85_0.png" src="../../_images/eda_85_0.png" />
+<img alt="../../_images/14cfa0469298ca0f6d9999eb802e296dcd5a7e433514aab68b6dd261d192e203.png" src="../../_images/14cfa0469298ca0f6d9999eb802e296dcd5a7e433514aab68b6dd261d192e203.png" />
 </div>
 </div>
 <p>Destacan</p>
@@ -2638,7 +2117,7 @@ Número de valores únicos en nr.employed: 11
 </ul>
 </section>
 <section id="variables-categoricas">
-<h3>Variables categóricas<a class="headerlink" href="#variables-categoricas" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Variables categóricas<a class="headerlink" href="#variables-categoricas" title="Permalink to this heading">#</a></h3>
 <p>Utilizamos de nuevo el coeficiente V de Cramér</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2710,50 +2189,124 @@ dtype: float64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="regression-model.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Construyendo un modelo de regresión lineal</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="regression-model.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Construyendo un modelo de regresión lineal</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="classification-models.html" title="siguiente página">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="classification-models.html"
+       title="siguiente página">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Probando modelos de clasificación binaria</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Javier Linares Torres<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-datos">Carga de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">Análisis exploratorio de datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-objetivo-y">Variable objetivo: <code class="docutils literal notranslate"><span class="pre">y</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-del-cliente-age-job-marital-education-default-housing-loan">Variables del cliente: <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">job</span></code>, <code class="docutils literal notranslate"><span class="pre">marital</span></code>, <code class="docutils literal notranslate"><span class="pre">education</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">housing</span></code>, <code class="docutils literal notranslate"><span class="pre">loan</span></code>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-relacionadas-con-el-contacto-con-el-cliente-contact-month-day-of-week-duration">Variables relacionadas con el contacto con el cliente: <code class="docutils literal notranslate"><span class="pre">contact</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code>, <code class="docutils literal notranslate"><span class="pre">duration</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-del-historial-de-contactos-campaign-pdays-previous-poutcome">Variables del historial de contactos: <code class="docutils literal notranslate"><span class="pre">campaign</span></code>, <code class="docutils literal notranslate"><span class="pre">pdays</span></code>, <code class="docutils literal notranslate"><span class="pre">previous</span></code>, <code class="docutils literal notranslate"><span class="pre">poutcome</span></code>.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#poutcome"><code class="docutils literal notranslate"><span class="pre">poutcome</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pdays"><code class="docutils literal notranslate"><span class="pre">pdays</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#previous"><code class="docutils literal notranslate"><span class="pre">previous</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#campaign"><code class="docutils literal notranslate"><span class="pre">campaign</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-socioeconomicas-emp-var-rate-cons-price-idx-cons-conf-idx-euribor3m-nr-employed">Variables socioeconómicas: <code class="docutils literal notranslate"><span class="pre">emp.var.rate</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.price.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">cons.conf.idx</span></code>, <code class="docutils literal notranslate"><span class="pre">euribor3m</span></code>, <code class="docutils literal notranslate"><span class="pre">nr.employed</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlaciones">Correlaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entre-variables-numericas">Entre variables numéricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas">Variables categóricas</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Javier Linares Torres
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

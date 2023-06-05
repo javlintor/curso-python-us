@@ -1,52 +1,63 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Otras estructuras de datos &#8212; Curso de Python US</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -54,62 +65,94 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/introduction-python/other-data-structures';</script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Estructuras de control" href="control-flow.html" />
     <link rel="prev" title="Listas" href="lists.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo-us.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Curso de Python US</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo-us.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo-us.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -118,578 +161,306 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introducción a Python
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introduction-python.html">
-   Introducción a Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python-basics.html">
-   Principios básicos de Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="numeric-types.html">
-   Tipos numéricos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="strings.html">
-   Strings
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="booleans.html">
-   Booleanos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lists.html">
-   Listas
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Otras estructuras de datos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="control-flow.html">
-   Estructuras de control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Funciones
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="classes.html">
-   Clases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exercises.html">
-   Ejercicios de Introducción a Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basics.html">Principios básicos de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numeric-types.html">Tipos numéricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="booleans.html">Booleanos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Listas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Otras estructuras de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="control-flow.html">Estructuras de control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Clases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">Ejercicios de Introducción a Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Numpy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numpy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/introduction-numpy.html">
-   Introducción a Numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/index-slicing.html">
-   Indexado, Slicing y operaciones básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/basic-operations.html">
-   Operaciones Básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/exercises.html">
-   Ejercicios
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/introduction-numpy.html">Introducción a Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/index-slicing.html">Indexado, Slicing y operaciones básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/basic-operations.html">Operaciones Básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/exercises.html">Ejercicios</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Matplotlib
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Matplotlib</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
-   Introducción a matplotlib
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/introduction-matplotlib.html">Introducción a matplotlib</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Pandas
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/introduction-pandas.html">
-   Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/groupby-merge.html">
-   Agregación y mergeo de dataframes
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/introduction-pandas.html">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/groupby-merge.html">Agregación y mergeo de dataframes</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Casos prácticos
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Casos prácticos</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/gradient-descent.html">
-   Descenso del gradiente:  Regresión Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/linear-programming.html">
-   Programación Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/portfolio-optimization.html">
-   Optimización de portfolio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/regression-model.html">
-   Construyendo un modelo de regresión lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/eda.html">
-   Ejemplo de análisis exploratorio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/classification-models.html">
-   Probando modelos de clasificación binaria
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/gradient-descent.html">Descenso del gradiente:  Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/linear-programming.html">Programación Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/portfolio-optimization.html">Optimización de portfolio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/regression-model.html">Construyendo un modelo de regresión lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/eda.html">Ejemplo de análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/classification-models.html">Probando modelos de clasificación binaria</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Gestión de proyectos en Python
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Gestión de proyectos en Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/project-management.html">
-   Gestión de proyectos en Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/dash.html">
-   Dash
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/project-management.html">Gestión de proyectos en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/dash.html">Dash</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Bilbiografía
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bilbiografía</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../bibliography.html">
-   Bibliografía
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliografía</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/other-data-structures.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/other-data-structures.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/other-data-structures.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/other-data-structures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/introduction-python/other-data-structures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/other-data-structures.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/introduction-python/other-data-structures.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tuplas">
-   Tuplas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trabajando-con-secuencias">
-   Trabajando con secuencias
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comprobar-pertenencia">
-     Comprobar pertenencia
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto">
-     Obtener el índice de la primera instancia de un objeto
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contar-el-numero-de-ocurrencias">
-     Contar el número de ocurrencias
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indexado-y-slicing">
-     Indexado y
-     <em>
-      slicing
-     </em>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diccionarios">
-   Diccionarios
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conjuntos">
-   Conjuntos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generadores">
-   Generadores
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
-   Comparación complejidad computacional
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pertenencia">
-     Pertenencia
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#borra-un-elemento">
-   Borra un elemento
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Otras estructuras de datos</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tuplas">
-   Tuplas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trabajando-con-secuencias">
-   Trabajando con secuencias
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comprobar-pertenencia">
-     Comprobar pertenencia
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto">
-     Obtener el índice de la primera instancia de un objeto
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contar-el-numero-de-ocurrencias">
-     Contar el número de ocurrencias
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indexado-y-slicing">
-     Indexado y
-     <em>
-      slicing
-     </em>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diccionarios">
-   Diccionarios
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conjuntos">
-   Conjuntos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generadores">
-   Generadores
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparacion-complejidad-computacional">
-   Comparación complejidad computacional
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pertenencia">
-     Pertenencia
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#borra-un-elemento">
-   Borra un elemento
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Otras estructuras de datos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas">Tuplas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajando-con-secuencias">Trabajando con secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprobar-pertenencia">Comprobar pertenencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto">Obtener el índice de la primera instancia de un objeto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contar-el-numero-de-ocurrencias">Contar el número de ocurrencias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexado-y-slicing">Indexado y <em>slicing</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios">Diccionarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos">Conjuntos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generadores">Generadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-complejidad-computacional">Comparación complejidad computacional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertenencia">Pertenencia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#borra-un-elemento">Borra un elemento</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="otras-estructuras-de-datos">
-<h1>Otras estructuras de datos<a class="headerlink" href="#otras-estructuras-de-datos" title="Enlazar permanentemente con este título">#</a></h1>
+<h1>Otras estructuras de datos<a class="headerlink" href="#otras-estructuras-de-datos" title="Permalink to this heading">#</a></h1>
 <p>Hasta ahora hemos introducido las listas de Python como estructura que nos permite manipular conjutos de datos. En esta sección veremos otras estructuras de datos e investigaremos cúando es conveniente usar cada una, en concreto vamos a ver</p>
 <ul class="simple">
 <li><p>tuplas</p></li>
@@ -699,7 +470,7 @@ title="Print to PDF"
 </ul>
 <hr class="docutils" />
 <section id="tuplas">
-<h2>Tuplas<a class="headerlink" href="#tuplas" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Tuplas<a class="headerlink" href="#tuplas" title="Permalink to this heading">#</a></h2>
 <p>Las <strong>tuplas</strong> son similares a las listas en el sentido de que nos permiten guardar un número arbitrario de objetos y acceder a los mismos mediante índices, es decir, son objetos secuenciales. Para definir una tupla utilizamos paréntesis <code class="docutils literal notranslate"><span class="pre">()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,10 +580,10 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="trabajando-con-secuencias">
-<h2>Trabajando con secuencias<a class="headerlink" href="#trabajando-con-secuencias" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Trabajando con secuencias<a class="headerlink" href="#trabajando-con-secuencias" title="Permalink to this heading">#</a></h2>
 <p>Ya hemos visto tres tipos secuenciales: cadenas, listas y tuplas. Vamos a dedicar un apartado a repasar las principales operaciones que podemos realizar con objetos secuenciales</p>
 <section id="comprobar-pertenencia">
-<h3>Comprobar pertenencia<a class="headerlink" href="#comprobar-pertenencia" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Comprobar pertenencia<a class="headerlink" href="#comprobar-pertenencia" title="Permalink to this heading">#</a></h3>
 <p>Lo haremos a través del operador <code class="docutils literal notranslate"><span class="pre">in</span></code> y su negación <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,7 +640,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="obtener-el-indice-de-la-primera-instancia-de-un-objeto">
-<h3>Obtener el índice de la primera instancia de un objeto<a class="headerlink" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Obtener el índice de la primera instancia de un objeto<a class="headerlink" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto" title="Permalink to this heading">#</a></h3>
 <p>Mediante el método <code class="docutils literal notranslate"><span class="pre">index</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -902,7 +673,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="contar-el-numero-de-ocurrencias">
-<h3>Contar el número de ocurrencias<a class="headerlink" href="#contar-el-numero-de-ocurrencias" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Contar el número de ocurrencias<a class="headerlink" href="#contar-el-numero-de-ocurrencias" title="Permalink to this heading">#</a></h3>
 <p>Utilizaremos el método <code class="docutils literal notranslate"><span class="pre">count</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -918,7 +689,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="indexado-y-slicing">
-<h3>Indexado y <em>slicing</em><a class="headerlink" href="#indexado-y-slicing" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Indexado y <em>slicing</em><a class="headerlink" href="#indexado-y-slicing" title="Permalink to this heading">#</a></h3>
 <p>Como ya hemos visto, podemos acceder a objetos individuales utilizando in índice entero que empieza en cero. Este índice puede ser negativo si queremos buscar desde el final de la secuencia</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1008,7 +779,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Indexa o utiliza slides para obtener</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">4,</span> <span class="pre">6)</span></code></p></li>
@@ -1039,7 +810,7 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="diccionarios">
-<h2>Diccionarios<a class="headerlink" href="#diccionarios" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this heading">#</a></h2>
 <p>Un <strong>diccionario</strong> es un objeto que nos permite guardar campos informados mediante una clave. Para crearlos escribimos pares de clave - valor separados por <code class="docutils literal notranslate"><span class="pre">:</span></code> entre corchetes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1280,7 +1051,7 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="conjuntos">
-<h2>Conjuntos<a class="headerlink" href="#conjuntos" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Conjuntos<a class="headerlink" href="#conjuntos" title="Permalink to this heading">#</a></h2>
 <p>Los <strong>conjuntos</strong> nos sirven para crear una estructura de objetos <strong>únicos</strong> y <strong>sin orden</strong>. Por lo tanto son útiles para</p>
 <ul class="simple">
 <li><p>Filtrar objetos repetidos de una colección.</p></li>
@@ -1365,7 +1136,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 </pre></div>
 </div>
 <p>Escribe expresiones que devuelvan:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Número total de nombres únicos.</p></li>
 <li><p>Nombres de A que no están en B.</p></li>
 <li><p>Número de nombres de A que no están en B o nombres de B que no están en A</p></li>
@@ -1376,7 +1147,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 </section>
 <hr class="docutils" />
 <section id="generadores">
-<h2>Generadores<a class="headerlink" href="#generadores" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Generadores<a class="headerlink" href="#generadores" title="Permalink to this heading">#</a></h2>
 <p>Los <strong>generadores</strong> nos permiten generar en forma de promesa un número arbitrario de items sin necesidad de guardarlos en memoria. Se trata de un objeto iterable, pero que genera cada uno de sus miembros en orden cuando las iteraciones lo vayan requiriendo. Ya hemos visto un ejemplo de generador cuando hemos utilizado la función <code class="docutils literal notranslate"><span class="pre">range</span></code>. Es bastante común contruir listas, tuplas o conjuntos a partir de un generador.</p>
 <p>La sintaxis para crear un generador es la siguiente</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span> <span class="k">for</span> <span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span><span class="o">&gt;</span> <span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">)</span>
@@ -1467,10 +1238,10 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 </section>
 <hr class="docutils" />
 <section id="comparacion-complejidad-computacional">
-<h2>Comparación complejidad computacional<a class="headerlink" href="#comparacion-complejidad-computacional" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Comparación complejidad computacional<a class="headerlink" href="#comparacion-complejidad-computacional" title="Permalink to this heading">#</a></h2>
 <p>Vamos a comparar las diferentes estructuras de datos que hemos visto en cuanto a su tiempo de cómputo para diferentes tareas. No te preocupes ahora mismo por el código utilizado para hacer estas pruebas y pintar las gráficas.</p>
 <section id="pertenencia">
-<h3>Pertenencia<a class="headerlink" href="#pertenencia" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Pertenencia<a class="headerlink" href="#pertenencia" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
@@ -1539,13 +1310,13 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/other-data-structures_97_0.png" src="../../_images/other-data-structures_97_0.png" />
+<img alt="../../_images/d9cd9eb1af14eec39bd7437f04eb5825e1132f9003d8e96a71986e943b05a88c.png" src="../../_images/d9cd9eb1af14eec39bd7437f04eb5825e1132f9003d8e96a71986e943b05a88c.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="borra-un-elemento">
-<h2>Borra un elemento<a class="headerlink" href="#borra-un-elemento" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Borra un elemento<a class="headerlink" href="#borra-un-elemento" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repeat</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1595,7 +1366,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/other-data-structures_99_0.png" src="../../_images/other-data-structures_99_0.png" />
+<img alt="../../_images/ec89ac967b8573de31886620b9620736ae416334ec6bd78aa9c6720c483fd1e3.png" src="../../_images/ec89ac967b8573de31886620b9620736ae416334ec6bd78aa9c6720c483fd1e3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1654,7 +1425,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/other-data-structures_100_0.png" src="../../_images/other-data-structures_100_0.png" />
+<img alt="../../_images/34b6db089cdc621b841428caed22fb6ca46e172b59eba7f83dd1e039060e9157.png" src="../../_images/34b6db089cdc621b841428caed22fb6ca46e172b59eba7f83dd1e039060e9157.png" />
 </div>
 </div>
 </section>
@@ -1680,50 +1451,120 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="lists.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Listas</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lists.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Listas</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="control-flow.html" title="siguiente página">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="control-flow.html"
+       title="siguiente página">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Estructuras de control</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Javier Linares Torres<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas">Tuplas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trabajando-con-secuencias">Trabajando con secuencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprobar-pertenencia">Comprobar pertenencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtener-el-indice-de-la-primera-instancia-de-un-objeto">Obtener el índice de la primera instancia de un objeto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contar-el-numero-de-ocurrencias">Contar el número de ocurrencias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexado-y-slicing">Indexado y <em>slicing</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diccionarios">Diccionarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos">Conjuntos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generadores">Generadores</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-complejidad-computacional">Comparación complejidad computacional</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertenencia">Pertenencia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#borra-un-elemento">Borra un elemento</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Javier Linares Torres
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

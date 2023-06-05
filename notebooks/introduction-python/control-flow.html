@@ -1,52 +1,63 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Estructuras de control &#8212; Curso de Python US</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/custom.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -56,62 +67,94 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/introduction-python/control-flow';</script>
     <link rel="shortcut icon" href="../../_static/logo-us.png"/>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Funciones" href="functions.html" />
     <link rel="prev" title="Otras estructuras de datos" href="other-data-structures.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo-us.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Curso de Python US</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/logo-us.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo-us.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -120,672 +163,304 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introducción a Python
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introduction-python.html">
-   Introducción a Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="python-basics.html">
-   Principios básicos de Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="numeric-types.html">
-   Tipos numéricos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="strings.html">
-   Strings
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="booleans.html">
-   Booleanos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lists.html">
-   Listas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="other-data-structures.html">
-   Otras estructuras de datos
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Estructuras de control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="functions.html">
-   Funciones
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="classes.html">
-   Clases
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exercises.html">
-   Ejercicios de Introducción a Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basics.html">Principios básicos de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numeric-types.html">Tipos numéricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="booleans.html">Booleanos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Listas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-data-structures.html">Otras estructuras de datos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Estructuras de control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Funciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Clases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">Ejercicios de Introducción a Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Numpy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numpy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/introduction-numpy.html">
-   Introducción a Numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/index-slicing.html">
-   Indexado, Slicing y operaciones básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/basic-operations.html">
-   Operaciones Básicas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/exercises.html">
-   Ejercicios
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/introduction-numpy.html">Introducción a Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/index-slicing.html">Indexado, Slicing y operaciones básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/basic-operations.html">Operaciones Básicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/exercises.html">Ejercicios</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Matplotlib
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Matplotlib</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../matplotlib/introduction-matplotlib.html">
-   Introducción a matplotlib
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/introduction-matplotlib.html">Introducción a matplotlib</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Pandas
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/introduction-pandas.html">
-   Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/groupby-merge.html">
-   Agregación y mergeo de dataframes
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/introduction-pandas.html">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/groupby-merge.html">Agregación y mergeo de dataframes</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Casos prácticos
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Casos prácticos</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/gradient-descent.html">
-   Descenso del gradiente:  Regresión Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/linear-programming.html">
-   Programación Lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/portfolio-optimization.html">
-   Optimización de portfolio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/regression-model.html">
-   Construyendo un modelo de regresión lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/eda.html">
-   Ejemplo de análisis exploratorio
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../practicas/classification-models.html">
-   Probando modelos de clasificación binaria
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/gradient-descent.html">Descenso del gradiente:  Regresión Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/linear-programming.html">Programación Lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/portfolio-optimization.html">Optimización de portfolio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/regression-model.html">Construyendo un modelo de regresión lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/eda.html">Ejemplo de análisis exploratorio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../practicas/classification-models.html">Probando modelos de clasificación binaria</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Gestión de proyectos en Python
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Gestión de proyectos en Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/project-management.html">
-   Gestión de proyectos en Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../proyecto-ejemplo/dash.html">
-   Dash
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/project-management.html">Gestión de proyectos en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proyecto-ejemplo/dash.html">Dash</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Bilbiografía
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Bilbiografía</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../bibliography.html">
-   Bibliografía
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliografía</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/javlintor/curso-python-us/main?urlpath=lab/tree/notebooks/introduction-python/control-flow.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/control-flow.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/javlintor/curso-python-us/blob/main/notebooks/introduction-python/control-flow.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/control-flow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/introduction-python/control-flow.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/javlintor/curso-python-us/issues/new?title=Issue%20on%20page%20%2Fnotebooks/introduction-python/control-flow.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/notebooks/introduction-python/control-flow.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bloques-condicionales">
-   Bloques condicionales
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">
-     Declaraciones
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       if
-      </span>
-     </code>
-     -
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       else
-      </span>
-     </code>
-     en línea
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bucles-for-y-while">
-   Bucles
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     for
-    </span>
-   </code>
-   y
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     while
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bucles-while">
-   Bucles while
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#break-continue-y-else">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     break
-    </span>
-   </code>
-   ,
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     continue
-    </span>
-   </code>
-   y
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     else
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-modulo-itertools">
-   El módulo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     itertools
-    </span>
-   </code>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#range">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       range
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enumerate">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       enumerate
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zip">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       zip
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#itertools-product">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       itertools.product
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Estructuras de control</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bloques-condicionales">
-   Bloques condicionales
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">
-     Declaraciones
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       if
-      </span>
-     </code>
-     -
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       else
-      </span>
-     </code>
-     en línea
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bucles-for-y-while">
-   Bucles
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     for
-    </span>
-   </code>
-   y
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     while
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bucles-while">
-   Bucles while
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#break-continue-y-else">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     break
-    </span>
-   </code>
-   ,
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     continue
-    </span>
-   </code>
-   y
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     else
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-modulo-itertools">
-   El módulo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     itertools
-    </span>
-   </code>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#range">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       range
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enumerate">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       enumerate
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zip">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       zip
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#itertools-product">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       itertools.product
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Estructuras de control</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloques-condicionales">Bloques condicionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucles-for-y-while">Bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucles-while">Bucles while</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue-y-else"><code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modulo-itertools">El módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip"><code class="docutils literal notranslate"><span class="pre">zip</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itertools-product"><code class="docutils literal notranslate"><span class="pre">itertools.product</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="estructuras-de-control">
-<h1>Estructuras de control<a class="headerlink" href="#estructuras-de-control" title="Enlazar permanentemente con este título">#</a></h1>
+<h1>Estructuras de control<a class="headerlink" href="#estructuras-de-control" title="Permalink to this heading">#</a></h1>
 <p>Hasta ahora, el código que hemos escrito se ejecuta de forma secuencial y lineal, pero normalmente nos interesará introducir un <strong>control del flujo</strong> para crear estructuras que nos permiten introducir una lógica que haga nuestro código más útil. Para ello en esta sección y las siguientes, vamos a ver</p>
 <ul class="simple">
 <li><p>bloques de tipo if, elif, else</p></li>
@@ -823,7 +498,7 @@ title="Print to PDF"
 <p>Dicho esto, vamos a empezar viendo las primeras estructuras de control, los bloques condicionales.</p>
 <hr class="docutils" />
 <section id="bloques-condicionales">
-<h2>Bloques condicionales<a class="headerlink" href="#bloques-condicionales" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Bloques condicionales<a class="headerlink" href="#bloques-condicionales" title="Permalink to this heading">#</a></h2>
 <p>Los bloques condicionales nos permiten ejecutar partes de nuestro código en función de si ciertas condiciones se cumplen o no. Para definir estos bloques, hacemos uso de la palabra reservada <code class="docutils literal notranslate"><span class="pre">if</span></code> seguida de un booleano o una expresión cuyo resultado sea un booleano, aunque tmabién se aceptan otros tipos. Si queremos añadir una parte que se ejecute si la condición no es cierta, añadimos un <code class="docutils literal notranslate"><span class="pre">else</span></code>. Por ejemplo, en la siguiente celdilla elevamos al cuadrado un número si es negativo o al cubo si es positivo</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
@@ -891,7 +566,7 @@ title="Print to PDF"
 </section>
 </div>
 <section id="declaraciones-if-else-en-linea">
-<h3>Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea<a class="headerlink" href="#declaraciones-if-else-en-linea" title="Enlazar permanentemente con este título">#</a></h3>
+<h3>Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea<a class="headerlink" href="#declaraciones-if-else-en-linea" title="Permalink to this heading">#</a></h3>
 <p>Como ya hemos visto en las expresiones de comprensión, Python soporta una sintaxis que nos permite escribir bloques <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en la misma línea. Por ejemplo el siguiente código</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -929,7 +604,7 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="bucles-for-y-while">
-<h2>Bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#bucles-for-y-while" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#bucles-for-y-while" title="Permalink to this heading">#</a></h2>
 <p>Con un bucle <code class="docutils literal notranslate"><span class="pre">for</span></code>podemos iterar sobre una colección de items almacenados en un objeto <strong>iterable</strong>, ejecutando un bloque de código una vez por cada iteración. Por ejemplo el siguiente código devuelve los números positivos de una tupla</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -947,7 +622,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>donde <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> es un nombre de variable válido e <code class="docutils literal notranslate"><span class="pre">&lt;iterable&gt;</span></code> es cualquier objeto iterable. La expresion que define el bucle debe acabar en <code class="docutils literal notranslate"><span class="pre">:</span></code> y el cuerpo del bucle debe tener al menos un espacio en blanco de identación. El bucle <code class="docutils literal notranslate"><span class="pre">for</span></code> se comporta de la siguiente manera</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pide el siguiente objeto del iterable.</p></li>
 <li><p>Si el iterable es vacío, sale fuera del cuerpo</p></li>
 <li><p>Si no, lo asigna a <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> y ejecuta el cuerpo del bucle.</p></li>
@@ -993,14 +668,14 @@ Foo
 </section>
 <hr class="docutils" />
 <section id="bucles-while">
-<h2>Bucles while<a class="headerlink" href="#bucles-while" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>Bucles while<a class="headerlink" href="#bucles-while" title="Permalink to this heading">#</a></h2>
 <p>Un bucle while nos permite repetir una serie de instrucciones <strong>hasta que alguna condición no sea verdadera</strong>. La estructura es la siguiente</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="n">block</span> <span class="n">of</span> <span class="n">code</span>
 </pre></div>
 </div>
 <p>En este caso, el comportamiento viene dada por</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Se llamada a <code class="docutils literal notranslate"><span class="pre">bool(condition)</span></code> y se ejecuta el cuerpo en caso de sea <code class="docutils literal notranslate"><span class="pre">True</span></code>. En otro caso, el cuerpo no se ejecuta.</p></li>
 <li><p>Si el bloque se ha ejecutado, vuelta al paso 1.</p></li>
 </ol>
@@ -1035,7 +710,7 @@ Foo
 </section>
 <hr class="docutils" />
 <section id="break-continue-y-else">
-<h2><code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#break-continue-y-else" title="Enlazar permanentemente con este título">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#break-continue-y-else" title="Permalink to this heading">#</a></h2>
 <p>Ahora vamos a ver algunos comandos que nos permitirán personalizar el comportamiento de nuestros bucles. Los comandos <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">break</span></code> se utilizan en el cuerpo de los bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code>, en concreto</p>
 <ul class="simple">
 <li><p>Al encontrar <code class="docutils literal notranslate"><span class="pre">break</span></code>, automáticamente salimos del bucle en cuestión.</p></li>
@@ -1130,10 +805,10 @@ foo
 </section>
 <hr class="docutils" />
 <section id="el-modulo-itertools">
-<h2>El módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code><a class="headerlink" href="#el-modulo-itertools" title="Enlazar permanentemente con este título">#</a></h2>
+<h2>El módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code><a class="headerlink" href="#el-modulo-itertools" title="Permalink to this heading">#</a></h2>
 <p>En la librería estándar de Python podemos encontar una series de herramientas para trabajar con iterables en el módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code>. En concreto vamos a ver tres clases de iterables bastante útiles y que nos permiten optimizar nuestro código, algunas de ellas han aparecido ya en el curso.</p>
 <section id="range">
-<h3><code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Enlazar permanentemente con este título">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">range</span></code> nos permite crear objetos iterables (de hecho, secuencias) inmutables que ocupan poca memoria. A diferencia de crear una lista, donde es necesario guardar todos los objetos que existen en la lista, <code class="docutils literal notranslate"><span class="pre">range</span></code> solo guarda tres atributos: <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> y <code class="docutils literal notranslate"><span class="pre">step</span></code>, pero tenemos métodos de tipo <code class="docutils literal notranslate"><span class="pre">slicing</span></code>, <code class="docutils literal notranslate"><span class="pre">len</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code> etc. La sintaxis es la siguiente</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span> <span class="c1"># solo 1 argumento, asume que start = 0</span>
 <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1174,7 +849,7 @@ range(0, 10, 2)
 </div>
 </section>
 <section id="enumerate">
-<h3><code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#enumerate" title="Enlazar permanentemente con este título">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#enumerate" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">enumerate</span></code> sirve para obtener un iterable de duplas a partir de un iterable. El primer elemento de la tupla es el índice y el segundo el item del objeto a iterar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1192,7 +867,7 @@ range(0, 10, 2)
 </div>
 </section>
 <section id="zip">
-<h3><code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#zip" title="Enlazar permanentemente con este título">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#zip" title="Permalink to this heading">#</a></h3>
 <p>En este caso <code class="docutils literal notranslate"><span class="pre">zip</span></code> nos permite condensar varios iterables en uno solo, devolviendo un iterable de tuplas cuyas longitudes coinciden con el número de iterables <em>a comprimir</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1235,7 +910,7 @@ range(0, 10, 2)
 </div>
 </section>
 <section id="itertools-product">
-<h3><code class="docutils literal notranslate"><span class="pre">itertools.product</span></code><a class="headerlink" href="#itertools-product" title="Enlazar permanentemente con este título">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">itertools.product</span></code><a class="headerlink" href="#itertools-product" title="Permalink to this heading">#</a></h3>
 <p>Nos permite generar todas las combinaciones posibles de varios iterables. Podemos evitar anidar varios <code class="docutils literal notranslate"><span class="pre">for</span></code> loops utilizando esta función.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1294,50 +969,118 @@ range(0, 10, 2)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="other-data-structures.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title">Otras estructuras de datos</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="other-data-structures.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Otras estructuras de datos</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="functions.html" title="siguiente página">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="functions.html"
+       title="siguiente página">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title">Funciones</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Javier Linares Torres<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloques-condicionales">Bloques condicionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucles-for-y-while">Bucles <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucles-while">Bucles while</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#break-continue-y-else"><code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-modulo-itertools">El módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zip"><code class="docutils literal notranslate"><span class="pre">zip</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#itertools-product"><code class="docutils literal notranslate"><span class="pre">itertools.product</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Javier Linares Torres
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
