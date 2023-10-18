@@ -1,6 +1,6 @@
 # Curso de Python US
 
-![picture](/images/square.png)
+![picture](images/portada-curso.jpg)
 
 El material de esta página guiará el curso de introducción a Python. A lo largo del mismo veremos los siguientes capítulos 📄
 
