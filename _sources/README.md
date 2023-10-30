@@ -9,7 +9,7 @@ El material de esta página guiará el curso de introducción a Python. A lo lar
 
 ## Cuadernos de trabajo 📘 
 
-El contenido del curso estará estructurado en una serie de cuadernos o notebooks divididos por secciones, que se pueden abrir desde [Google Colab](https://colab.research.google.com/?hl=es), [Binder](https://mybinder.org/) o directamente descargar para trabajar con ellos en local. 
+El contenido del curso estará estructurado en una serie de cuadernos o notebooks divididos por secciones, que se pueden abrir desde [Google Colab](https://colab.research.google.com/?hl=es), o directamente descargar para trabajar con ellos en local. 
 
 ### Ejercicios 
 En cada cuaderno encontraremos celdillas de tipo *ejecutable* y de tipo *markdown*. Dentro de estas últimas, algunos bloque de texto estarán contenidos en bloques del tipo *ejercicio*
@@ -53,7 +53,9 @@ Cualquier incidencia o propuesta de mejora, no dudes en escribir en el [apartado
 Si te gusta el contenido del curso o crees que te ha resultado útil, no olvides premiar con una estrella ⭐️ a este [repositorio](https://github.com/javlintor/curso-python-us). 
 
 ## Discord 
-Existe un [servidor de Discord](https://discord.gg/4Ene8brMJV) para seguir las clases del curso.
+Existe un [servidor de Discord](https://discord.gg/4Ene8brMJV) para seguir toda la información del curso. 
+
+También puedes contactarme por correo electrónico [en esta dirección](jlinarestorres2@gmail.com)
 
 ## Referencias 
 El material en el que se han basado los capítulos es el siguiente: 
