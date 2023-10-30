@@ -55,7 +55,7 @@ Si te gusta el contenido del curso o crees que te ha resultado útil, no olvides
 ## Discord 
 Existe un [servidor de Discord](https://discord.gg/4Ene8brMJV) para seguir toda la información del curso. 
 
-También puedes contactarme por correo electrónico [en esta dirección](jlinarestorres2@gmail.com)
+También puedes contactarme por correo electrónico <a href = "mailto: jlinarestorres2@gmail.com">En esta dirección</a>
 
 ## Referencias 
 El material en el que se han basado los capítulos es el siguiente: 
