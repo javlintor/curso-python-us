@@ -755,7 +755,7 @@ document.write(`
     <span class="n">width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="c1"># otros argumentos...</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="c1"># lanza un error si hay otras configuraciones </span>
+        <span class="c1"># lanza un error si hay otras configuraciones</span>
         <span class="k">pass</span>
 </pre></div>
 </div>
@@ -794,7 +794,7 @@ document.write(`
 
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
     <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="p">}</span>
 
@@ -876,14 +876,14 @@ f(n) =  \begin{cases}
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calcula el factorial de n. Por ejemplo, </span>
+<span class="sd">    Calcula el factorial de n. Por ejemplo,</span>
 
 <span class="sd">    &gt;&gt;&gt; factorial(6)</span>
 <span class="sd">    120</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span> 
+    <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -915,7 +915,7 @@ f(n) =  \begin{cases}
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span> 
+    <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1268,7 +1268,7 @@ f(n) =  \begin{cases}
 <p>Finalmente, existe la función <code class="docutils literal notranslate"><span class="pre">reduce</span></code> del módulo <code class="docutils literal notranslate"><span class="pre">itertools</span></code> para aplicar una función de dos parámetros a los objetos de un iterable de forma reiterada.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 <span class="n">nums</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
@@ -1292,14 +1292,26 @@ f(n) =  \begin{cases}
 </div>
 </section>
 </div>
-<div class="exercise admonition" id="functions-reduce-2">
+<div class="exercise admonition" id="functions-ret-a-function">
 
 <p class="admonition-title"><span class="caption-number">Exercise 38 </span></p>
+<section id="exercise-content">
+<p>Crea una función <code class="docutils literal notranslate"><span class="pre">wrapper</span></code> que tome como argumento una función y realice las siguientes tareas</p>
+<ul class="simple">
+<li><p>Escribir por pantalla el mensaje «Llamando a la función…»</p></li>
+<li><p>Ejecute al función</p></li>
+<li><p>Escriba otro mensaje «La función ha sido llamada»</p></li>
+</ul>
+</section>
+</div>
+<div class="exercise admonition" id="functions-reduce-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 39 </span></p>
 <section id="exercise-content">
 <p>Implementa la función <code class="docutils literal notranslate"><span class="pre">reduce</span></code> por ti mismo.</p>
 </section>
 </div>
-<div class="solution dropdown admonition" id="notebooks/introduction-python/functions-solution-7">
+<div class="solution dropdown admonition" id="notebooks/introduction-python/functions-solution-8">
 
 <p class="admonition-title">Solution to<a class="reference internal" href="#functions-reduce"> Exercise 37</a></p>
 <section id="solution-content">

@@ -462,7 +462,7 @@ document.write(`
 <h2>Convoluciones de arrays<a class="headerlink" href="#convoluciones-de-arrays" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="chapther2-convolution">
 
-<p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 55 </span></p>
 <section id="exercise-content">
 <p>Dadas dos funciones de variable real <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(g\)</span>, definimos la <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution"><strong>convolución</strong></a> de <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(g\)</span> como</p>
 <div class="math notranslate nohighlight">
@@ -486,7 +486,7 @@ document.write(`
 </div>
 <div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-1">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapther2-convolution"> Exercise 54</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#chapther2-convolution"> Exercise 55</a></p>
 <section id="solution-content">
 <p>Una primera solución iterando sobre todos las posibles combinaciones de <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span> para cada <span class="math notranslate nohighlight">\(k\)</span></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
@@ -522,7 +522,7 @@ document.write(`
 <h2>Procesando imágenes con numpy<a class="headerlink" href="#procesando-imagenes-con-numpy" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="chapter2-images">
 
-<p class="admonition-title"><span class="caption-number">Exercise 55 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 56 </span></p>
 <section id="exercise-content">
 <p>Una de las posibles técnicas que existen para comprimir una imagen es utilizar <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">la descomposición SVD (Singular Value Decomposition)</a> que nos permite expresar una matrix <span class="math notranslate nohighlight">\(A\)</span> de dimensiones <span class="math notranslate nohighlight">\(n\times m\)</span> como un producto</p>
 <div class="math notranslate nohighlight">
@@ -541,7 +541,7 @@ A = U \Sigma V^t
 </div>
 <div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-3">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-images"> Exercise 55</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-images"> Exercise 56</a></p>
 <section id="solution-content">
 <p>Para visualizar la imagen</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">face</span>
@@ -582,7 +582,7 @@ A = U \Sigma V^t
 </div>
 <div class="exercise admonition" id="chapter2-images-convolution">
 
-<p class="admonition-title"><span class="caption-number">Exercise 56 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 57 </span></p>
 <section id="exercise-content">
 <p>Importa una imagen de tu elección utilizando la función <code class="docutils literal notranslate"><span class="pre">imread</span></code> de la librería <code class="docutils literal notranslate"><span class="pre">cv2</span></code>. Crea un array <code class="docutils literal notranslate"><span class="pre">kernel</span></code> de dimensión <span class="math notranslate nohighlight">\((n, n)\)</span> y realiza la convolución de tu imagen con <code class="docutils literal notranslate"><span class="pre">kernel</span></code> mediante la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html#scipy.signal.convolve2d"><code class="docutils literal notranslate"><span class="pre">scipy.signal.convolve2d</span></code></a> (parámetro <code class="docutils literal notranslate"><span class="pre">mode='same'</span></code>). Si tu imagen tiene varios canales para los colores, aplica el mismo kernel a cada canal.</p>
 <p>Algunos ejemplos interesantes de kernel pueden ser los siguientes:</p>
@@ -624,7 +624,7 @@ A = U \Sigma V^t
 </div>
 <div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-5">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-images-convolution"> Exercise 56</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-images-convolution"> Exercise 57</a></p>
 <section id="solution-content">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
@@ -653,7 +653,7 @@ A = U \Sigma V^t
 <h2>Regresión Lineal<a class="headerlink" href="#regresion-lineal" title="Permalink to this heading">#</a></h2>
 <div class="exercise admonition" id="chapter2-linear-regression">
 
-<p class="admonition-title"><span class="caption-number">Exercise 57 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 58 </span></p>
 <section id="exercise-content">
 <p>Considera un modelo de regresión lineal que consiste en estimar una variable <span class="math notranslate nohighlight">\(y\)</span> como una suma ponderada de un cojunto de variables regresoras</p>
 <div class="math notranslate nohighlight">
@@ -726,7 +726,7 @@ y_n
 </div>
 <div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-7">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-linear-regression"> Exercise 57</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-linear-regression"> Exercise 58</a></p>
 <section id="solution-content">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegresionLineal</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
