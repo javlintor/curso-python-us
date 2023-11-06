@@ -692,7 +692,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="introduction-numpy-indexing">
 
-<p class="admonition-title"><span class="caption-number">Exercise 50 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 49 </span></p>
 <section id="exercise-content">
 <p>Devuelve el número 813 indexando el array <code class="docutils literal notranslate"><span class="pre">np.arange(2100).reshape((25,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">2))</span></code>.</p>
 </section>
@@ -848,7 +848,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="index-slicing-3x4x2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 51 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 50 </span></p>
 <section id="exercise-content">
 <p>Crea un array tridimensional de dimensiones <span class="math notranslate nohighlight">\((3, 4, 2)\)</span> y obtén el subarray indicada en la figura (<code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(1,</span> <span class="pre">2)</span></code>). Obtén también un subarray a tu elección de dimensiones <span class="math notranslate nohighlight">\((2, 3, 1)\)</span>.</p>
 <div style="display: flex; align-items: center;
@@ -1097,7 +1097,7 @@ justify-content: center;">
 </div>
 <div class="exercise admonition" id="index-slicing-bool">
 
-<p class="admonition-title"><span class="caption-number">Exercise 52 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 51 </span></p>
 <section id="exercise-content">
 <p>Devuelve las filas de <code class="docutils literal notranslate"><span class="pre">data</span></code> correspondientes a aquellos nombres que empiecen por «B» o «J». Puedes utilizar la función <code class="docutils literal notranslate"><span class="pre">np.char.startswith</span></code>.</p>
 </section>
@@ -1131,7 +1131,7 @@ justify-content: center;">
 </div>
 <div class="exercise admonition" id="index-slicing-flip">
 
-<p class="admonition-title"><span class="caption-number">Exercise 53 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 52 </span></p>
 <section id="exercise-content">
 <p>Crea una función <code class="docutils literal notranslate"><span class="pre">flip</span></code> que tome como inputs un array <code class="docutils literal notranslate"><span class="pre">arr</span></code> y un número entero positivo <code class="docutils literal notranslate"><span class="pre">i</span></code> e <em>invierta</em> el eje i-ésimo, es decir, si la dimensión del eje <span class="math notranslate nohighlight">\(i\)</span> vale <span class="math notranslate nohighlight">\(d_i\)</span>, la transformación lleva el elemento con índice <span class="math notranslate nohighlight">\((x_1, \dots, x_i, \dots, x_n)\)</span> en <span class="math notranslate nohighlight">\((x_1, \dots, x_i^*, \dots, x_n)\)</span> donde <span class="math notranslate nohighlight">\(x_i + x_i^* = d_i + 1\)</span></p>
 <p>Por ejemplo,</p>
@@ -1153,7 +1153,7 @@ justify-content: center;">
 </div>
 <div class="solution dropdown admonition" id="notebooks/numpy/index-slicing-solution-4">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#index-slicing-flip"> Exercise 53</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#index-slicing-flip"> Exercise 52</a></p>
 <section id="solution-content">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="n">default_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>

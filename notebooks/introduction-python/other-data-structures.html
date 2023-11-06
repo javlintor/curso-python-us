@@ -566,6 +566,7 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span>
 </pre></div>
 </div>
+<p>El segundo argumento de la funión <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> puede ser una tupla de tipos, de modo que devolverá <code class="docutils literal notranslate"><span class="pre">True</span></code> si el objeto es de alguno de los tipos que forman la tupla.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
@@ -800,13 +801,6 @@ document.write(`
 <p>Dada una tupla <code class="docutils literal notranslate"><span class="pre">x</span></code> que contenga el número <code class="docutils literal notranslate"><span class="pre">5</span></code>, escribe las instrucciones necesarias para reemplazar la primera instancia de <code class="docutils literal notranslate"><span class="pre">5</span></code> por <code class="docutils literal notranslate"><span class="pre">-5</span></code>.</p>
 </section>
 </div>
-<div class="exercise admonition" id="other-data-structures-slices-4">
-
-<p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
-<section id="exercise-content">
-<p>Dada una secuencia <code class="docutils literal notranslate"><span class="pre">seq</span></code> y un índice negativo <code class="docutils literal notranslate"><span class="pre">neg_index</span></code>, escribe la fórmula que nos daría el índice positivo correspondiente.</p>
-</section>
-</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -944,7 +938,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="other-data-structures-dict">
 
-<p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 19 </span></p>
 <section id="exercise-content">
 <p>Dada la siguiente tupla de nombres</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s2">&quot;Alicia&quot;</span><span class="p">,</span> <span class="s2">&quot;Eva&quot;</span><span class="p">,</span> <span class="s2">&quot;Manolo&quot;</span><span class="p">,</span> <span class="s2">&quot;Virginia&quot;</span><span class="p">)</span>
@@ -975,7 +969,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="other-data-structures-dict-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 21 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 20 </span></p>
 <section id="exercise-content">
 <p>¿Qué tipo de error obtenemos al crear un diccionario con una clave que sea mutable?</p>
 </section>
@@ -1045,6 +1039,53 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;key1&#39;, &#39;value1&#39;), (&#39;key2&#39;, &#39;value2&#39;), (&#39;key3&#39;, &#39;value3&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los diccionarios son objetos <strong>iterables</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">example_dict</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>key1
+key2
+key3
 </pre></div>
 </div>
 </div>
@@ -1127,7 +1168,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 <p>Los conjuntos con objetos <strong>mutables</strong>, podemos modificarlos con los métodos <code class="docutils literal notranslate"><span class="pre">add</span></code> (añade un elemento), <code class="docutils literal notranslate"><span class="pre">update</span></code> (añade varios elementos mediante un iterable) o <code class="docutils literal notranslate"><span class="pre">remove</span></code>. Existe una versión <strong>inmutable</strong> de los conjuntos, llamada <code class="docutils literal notranslate"><span class="pre">fronzenset</span></code>.</p>
 <div class="exercise admonition" id="other-data-structures-sets">
 
-<p class="admonition-title"><span class="caption-number">Exercise 22 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 21 </span></p>
 <section id="exercise-content">
 <p>Considera las siguientes listas de nombres:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bohr&quot;</span><span class="p">,</span> <span class="s2">&quot;Curie&quot;</span><span class="p">,</span> <span class="s2">&quot;David&quot;</span><span class="p">,</span> <span class="s2">&quot;Euler&quot;</span><span class="p">,</span> <span class="s2">&quot;Fermi&quot;</span><span class="p">,</span> <span class="s2">&quot;Feynman&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;Heisenberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Noether&quot;</span><span class="p">,</span> <span class="s2">&quot;Gauss&quot;</span><span class="p">]</span>
@@ -1150,7 +1191,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 <section id="generadores">
 <h2>Generadores<a class="headerlink" href="#generadores" title="Permalink to this heading">#</a></h2>
 <p>Los <strong>generadores</strong> nos permiten generar en forma de promesa un número arbitrario de items sin necesidad de guardarlos en memoria. Se trata de un objeto iterable, pero que genera cada uno de sus miembros en orden cuando las iteraciones lo vayan requiriendo. Ya hemos visto un ejemplo de generador cuando hemos utilizado la función <code class="docutils literal notranslate"><span class="pre">range</span></code>. Es bastante común contruir listas, tuplas o conjuntos a partir de un generador.</p>
-<p>La sintaxis para crear un generador es la siguiente</p>
+<p>Una sintaxis disponible para crear un generador es la siguiente</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span> <span class="k">for</span> <span class="o">&lt;</span><span class="n">var</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterable</span><span class="o">&gt;</span> <span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1164,7 +1205,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 </div>
 <div class="exercise admonition" id="other-data-structures-generators">
 
-<p class="admonition-title"><span class="caption-number">Exercise 23 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 22 </span></p>
 <section id="exercise-content">
 <p>Estudia cómo evoluciona el tamaño en memoria de un generador un función de su tamaño.</p>
 </section>
@@ -1224,7 +1265,7 @@ La estructura de conjunto utiliza el método <code class="docutils literal notra
 <p>Cuando un objeto además de ser un iterable tiene la capacidad de almacenar el estado de su iteración, se dice que es un <strong>iterador</strong>.</p>
 <div class="exercise admonition" id="other-data-structures-generators-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 24 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 23 </span></p>
 <section id="exercise-content">
 <p>Considera las siguientes expresiones</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
