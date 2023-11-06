@@ -173,7 +173,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="lists.html">Listas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="other-data-structures.html">Otras estructuras de datos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Estructuras de control</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Funciones</a></li>
 <li class="toctree-l1"><a class="reference internal" href="classes.html">Clases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercises.html">Ejercicios de Introducción a Python</a></li>
@@ -435,7 +434,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Estructuras de control</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloques-condicionales">Bloques condicionales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea</a></li>
 </ul>
@@ -451,13 +449,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#excepciones">Excepciones</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-bloque-try-except">El bloque <code class="docutils literal notranslate"><span class="pre">try</span></code>-<code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -493,7 +484,7 @@ document.write(`
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>  
        <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>   
     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  
-    <span class="k">return</span> <span class="n">z</span> 
+    <span class="k">return</span> <span class="n">z</span>
 
 <span class="c1"># Debemos usar siempre el mismo número de espacios</span>
 <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
@@ -508,10 +499,10 @@ document.write(`
 <hr class="docutils" />
 <section id="bloques-condicionales">
 <h2>Bloques condicionales<a class="headerlink" href="#bloques-condicionales" title="Permalink to this heading">#</a></h2>
-<p>Los bloques condicionales nos permiten ejecutar partes de nuestro código en función de si ciertas condiciones se cumplen o no. Para definir estos bloques, hacemos uso de la palabra reservada <code class="docutils literal notranslate"><span class="pre">if</span></code> seguida de un booleano o una expresión cuyo resultado sea un booleano, aunque tmabién se aceptan otros tipos. Si queremos añadir una parte que se ejecute si la condición no es cierta, añadimos un <code class="docutils literal notranslate"><span class="pre">else</span></code>. Por ejemplo, en la siguiente celdilla elevamos al cuadrado un número si es negativo o al cubo si es positivo</p>
+<p>Los bloques condicionales nos permiten ejecutar partes de nuestro código en función de si ciertas condiciones se cumplen o no. Para definir estos bloques, hacemos uso de la palabra reservada <code class="docutils literal notranslate"><span class="pre">if</span></code> seguida de un booleano o una expresión cuyo resultado sea un booleano, aunque también se aceptan otros tipos. Si queremos añadir una parte que se ejecute si la condición no es cierta, añadimos un <code class="docutils literal notranslate"><span class="pre">else</span></code>. Por ejemplo, en la siguiente celdilla elevamos al cuadrado un número si es negativo o al cubo si es positivo</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<span class="k">else</span><span class="p">:</span> 
+<span class="k">else</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
 </pre></div>
 </div>
@@ -520,13 +511,13 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
 <li><p>Ceros de cualquier tipo numérico: <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">0j</span></code>.</p></li>
-<li><p>Secuencias vacías: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.array([])</span></code>.</p></li>
+<li><p>Secuencias vacías: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.array([])</span></code>. En general, cualquier objeto con longitud 0.k</p></li>
 <li><p>Diccionarios y conjuntos vacios: <code class="docutils literal notranslate"><span class="pre">dict()</span></code>, <code class="docutils literal notranslate"><span class="pre">set()</span></code></p></li>
 </ul>
 <p>Los tipos numéricos no nulos y las secuencias/colecciones no vacías de evalúan como <code class="docutils literal notranslate"><span class="pre">True</span></code> vía <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">():</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -562,18 +553,6 @@ document.write(`
 <p>¿Cuánto vale <code class="docutils literal notranslate"><span class="pre">first_item</span></code> si <code class="docutils literal notranslate"><span class="pre">my_list</span></code> es vacía?</p>
 </section>
 </div>
-<div class="exercise admonition" id="control-flow-conditionals-2">
-
-<p class="admonition-title"><span class="caption-number">Exercise 25 </span></p>
-<section id="exercise-content">
-<p>Supón que la variable <code class="docutils literal notranslate"><span class="pre">my_file</span></code> contiene una cadena con el nombre de algún archivo, la cual tiene como mucho un punto que separa el nombre del archivo y el de la extensión. Escribe instrucciones para extraer el nombre del archivo. Por ejemplo,</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">code.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">code</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">doc2.pdf</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">doc2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">foo</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
-</ul>
-</section>
-</div>
 <section id="declaraciones-if-else-en-linea">
 <h3>Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea<a class="headerlink" href="#declaraciones-if-else-en-linea" title="Permalink to this heading">#</a></h3>
 <p>Como ya hemos visto en las expresiones de comprensión, Python soporta una sintaxis que nos permite escribir bloques <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en la misma línea. Por ejemplo el siguiente código</p>
@@ -599,7 +578,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="control-flow-conditionals-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 26 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 25 </span></p>
 <section id="exercise-content">
 <p>Considera el siguiente bloque condicional</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -669,7 +648,7 @@ Foo
 </div>
 <div class="exercise admonition" id="control-flow-for">
 
-<p class="admonition-title"><span class="caption-number">Exercise 27 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 26 </span></p>
 <section id="exercise-content">
 <p>Utilizando la cadena <code class="docutils literal notranslate"><span class="pre">ascii_lowercase</span></code> definida en el módulo <code class="docutils literal notranslate"><span class="pre">string</span></code>, escribe las letras consonantes del abecedario.</p>
 </section>
@@ -693,9 +672,9 @@ Foo
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>  
+    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -711,7 +690,7 @@ Foo
 </div></blockquote>
 <div class="exercise admonition" id="control-flow-while">
 
-<p class="admonition-title"><span class="caption-number">Exercise 28 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 27 </span></p>
 <section id="exercise-content">
 <p>Dada una lista <code class="docutils literal notranslate"><span class="pre">x</span></code> de números no negativos de longitud estrictamente positiva, añade a la lista la suma de la misma hasta que dicha suma sea mayor o igual a 100. Utiliza la función <code class="docutils literal notranslate"><span class="pre">sum</span></code>.</p>
 </section>
@@ -806,7 +785,7 @@ foo
 </div>
 <div class="exercise admonition" id="control-flow-break-continue">
 
-<p class="admonition-title"><span class="caption-number">Exercise 29 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 28 </span></p>
 <section id="exercise-content">
 <p>Estudia cómo se comportan <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> y <code class="docutils literal notranslate"><span class="pre">else</span></code> cuando tenemos varios bucles anidados.</p>
 </section>
@@ -851,7 +830,7 @@ range(0, 10, 2)
 </div>
 <div class="exercise admonition" id="control-flow-range">
 
-<p class="admonition-title"><span class="caption-number">Exercise 30 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 29 </span></p>
 <section id="exercise-content">
 <p>Da un ejemplo de dos objetos <code class="docutils literal notranslate"><span class="pre">r1</span></code> y <code class="docutils literal notranslate"><span class="pre">r2</span></code> tipo <code class="docutils literal notranslate"><span class="pre">range</span></code> que sean iguales vía <code class="docutils literal notranslate"><span class="pre">==</span></code> pero que no tengan los mismos valores de <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code> o <code class="docutils literal notranslate"><span class="pre">step</span></code></p>
 </section>
@@ -938,14 +917,14 @@ range(0, 10, 2)
 <p>Otros muchos métodos para trabajar con objetos iterables se pueden encontrar <a class="reference external" href="https://docs.python.org/3/library/itertools.html">en la documentación de itertools</a></p>
 <div class="exercise admonition" id="control-flow-iterables">
 
-<p class="admonition-title"><span class="caption-number">Exercise 31 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 30 </span></p>
 <section id="exercise-content">
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">itertools.combinations</span></code> para calcular cúantas combinaciones de 3 elementos sin repetición de las letras de <code class="docutils literal notranslate"><span class="pre">string.ascii_lowecase</span></code> tienen al menos 2 vocales.</p>
 </section>
 </div>
 <div class="exercise admonition" id="control-flow-zip">
 
-<p class="admonition-title"><span class="caption-number">Exercise 32 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 31 </span></p>
 <section id="exercise-content">
 <p>Dada la lista</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
@@ -955,14 +934,6 @@ range(0, 10, 2)
 </section>
 </div>
 </section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="excepciones">
-<h1>Excepciones<a class="headerlink" href="#excepciones" title="Permalink to this heading">#</a></h1>
-<p>Como en todo lenguaje de programación, en python existen errores y excepciones que nos avisarán cuando algún comportamiento imprevisto o no deseado ocurra en nuestro programa.</p>
-<section id="el-bloque-try-except">
-<h2>El bloque <code class="docutils literal notranslate"><span class="pre">try</span></code>-<code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#el-bloque-try-except" title="Permalink to this heading">#</a></h2>
-<p>Es importante manejar los errores…</p>
 </section>
 </section>
 
@@ -1033,7 +1004,6 @@ range(0, 10, 2)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Estructuras de control</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloques-condicionales">Bloques condicionales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaraciones-if-else-en-linea">Declaraciones <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> en línea</a></li>
 </ul>
@@ -1049,13 +1019,6 @@ range(0, 10, 2)
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#excepciones">Excepciones</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-bloque-try-except">El bloque <code class="docutils literal notranslate"><span class="pre">try</span></code>-<code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
