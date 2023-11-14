@@ -538,6 +538,22 @@ b
 <p>¿Cambia algún elemento de la lista <code class="docutils literal notranslate"><span class="pre">a</span></code> tras ejecutar <code class="docutils literal notranslate"><span class="pre">b.append(100)</span></code>?¿Y tras ejecutar <code class="docutils literal notranslate"><span class="pre">b[2][0]</span> <span class="pre">=</span> <span class="pre">-100</span></code>? ¿Por qué?</p>
 </section>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, [-100, 4]]
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="chapter1-concat_to_str">
 
 <p class="admonition-title"><span class="caption-number">Exercise 43 </span></p>
@@ -564,6 +580,77 @@ b
 </pre></div>
 </div>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="mi">5438543</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;-&#39;, &#39;5&#39;, &#39;4&#39;, &#39;3&#39;, &#39;8&#39;, &#39;5&#39;, &#39;4&#39;, &#39;3&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">traduce</span><span class="p">(</span><span class="n">objeto</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">objeto</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">objeto</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">traduce_entero</span><span class="p">(</span><span class="n">objeto</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">objeto</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">traduce_flotante</span><span class="p">(</span><span class="n">objeto</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">objeto</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">objeto</span>
+
+    <span class="k">return</span> <span class="s2">&quot;&lt;OTRO&gt;&quot;</span>
+
+<span class="k">def</span> <span class="nf">traduce_entero</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">n_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n_str</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">traduce_digito</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">])</span>
+
+<span class="n">traductor_digitos</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="s2">&quot;uno&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="s2">&quot;dos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="s2">&quot;tres&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;4&quot;</span><span class="p">:</span> <span class="s2">&quot;cuatro&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;5&quot;</span><span class="p">:</span> <span class="s2">&quot;cinco&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;6&quot;</span><span class="p">:</span> <span class="s2">&quot;seis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;7&quot;</span><span class="p">:</span> <span class="s2">&quot;siete&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;8&quot;</span><span class="p">:</span> <span class="s2">&quot;ocho&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;9&quot;</span><span class="p">:</span> <span class="s2">&quot;nueve&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="s2">&quot;cero&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="s2">&quot;menos&quot;</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">traduce_digito</span><span class="p">(</span><span class="n">digito</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">traductor_digitos</span><span class="p">[</span><span class="n">digito</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">traduce_flotante</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">f_rounded</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">traduce_entero</span><span class="p">(</span><span class="n">f_rounded</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; y decimales&quot;</span>
+
+<span class="k">def</span> <span class="nf">concat_to_str</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="n">traducciones</span> <span class="o">=</span> <span class="p">[</span><span class="n">traduce</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">traducciones</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">concat_to_str</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.23</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;uno-dos | menos-uno-cuatro y decimales | hello | &lt;OTRO&gt; | &lt;OTRO&gt; | uno-cero y decimales | menos-cinco&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="exercise admonition" id="chapter1-books">
 
