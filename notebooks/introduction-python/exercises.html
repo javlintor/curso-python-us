@@ -442,13 +442,13 @@ document.write(`
 <section id="exercise-content">
 <p>Crea una función <code class="docutils literal notranslate"><span class="pre">merge</span></code> que acepte un número arbitrario de diccionarios y devuelva un diccionario cuyas claves sean las uniones de las claves de los diccionarios de entradas y los valores listas donde se concatenan los valores de los diccionarios originales. Por ejemplo,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
-    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
     <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="kc">None</span>
 <span class="p">}</span>
 
 <span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello world&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello world&quot;</span><span class="p">,</span>
     <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;five&quot;</span>
 <span class="p">}</span>
 
@@ -459,29 +459,11 @@ document.write(`
 <span class="o">&gt;&gt;&gt;</span> <span class="n">merge</span><span class="p">(</span><span class="n">dict1</span><span class="p">,</span> <span class="n">dict2</span><span class="p">,</span> <span class="n">dict3</span><span class="p">)</span>
 
 <span class="p">{</span>
-    <span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hello world&#39;</span><span class="p">],</span> 
-    <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;yes&#39;</span><span class="p">],</span> 
-    <span class="s1">&#39;baz&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">],</span> 
+    <span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hello world&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;yes&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;baz&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">],</span>
     <span class="mi">5</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;five&#39;</span><span class="p">]</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/introduction-python/exercises-solution-1">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter1-merge"> Exercise 41</a></p>
-<section id="solution-content">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="n">d_ref</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d_ref</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="n">d_ref</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">d_ref</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-
-    <span class="k">return</span> <span class="n">d_ref</span>
 </pre></div>
 </div>
 </section>
@@ -521,46 +503,6 @@ document.write(`
 <p>Las transcripciones deben estar separas por <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">|</span> <span class="pre">&quot;</span></code>. Por ejemplo,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">concat_to_str</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.23</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="go">&quot;uno-dos | menos-uno-cuatro y decimales&quot; | hello | &lt;OTRO&gt; | &lt;OTRO&gt; | uno-cero y decimales | cinco&quot;</span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/introduction-python/exercises-solution-4">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter1-concat_to_str"> Exercise 43</a></p>
-<section id="solution-content">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="s2">&quot;menos&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="s2">&quot;uno&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="s2">&quot;dos&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="s2">&quot;tres&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;4&quot;</span><span class="p">:</span> <span class="s2">&quot;cuatro&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;5&quot;</span><span class="p">:</span> <span class="s2">&quot;cinco&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;6&quot;</span><span class="p">:</span> <span class="s2">&quot;seis&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;7&quot;</span><span class="p">:</span> <span class="s2">&quot;siete&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;8&quot;</span><span class="p">:</span> <span class="s2">&quot;ocho&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;9&quot;</span><span class="p">:</span> <span class="s2">&quot;nueve&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;0&quot;</span><span class="p">:</span> <span class="s2">&quot;cero&quot;</span>
-<span class="p">}</span>
-
-<span class="k">def</span> <span class="nf">traduce_entero</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="n">digits</span> <span class="o">=</span> <span class="p">[</span><span class="n">mapping</span><span class="p">[</span><span class="n">i_str</span><span class="p">]</span> <span class="k">for</span> <span class="n">i_str</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
-    <span class="k">return</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">traduce</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">traduce_entero</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">traduce_entero</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; y decimales&quot;</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">i</span>
-    <span class="k">else</span><span class="p">:</span> 
-        <span class="k">return</span> <span class="s2">&quot;&lt;OTRO&gt;&quot;</span>
-
-<span class="k">def</span> <span class="nf">concat_to_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="n">traducciones</span> <span class="o">=</span> <span class="p">[</span><span class="n">traduce</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">traducciones</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ret</span>
 </pre></div>
 </div>
 </section>
