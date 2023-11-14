@@ -618,7 +618,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Punto object at 0x7fc5b0e5ba50&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Punto object at 0x7daf29671450&gt;
 </pre></div>
 </div>
 </div>
@@ -637,7 +637,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">==</span> <span class="n">q</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">==</span> <span class="n">p</span>
 </pre></div>
 </div>
 </div>
@@ -665,6 +665,56 @@ document.write(`
 <section id="exercise-content">
 <p>Crea la clase <code class="docutils literal notranslate"><span class="pre">PointV3</span></code> copiando el código de <code class="docutils literal notranslate"><span class="pre">PointV2</span></code> y añadiendo el método especial <code class="docutils literal notranslate"><span class="pre">__add__</span></code> que nos permita sumar puntos del plano. Añade otro método que incluya un parámetro <code class="docutils literal notranslate"><span class="pre">p</span></code> para calcular la <a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm">norma p</a> de un punto. Crea otro método <code class="docutils literal notranslate"><span class="pre">dot</span></code> que implemente el producto escalar de los vectores correspondientes.</p>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PuntoV3</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dist</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">punto</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">punto</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">punto</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Punto(x = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, y = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">punto</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">PuntoV3</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">punto</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">punto</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">normap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="n">p</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">norm</span>
+
+    <span class="k">def</span> <span class="nf">dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">punto</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="n">punto</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="n">punto</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">PuntoV3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">PuntoV3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">normap</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">normap</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">p</span><span class="o">.</span><span class="n">distancia_al_origen</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2599210498948732
+True
+Punto(x = 3.000, y = 5.000)
+6
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="subclases-y-herencia">
@@ -744,6 +794,65 @@ document.write(`
 <p>Incluye métodos para depositar y retirar cantidades. Incluye otro método <code class="docutils literal notranslate"><span class="pre">retira_todo</span></code> para retirar todo el dinero de la cuenta.</p>
 <p>Escribe una clase hija <code class="docutils literal notranslate"><span class="pre">CuentaInversion</span></code> con un atributo más llamado <code class="docutils literal notranslate"><span class="pre">riesgo</span></code> en la que el método <code class="docutils literal notranslate"><span class="pre">retira_todo</span></code> multiplica el depósito por un número tomado de una distribución normal de media uno y desviación estándar <code class="docutils literal notranslate"><span class="pre">riesgo</span></code> (véase el módulo estándar de Python <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random"><code class="docutils literal notranslate"><span class="pre">random</span></code></a> para números pseudoaleatorios)</p>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cuenta</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">deposito</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">=</span> <span class="n">deposito</span>
+
+    <span class="k">def</span> <span class="nf">deposita</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cantidad</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">+=</span> <span class="n">cantidad</span>
+
+    <span class="k">def</span> <span class="nf">retira</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cantidad</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">-=</span> <span class="n">cantidad</span>
+
+    <span class="k">def</span> <span class="nf">retira_todo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cantidad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">cantidad</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cuenta</span> <span class="o">=</span> <span class="n">Cuenta</span><span class="p">(</span><span class="s2">&quot;Pepito&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cuenta</span><span class="o">.</span><span class="n">nombre</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cuenta</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Depositando...&quot;</span><span class="p">)</span>
+<span class="n">cuenta</span><span class="o">.</span><span class="n">deposita</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cuenta</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Retirando...&quot;</span><span class="p">)</span>
+<span class="n">cuenta</span><span class="o">.</span><span class="n">retira</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cuenta</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Retirando todo...&quot;</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">cuenta</span><span class="o">.</span><span class="n">retira_todo</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cuenta</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pepito
+1000
+Depositando...
+1050
+Retirando...
+950
+Retirando todo...
+0
+950
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="metodos-y-atributos-de-clase">
