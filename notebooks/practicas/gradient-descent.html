@@ -518,7 +518,7 @@ y^n
 </ul>
 <div class="exercise admonition" id="gradient-descend-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 63 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 64 </span></p>
 <section id="exercise-content">
 <p>Crea una clase <code class="docutils literal notranslate"><span class="pre">RegresionLinealDG</span></code> con 3 métodos:</p>
 <ul class="simple">
@@ -694,7 +694,7 @@ y^n
 </div>
 <div class="exercise admonition" id="gradient-descent-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 64 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 65 </span></p>
 <section id="exercise-content">
 <p>Implementa una clase que herede de la anterior en la que la tasa de aprendizaje <code class="docutils literal notranslate"><span class="pre">eta</span></code> sea una función decreciente de modo que vaya disminuyendo en el método entrena en cada iteración.</p>
 </section>
@@ -738,7 +738,7 @@ y^n
 </div>
 <div class="exercise admonition" id="gradient-descent-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 65 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 66 </span></p>
 <section id="exercise-content">
 <p>Mejora de nuevo la clase anterior para que reciba un parámetro booleano <code class="docutils literal notranslate"><span class="pre">split</span></code> (valor por defecto a <code class="docutils literal notranslate"><span class="pre">True</span></code>) de modo que cualdo <code class="docutils literal notranslate"><span class="pre">split</span></code> sea verdadero el conjunto de entrenamiento se divida de forma aletoria en dos partes, una con el 80% de los datos para ejecutar el algoritmo; otra con el 20% para validar y modificar los siguientes métodos:</p>
 <ul class="simple">
@@ -798,7 +798,7 @@ y^n
 <p>Otra alternativa posible es considerar solamente la contribución de una observación del conjunto de set a la hora de calcular el gradiente. En este nuevo enfoque, denominado <strong>descenso estocástico del gradiente</strong>, recorremos el conjunto de train varias veces eligiendo elementos al azar (con remplazamiento). Cada una de las iteraciones que hacemos sobre el conjunto de train al completo se denominan <strong>épocas</strong>. Cuando utilicemos descenso del gradiente estocástico, es importante que la tasa de aprendizaje vaya siendo cada vez más pequeña, sobre todo cuando nuestro función de coste tenga mínimos locales.</p>
 <div class="exercise admonition" id="gradient-descent-4">
 
-<p class="admonition-title"><span class="caption-number">Exercise 66 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 67 </span></p>
 <section id="exercise-content">
 <p>Crea una clase que herede de <code class="docutils literal notranslate"><span class="pre">RegresionLinealDG3</span></code> denominada <code class="docutils literal notranslate"><span class="pre">RegresionLinealDGE</span></code> para implementar el algoritmo de descenso de gradiente estocástico en lugar del dencenso del gradiente convencional. Deberá aceptar un argumento en su <code class="docutils literal notranslate"><span class="pre">__init__</span></code> que sea <code class="docutils literal notranslate"><span class="pre">n_epocas</span></code></p>
 </section>
@@ -848,7 +848,7 @@ y^n
 </div>
 <div class="exercise admonition" id="gradient-descent-5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 67 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 68 </span></p>
 <section id="exercise-content">
 <p>En realidad lo que se suele emplear es una solución intermedia entre el descenso del gradiente estocástico y el estándar, denominada <strong>descenso del gradiente a tramos</strong> o <em>mini-batch gradient descent</em>. La idea es similar al descenso del gradiente estocástico, salvo que en lugar de tomar una observación en cada iteración, tomamos un conjunto o <em>batch</em> de estas, pero no el dataset entero.</p>
 <p>Crea una clase <code class="docutils literal notranslate"><span class="pre">RegresionLinealDGMB</span></code> que implemento el descenso del gradiente a tramos.</p>

@@ -1009,7 +1009,7 @@ Name: ocean_proximity, dtype: int64
 <p>Parece razonable proponer el siguiente ejercicio</p>
 <div class="exercise admonition" id="regression-model-1">
 
-<p class="admonition-title"><span class="caption-number">Exercise 70 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 71 </span></p>
 <section id="exercise-content">
 <p>Convierte la columna <code class="docutils literal notranslate"><span class="pre">ocean_proximity</span></code> en categórica y las columnas susceptibles de ser de tipo entero. Recuerda que las columnas que tienen valores faltantes no pueden ser convertidas en tipo entero.</p>
 </section>
@@ -1028,7 +1028,7 @@ Name: ocean_proximity, dtype: int64
 </div>
 <div class="exercise admonition" id="regression-model-2">
 
-<p class="admonition-title"><span class="caption-number">Exercise 71 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 72 </span></p>
 <section id="exercise-content">
 <p>¿Qué conclusiones puedes sacar de estos datos? ¿Cómo podemos proceder?</p>
 </section>
@@ -1073,7 +1073,7 @@ Name: ocean_proximity, dtype: int64
 </div>
 <div class="exercise admonition" id="regression-model-3">
 
-<p class="admonition-title"><span class="caption-number">Exercise 72 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 73 </span></p>
 <section id="exercise-content">
 <p>¿Qué problemas puede tener una partición de este tipo? ¿Cómo podemos solventarlo? Véase <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedShuffleSplit.html"><code class="docutils literal notranslate"><span class="pre">StratifiedShuffleSplit</span></code></a></p>
 </section>
@@ -1204,7 +1204,7 @@ Name: ocean_proximity, dtype: int64
 </div>
 <div class="exercise admonition" id="regression-model-4">
 
-<p class="admonition-title"><span class="caption-number">Exercise 73 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 74 </span></p>
 <section id="exercise-content">
 <p>Saca conclusiones del anterior gráfico.</p>
 </section>
@@ -1343,7 +1343,7 @@ memory usage: 1.4+ MB
 <p>En este caso por ejemplo tenemos el número total de habitaciones en un distrito (variable <code class="docutils literal notranslate"><span class="pre">total_rooms</span></code>) y también el número total de cuartos <code class="docutils literal notranslate"><span class="pre">total_bedrooms</span></code>, pero parece razonable que otros atributos, como el número de habitaciones por casa o el ratio de cuartos por habitación podrían tener más sentido. Vamos a definirlos</p>
 <div class="exercise admonition" id="regression-model-5">
 
-<p class="admonition-title"><span class="caption-number">Exercise 74 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 75 </span></p>
 <section id="exercise-content">
 <p>Define las siguientes columnas de <code class="docutils literal notranslate"><span class="pre">housing</span></code></p>
 <ul class="simple">
@@ -1355,7 +1355,7 @@ memory usage: 1.4+ MB
 </div>
 <div class="solution dropdown admonition" id="notebooks/practicas/regression-model-solution-5">
 
-<p class="admonition-title">Solution to<a class="reference internal" href="#regression-model-5"> Exercise 74</a></p>
+<p class="admonition-title">Solution to<a class="reference internal" href="#regression-model-5"> Exercise 75</a></p>
 <section id="solution-content">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;households&quot;</span><span class="p">]</span>
 <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;bedrooms_per_room&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_bedrooms&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">housing</span><span class="p">[</span><span class="s2">&quot;total_rooms&quot;</span><span class="p">]</span>
@@ -1438,7 +1438,7 @@ Name: median_house_value, dtype: float64
 </div>
 <div class="exercise admonition" id="regression-model-6">
 
-<p class="admonition-title"><span class="caption-number">Exercise 75 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 76 </span></p>
 <section id="exercise-content">
 <p>Utiliza la clase <code class="docutils literal notranslate"><span class="pre">SimpleImputer</span></code> de <code class="docutils literal notranslate"><span class="pre">sklearn.impute</span></code> para relizar esta tarea.</p>
 </section>
