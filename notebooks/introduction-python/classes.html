@@ -458,7 +458,7 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-        
+
     <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dist</span>
@@ -587,7 +587,7 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-        
+
     <span class="k">def</span> <span class="nf">distancia_al_origen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dist</span>
@@ -688,8 +688,8 @@ document.write(`
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circulo</span><span class="p">):</span>
         <span class="n">son_iguales</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> 
-            <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">y</span> <span class="ow">and</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">circulo</span><span class="o">.</span><span class="n">y</span> <span class="ow">and</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">radio</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">radio</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">son_iguales</span>
@@ -745,61 +745,6 @@ document.write(`
 <p>Escribe una clase hija <code class="docutils literal notranslate"><span class="pre">CuentaInversion</span></code> con un atributo más llamado <code class="docutils literal notranslate"><span class="pre">riesgo</span></code> en la que el método <code class="docutils literal notranslate"><span class="pre">retira_todo</span></code> multiplica el depósito por un número tomado de una distribución normal de media uno y desviación estándar <code class="docutils literal notranslate"><span class="pre">riesgo</span></code> (véase el módulo estándar de Python <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random"><code class="docutils literal notranslate"><span class="pre">random</span></code></a> para números pseudoaleatorios)</p>
 </section>
 </div>
-<div class="solution dropdown admonition" id="notebooks/introduction-python/classes-solution-3">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter1-classes-bank-account"> Exercise 40</a></p>
-<section id="solution-content">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">class</span> <span class="nc">Cuenta</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">deposito</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">=</span> <span class="n">deposito</span>
-
-    <span class="k">def</span> <span class="nf">deposita</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cantidad</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">+=</span> <span class="n">cantidad</span> 
-
-    <span class="k">def</span> <span class="nf">retira</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cantidad</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">-=</span> <span class="n">cantidad</span> 
-
-    <span class="k">def</span> <span class="nf">retira_todo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">deposito_retirado</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">return</span> <span class="n">deposito_retirado</span>
-
-<span class="k">class</span> <span class="nc">CuentaInversion</span><span class="p">(</span><span class="n">Cuenta</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">deposito</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">riesgo</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">deposito</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">riesgo</span> <span class="o">=</span> <span class="n">riesgo</span>
-
-    
-    <span class="k">def</span> <span class="nf">retira_todo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">factor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">riesgo</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">deposito</span> <span class="o">=</span> <span class="n">factor</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">deposito</span>
-        <span class="n">deposito_retirado</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">retira_todo</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">deposito_retirado</span>
-
-<span class="k">class</span> <span class="nc">DummyCuenta</span><span class="p">(</span><span class="n">Cuenta</span><span class="p">):</span>
-    <span class="k">pass</span>
-
-<span class="n">dummy_cuenta</span> <span class="o">=</span> <span class="n">DummyCuenta</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dummy_cuenta</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
-<span class="n">cuenta_inversion</span> <span class="o">=</span> <span class="n">CuentaInversion</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-<span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">deposita</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
-<span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">retira</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
-<span class="n">ret</span> <span class="o">=</span> <span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">retira_todo</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
-<span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">deposito</span>
-<span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">deposita</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">ret</span> <span class="o">=</span> <span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">retira_todo</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cuenta_inversion</span><span class="o">.</span><span class="n">deposito</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</div>
 </section>
 <section id="metodos-y-atributos-de-clase">
 <h2>Métodos y atributos de clase<a class="headerlink" href="#metodos-y-atributos-de-clase" title="Permalink to this heading">#</a></h2>
@@ -809,18 +754,18 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Account</span><span class="p">:</span>
     <span class="n">num_accounts</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Esto es un atributo de clase</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
         <span class="n">Account</span><span class="o">.</span><span class="n">num_accounts</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="si">!r}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">balance</span><span class="si">!r}</span><span class="s1">)&#39;</span>
 
     <span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
 
-    <span class="k">def</span> <span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span> 
+    <span class="k">def</span> <span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="o">-</span><span class="n">amount</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -875,7 +820,7 @@ document.write(`
 <p>Al intentar acceder a un atributo de uns instancia, Python busca primero en los atributos de instancias y si no encuentra nada accede a los atributos de clase.</p>
 <p>También se pueden definir <strong>métodos de clase</strong>, que es un método que se aplica a la clase misma, no a las instancias. Un uso común de los mismos es para definir constructores de la clase alternativos. Por ejemplo, supongamos que queremos añadir un método para crear instancias de la clase <code class="docutils literal notranslate"><span class="pre">Account</span></code> a partir de la información de un archivo <code class="docutils literal notranslate"><span class="pre">xml</span></code> con la siguiente escrutura</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">account</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">owner</span><span class="o">&gt;</span><span class="n">Javi</span><span class="o">&lt;/</span><span class="n">owner</span><span class="o">&gt;</span> 
+    <span class="o">&lt;</span><span class="n">owner</span><span class="o">&gt;</span><span class="n">Javi</span><span class="o">&lt;/</span><span class="n">owner</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">amount</span><span class="o">&gt;</span><span class="mi">1000</span><span class="o">&lt;/</span><span class="n">amount</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">account</span><span class="o">&gt;</span>
 </pre></div>
@@ -886,7 +831,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">classify_class_attrs</span>
 <span class="k">class</span> <span class="nc">Account</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
 
     <span class="nd">@classmethod</span>
@@ -902,7 +847,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;account&gt;</span>
-<span class="s2">    &lt;owner&gt;Javi&lt;/owner&gt; </span>
+<span class="s2">    &lt;owner&gt;Javi&lt;/owner&gt;</span>
 <span class="s2">    &lt;amount&gt;1000&lt;/amount&gt;</span>
 <span class="s2">&lt;/account&gt;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -940,10 +885,10 @@ document.write(`
     <span class="k">def</span> <span class="nf">today</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_timestamp</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 
-<span class="k">class</span> <span class="nc">MDYDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span> 
+<span class="k">class</span> <span class="nc">MDYDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span>
     <span class="n">datefmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{month}</span><span class="s2">/</span><span class="si">{day}</span><span class="s2">/</span><span class="si">{year}</span><span class="s2">&quot;</span>
 
-<span class="k">class</span> <span class="nc">YMDDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span> 
+<span class="k">class</span> <span class="nc">YMDDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span>
     <span class="n">datefmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{year}</span><span class="s2">/</span><span class="si">{month}</span><span class="s2">/</span><span class="si">{day}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
