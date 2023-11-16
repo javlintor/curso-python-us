@@ -493,7 +493,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12, 12, 12])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 6, 7])
 </pre></div>
 </div>
 </div>
@@ -502,10 +502,10 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">l_slice</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">v_slice</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">l_slice</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
-<span class="n">v_slice</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">l_sublist</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">v_subarray</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">l_sublist</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">v_subarray</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">12</span>
 </pre></div>
 </div>
 </div>
@@ -529,8 +529,8 @@ document.write(`
 <p>Modificamos la componente 1 de <code class="docutils literal notranslate"><span class="pre">v_slice</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12345</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">v_slice</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v_subarray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12345</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v_subarray</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -540,7 +540,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Pero la componente 1 de <code class="docutils literal notranslate"><span class="pre">C_slice</span></code> es en realidad la componente 6 de <code class="docutils literal notranslate"><span class="pre">C</span></code>, así que <code class="docutils literal notranslate"><span class="pre">C</span></code> ha cambiado:</p>
+<p>Pero la componente 1 de <code class="docutils literal notranslate"><span class="pre">v_subarray</span></code> es en realidad la componente 6 de <code class="docutils literal notranslate"><span class="pre">v</span></code>, así que <code class="docutils literal notranslate"><span class="pre">v</span></code> ha cambiado:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
@@ -553,7 +553,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Nótese la diferencia con las listas de python, en las que <code class="docutils literal notranslate"><span class="pre">l[:]</span></code> es la manera estándar de crear una <em>copia</em> de una lista <code class="docutils literal notranslate"><span class="pre">l</span></code>. En el caso de <em>numpy</em>, si se quiere realizar una copia, se ha de usar el método <code class="docutils literal notranslate"><span class="pre">copy</span></code> (por ejemplo, <code class="docutils literal notranslate"><span class="pre">C.copy()</span></code>).</p>
+<p>Nótese la diferencia con las listas de python, en las que <code class="docutils literal notranslate"><span class="pre">l[:]</span></code> es la manera estándar de crear una <em>copia</em> de una lista <code class="docutils literal notranslate"><span class="pre">l</span></code>. En el caso de <em>numpy</em>, si se quiere realizar una copia, se ha de usar el método <code class="docutils literal notranslate"><span class="pre">copy</span></code> (por ejemplo, <code class="docutils literal notranslate"><span class="pre">v.copy()</span></code>).</p>
 <p><strong>Arrays de más dimensiones</strong></p>
 <p>El acceso a los componentes de arrays de dos o más dimensiones es similar, aunque la casuística es más variada.</p>
 <p>Cuando accedemos con un único índice, estamos accediendo al correspondiente subarray de esa posición. Por ejemplo, en array de dos dimensiones, con 3 filas y 3 columnas, la posición 2 es la tercera fila:</p>
@@ -795,7 +795,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -840,7 +840,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7, 9],
-       [4, 6]])
+       [4, 0]])
 </pre></div>
 </div>
 </div>
@@ -896,13 +896,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.98844614, -0.28929158,  1.31277159,  0.29834399],
-       [ 0.20764245, -1.26663194,  1.43558642, -1.29967598],
-       [-0.73496716,  0.37075728,  0.32118779, -1.08483754],
-       [ 0.10961256,  0.2539896 ,  0.67045411, -0.13905253],
-       [-0.84285306,  0.5230031 ,  0.4022473 , -0.81667451],
-       [ 0.13022093,  0.48120834,  0.01016393, -0.32123877],
-       [-0.48881803,  0.0890725 , -1.31819536, -0.0460906 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
+       [-0.85000431, -0.04028551, -1.20689953, -1.25049682],
+       [-0.46840893,  0.57883228,  0.7674367 , -0.3365187 ],
+       [-0.85013471,  0.44981425, -1.17843139, -2.05976842],
+       [ 0.87556869, -0.23884001, -0.41158185,  0.11957846],
+       [ 1.51579891,  1.32351957,  0.43951358, -0.02277686],
+       [ 0.621115  ,  1.64728839, -0.59761337,  1.12366288]])
 </pre></div>
 </div>
 </div>
@@ -914,8 +914,8 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.98844614, -0.28929158,  1.31277159,  0.29834399],
-       [ 0.10961256,  0.2539896 ,  0.67045411, -0.13905253]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
+       [-0.85013471,  0.44981425, -1.17843139, -2.05976842]])
 </pre></div>
 </div>
 </div>
@@ -942,8 +942,8 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.21752067,  0.26346545,  0.23312191, -0.5933685 ],
-       [ 1.06104356, -0.0559112 ,  1.75098035,  1.26676004]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
+       [-0.85013471,  0.44981425, -1.17843139, -2.05976842]])
 </pre></div>
 </div>
 </div>
@@ -956,8 +956,8 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.23312191, -0.5933685 ],
-       [ 1.75098035,  1.26676004]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.18394276, -1.28634546],
+       [-1.17843139, -2.05976842]])
 </pre></div>
 </div>
 </div>
@@ -969,7 +969,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.5933685 ,  1.26676004])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.28634546, -2.05976842])
 </pre></div>
 </div>
 </div>
@@ -982,11 +982,11 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.33247922,  0.65824959,  0.2292813 ,  0.64398547],
-       [-0.08270462,  0.35499795, -0.55444337, -0.73175076],
-       [ 2.67077108, -0.7448348 , -0.02818844, -0.92637357],
-       [-0.3705128 ,  0.01339957,  0.81667741,  0.23904275],
-       [ 0.56683159, -0.49206108,  0.64784586, -0.02902305]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.85000431, -0.04028551, -1.20689953, -1.25049682],
+       [-0.46840893,  0.57883228,  0.7674367 , -0.3365187 ],
+       [ 0.87556869, -0.23884001, -0.41158185,  0.11957846],
+       [ 1.51579891,  1.32351957,  0.43951358, -0.02277686],
+       [ 0.621115  ,  1.64728839, -0.59761337,  1.12366288]])
 </pre></div>
 </div>
 </div>
@@ -1013,10 +1013,10 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.21752067,  0.26346545,  0.23312191, -0.5933685 ],
-       [-0.08270462,  0.35499795, -0.55444337, -0.73175076],
-       [ 1.06104356, -0.0559112 ,  1.75098035,  1.26676004],
-       [ 2.67077108, -0.7448348 , -0.02818844, -0.92637357]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
+       [-0.46840893,  0.57883228,  0.7674367 , -0.3365187 ],
+       [-0.85013471,  0.44981425, -1.17843139, -2.05976842],
+       [ 0.87556869, -0.23884001, -0.41158185,  0.11957846]])
 </pre></div>
 </div>
 </div>
@@ -1029,13 +1029,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False,  True],
-       [False, False, False, False],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False,  True,  True],
+       [ True,  True,  True,  True],
+       [ True, False, False,  True],
        [ True, False,  True,  True],
-       [False,  True, False, False],
-       [False,  True,  True,  True],
-       [ True, False, False, False],
-       [False,  True, False,  True]])
+       [False,  True,  True, False],
+       [False, False, False,  True],
+       [False, False,  True, False]])
 </pre></div>
 </div>
 </div>
@@ -1047,9 +1047,9 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.5933685 , -0.08270462, -0.55444337, -0.73175076, -0.0559112 ,
-       -0.7448348 , -0.02818844, -0.92637357, -0.3705128 , -0.49206108,
-       -0.02902305])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.18394276, -1.28634546, -0.85000431, -0.04028551, -1.20689953,
+       -1.25049682, -0.46840893, -0.3365187 , -0.85013471, -1.17843139,
+       -2.05976842, -0.23884001, -0.41158185, -0.02277686, -0.59761337])
 </pre></div>
 </div>
 </div>
@@ -1062,13 +1062,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.        , 0.        , 1.67201443],
-       [0.29911287, 0.98359735, 0.        , 0.06604592],
-       [0.        , 2.88774985, 1.15602948, 0.        ],
-       [0.        , 0.        , 1.47930044, 0.78054045],
-       [2.17932731, 0.15856538, 2.23699234, 0.        ],
-       [0.        , 0.01701318, 0.        , 0.        ],
-       [0.        , 0.64848485, 0.        , 0.40911413]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00956514, 0.25628708, 0.        , 0.        ],
+       [0.        , 0.        , 0.        , 0.        ],
+       [0.        , 0.57883228, 0.7674367 , 0.        ],
+       [0.        , 0.44981425, 0.        , 0.        ],
+       [0.87556869, 0.        , 0.        , 0.11957846],
+       [1.51579891, 1.32351957, 0.43951358, 0.        ],
+       [0.621115  , 1.64728839, 0.        , 1.12366288]])
 </pre></div>
 </div>
 </div>
@@ -1084,12 +1084,12 @@ justify-content: center;">
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7.        , 7.        , 7.        , 7.        ],
-       [0.29911287, 0.98359735, 0.        , 0.06604592],
+       [0.        , 0.        , 0.        , 0.        ],
        [7.        , 7.        , 7.        , 7.        ],
        [7.        , 7.        , 7.        , 7.        ],
        [7.        , 7.        , 7.        , 7.        ],
-       [0.        , 0.01701318, 0.        , 0.        ],
-       [0.        , 0.64848485, 0.        , 0.40911413]])
+       [1.51579891, 1.32351957, 0.43951358, 0.        ],
+       [0.621115  , 1.64728839, 0.        , 1.12366288]])
 </pre></div>
 </div>
 </div>
@@ -1100,33 +1100,6 @@ justify-content: center;">
 <section id="exercise-content">
 <p>Devuelve las filas de <code class="docutils literal notranslate"><span class="pre">data</span></code> correspondientes a aquellos nombres que empiecen por «B» o «J». Puedes utilizar la función <code class="docutils literal notranslate"><span class="pre">np.char.startswith</span></code>.</p>
 </section>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Noooo</span>
-<span class="p">[</span><span class="n">nombre</span> <span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">nombres</span> <span class="k">if</span> <span class="n">nombre</span><span class="o">.</span><span class="n">strartswith</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">char</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">nombres</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>\
-    <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">char</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">nombres</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">)</span>
-
-<span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.98844614, -0.28929158,  1.31277159,  0.29834399],
-       [ 0.20764245, -1.26663194,  1.43558642, -1.29967598],
-       [ 0.10961256,  0.2539896 ,  0.67045411, -0.13905253],
-       [ 0.13022093,  0.48120834,  0.01016393, -0.32123877],
-       [-0.48881803,  0.0890725 , -1.31819536, -0.0460906 ]])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="exercise admonition" id="index-slicing-flip">
 
@@ -1140,26 +1113,12 @@ justify-content: center;">
 <span class="p">[[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">]</span>
  <span class="p">[</span><span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]</span>
  <span class="p">[</span><span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span><span class="p">]]</span>
- 
+
 <span class="n">flip</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span>
 <span class="p">[[</span><span class="mi">2</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">]</span>
  <span class="p">[</span><span class="mi">5</span> <span class="mi">4</span> <span class="mi">3</span><span class="p">]</span>
  <span class="p">[</span><span class="mi">8</span> <span class="mi">7</span> <span class="mi">6</span><span class="p">]]</span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/numpy/index-slicing-solution-4">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#index-slicing-flip"> Exercise 52</a></p>
-<section id="solution-content">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-    <span class="n">default_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-    <span class="n">reverse_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">slices_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">reverse_slice</span> <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">i</span> <span class="k">else</span> <span class="n">default_slice</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
-    <span class="n">slices</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">slices_gen</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">slices</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
