@@ -690,7 +690,7 @@ b
 <span class="p">)</span>
 
 <span class="n">words</span> <span class="o">=</span> <span class="n">book_processed</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
@@ -715,12 +715,126 @@ b
 <p>Un producto no puede aparecer más de una vez en cada lista.</p>
 <p>Crea un método <code class="docutils literal notranslate"><span class="pre">__init__</span></code> que acepte una cadena o un iterable de cadenas representando productos que se añadirán a la lista de <code class="docutils literal notranslate"><span class="pre">necesitados</span></code> y además métodos para</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">añade_necestiados</span></code>: añadir nuevos elementos necesitados al carrito,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">añade_necestidados</span></code>: añadir nuevos elementos necesitados al carrito,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">compra</span></code>: marcar un producto como comprado (pasa de necesitados a comprados),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">elimina_necesitados</span></code>, <code class="docutils literal notranslate"><span class="pre">elimina_comprados</span></code>: eliminar productos, ya sea de la lista de necesitados o comprados,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lista_necestiados</span></code> y <code class="docutils literal notranslate"><span class="pre">lista_comprados</span></code>: listar los elementos necesitados o comprados en orden alfabético.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elimina_necesitados</span></code>, <code class="docutils literal notranslate"><span class="pre">elimina_comprados</span></code>: eliminar un producto, ya sea de la lista de necesitados o comprados,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lista_necestidados</span></code> y <code class="docutils literal notranslate"><span class="pre">lista_comprados</span></code>: listar los elementos necesitados o comprados en orden alfabético.</p></li>
 </ul>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;bar&#39;, &#39;foo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="k">class</span> <span class="nc">CarritoCompra</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">necesitados</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">necesitados</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="n">necesitados</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comprados</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">anade_necesitados</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elementos</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">necesitados</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">elementos</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">compra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elemento</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comprados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">necesitados</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">elimina_necesitados</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elemento</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">necesitados</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">elimina_comprados</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elemento</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comprados</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">lista_necesitados</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">necesitados</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">necesitados</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">lista_comprados</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comprados</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">comprados</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">carrito</span> <span class="o">=</span> <span class="n">CarritoCompra</span><span class="p">()</span>
+
+<span class="n">carrito</span><span class="o">.</span><span class="n">anade_necesitados</span><span class="p">([</span><span class="s2">&quot;manzana&quot;</span><span class="p">,</span> <span class="s2">&quot;pera&quot;</span><span class="p">,</span> <span class="s2">&quot;pescado&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;manzana&#39;, &#39;pera&#39;, &#39;pescado&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">carrito</span><span class="o">.</span><span class="n">lista_necesitados</span><span class="p">()</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">lista_comprados</span><span class="p">()</span>
+
+<span class="n">carrito</span><span class="o">.</span><span class="n">compra</span><span class="p">(</span><span class="s2">&quot;pescado&quot;</span><span class="p">)</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">compra</span><span class="p">(</span><span class="s2">&quot;pera&quot;</span><span class="p">)</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">compra</span><span class="p">(</span><span class="s2">&quot;carne&quot;</span><span class="p">)</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">lista_necesitados</span><span class="p">()</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">lista_comprados</span><span class="p">()</span>
+
+<span class="n">carrito</span><span class="o">.</span><span class="n">elimina_necesitados</span><span class="p">(</span><span class="s2">&quot;pera&quot;</span><span class="p">)</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">elimina_necesitados</span><span class="p">(</span><span class="s2">&quot;manzana&quot;</span><span class="p">)</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">elimina_comprados</span><span class="p">(</span><span class="s2">&quot;pera&quot;</span><span class="p">)</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">lista_necesitados</span><span class="p">()</span>
+<span class="n">carrito</span><span class="o">.</span><span class="n">lista_comprados</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;manzana&#39;, &#39;pera&#39;, &#39;pescado&#39;]
+[]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-62-3445b7b93df5&gt;</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">carrito</span><span class="o">.</span><span class="n">compra</span><span class="p">(</span><span class="s2">&quot;pescado&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">carrito</span><span class="o">.</span><span class="n">compra</span><span class="p">(</span><span class="s2">&quot;pera&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">carrito</span><span class="o">.</span><span class="n">compra</span><span class="p">(</span><span class="s2">&quot;carne&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">carrito</span><span class="o">.</span><span class="n">lista_necesitados</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">carrito</span><span class="o">.</span><span class="n">lista_comprados</span><span class="p">()</span>
+
+<span class="nn">&lt;ipython-input-60-844dd3155c5f&gt;</span> in <span class="ni">compra</span><span class="nt">(self, elemento)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="k">def</span> <span class="nf">compra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elemento</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="bp">self</span><span class="o">.</span><span class="n">comprados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">14</span>         <span class="bp">self</span><span class="o">.</span><span class="n">necesitados</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="k">def</span> <span class="nf">elimina_necesitados</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elemento</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+
+<span class="ne">ValueError</span>: list.remove(x): x not in list
+</pre></div>
+</div>
+</div>
 </div>
 <div class="exercise admonition" id="notebooks/introduction-python/exercises-exercise-5">
 
