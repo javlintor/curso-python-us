@@ -496,8 +496,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>159 ms ± 1.38 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-9.46 s ± 371 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>448 ms ± 20.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+9.89 s ± 823 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -505,15 +505,28 @@ document.write(`
 <p>Numpy también suele optimizar <strong>el espacio en memoria</strong> necesitado para guardar un array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>new_file.txt  sample_data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pympler
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting pympler
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pympler
   Downloading Pympler-1.0.1-py3-none-any.whl (164 kB)
-     |████████████████████████████████| 164 kB 5.2 MB/s 
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/164.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">163.8/164.8 kB</span> <span class=" -Color -Color-Red">5.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">164.8/164.8 kB</span> <span class=" -Color -Color-Red">4.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hInstalling collected packages: pympler
 Successfully installed pympler-1.0.1
 </pre></div>
@@ -529,8 +542,8 @@ Successfully installed pympler-1.0.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80000120
-410000112
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80000128
+400000048
 </pre></div>
 </div>
 </div>
@@ -545,8 +558,8 @@ Successfully installed pympler-1.0.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80000104
-90000120
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80000112
+80000056
 </pre></div>
 </div>
 </div>
@@ -646,8 +659,8 @@ Successfully installed pympler-1.0.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.2255199 ,  0.76653819,  0.56700867],
-       [ 1.22134514, -0.16459322, -0.86876857]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.58619635,  0.30295786, -0.11850167],
+       [-0.98946757,  1.5681518 , -0.67146183]])
 </pre></div>
 </div>
 </div>
@@ -660,8 +673,8 @@ Successfully installed pympler-1.0.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2.25519897,  7.66538191,  5.67008667],
-       [12.21345139, -1.64593222, -8.68768571]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-5.8619635 ,  3.02957863, -1.1850167 ],
+       [-9.89467569, 15.68151804, -6.71461827]])
 </pre></div>
 </div>
 </div>
@@ -675,8 +688,8 @@ Successfully installed pympler-1.0.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.45103979,  1.53307638,  1.13401733],
-       [ 2.44269028, -0.32918644, -1.73753714]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.1723927 ,  0.60591573, -0.23700334],
+       [-1.97893514,  3.13630361, -1.34292365]])
 </pre></div>
 </div>
 </div>
@@ -689,8 +702,8 @@ Successfully installed pympler-1.0.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.2255199 ,  0.76653819,  0.56700867],
-       [ 1.22134514, -0.16459322, -0.86876857]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.58619635,  0.30295786, -0.11850167],
+       [-0.98946757,  1.5681518 , -0.67146183]])
 </pre></div>
 </div>
 </div>
@@ -714,14 +727,36 @@ Successfully installed pympler-1.0.1
 <p>En este caso, tenemos que <code class="docutils literal notranslate"><span class="pre">data</span></code> es un array bidimensional, con 2 «filas» y 3 «columnas»:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.58619635  0.30295786 -0.11850167]
+ [-0.98946757  1.5681518  -0.67146183]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+2
 (2, 3)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -770,6 +805,41 @@ Successfully installed pympler-1.0.1
 <section id="exercise-content">
 <p>Crea un array de numpy de dimensión (4, 1, 3) a partir de listas.</p>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[0 0 0]]
+
+ [[0 0 0]]
+
+ [[0 0 0]]
+
+ [[0 0 0]]]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Hay otras maneras de crear arrays. Damos a continuación solo algunos ejemplos:</p>
 <div class="cell docutils container">
