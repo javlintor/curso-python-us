@@ -559,8 +559,8 @@ document.write(`
 <p>Cuando accedemos con un único índice, estamos accediendo al correspondiente subarray de esa posición. Por ejemplo, en array de dos dimensiones, con 3 filas y 3 columnas, la posición 2 es la tercera fila:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
-<span class="n">C2d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="n">c2d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -573,7 +573,7 @@ document.write(`
 <p>De esta manera, recursivamente, podríamos acceder a los componentes individuales de una array de cualquier dimensión. En el ejemplo anterior, el elemento de la primera fila y la tercera columna sería:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -586,7 +586,7 @@ document.write(`
 <p>Normalmente no se suele usar la notación anterior para acceder a los elementos individuales, sino que se usa un único corchete con los índices separados por comas: Lo siguiente es equivalente:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -599,8 +599,8 @@ document.write(`
 <p>Veamos más ejemplos de acceso y modificación en arrays multidimensionales, en este caso con tres dimensiones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]])</span>
-<span class="n">C3d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]])</span>
+<span class="n">c3d</span>
 </pre></div>
 </div>
 </div>
@@ -617,7 +617,7 @@ document.write(`
 <p>Accediendo a la posición 0 obtenemos el correspondiente subarray de dos dimensiones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -631,7 +631,7 @@ document.write(`
 <p>Similar a la función <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> de Python, tenemos la función <code class="docutils literal notranslate"><span class="pre">np.ndenumearte</span></code> para iterar con los elementos del array y su índice</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">C3d</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">c3d</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -655,9 +655,9 @@ document.write(`
 <p>Vamos a guardar una copia de de ese subarray y lo modificamos en el original con el número <code class="docutils literal notranslate"><span class="pre">42</span></code> en todas las posiciones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">old_values</span> <span class="o">=</span> <span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">C3d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">old_values</span> <span class="o">=</span> <span class="n">c3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">c3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">c3d</span>
 </pre></div>
 </div>
 </div>
@@ -674,8 +674,8 @@ document.write(`
 <p>Y ahora reestablecemos los valores originales:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_values</span>
-<span class="n">C3d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_values</span>
+<span class="n">c3d</span>
 </pre></div>
 </div>
 </div>
@@ -700,7 +700,7 @@ document.write(`
 <h3>Indexado usando <em>slices</em><a class="headerlink" href="#indexado-usando-slices" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span>
 </pre></div>
 </div>
 </div>
@@ -715,7 +715,7 @@ document.write(`
 <p>Los <em>slicings</em> en arrays multidimensionales se hacen a lo largo de los correspondientes ejes. Por ejemplo, en un array bidimensional, lo haríamos sobre la secuencia de filas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -729,7 +729,7 @@ document.write(`
 <p>Pero también podríamos hacerlo en ambos ejes. Por ejemplo para obtener el subarray hasta la segunda fila y a partir de la primera columna:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +743,7 @@ document.write(`
 <p>Si en alguno de los ejes se usa un índice individual, entonces se pierde una de las dimensiones:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -753,10 +753,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Nótese la diferencia con la operación <code class="docutils literal notranslate"><span class="pre">C2d[1:2,:2]</span></code>. Puede parecer que el resultado ha de ser el mismo, pero si se usa slicing en ambos ejes se mantiene el número de dimensiones:</p>
+<p>Nótese la diferencia con la operación <code class="docutils literal notranslate"><span class="pre">C2d[1:2,:2]</span></code>. Puede parecer que el resultado ha de ser el mismo, <strong>pero si se usa slicing en ambos ejes se mantiene el número de dimensiones</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -769,7 +769,7 @@ document.write(`
 <p>Más ejemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span>
 </pre></div>
 </div>
 </div>
@@ -783,7 +783,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -795,7 +795,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -810,8 +810,8 @@ document.write(`
 <p>Como hemos visto más arriba, podemos usar <em>slicing</em> para asignar valores a las componentes de un array. Por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">C2d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c2d</span>
 </pre></div>
 </div>
 </div>
@@ -834,7 +834,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C2d</span><span class="p">[</span><span class="n">slice_1</span><span class="p">,</span> <span class="n">slice_2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2d</span><span class="p">[</span><span class="n">slice_1</span><span class="p">,</span> <span class="n">slice_2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -855,13 +855,6 @@ justify-content: center;">
     <img style="width: 100px; height: 100px;" src="https://drive.google.com/uc?id=1HEtbq_Y1YVh6jscdHEhYYz-iM5FNMyJP"/>
 </div>
 </section>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="indexado-con-booleanos">
@@ -896,13 +889,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
-       [-0.85000431, -0.04028551, -1.20689953, -1.25049682],
-       [-0.46840893,  0.57883228,  0.7674367 , -0.3365187 ],
-       [-0.85013471,  0.44981425, -1.17843139, -2.05976842],
-       [ 0.87556869, -0.23884001, -0.41158185,  0.11957846],
-       [ 1.51579891,  1.32351957,  0.43951358, -0.02277686],
-       [ 0.621115  ,  1.64728839, -0.59761337,  1.12366288]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.12179778,  0.16710429,  1.92063108,  0.17525895],
+       [-0.64661053,  1.37144151, -0.4950793 , -1.05215919],
+       [ 0.25103006, -1.7182702 , -0.11062548,  0.59245203],
+       [-0.87349974, -0.65564437,  0.41772414, -1.08822151],
+       [ 0.06361323, -0.5534005 , -0.16258268,  1.08545298],
+       [ 0.26356597,  0.95143527,  1.00639533, -1.39485421],
+       [-0.0867283 ,  1.0444593 , -0.04034513, -0.47707921]])
 </pre></div>
 </div>
 </div>
@@ -914,8 +907,8 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
-       [-0.85013471,  0.44981425, -1.17843139, -2.05976842]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.12179778,  0.16710429,  1.92063108,  0.17525895],
+       [-0.87349974, -0.65564437,  0.41772414, -1.08822151]])
 </pre></div>
 </div>
 </div>
@@ -942,8 +935,8 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
-       [-0.85013471,  0.44981425, -1.17843139, -2.05976842]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.12179778,  0.16710429,  1.92063108,  0.17525895],
+       [-0.87349974, -0.65564437,  0.41772414, -1.08822151]])
 </pre></div>
 </div>
 </div>
@@ -956,8 +949,8 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.18394276, -1.28634546],
-       [-1.17843139, -2.05976842]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.92063108,  0.17525895],
+       [ 0.41772414, -1.08822151]])
 </pre></div>
 </div>
 </div>
@@ -969,7 +962,7 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.28634546, -2.05976842])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.17525895, -1.08822151])
 </pre></div>
 </div>
 </div>
@@ -982,11 +975,11 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.85000431, -0.04028551, -1.20689953, -1.25049682],
-       [-0.46840893,  0.57883228,  0.7674367 , -0.3365187 ],
-       [ 0.87556869, -0.23884001, -0.41158185,  0.11957846],
-       [ 1.51579891,  1.32351957,  0.43951358, -0.02277686],
-       [ 0.621115  ,  1.64728839, -0.59761337,  1.12366288]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.64661053,  1.37144151, -0.4950793 , -1.05215919],
+       [ 0.25103006, -1.7182702 , -0.11062548,  0.59245203],
+       [ 0.06361323, -0.5534005 , -0.16258268,  1.08545298],
+       [ 0.26356597,  0.95143527,  1.00639533, -1.39485421],
+       [-0.0867283 ,  1.0444593 , -0.04034513, -0.47707921]])
 </pre></div>
 </div>
 </div>
@@ -1013,10 +1006,10 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00956514,  0.25628708, -1.18394276, -1.28634546],
-       [-0.46840893,  0.57883228,  0.7674367 , -0.3365187 ],
-       [-0.85013471,  0.44981425, -1.17843139, -2.05976842],
-       [ 0.87556869, -0.23884001, -0.41158185,  0.11957846]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.12179778,  0.16710429,  1.92063108,  0.17525895],
+       [ 0.25103006, -1.7182702 , -0.11062548,  0.59245203],
+       [-0.87349974, -0.65564437,  0.41772414, -1.08822151],
+       [ 0.06361323, -0.5534005 , -0.16258268,  1.08545298]])
 </pre></div>
 </div>
 </div>
@@ -1029,13 +1022,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False,  True,  True],
-       [ True,  True,  True,  True],
-       [ True, False, False,  True],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True, False, False, False],
        [ True, False,  True,  True],
        [False,  True,  True, False],
+       [ True,  True, False,  True],
+       [False,  True,  True, False],
        [False, False, False,  True],
-       [False, False,  True, False]])
+       [ True, False,  True,  True]])
 </pre></div>
 </div>
 </div>
@@ -1047,9 +1040,9 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.18394276, -1.28634546, -0.85000431, -0.04028551, -1.20689953,
-       -1.25049682, -0.46840893, -0.3365187 , -0.85013471, -1.17843139,
-       -2.05976842, -0.23884001, -0.41158185, -0.02277686, -0.59761337])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.12179778, -0.64661053, -0.4950793 , -1.05215919, -1.7182702 ,
+       -0.11062548, -0.87349974, -0.65564437, -1.08822151, -0.5534005 ,
+       -0.16258268, -1.39485421, -0.0867283 , -0.04034513, -0.47707921])
 </pre></div>
 </div>
 </div>
@@ -1062,13 +1055,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00956514, 0.25628708, 0.        , 0.        ],
-       [0.        , 0.        , 0.        , 0.        ],
-       [0.        , 0.57883228, 0.7674367 , 0.        ],
-       [0.        , 0.44981425, 0.        , 0.        ],
-       [0.87556869, 0.        , 0.        , 0.11957846],
-       [1.51579891, 1.32351957, 0.43951358, 0.        ],
-       [0.621115  , 1.64728839, 0.        , 1.12366288]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.16710429, 1.92063108, 0.17525895],
+       [0.        , 1.37144151, 0.        , 0.        ],
+       [0.25103006, 0.        , 0.        , 0.59245203],
+       [0.        , 0.        , 0.41772414, 0.        ],
+       [0.06361323, 0.        , 0.        , 1.08545298],
+       [0.26356597, 0.95143527, 1.00639533, 0.        ],
+       [0.        , 1.0444593 , 0.        , 0.        ]])
 </pre></div>
 </div>
 </div>
@@ -1084,12 +1077,12 @@ justify-content: center;">
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[7.        , 7.        , 7.        , 7.        ],
-       [0.        , 0.        , 0.        , 0.        ],
+       [0.        , 1.37144151, 0.        , 0.        ],
        [7.        , 7.        , 7.        , 7.        ],
        [7.        , 7.        , 7.        , 7.        ],
        [7.        , 7.        , 7.        , 7.        ],
-       [1.51579891, 1.32351957, 0.43951358, 0.        ],
-       [0.621115  , 1.64728839, 0.        , 1.12366288]])
+       [0.26356597, 0.95143527, 1.00639533, 0.        ],
+       [0.        , 1.0444593 , 0.        , 0.        ]])
 </pre></div>
 </div>
 </div>
