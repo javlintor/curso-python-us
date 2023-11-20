@@ -495,6 +495,18 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="exercise admonition" id="basic-operations-transpose">
+
+<p class="admonition-title"><span class="caption-number">Exercise 53 </span></p>
+<section id="exercise-content">
+<p>Utiliza la función <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code> para convertir el array</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>en un array de dimensiones <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">7,</span> <span class="pre">3)</span></code>. ¿Se obtiene el mismo resultado si aplicamos <code class="docutils literal notranslate"><span class="pre">arr.reshape(4,</span> <span class="pre">7,</span> <span class="pre">3)</span></code>?</p>
+<p>::</p>
+</section>
+</div>
 <p>En el cálculo matricial será de mucha utilidad el método <code class="docutils literal notranslate"><span class="pre">np.dot</span></code> de numpy, que sirve tanto para calcular el producto escalar como el producto matricial. Veamos varios usos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -807,7 +819,7 @@ document.write(`
 </div>
 <div class="exercise admonition" id="basic-operations-masks">
 
-<p class="admonition-title"><span class="caption-number">Exercise 53 </span></p>
+<p class="admonition-title"><span class="caption-number">Exercise 54 </span></p>
 <section id="exercise-content">
 <p>Crea una función que transforme un array para aplicar elemento a elemento la siguiente función</p>
 <div class="math notranslate nohighlight">
