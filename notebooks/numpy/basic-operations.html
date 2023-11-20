@@ -505,12 +505,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.97734426,  1.34168783, -1.54370593],
-       [-0.09067281,  0.38656466,  1.42387283],
-       [-1.6809858 ,  0.79495013,  1.6643198 ],
-       [ 0.11542681, -0.23222994,  2.29016714],
-       [ 0.48905073,  1.4287645 , -1.12921964],
-       [ 0.54877746,  1.53484643,  0.38120392]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.22772783, -0.00367246,  0.43747047],
+       [-1.18789042, -0.71980469,  0.13867212],
+       [ 0.00589372,  0.246798  ,  1.1907824 ],
+       [-0.1718745 ,  0.17768684, -0.5166978 ],
+       [ 3.01260593, -0.17011007, -0.81107211],
+       [-1.32660359,  0.15628444,  0.42132367]])
 </pre></div>
 </div>
 </div>
@@ -523,7 +523,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.1684198013823905
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10532537035482703
 </pre></div>
 </div>
 </div>
@@ -535,7 +535,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.565673422517082
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9900377472722307
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6, 3)
 </pre></div>
 </div>
 </div>
@@ -547,8 +559,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5.13835602, -1.59077327,  0.1402564 , -3.9597364 ,  3.18216807,
-        0.93447353])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.24325386, -0.2072073 ,  0.52136794, -0.26583318,  0.33185884,
+       -0.11836184])
 </pre></div>
 </div>
 </div>
@@ -560,18 +572,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.3427873 , -1.1684198 , -1.49677525],
-       [-1.1684198 ,  7.03255648, -1.75784613],
-       [-1.49677525, -1.75784613, 13.84572115]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[12.32819078,  0.10532537, -2.97164791],
+       [ 0.10532537,  0.66397641,  0.30446676],
+       [-2.97164791,  0.30446676,  2.73090131]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Existe otro operador <code class="docutils literal notranslate"><span class="pre">matmul</span></code> (o su versión con el operador <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) que también multiplica matrices. Se diferencian cuando los arrays con de más de dos dimensiones ya</p>
+<p>Existe otro operador <code class="docutils literal notranslate"><span class="pre">matmul</span></code> (o su versión con el operador <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) que también multiplica matrices. Se diferencian cuando los arrays son de más de dos dimensiones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -583,25 +595,25 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 7, 4, 3, 7, 6)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4, 3, 6)
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">np.dot(A,</span> <span class="pre">B)[x1,</span> <span class="pre">x2,</span> <span class="pre">x3,</span> <span class="pre">y1,</span> <span class="pre">y2,</span> <span class="pre">y3]</span> <span class="pre">=</span> <span class="pre">A[x1,</span> <span class="pre">x2,</span> <span class="pre">x3,</span> <span class="pre">:].dot(B[y1,</span> <span class="pre">y2,</span> <span class="pre">:,</span> <span class="pre">y3])</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">np.dot(A,</span> <span class="pre">B)[x1,</span> <span class="pre">x2,</span> <span class="pre">y1,</span> <span class="pre">y2]</span> <span class="pre">=</span> <span class="pre">A[x1,</span> <span class="pre">x2,</span> <span class="pre">:].dot(B[y1,</span> <span class="pre">y2,</span> <span class="pre">:])</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># similar a A @ B </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># similar a A @ B</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 7, 4, 6)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4, 6)
 </pre></div>
 </div>
 </div>
 </div>
-<p>La diferencia radica en que <code class="docutils literal notranslate"><span class="pre">dot</span></code> el producto escalara del último eje de A con el penúltimo de B para cada combinación de dimensiones y <code class="docutils literal notranslate"><span class="pre">matmul</span></code> considera los arrays como <em>arrays de matrices</em>, donde las dos últimas dimensiones son la parte matricial.</p>
+<p>La diferencia radica en que <code class="docutils literal notranslate"><span class="pre">dot</span></code> es el producto escalar del último eje de A con el penúltimo de B para cada combinación de dimensiones y <code class="docutils literal notranslate"><span class="pre">matmul</span></code> considera los arrays como <em>arrays de matrices</em>, donde las dos últimas dimensiones son la parte matricial.</p>
 </section>
 <hr class="docutils" />
 <section id="funciones-universales-sobre-arrays-componente-a-componente">
@@ -658,10 +670,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-0.87429038,  1.60146503,  0.78618126,  0.39004253, -0.71614978,
-        -0.39805865, -0.49221638,  0.44731592]),
- array([-0.18653805,  1.0021312 , -0.18674062, -0.54596008, -0.09953302,
-         1.6774103 , -0.24323459, -0.78876074]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 0.28340168,  0.03175942,  0.23305291, -0.07663605, -1.95569072,
+        -0.3278374 ,  0.33548056,  1.60195619]),
+ array([ 1.18139914, -1.48250311,  1.31778755, -0.56692502, -0.04467628,
+         0.71133588,  0.17245226, -0.81730019]))
 </pre></div>
 </div>
 </div>
@@ -673,8 +685,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.18653805,  1.60146503,  0.78618126,  0.39004253, -0.09953302,
-        1.6774103 , -0.24323459,  0.44731592])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.18139914,  0.03175942,  1.31778755, -0.07663605, -0.04467628,
+        0.71133588,  0.33548056,  1.60195619])
 </pre></div>
 </div>
 </div>
@@ -686,7 +698,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6014650336830638
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.60195618625911
 </pre></div>
 </div>
 </div>
@@ -744,14 +756,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 0.904584  , -1.47681661,  2.85527621,  0.23259456],
-        [ 0.15959159, -0.98360584,  0.19441186,  0.18022266],
-        [ 0.4686294 , -0.20309533,  0.69897494,  0.34110354],
-        [-0.14021694,  0.73078875, -0.35924888,  0.37697319]]),
- array([[ 2, -2,  2,  2],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[-0.06551489, -0.38220957,  0.79851062,  1.35344099],
+        [-0.5732897 ,  0.12855593,  0.61549471,  0.18336176],
+        [ 1.32751715, -0.80980333,  0.24063118,  1.59242558],
+        [ 1.67597108,  1.12482976, -0.37612883, -0.52736448]]),
+ array([[-2, -2,  2,  2],
+        [-2,  2,  2,  2],
         [ 2, -2,  2,  2],
-        [ 2, -2,  2,  2],
-        [-2,  2, -2,  2]]))
+        [ 2,  2, -2, -2]]))
 </pre></div>
 </div>
 </div>
@@ -759,15 +771,15 @@ document.write(`
 <p>O una combinación de ambos. Por ejemplos, para modificar sólo las componentes positivas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">F</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">F</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.        , -1.47681661,  2.        ,  2.        ],
-       [ 2.        , -0.98360584,  2.        ,  2.        ],
-       [ 2.        , -0.20309533,  2.        ,  2.        ],
-       [-0.14021694,  2.        , -0.35924888,  2.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.06551489, -0.38220957,  2.        ,  2.        ],
+       [-0.5732897 ,  2.        ,  2.        ,  2.        ],
+       [ 2.        , -0.80980333,  2.        ,  2.        ],
+       [ 2.        ,  2.        , -0.37612883, -0.52736448]])
 </pre></div>
 </div>
 </div>
@@ -777,17 +789,18 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
     <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">&quot;Poco probable&quot;</span><span class="p">,</span> <span class="s2">&quot;Algo probable&quot;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s2">&quot;Poco probable&quot;</span><span class="p">,</span> <span class="s2">&quot;Algo probable&quot;</span><span class="p">],</span>
     <span class="s2">&quot;Frecuente&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&#39;Frecuente&#39;, &#39;Algo probable&#39;, &#39;Poco probable&#39;, &#39;Frecuente&#39;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Algo probable&#39;],
        [&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;],
-       [&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;],
-       [&#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;]], dtype=&#39;&lt;U13&#39;)
+       [&#39;Algo probable&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;, &#39;Algo probable&#39;],
+       [&#39;Algo probable&#39;, &#39;Algo probable&#39;, &#39;Frecuente&#39;, &#39;Frecuente&#39;]],
+      dtype=&#39;&lt;U13&#39;)
 </pre></div>
 </div>
 </div>
@@ -805,21 +818,6 @@ document.write(`
         0 &amp; \text{si } x &gt; 1
         \end{cases}
 \end{split}\]</div>
-</section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/numpy/basic-operations-solution-1">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#basic-operations-masks"> Exercise 53</a></p>
-<section id="solution-content">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-    <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arr</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">],</span> 
-        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">arr</span><span class="p">],</span> 
-        <span class="mi">0</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">ret</span>
-</pre></div>
-</div>
 </section>
 </div>
 </section>
@@ -845,11 +843,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.09112171,  0.08230266, -0.89863545, -0.52677635],
-       [ 0.54990182, -0.07619354,  0.75797502, -1.860579  ],
-       [ 1.09303698,  0.44922159,  0.33924061, -0.10457966],
-       [-0.1117293 ,  0.90753648, -0.05131964,  0.62497588],
-       [ 1.93907081, -1.15168268, -0.01746402,  0.41960373]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.26134337,  0.36482391,  0.41239245,  0.89468577],
+       [-1.06956386,  1.21322243,  1.26956794,  0.35043845],
+       [ 0.44061432,  0.21673706,  0.19928195,  0.94046782],
+       [-0.58565154, -0.17649961, -0.6664634 , -0.23321517],
+       [-2.38489933, -0.71541006,  0.03047883,  2.2654509 ]])
 </pre></div>
 </div>
 </div>
@@ -861,7 +859,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.27278425211733
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0278022058539333
 </pre></div>
 </div>
 </div>
@@ -873,7 +871,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0636392126058665
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15139011029269667
 </pre></div>
 </div>
 </div>
@@ -885,10 +883,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.09112171, -1.00881904, -1.90745449, -2.43423084, -1.88432903,
-       -1.96052256, -1.20254755, -3.06312655, -1.97008957, -1.52086797,
-       -1.18162736, -1.28620701, -1.39793631, -0.49039984, -0.54171947,
-        0.08325641,  2.02232721,  0.87064453,  0.85318052,  1.27278425])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.26134337, 0.62616728, 1.03855973, 1.9332455 , 0.86368163,
+       2.07690406, 3.34647199, 3.69691044, 4.13752477, 4.35426183,
+       4.55354378, 5.49401159, 4.90836005, 4.73186044, 4.06539703,
+       3.83218187, 1.44728254, 0.73187248, 0.7623513 , 3.02780221])
 </pre></div>
 </div>
 </div>
@@ -901,11 +899,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.09112171  0.08230266 -0.89863545 -0.52677635]
- [ 0.54990182 -0.07619354  0.75797502 -1.860579  ]
- [ 1.09303698  0.44922159  0.33924061 -0.10457966]
- [-0.1117293   0.90753648 -0.05131964  0.62497588]
- [ 1.93907081 -1.15168268 -0.01746402  0.41960373]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.26134337  0.36482391  0.41239245  0.89468577]
+ [-1.06956386  1.21322243  1.26956794  0.35043845]
+ [ 0.44061432  0.21673706  0.19928195  0.94046782]
+ [-0.58565154 -0.17649961 -0.6664634  -0.23321517]
+ [-2.38489933 -0.71541006  0.03047883  2.2654509 ]]
 </pre></div>
 </div>
 </div>
@@ -917,7 +915,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.60855771, -0.15722393,  0.44422988,  0.34236586,  0.29738196])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.48331137,  0.44091624,  0.44927529, -0.41545743, -0.20109492])
 </pre></div>
 </div>
 </div>
@@ -930,7 +928,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.3791586 ,  0.21118452,  0.12979653, -1.44735539])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.33815704,  0.90287372,  1.24525776,  4.21782777])
 </pre></div>
 </div>
 </div>
@@ -943,11 +941,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.09112171,  0.08230266, -0.89863545, -0.52677635],
-       [-0.54121989,  0.00610913, -0.14066043, -2.38735535],
-       [ 0.55181709,  0.45533072,  0.19858018, -2.49193501],
-       [ 0.44008779,  1.3628672 ,  0.14726055, -1.86695913],
-       [ 2.3791586 ,  0.21118452,  0.12979653, -1.44735539]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.26134337,  0.36482391,  0.41239245,  0.89468577],
+       [-0.8082205 ,  1.57804634,  1.68196038,  1.24512422],
+       [-0.36760617,  1.7947834 ,  1.88124233,  2.18559203],
+       [-0.95325772,  1.61828378,  1.21477893,  1.95237687],
+       [-3.33815704,  0.90287372,  1.24525776,  4.21782777]])
 </pre></div>
 </div>
 </div>
@@ -960,12 +958,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[-1.09112171,  0.08230266, -0.89863545, -0.52677635],
-        [ 0.54990182, -0.07619354,  0.75797502, -1.860579  ],
-        [ 1.09303698,  0.44922159,  0.33924061, -0.10457966],
-        [-0.1117293 ,  0.90753648, -0.05131964,  0.62497588],
-        [ 1.93907081, -1.15168268, -0.01746402,  0.41960373]]),
- array([0, 4, 0, 1]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[ 0.26134337,  0.36482391,  0.41239245,  0.89468577],
+        [-1.06956386,  1.21322243,  1.26956794,  0.35043845],
+        [ 0.44061432,  0.21673706,  0.19928195,  0.94046782],
+        [-0.58565154, -0.17649961, -0.6664634 , -0.23321517],
+        [-2.38489933, -0.71541006,  0.03047883,  2.2654509 ]]),
+ array([4, 4, 3, 3]))
 </pre></div>
 </div>
 </div>
@@ -982,16 +980,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.27853877,  0.17616873, -0.08639434,  0.71179482, -0.49584663,
-       -0.3110513 , -0.45771891, -0.8344855 ,  2.29078383,  0.01771914,
-       -0.28984018, -1.29882205, -1.30483596,  1.62936796,  0.3178527 ,
-       -0.48674387, -1.12290782, -0.84551946,  0.59530505, -0.73887554,
-        0.68253372, -1.3045412 , -0.15765242,  0.10783287, -0.65411545,
-        0.46806825,  0.24073242,  1.44623373,  2.18700595,  0.21069342,
-        0.04472487, -0.56415783,  0.97661418,  0.35211161, -0.42571366,
-        1.18813283, -0.0133082 , -1.30901811,  0.36809575,  0.49092016,
-        0.29272923, -0.35134416,  0.54762578, -0.35406801, -1.32778901,
-       -1.59953407, -0.57534093,  0.30190145, -0.5022292 ,  0.59797817])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.22918441,  1.96962191,  0.96607744, -0.28192589,  0.06229471,
+        1.34325204, -0.29634434, -0.70406405,  0.53015669, -0.61150176,
+        0.96244101, -0.36287924,  1.13924256,  1.23207867, -0.02356111,
+        0.91563052, -0.12796518, -1.11677978, -0.0274941 , -1.92041368,
+       -0.91610575,  1.95510099,  1.27037163,  1.63111066,  1.40136138,
+        1.52639233, -0.09556764, -0.87587349, -0.45726439,  0.90125016,
+        1.18264519, -1.07424022,  0.33128043,  0.44047932, -0.2008745 ,
+        0.99140371,  0.62753346, -0.32816418,  1.48483719,  1.88926055,
+        0.16499433,  1.71586951, -1.08086733,  0.38611372,  1.21696416,
+        0.123246  ,  0.28690981,  0.85864404, -0.37883556, -0.69367888])
 </pre></div>
 </div>
 </div>
@@ -1004,7 +1002,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
 </pre></div>
 </div>
 </div>
@@ -1159,17 +1157,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 520
-drwxr-xr-x  10 javlintor  staff   320B Dec  4 19:45 <span class=" -Color -Color-Bold -Color-Bold-Cyan">.</span>
-drwxr-xr-x   5 javlintor  staff   160B Nov 14 08:02 <span class=" -Color -Color-Bold -Color-Bold-Cyan">..</span>
--rw-r--r--   1 javlintor  staff   650B Dec  4 19:45 array_archivo.npz
--rw-r--r--   1 javlintor  staff   424B Dec  4 19:45 arrays_comprimidos.npz
--rw-r--r--   1 javlintor  staff    28K Dec  4 19:45 basic-operations.ipynb
--rw-r--r--   1 javlintor  staff   7.0K Dec  4 07:13 exercises.ipynb
--rw-r--r--   1 javlintor  staff    42K Dec  4 07:39 index-slicing.ipynb
--rw-r--r--   1 javlintor  staff   164K Dec  4 07:33 introduction-numpy.ipynb
--rw-r--r--   1 javlintor  staff   798B Oct 17 08:07 nn-with-numpy.ipynb
--rw-r--r--   1 javlintor  staff   208B Dec  4 19:45 un_array.npy
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 28K
+drwxr-xr-x 1 root root 4.0K Nov 20 19:48 .
+drwxr-xr-x 1 root root 4.0K Nov 20 19:28 ..
+-rw-r--r-- 1 root root  650 Nov 20 19:48 array_archivo.npz
+-rw-r--r-- 1 root root  424 Nov 20 19:48 arrays_comprimidos.npz
+drwxr-xr-x 4 root root 4.0K Nov 17 14:33 .config
+drwxr-xr-x 1 root root 4.0K Nov 17 14:37 sample_data
+-rw-r--r-- 1 root root  208 Nov 20 19:48 un_array.npy
 </pre></div>
 </div>
 </div>
