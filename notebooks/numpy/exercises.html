@@ -477,41 +477,9 @@ document.write(`
 <p>para <span class="math notranslate nohighlight">\(0 \leq k \leq n + m - 1\)</span>.</p>
 <p>Crea una función <code class="docutils literal notranslate"><span class="pre">conv</span></code> que tome como inputs dos arrays y devuelva la convolución de ambos. Por ejemplo</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">conv</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span> <span class="mi">0</span>  <span class="mi">4</span> <span class="mi">11</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mi">40</span> <span class="mi">50</span> <span class="mi">60</span> <span class="mi">70</span> <span class="mi">80</span> <span class="mi">50</span> <span class="mi">26</span>  <span class="mi">9</span>  <span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-1">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapther2-convolution"> Exercise 55</a></p>
-<section id="solution-content">
-<p>Una primera solución iterando sobre todos las posibles combinaciones de <span class="math notranslate nohighlight">\(i\)</span> y <span class="math notranslate nohighlight">\(j\)</span> para cada <span class="math notranslate nohighlight">\(k\)</span></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-
-<span class="k">def</span> <span class="nf">conv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">conv_dim</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">arr_conv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">conv_dim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">conv_dim</span><span class="p">):</span>
-        <span class="n">my_gen</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">g</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">))</span> \
-                <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">j</span> <span class="o">+</span> <span class="n">k</span>
-        <span class="p">)</span>
-        <span class="n">arr_conv</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">my_gen</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">arr_conv</span>
-</pre></div>
-</div>
-<p>Otra solución más directa considerando la matrix <em>producto exterior</em> de <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(g\)</span> y sumando las diagonales</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conv2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">outer_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">outer_mat</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">)])</span>
-    <span class="k">return</span> <span class="n">c</span>
 </pre></div>
 </div>
 </section>
@@ -526,7 +494,7 @@ document.write(`
 <section id="exercise-content">
 <p>Una de las posibles técnicas que existen para comprimir una imagen es utilizar <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">la descomposición SVD (Singular Value Decomposition)</a> que nos permite expresar una matrix <span class="math notranslate nohighlight">\(A\)</span> de dimensiones <span class="math notranslate nohighlight">\(n\times m\)</span> como un producto</p>
 <div class="math notranslate nohighlight">
-\[ 
+\[
 A = U \Sigma V^t
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son cuadradas de dimensiones <span class="math notranslate nohighlight">\(n\)</span> y <span class="math notranslate nohighlight">\(m\)</span> respectivamente y <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal y está formada por los <a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value">valores singulares</a> de <span class="math notranslate nohighlight">\(A\)</span> ordenados de mayor a menor (siempre son números reales y positivos).</p>
@@ -537,47 +505,6 @@ A = U \Sigma V^t
 <li><p>Utiliza la función <code class="docutils literal notranslate"><span class="pre">svd</span></code> de <code class="docutils literal notranslate"><span class="pre">np.linalg</span></code> para realizar la descomposición SVD. Mucho cuidado con las dimensiones que espera la función.</p></li>
 <li><p>Otras funciones que pueden ser útiles para el ejercicio: <code class="docutils literal notranslate"><span class="pre">np.transpose</span></code>, <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>, <code class="docutils literal notranslate"><span class="pre">np.fill_diagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">np.clip</span></code>.</p></li>
 </ol>
-</section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-3">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-images"> Exercise 56</a></p>
-<section id="solution-content">
-<p>Para visualizar la imagen</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">face</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">im</span> <span class="o">=</span> <span class="n">face</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Solución:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">aproxima_img</span><span class="p">(</span><span class="n">im</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="c1"># transponemos la imagen para obtener</span>
-        <span class="c1"># las dimensiones esperadas por np.linalg.svd</span>
-        <span class="n">im_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-        <span class="c1"># descomposición SVD</span>
-        <span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">im_t</span><span class="p">)</span>
-        <span class="c1"># Convertimos s en una matriz compatible </span>
-        <span class="n">w</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
-        <span class="k">for</span> <span class="n">canal</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">canal</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">canal</span><span class="p">])</span>
-        <span class="c1"># calculamos la imagen aproximada </span>
-        <span class="n">im_c</span> <span class="o">=</span> <span class="n">U</span> <span class="o">@</span> <span class="n">S</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="n">k</span><span class="p">]</span> <span class="o">@</span> <span class="n">V</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="c1"># vuelta a las dimensiones originales y normalizamos </span>
-        <span class="n">im_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">im_c</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-        <span class="n">im_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">im_c</span> <span class="o">-</span> <span class="n">im_c</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">im_c</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">im_c</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">im_c</span>
-</pre></div>
-</div>
-<p>La función comienza transponiendo la imagen, lo que cambia el orden de las dimensiones de la imagen. Esto se hace porque la función <code class="docutils literal notranslate"><span class="pre">np.linalg.svd</span></code> espera que las matrices que se le proporcionen tengan las filas como vectores en lugar de las columnas, lo que es el caso de una imagen en formato numpy ndarray.</p>
-<p>Luego, la función aplica la descomposición SVD a la imagen transpuesta y almacena los valores singulares en la matriz <span class="math notranslate nohighlight">\(S\)</span>. La descomposición SVD de una matriz m x n es una factorización de la forma <span class="math notranslate nohighlight">\(A = USV\)</span></p>
-<p>donde <span class="math notranslate nohighlight">\(A\)</span> es la matriz original, <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V\)</span> son matrices ortogonales y <span class="math notranslate nohighlight">\(S\)</span> es una matriz diagonal con valores singulares en la diagonal. Los valores singulares son los valores positivos raíces cuadradas de los valores propios de la matriz <span class="math notranslate nohighlight">\(AA^t\)</span> (si <span class="math notranslate nohighlight">\(A\)</span> es real) o la matriz <span class="math notranslate nohighlight">\(AA^*\)</span> (si <span class="math notranslate nohighlight">\(A\)</span> es compleja), donde <span class="math notranslate nohighlight">\(A^t\)</span> es la transpuesta de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(A^*\)</span> es la conjugada transpuesta de <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p>La matriz <code class="docutils literal notranslate"><span class="pre">S</span></code> se construye de manera que tenga 3 filas y la misma cantidad de columnas que la imagen original. Cada una de las filas de <code class="docutils literal notranslate"><span class="pre">S</span></code> corresponde a un canal de color de la imagen (rojo, verde, azul) y se rellena con los valores singulares correspondientes a ese canal.</p>
-<p>Luego, la función realiza una multiplicación matricial para proyectar la imagen original en un espacio de menor dimensión. Esto se hace multiplicando la matriz <code class="docutils literal notranslate"><span class="pre">U</span></code> por <code class="docutils literal notranslate"><span class="pre">S</span></code> (truncada a su primeras <code class="docutils literal notranslate"><span class="pre">k</span></code> columnas) y por <code class="docutils literal notranslate"><span class="pre">V</span></code> (truncada a sus primeras <code class="docutils literal notranslate"><span class="pre">k</span></code> filas). Esto se puede escribir como <code class="docutils literal notranslate"><span class="pre">U</span> <span class="pre">*</span> <span class="pre">S[:,</span> <span class="pre">:,</span> <span class="pre">:k]</span> <span class="pre">*</span> <span class="pre">V[:,</span> <span class="pre">:k,</span> <span class="pre">:]</span></code>. Este producto matricial proyecta la imagen original en un espacio de dimensión <code class="docutils literal notranslate"><span class="pre">k</span></code> en lugar de en el espacio de dimensión original de la imagen.</p>
-<p>Finalmente, la función transpone la imagen resultante, la normaliza entre 0 y 1 y la devuelve. La normalización consiste en restar el valor mínimo de la imagen a cada pixel de la imagen y luego dividir el resultado por la diferencia entre el valor máximo y el valor mínimo de la imagen. Esto garantiza que todos los valores de la imagen queden entre 0 y 1.</p>
 </section>
 </div>
 <div class="exercise admonition" id="chapter2-images-convolution">
@@ -595,7 +522,7 @@ A = U \Sigma V^t
 -3 &amp; 0 &amp; 3\\
 -10 &amp; 0 &amp; 10\\
 -3 &amp; 0 &amp; 3
-\end{pmatrix} 
+\end{pmatrix}
 \end{split}\]</div>
 <ul class="simple">
 <li><p>transpuesta del anterior,</p></li>
@@ -606,7 +533,7 @@ A = U \Sigma V^t
 -3 &amp; -10 &amp; -3\\
 0 &amp; 0 &amp; 0\\
 3 &amp; 10 &amp; 3
-\end{pmatrix} 
+\end{pmatrix}
 \end{split}\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(n \approx 50\)</span>, generados con <code class="docutils literal notranslate"><span class="pre">scipy.signal.windows.gaussian</span></code> (puedes utilizar la función <code class="docutils literal notranslate"><span class="pre">np.outer</span></code> para realizar un producto exterior)</p></li>
@@ -620,31 +547,6 @@ A = U \Sigma V^t
 </pre></div>
 </div>
 <p>Puedes visualizar las imágenes con <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.imshow</span></code>.</p>
-</section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-5">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-images-convolution"> Exercise 57</a></p>
-<section id="solution-content">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
-
-<span class="c1"># Importamos la imagen utilizando imread</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;path/to/image.png&quot;</span><span class="p">)</span>
-
-<span class="c1"># Creamos el kernel</span>
-<span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-
-<span class="c1"># Realizamos la convolución de la imagen con el kernel</span>
-<span class="c1"># Si la imagen tiene varios canales, aplicamos el mismo kernel a cada canal</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="n">img_convolved</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-        <span class="n">img_convolved</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">convolve2d</span><span class="p">(</span><span class="n">img</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">img_convolved</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">convolve2d</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
 </section>
 </div>
 </section>
@@ -669,23 +571,23 @@ A = U \Sigma V^t
 <p>Podemos expresar dicha ecuación en formato matricial como</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\hat{y} = 
+\hat{y} =
 \begin{pmatrix}
 1 &amp; x_1 &amp; \cdots &amp; x_n
-\end{pmatrix} 
+\end{pmatrix}
 \begin{pmatrix}
 \theta_0 \\
 \theta_1 \\
 \vdots \\
 \theta_n
-\end{pmatrix} 
+\end{pmatrix}
 =
 \boldsymbol{x} \cdot \boldsymbol{\theta}.
 \end{split}\]</div>
 <p>Dado un conjunto de <span class="math notranslate nohighlight">\(m\)</span> observaciones, nuestro objetivo es encontrar <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> tal que se minimice nuestra aproximación lineal en términos de menores cuadrados</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{1}{m}\sum_{i=1}^{m} 
+\frac{1}{m}\sum_{i=1}^{m}
 (\boldsymbol{x}_i \cdot \boldsymbol{\theta} - y_i)^2.
 \]</div>
 <p>El valor óptimo de los parámetros se puede calcular directamente</p>
@@ -696,12 +598,12 @@ A = U \Sigma V^t
 <p>donde</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\boldsymbol{X} = 
+\boldsymbol{X} =
 \begin{pmatrix}
 1 &amp; x_{11} &amp; \cdots &amp; x_{1n} \\
 1 &amp; x_{21} &amp; \cdots &amp; x_{2n} \\
 \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
-1 &amp; x_{m1} &amp; \cdots &amp; x_{mn} 
+1 &amp; x_{m1} &amp; \cdots &amp; x_{mn}
 \end{pmatrix}
 \end{split}\]</div>
 <p>es el conjunto de observaciones de las variables regresoras e</p>
@@ -723,138 +625,6 @@ y_n
 </ul>
 <p>Funciones que puede ser de ayuda: <code class="docutils literal notranslate"><span class="pre">np.linalg.inv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.linalg.pinv</span></code>, <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">np.hstack</span></code>.</p>
 </section>
-</div>
-<div class="solution dropdown admonition" id="notebooks/numpy/exercises-solution-7">
-
-<p class="admonition-title">Solution to<a class="reference internal" href="#chapter2-linear-regression"> Exercise 58</a></p>
-<section id="solution-content">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegresionLineal</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Args:</span>
-<span class="sd">        X: array_like</span>
-<span class="sd">            de dimensión (N, n), donde N es el número de observaciones </span>
-<span class="sd">        y: array_like</span>
-<span class="sd">            de dimensión (N,)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">entrena</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="c1"># Agregamos una columna de unos a X para tener un término independiente</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="c1"># Calculamos los coeficientes de la regresión lineal utilizando la fórmula normal</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
-
-    <span class="k">def</span> <span class="nf">transforma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="c1"># Agregamos una columna de unos a X para tener un término independiente</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="c1"># Utilizamos los coeficientes entrenados para hacer una predicción</span>
-        <span class="n">y_hat</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta</span>
-
-        <span class="k">return</span> <span class="n">y_hat</span>
-</pre></div>
-</div>
-</section>
-</div>
-<p>Testeando la clase <code class="docutils literal notranslate"><span class="pre">RegresionLineal</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegresionLineal</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Args:</span>
-<span class="sd">        X: array_like</span>
-<span class="sd">            de dimensión (N, n), donde N es el número de observaciones </span>
-<span class="sd">        y: array_like</span>
-<span class="sd">            de dimensión (N,)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">entrena</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="c1"># Agregamos una columna de unos a X para tener un término independiente</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="c1"># Calculamos los coeficientes de la regresión lineal utilizando la fórmula normal</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
-
-    <span class="k">def</span> <span class="nf">transforma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-        <span class="c1"># Agregamos una columna de unos a X para tener un término independiente</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="c1"># Utilizamos los coeficientes entrenados para hacer una predicción</span>
-        <span class="n">y_hat</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">theta</span>
-
-        <span class="k">return</span> <span class="n">y_hat</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rl</span> <span class="o">=</span> <span class="n">RegresionLineal</span><span class="p">()</span>
-
-<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span>
-
-<span class="n">rl</span><span class="o">.</span><span class="n">entrena</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">y_hat</span> <span class="o">=</span> <span class="n">rl</span><span class="o">.</span><span class="n">transforma</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Comparemos el valor de <code class="docutils literal notranslate"><span class="pre">theta</span></code> inicial con el calculado según en el método <code class="docutils literal notranslate"><span class="pre">entrena</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rl</span><span class="o">.</span><span class="n">theta</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.9973099 , 8.00645781])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicción&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-71-33c21612b609&gt;:10: UserWarning: Matplotlib is currently using module://ipykernel.pylab.backend_inline, which is a non-GUI backend, so cannot show the figure.
-  fig.show()
-</pre></div>
-</div>
-<img alt="../../_images/23cfd31b7e09efd757a1aa2295a7fad26d320395f1661e33139cb7a5bc3081e5.png" src="../../_images/23cfd31b7e09efd757a1aa2295a7fad26d320395f1661e33139cb7a5bc3081e5.png" />
-</div>
 </div>
 </section>
 </section>
