@@ -774,15 +774,16 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">813</span>
 <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">j</span> <span class="o">=</span> <span class="p">()</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">])</span>
+<span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span> <span class="o">//</span> <span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span> <span class="o">//</span> <span class="mi">7</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="mi">25</span> <span class="o">-</span> <span class="n">j</span><span class="o">*</span><span class="mi">6</span> <span class="o">-</span> <span class="n">k</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="c1"># print(arr[i, j, k, l])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>756
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 4 80 484
 </pre></div>
 </div>
 </div>
@@ -1011,13 +1012,25 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.12179778,  0.16710429,  1.92063108,  0.17525895],
-       [-0.64661053,  1.37144151, -0.4950793 , -1.05215919],
-       [ 0.25103006, -1.7182702 , -0.11062548,  0.59245203],
-       [-0.87349974, -0.65564437,  0.41772414, -1.08822151],
-       [ 0.06361323, -0.5534005 , -0.16258268,  1.08545298],
-       [ 0.26356597,  0.95143527,  1.00639533, -1.39485421],
-       [-0.0867283 ,  1.0444593 , -0.04034513, -0.47707921]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.42485576, -0.61984103,  0.34435114, -0.18426761],
+       [-0.38003979,  0.11368257, -0.77323438, -0.33762353],
+       [-0.55766453, -0.37463439,  1.71212066,  0.83282071],
+       [ 0.45976903,  1.21320606, -0.81950898, -0.07196881],
+       [ 0.22204767, -0.31588078,  0.0959285 ,  0.90929319],
+       [-1.03417402, -0.09117112,  0.16562553,  1.12910964],
+       [ 0.80557194,  0.51326164, -1.39353509, -0.30230354]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">==</span> <span class="s2">&quot;Bob&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False, False,  True, False, False, False])
 </pre></div>
 </div>
 </div>
@@ -1092,16 +1105,32 @@ justify-content: center;">
 <p>Para usar el indexado complementario (en el ejemplo, las filas correspondientes a las personas que no son Bob), podríamos usar el array de booleanos <code class="docutils literal notranslate"><span class="pre">nombres</span> <span class="pre">!=</span> <span class="pre">'Bob'</span></code>. Sin embargo, es más habitual usar el operador <code class="docutils literal notranslate"><span class="pre">~</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bar
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">nombres</span> <span class="o">==</span> <span class="s1">&#39;Bob&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.64661053,  1.37144151, -0.4950793 , -1.05215919],
-       [ 0.25103006, -1.7182702 , -0.11062548,  0.59245203],
-       [ 0.06361323, -0.5534005 , -0.16258268,  1.08545298],
-       [ 0.26356597,  0.95143527,  1.00639533, -1.39485421],
-       [-0.0867283 ,  1.0444593 , -0.04034513, -0.47707921]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.38003979,  0.11368257, -0.77323438, -0.33762353],
+       [-0.55766453, -0.37463439,  1.71212066,  0.83282071],
+       [ 0.22204767, -0.31588078,  0.0959285 ,  0.90929319],
+       [-1.03417402, -0.09117112,  0.16562553,  1.12910964],
+       [ 0.80557194,  0.51326164, -1.39353509, -0.30230354]])
 </pre></div>
 </div>
 </div>
@@ -1128,10 +1157,10 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.12179778,  0.16710429,  1.92063108,  0.17525895],
-       [ 0.25103006, -1.7182702 , -0.11062548,  0.59245203],
-       [-0.87349974, -0.65564437,  0.41772414, -1.08822151],
-       [ 0.06361323, -0.5534005 , -0.16258268,  1.08545298]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.42485576, -0.61984103,  0.34435114, -0.18426761],
+       [-0.55766453, -0.37463439,  1.71212066,  0.83282071],
+       [ 0.45976903,  1.21320606, -0.81950898, -0.07196881],
+       [ 0.22204767, -0.31588078,  0.0959285 ,  0.90929319]])
 </pre></div>
 </div>
 </div>
@@ -1144,13 +1173,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True, False, False, False],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True,  True, False,  True],
        [ True, False,  True,  True],
-       [False,  True,  True, False],
-       [ True,  True, False,  True],
-       [False,  True,  True, False],
-       [False, False, False,  True],
-       [ True, False,  True,  True]])
+       [ True,  True, False, False],
+       [False, False,  True,  True],
+       [False,  True, False, False],
+       [ True,  True, False, False],
+       [False, False,  True,  True]])
 </pre></div>
 </div>
 </div>
@@ -1177,13 +1206,13 @@ justify-content: center;">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.16710429, 1.92063108, 0.17525895],
-       [0.        , 1.37144151, 0.        , 0.        ],
-       [0.25103006, 0.        , 0.        , 0.59245203],
-       [0.        , 0.        , 0.41772414, 0.        ],
-       [0.06361323, 0.        , 0.        , 1.08545298],
-       [0.26356597, 0.95143527, 1.00639533, 0.        ],
-       [0.        , 1.0444593 , 0.        , 0.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.        , 0.34435114, 0.        ],
+       [0.        , 0.11368257, 0.        , 0.        ],
+       [0.        , 0.        , 1.71212066, 0.83282071],
+       [0.45976903, 1.21320606, 0.        , 0.        ],
+       [0.22204767, 0.        , 0.0959285 , 0.90929319],
+       [0.        , 0.        , 0.16562553, 1.12910964],
+       [0.80557194, 0.51326164, 0.        , 0.        ]])
 </pre></div>
 </div>
 </div>
@@ -1216,6 +1245,27 @@ justify-content: center;">
 <p>Devuelve las filas de <code class="docutils literal notranslate"><span class="pre">data</span></code> correspondientes a aquellos nombres que empiecen por «B» o «J». Puedes utilizar la función <code class="docutils literal notranslate"><span class="pre">np.char.startswith</span></code>.</p>
 </section>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe&#39;</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">char</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">nombres</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">char</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">nombres</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;J&quot;</span><span class="p">)</span>
+<span class="n">mask</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.24467584,  0.23014917, -1.5190614 ,  1.36721673],
+       [-1.71463964, -0.26529706,  1.53238966,  0.24672242],
+       [-0.34132537, -0.06560819, -0.96228856, -1.09909685],
+       [ 0.13588173,  1.16987016, -1.29417478, -0.94341006],
+       [-0.60167379, -0.18647037, -0.03708144, -0.23882663]])
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="index-slicing-flip">
 
 <p class="admonition-title"><span class="caption-number">Exercise 52 </span></p>
@@ -1237,6 +1287,33 @@ justify-content: center;">
 </pre></div>
 </div>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">do_nothing</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">reverse</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">slices</span> <span class="o">=</span> <span class="p">(</span><span class="n">reverse</span> <span class="k">if</span> <span class="n">j</span><span class="o">==</span><span class="n">i</span> <span class="k">else</span> <span class="n">do_nothing</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slices</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flip</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+[[ 3  2  1  0]
+ [ 7  6  5  4]
+ [11 10  9  8]]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
