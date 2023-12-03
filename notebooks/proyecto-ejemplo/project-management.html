@@ -476,11 +476,11 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <section id="instalacion">
 <h3>Instalación<a class="headerlink" href="#instalacion" title="Permalink to this heading">#</a></h3>
 <p>No se instala como un paquete de Python, si no como una aplicación independiente. Por ejemplo, podemos ejecutar el siguiente comando</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">install</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">python</span><span class="o">-</span><span class="n">poetry</span><span class="o">.</span><span class="n">org</span> <span class="o">|</span> <span class="n">python3</span> <span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">install</span><span class="o">.</span><span class="n">python</span><span class="o">-</span><span class="n">poetry</span><span class="o">.</span><span class="n">org</span> <span class="o">|</span> <span class="n">python3</span> <span class="o">-</span>
 </pre></div>
 </div>
 <p>aunque los detalles de instalación pueden cambiar en función de cómo tengamos configurado nuestro sistema. Para verificar que hemos instalado correctamente poetry podemos ejecutar</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="o">--</span><span class="n">version</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 <p>y obtener un output como el siguiente <code class="docutils literal notranslate"><span class="pre">Poetry</span> <span class="pre">(version</span> <span class="pre">1.3.1)</span></code>.</p>
@@ -531,7 +531,7 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 <section id="manejando-dependencias">
 <h3>Manejando dependencias<a class="headerlink" href="#manejando-dependencias" title="Permalink to this heading">#</a></h3>
 <p>Otra cosa muy interesante que nos proporciona poetry es la de crear <a class="reference external" href="https://python-poetry.org/docs/managing-dependencies/"><em>grupos</em> para las dependencias</a>. Por ejemplo en un proyecto puede ser deseable tener un entorno de desarrollo en el que tengamos herramientas de formateo, testing, paquetes adicionales etc y otro más minimalista para producción. Los grupos se pueden crear en el archivo de configuración <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, por ejemplo</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="p">]</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="p">]</span>
 
 <span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">dependencies</span><span class="p">]</span>
 <span class="n">pytest</span> <span class="o">=</span> <span class="s2">&quot;^6.0.0&quot;</span>
@@ -539,7 +539,7 @@ Algunos lenguanjes como go o rust tienen utilidades de líneas de comandos integ
 </pre></div>
 </div>
 <p>Si queremos que las dependencias de un grupo no se instalen por defecto, tenemos que añadir el parámetro <code class="docutils literal notranslate"><span class="pre">optional</span></code> en la configuración</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="p">]</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">poetry</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">test</span><span class="p">]</span>
 <span class="n">optional</span> <span class="o">=</span> <span class="n">true</span>
 </pre></div>
 </div>
