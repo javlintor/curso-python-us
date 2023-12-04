@@ -42,6 +42,9 @@ parts:
   chapters:
   - file: notebooks/proyecto-ejemplo/project-management.ipynb
   - file: notebooks/proyecto-ejemplo/dash.ipynb
+- caption: Ejercicio 2023
+  chapters:
+  - file: notebooks/ejercicio2023/algoritmos.ipynb
 - caption: Bilbiografía
   chapters:
   - file: bibliography.md
