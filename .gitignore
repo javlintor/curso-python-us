@@ -5,3 +5,5 @@ notebooks/exploratorios/data
 my-python-project/
 .idea/
 .vscode
+.python-version
+solutions/
