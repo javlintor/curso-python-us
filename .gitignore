@@ -7,3 +7,4 @@ my-python-project/
 .vscode
 .python-version
 solutions/
+.DS_Store
