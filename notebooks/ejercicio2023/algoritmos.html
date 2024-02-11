@@ -463,6 +463,59 @@ document.write(`
 <p>Crea una clase <code class="docutils literal notranslate"><span class="pre">AlgoritmoOrdenacion</span></code> que tenga un atributo <code class="docutils literal notranslate"><span class="pre">lista</span></code>, que será una lista de números (enteros o flotantes), y dos métodos <code class="docutils literal notranslate"><span class="pre">ordena_burbuja</span></code> y <code class="docutils literal notranslate"><span class="pre">ordena_mezcla</span></code>, que implementen, respectivamente, el algoritmo de ordenación de burbuja y por mezcla y ordenen, con respecto al orden natural de los números reales, el atributo <code class="docutils literal notranslate"><span class="pre">lista</span></code>.</p>
 </section>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="k">class</span> <span class="nc">AlgoritmoOrdenacion</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lista</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">lista</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lista</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lista</span> <span class="o">=</span> <span class="n">lista</span>
+
+    <span class="k">def</span> <span class="nf">ordena_burbuja</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">ordena_mezcla</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ordena_mezcla</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lista</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_ordena_mezcla</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">media_longitud</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+                <span class="n">mitad_izquierda</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:</span><span class="n">media_longitud</span><span class="p">]</span>
+                <span class="n">mitad_derecha</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">media_longitud</span><span class="p">:]</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ordena_mezcla</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ordena_mezcla</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">)</span>
+
+                <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                        <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">):</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">):</span>
+                    <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="algorithms-exercise-2">
 
 <p class="admonition-title"><span class="caption-number">Exercise 79 </span></p>
@@ -476,6 +529,24 @@ document.write(`
 </ul>
 </section>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">class</span> <span class="nc">AlgoritmoOrdenacion2</span><span class="p">(</span><span class="n">AlgoritmoOrdenacion</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">asigna_lista_ordenada</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">asigna_lista_ordenada_inversa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">asigna_lista_ordenada_inversa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="exercise admonition" id="algorithms-exercise-3">
 
 <p class="admonition-title"><span class="caption-number">Exercise 80 </span></p>
@@ -484,6 +555,18 @@ document.write(`
 <p>Crea otro método <code class="docutils literal notranslate"><span class="pre">calcula_complejidad_temporal</span></code> que tome como argumentos <code class="docutils literal notranslate"><span class="pre">n_max</span></code> e <code class="docutils literal notranslate"><span class="pre">intentos</span></code>, ambos enteros; y otro de tipo string <code class="docutils literal notranslate"><span class="pre">tipo</span></code>, que puede valer <code class="docutils literal notranslate"><span class="pre">&quot;burbuja&quot;</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;mezcla&quot;</span></code>.</p>
 <p>El método debe devolver un dataframe de pandas, cuyo índice se corresponda con la lista de enteros <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">...,</span> <span class="pre">2**n_max]</span></code> y cuyas columnas sean <code class="docutils literal notranslate"><span class="pre">tiempo_lista_ordenada</span></code>, <code class="docutils literal notranslate"><span class="pre">tiempo_lista_ordenada_inversa</span></code> y <code class="docutils literal notranslate"><span class="pre">tiempo_lista_orden_aleatorio</span></code> cuyos valores sean el tiempo de ejecución de llamar el método de ordenación correspondiente un total de <code class="docutils literal notranslate"><span class="pre">intentos</span></code> veces y tomando la media.</p>
 </section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+
+<span class="k">class</span> <span class="nc">AlgoritmoOrdenacion3</span><span class="p">(</span><span class="n">AlgoritmoOrdenacion2</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">calcula_complejidad_temporal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_max</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">intentos</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tipo</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;burbuja&quot;</span><span class="p">,</span> <span class="s2">&quot;mezcla&quot;</span><span class="p">]):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="exercise admonition" id="algorithms-exercise-4">
 
