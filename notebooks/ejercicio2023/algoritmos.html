@@ -486,32 +486,32 @@ document.write(`
 
     <span class="k">def</span> <span class="nf">_ordena_mezcla</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">media_longitud</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-                <span class="n">mitad_izquierda</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:</span><span class="n">media_longitud</span><span class="p">]</span>
-                <span class="n">mitad_derecha</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">media_longitud</span><span class="p">:]</span>
+            <span class="n">media_longitud</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">mitad_izquierda</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:</span><span class="n">media_longitud</span><span class="p">]</span>
+            <span class="n">mitad_derecha</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">media_longitud</span><span class="p">:]</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">_ordena_mezcla</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_ordena_mezcla</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ordena_mezcla</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ordena_mezcla</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">)</span>
 
-                <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">):</span>
-                    <span class="k">if</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-                        <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-                        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
-
-                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">):</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">)</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
                     <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
-
-                <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">):</span>
+                <span class="k">else</span><span class="p">:</span>
                     <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
                     <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_izquierda</span><span class="p">):</span>
+                <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_izquierda</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mitad_derecha</span><span class="p">):</span>
+                <span class="n">l</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">mitad_derecha</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
