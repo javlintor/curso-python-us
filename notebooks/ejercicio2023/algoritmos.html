@@ -541,7 +541,7 @@ document.write(`
     <span class="k">def</span> <span class="nf">asigna_lista_ordenada_inversa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">asigna_lista_ordenada_inversa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">asigna_lista_orden_aleatorio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lista</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -558,12 +558,43 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="k">class</span> <span class="nc">AlgoritmoOrdenacion3</span><span class="p">(</span><span class="n">AlgoritmoOrdenacion2</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">calcula_complejidad_temporal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_max</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">intentos</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">tipo</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;burbuja&quot;</span><span class="p">,</span> <span class="s2">&quot;mezcla&quot;</span><span class="p">]):</span>
-        <span class="k">pass</span>
+        <span class="n">diccionario_algoritmo_ordenacion</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;burbuja&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ordena_burbuja</span><span class="p">,</span>
+            <span class="s1">&#39;mezcla&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ordena_mezcla</span>
+        <span class="p">}</span>
+        <span class="n">algoritmo_ordenacion</span> <span class="o">=</span> <span class="n">diccionario_algoritmo_ordenacion</span><span class="p">[</span><span class="n">tipo</span><span class="p">]</span>
+        <span class="n">registro_tiempos</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_max</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">asigna_lista_ordenada</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">tiempo_lista_ordenada</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcula_tiempo_algoritmo</span><span class="p">(</span><span class="n">algoritmo_ordenacion</span><span class="p">,</span> <span class="n">intentos</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">asigna_lista_ordenada_inversa</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">tiempo_lista_ordenada_inversa</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcula_tiempo_algoritmo</span><span class="p">(</span><span class="n">algoritmo_ordenacion</span><span class="p">,</span> <span class="n">intentos</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">asigna_lista_orden_aleatorio</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">tiempo_lista_orden_aleatorio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcula_tiempo_algoritmo</span><span class="p">(</span><span class="n">algoritmo_ordenacion</span><span class="p">,</span> <span class="n">intentos</span><span class="p">)</span>
+            <span class="n">registro_tiempos</span><span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;tiempo_lista_ordenada&quot;</span><span class="p">:</span> <span class="n">tiempo_lista_ordenada</span><span class="p">,</span>
+                <span class="s2">&quot;tiempo_lista_ordenada_inversa&quot;</span><span class="p">:</span> <span class="n">tiempo_lista_ordenada_inversa</span><span class="p">,</span>
+                <span class="s2">&quot;tiempo_lista_orden_aleatorio&quot;</span><span class="p">:</span> <span class="n">tiempo_lista_orden_aleatorio</span><span class="p">,</span>
+            <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">registro_tiempos</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calcula_tiempo_algoritmo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">algoritmo</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">intentos</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">tiempos</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">intentos</span><span class="p">):</span>
+            <span class="n">inicio</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">algoritmo</span><span class="p">()</span>
+            <span class="n">final</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">tiempos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">final</span> <span class="o">-</span> <span class="n">inicio</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span> <span class="o">/</span> <span class="n">intentos</span>
 </pre></div>
 </div>
 </div>
